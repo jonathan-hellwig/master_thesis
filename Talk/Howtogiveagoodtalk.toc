@@ -1,0 +1,11 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{The setting}{6}{0}{1}
+\beamer@subsectionintoc {1}{1}{Purpose of a talk}{7}{0}{1}
+\beamer@subsectionintoc {1}{2}{The key idea, the audience, \& you}{10}{0}{1}
+\beamer@sectionintoc {2}{Structure}{19}{0}{2}
+\beamer@subsectionintoc {2}{1}{1: Motivation (20\%)}{20}{0}{2}
+\beamer@subsectionintoc {2}{2}{2: Your key idea (70\%-80\%)}{22}{0}{2}
+\beamer@subsectionintoc {2}{3}{3: Conclusions or bust (0\%-10\%)}{34}{0}{2}
+\beamer@sectionintoc {3}{Preparing your slides}{36}{0}{3}
+\beamer@sectionintoc {4}{Presenting your talk}{43}{0}{4}
+\beamer@sectionintoc {5}{Beyond the talk: publication}{61}{0}{5}
