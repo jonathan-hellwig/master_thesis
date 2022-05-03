@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>Bachelorarbeit_Vorname_Nachname.bcf</file>
+      <file>Masterarbeit_Jonathan_Hellwig.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>Bachelorarbeit_Vorname_Nachname.bbl</file>
+      <file>Masterarbeit_Jonathan_Hellwig.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -66,19 +66,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>Bachelorarbeit_Vorname_Nachname</infile>
+      <infile>Masterarbeit_Jonathan_Hellwig</infile>
     </cmdline>
     <input>
-      <file>Bachelorarbeit_Vorname_Nachname.bcf</file>
+      <file>Masterarbeit_Jonathan_Hellwig.bcf</file>
     </input>
     <output>
-      <file>Bachelorarbeit_Vorname_Nachname.bbl</file>
+      <file>Masterarbeit_Jonathan_Hellwig.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>Bachelorarbeit_Vorname_Nachname.bbl</file>
+      <file>Masterarbeit_Jonathan_Hellwig.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>Bachelorarbeit_Vorname_Nachname.bcf</file>
+      <file>Masterarbeit_Jonathan_Hellwig.bcf</file>
     </requires>
     <requires type="editable">
       <file>Bachelorarbeit_Vorname_Nachname.bib</file>

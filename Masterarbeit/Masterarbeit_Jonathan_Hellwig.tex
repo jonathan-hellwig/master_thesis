@@ -1,0 +1,227 @@
+\documentclass[12pt]{article}
+
+% Layout
+\usepackage[a4paper,includeheadfoot,margin=2.54cm]{geometry}
+
+% Spracheinstellungen, alle Sprachen laden, letzte ist aktiv
+\usepackage[english,ngerman]{babel}
+
+% hilfreiche Pakete der AMS (American Mathematical Society) laden
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Sätze, Lemmata, ..
+\usepackage{amsthm}
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+% Formelnummerierung
+\numberwithin{equation}{section}
+
+% moderne Literaturverwaltung mittels Biber, erstzt BibLaTeX,
+% kann UTF-8
+\usepackage{biblatex}
+\addbibresource{Bachelorarbeit_Vorname_Nachname.bib}
+
+% Einbinden von Grafik, neue Version
+\usepackage{graphicx}
+
+% Unterabbildungen
+\usepackage{subcaption}
+
+% TikZ ist kein Zeichenprogramm (doch)
+\usepackage{tikz}
+
+% listings bindet Code ein
+\usepackage{listings}
+\definecolor{hellgrau}{rgb}{0.90,0.90,0.90}
+\definecolor{commentcol}{rgb}{0.0823,.4902,0.0}
+\lstset{language=Python,
+        basicstyle={\footnotesize\ttfamily},
+        keywordstyle={\sffamily\bfseries},
+        tabsize=2,
+        numbers=left,
+        numberstyle=\tt,
+        stepnumber=1,
+        numbersep=7pt,
+        breaklines=true,
+        frame=single,
+        frameround=ffff,
+        commentstyle=\color{commentcol},
+        backgroundcolor=\color{hellgrau},
+        literate=
+  {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+  {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+  {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+  {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+  {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+  {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+  {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+  {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+  {Ã}{{\~A}}1 {ã}{{\~a}}1 {Õ}{{\~O}}1 {õ}{{\~o}}1
+  {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+  {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+  {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+  {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+  {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+  {·}{{$\cdot$}}1
+}
+
+% Hyperlinks in Texten
+\usepackage{hyperref}
+\hypersetup{%
+  pdftitle     = {Modeling of stochastic optimization algorithms with stochastic differential equations},
+  pdfsubject   = {Masterarbeit von Jonathan Hellwig},
+  pdfkeywords  = {Masterarbeit, neuronale Netze},
+  pdfauthor    = {\textcopyright\ Jonathan Hellwig 2022},
+  linkcolor    = red,     % links to same page
+  urlcolor     = blue,     % links to URLs
+  citecolor    = green!50!black,     % links to citations
+  breaklinks   = true,       % links may (line) break
+  colorlinks   = true,
+  citebordercolor=0 0 0,  % color for \cite
+  filebordercolor=0 0 0,
+  linkbordercolor=0 0 0,
+  menubordercolor=0 0 0,
+  urlbordercolor=0 0 0,
+  pdfhighlight=/P,   % moeglich /I, /P, ...
+  pdfborder=0 0 0,   % keine Box um die Links!
+}
+% nützliche Kurzkommandos für natürliche, ..., reelle, .. Zahlen
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\K}{\mathbb{K}}
+
+% ein paar dick gedruckte Buchstaben
+\newcommand{\bfA}{\mathbf{A}}
+\newcommand{\bfB}{\mathbf{B}}
+\newcommand{\bfa}{\mathbf{a}}
+\newcommand{\bfb}{\mathbf{b}}
+
+% Beginn des Dokumentes
+\begin{document}
+
+% Titelseite
+\thispagestyle{empty}
+
+\begin{center}
+  \includegraphics[height=2.3cm]{pics/MATH_de}
+  \hfill
+  \includegraphics[height=2.3cm]{pics/TUHH_de}
+\end{center}
+
+\vspace*{5em}
+
+\begin{center}
+  {\Huge
+    \textsc{Titel der Bachelorarbeit}\\[2em]
+  }
+  {\LARGE
+    Bachelorarbeit
+  }
+
+  \vspace*{2em}
+
+  {\Large
+    von\\
+    Vorname Nachname\\
+    aus Ort\\
+    Matrikelnummer: 4711\\
+    Studiengang: Technomathematik\\
+  }
+\end{center}
+
+\vfill
+\begin{center}
+  \today
+\end{center}
+\vfill
+
+\begin{tabbing}
+  % längste Zeile zuerst duplizieren, mit kill löschen
+  Erstprüferin: \= Prof. Dr. Sabine Le Borne\kill
+  Erstprüferin: \> Prof. Dr. Sabine Le Borne\\
+  Zweitprüfer:  \> Dr. Jens-Peter M. Zemke\\
+  Betreuer:     \> Dr. Jens-Peter M. Zemke\\
+\end{tabbing}
+\newpage
+% this page intentionally left blank
+\thispagestyle{empty}
+\mbox{}
+\newpage
+
+\section*{Eidestattliche Erklärung}
+
+Hiermit versichere ich an Eides statt, dass ich die vorliegende
+Bachelorarbeit mit dem Titel
+\begin{quote}
+  „Titel der Bachelorarbeit“  
+\end{quote}
+selbständig und ohne unzulässige fremde Hilfe verfasst habe. Ich habe
+keine anderen als die angegebenen Quellen und Hilfsmittel benutzt,
+sowie wörtliche und sinngemäße Zitate kenntlich gemacht. Die Arbeit
+hat in gleicher oder ähnlicher Form noch keiner Prüfungsbehörde
+vorgelegen. Ich versichere, dass die eingereichte schriftliche Fassung
+der auf dem beigefügten Medium gespeicherten Fassung entspricht.
+
+\vspace*{3em}
+
+\begin{tabbing}
+  \rule{.4\textwidth}{1pt} \hspace*{.2\textwidth}
+  \= \rule{.4\textwidth}{1pt} \\
+  Ort, Datum \> Unterschrift
+\end{tabbing}
+
+\newpage
+\mbox{}
+\newpage
+% TOC - Table of Contents
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+
+\section{Motivation}
+\label{sec:Motivation}
+
+\section{Background on Optimization}
+\label{sec:Optimization}
+
+\subsection{Formal definition, Existence, Uniqueness}
+\subsection{Iterative methods}
+\subsubsection{Gradient Descent Method}
+\subsubsection{Newton's method}
+\subsection{Stochastic Optimization}
+\label{sec:StochasticOptimization}
+\subsubsection{Stochastic Gradient Descent}
+% Convergence results
+% Variants
+% Gradient flow
+
+\subsubsection{State of the art algorithms}
+\label{sec:StateOfTheArtAlgorithms}
+
+\section{Background SDE theory}
+\label{sec:BackgroundSDETheory}
+\subsection{Ito Integral}
+\label{subsec:ItoIntegral}
+\subsection{SDE Definition}
+\label{subsec:SDEDefinition}
+\subsection{SDE Existence Uniqueness}
+\label{subsec:SDEExistenceUniqueness}
+\subsection{SDE Numerical methods}
+
+\section{Modeling stochastic model with SDE}
+\subsection{SGD}
+\subsection{Generalization}
+\section{Solving SDE Model}
+\section{}
+\printbibliography
+
+\end{document}

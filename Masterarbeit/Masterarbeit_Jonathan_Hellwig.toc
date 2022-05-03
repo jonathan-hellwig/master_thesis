@@ -1,24 +1,12 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {ngerman}{}
-\defcounter {refsection}{0}\relax 
+\babel@toc {ngerman}{}\relax 
 \contentsline {section}{\numberline {1}Motivation}{7}{section.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}Einführung}{7}{section.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1}Referenzen}{7}{subsection.2.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2}Formeln}{9}{subsection.2.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}Hauptteil}{12}{section.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1}Bilder}{12}{subsection.3.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2}Sätze und Lemmata}{14}{subsection.3.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.3}Verweise}{14}{subsection.3.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Numerische Ergebnisse}{14}{section.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.1}Python-Code für Bilder}{15}{subsection.4.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5}Fazit und Ausblick}{15}{section.5}%
