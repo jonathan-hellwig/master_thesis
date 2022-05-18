@@ -12,7 +12,7 @@
 
 % Sätze, Lemmata, ..
 \usepackage{amsthm}
-\newtheorem{theorem}{Satz}[section]
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
@@ -192,13 +192,53 @@ der auf dem beigefügten Medium gespeicherten Fassung entspricht.
 
 \section{Background on Optimization}
 \label{sec:Optimization}
-
+This chapter covers the background on optimization theory. It goes into the formal definition of an optimization problem, the necessary and suficient conditions for minimizers, and covers iterative methods for obtaining such minimizers.
 \subsection{Formal definition, Existence, Uniqueness}
+In machine learning one is interesed in fitting a model $f$ parameterized by a set of parameters $\{(W_i,b_i)\}_{i=1}^n$ to a dataset such that the model minimizers a certain metric. This metric is commonly refered to as loss function. \\
+The loss function $l:\mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ quantifies the distance between a prediciton $f(x) = \hat{y}$ and a true value $y$. In that sense, fitting a model to a dataset $\{(x_i,y_i)\}_{i=1}^n$ is equivalent to the minimization problem
+\begin{equation}
+  \min_{\{(W_i,b_i)\}_{i=1}^n} \frac{1}{n}\sum_{i=1}^n l(f(x_i), y_i)
+\end{equation}
+The selection of a loss function play an important role in the success of a machine learning model. Depending on the type of data there are many different loss function that posess different properties. \\
+This leads to the definition of conditions for minimizers.
+\begin{theorem}
+  If $x^\star$ is a local minimizer and $f$ is continuously differentiable in an open neighborhood of $x^\star$, then $\nabla f(x^\star) = 0$.
+\end{theorem}
+\begin{theorem}
+  If $x^\star$ is a local minimizer of $f$ and $\nabla^2 f$ exists and is continuous in an open neighborhood of $x^\star$, then $\nabla f(x^\star)$ and $\nabla^2f(x^\star)$ is positive semidefinite.
+\end{theorem}
+\begin{definition}
+  A solution $x^\star \in S$ to the equation
+  \begin{equation}
+  \label{eq:StationaryPoint}
+    \nabla f(x^\star) = 0
+  \end{equation}
+  is called stationary point.
+\end{definition}
 \subsection{Iterative methods}
+In some cases it is not possible to determine the solution to (\ref*{eq:StationaryPoint})
+in closed form. Therefore, iterative methods are being used. The general form of an iterative scheme is given by
+\begin{equation}
+  x^{(k+1)} = x^{(k)} + \eta^{(k)} g^{(k)},
+\end{equation}
+where $\{\eta^{(k)}\}_{k=1}^\infty$ is called step size and $\{g^{(k)}\}_{k=1}^\infty$ is a sequence of descent directions. A descent direction is given by 
+
+\begin{definition}
+  Rate of convergence
+\end{definition}
 \subsubsection{Gradient Descent Method}
+\begin{equation}
+  x^{(k+1)} = x^{(k)} - \eta^{(k)} \nabla f(x^{(k)}),
+\end{equation}
 \subsubsection{Newton's method}
+\begin{equation}
+  x^{(k+1)} = x^{(k)} - (\nabla^2 f(x^{(k)}))^{-1}\nabla f(x^{(k)}),
+\end{equation}
 \subsection{Stochastic Optimization}
 \label{sec:StochasticOptimization}
+\begin{equation}
+  x^{(k+1)} = x^{(k)} - \eta^{(k)} Z^{(k)},
+\end{equation}
 \subsubsection{Stochastic Gradient Descent}
 % Convergence results
 % Variants
@@ -219,9 +259,21 @@ der auf dem beigefügten Medium gespeicherten Fassung entspricht.
 
 \section{Modeling stochastic model with SDE}
 \subsection{SGD}
+\begin{equation}
+  x^{(k+1)} = x^{(k)} - \psi^k \nabla f(x^{(k)}) h +  \psi(t)\sqrt{h/b^{(k)}} \sigma_{MB}(x^{(k)})Z^{(k)}
+\end{equation}
+\begin{equation}
+  dX(t) = -\psi(t)\nabla f(X(t))dt + \psi(t)\sqrt{h/b(t)} \sigma_{MB}(X(t))dB(t)
+\end{equation}
+\begin{equation}
+  dX(t) = -\psi(t)\nabla f(X(t))dt + \psi(t)\sqrt{h/b(t)} \sigma_{MB}(X(t), X(t-\xi(t)))dB(t)
+\end{equation}
 \subsection{Generalization}
 \section{Solving SDE Model}
-\section{Experimental Verification}
+\label{sec:SolvingSDEModel}
+\subsection{Assumptions for solving}
+\section{Experimental Verification} 
+\label{sec:ExperimentalVerification}
 \section{Conclusion}
 \printbibliography
 
