@@ -23,7 +23,7 @@
 % moderne Literaturverwaltung mittels Biber, erstzt BibLaTeX,
 % kann UTF-8
 \usepackage{biblatex}
-\addbibresource{Bachelorarbeit_Vorname_Nachname.bib}
+\addbibresource{Masterarbeit_Jonathan_Hellwig.bib}
 
 % Einbinden von Grafik, neue Version
 \usepackage{graphicx}
@@ -120,19 +120,19 @@
 
 \begin{center}
   {\Huge
-    \textsc{Titel der Bachelorarbeit}\\[2em]
+    \textsc{Modeling of stochastic optimization algorithms with stochastic differential equations}\\[2em]
   }
   {\LARGE
-    Bachelorarbeit
+    Masterarbeit
   }
 
   \vspace*{2em}
 
   {\Large
     von\\
-    Vorname Nachname\\
-    aus Ort\\
-    Matrikelnummer: 4711\\
+    Jonathan Hellwig\\
+    aus Hamburg\\
+    Matrikelnummer: 7381194\\
     Studiengang: Technomathematik\\
   }
 \end{center}
@@ -145,8 +145,8 @@
 
 \begin{tabbing}
   % längste Zeile zuerst duplizieren, mit kill löschen
-  Erstprüferin: \= Prof. Dr. Sabine Le Borne\kill
-  Erstprüferin: \> Prof. Dr. Sabine Le Borne\\
+  Erstprüferin: \= Dr. Jens-Peter M. Zemke\kill
+  Erstprüferin: \> Dr. Jens-Peter M. Zemke\\
   Zweitprüfer:  \> Dr. Jens-Peter M. Zemke\\
   Betreuer:     \> Dr. Jens-Peter M. Zemke\\
 \end{tabbing}
@@ -189,18 +189,57 @@ der auf dem beigefügten Medium gespeicherten Fassung entspricht.
 
 \section{Motivation}
 \label{sec:Motivation}
-
+\subsection{Common activation functions}
 \section{Background on Optimization}
 \label{sec:Optimization}
-This chapter covers the background on optimization theory. It goes into the formal definition of an optimization problem, the necessary and suficient conditions for minimizers, and covers iterative methods for obtaining such minimizers.
+This chapter covers the background of optimization theory. It goes into the formal definition of optimization problems, the necessary and sufficient conditions for minimizers, and covers iterative methods for obtaining such minimizers.
 \subsection{Formal definition, Existence, Uniqueness}
-In machine learning one is interesed in fitting a model $f$ parameterized by a set of parameters $\{(W_i,b_i)\}_{i=1}^n$ to a dataset such that the model minimizers a certain metric. This metric is commonly refered to as loss function. \\
-The loss function $l:\mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ quantifies the distance between a prediciton $f(x) = \hat{y}$ and a true value $y$. In that sense, fitting a model to a dataset $\{(x_i,y_i)\}_{i=1}^n$ is equivalent to the minimization problem
+In machine learning one is interesed in fitting a model $M$ parameterized by a set of parameters $\{(W_i,b_i)\}_{i=1}^m$ to a dataset such that the model minimizers a certain metric, where $W_i \in \mathbb{R}^{n_{i+1} \times n_i}$,$b_i \in \mathbb{R}^{n_{i+1}}$ for $i = 1,\dots,m-1$. This metric is commonly refered to as loss function. \\
+The loss function $l:\mathbb{R}^n \times \mathbb{R}^n \rightarrow \mathbb{R}$ quantifies the distance between a prediciton $M(x) = \hat{y}$ and a true value $y$. In that sense, fitting a model to a dataset $\{(x_i,y_i)\}_{i=1}^n$ is defined as solving the minimization problem
 \begin{equation}
-  \min_{\{(W_i,b_i)\}_{i=1}^n} \frac{1}{n}\sum_{i=1}^n l(f(x_i), y_i)
+  \min_{\{(W_i,b_i)\}_{i=1}^n} \frac{1}{n}\sum_{i=1}^n l(M(x_i), y_i)
 \end{equation}
 The selection of a loss function play an important role in the success of a machine learning model. Depending on the type of data there are many different loss function that posess different properties. \\
-This leads to the definition of conditions for minimizers.
+In the following, a more general version of the minimization problem is studied to obtain conditions for existence.
+Consider the unconstrained minimization problem
+\begin{equation}
+  \min_{x \in \mathbb{R}^n} f(x),
+\end{equation}
+where $f:\mathbb{R}^n \rightarrow \mathbb{R}$.
+\begin{definition}
+  A value $x^\star$ is called global minimizer if 
+  \begin{equation}
+    f(x^\star) \leq f(x)
+  \end{equation} 
+  for all $x \in \mathbb{R}^n$.
+\end{definition}
+\begin{definition}
+  A value $x^\star$ is called local minimizer if there exists an $\epsilon > 0$ such that
+  \begin{equation}
+    f(x^\star) \leq f(x)
+  \end{equation} 
+  for all $x \in \mathbb{R}^n, ||x-x^\star|| < \epsilon$.
+\end{definition}
+
+\begin{definition}
+  A function $f$ is said to be L-smooth if its gradient are Lipschitz continuous, that is 
+  \begin{equation}
+    ||\nabla f(x) - \nabla f(y) || \leq L ||x-y||,
+  \end{equation}
+  for $x,y \in \mathbb{R}$.
+\end{definition}
+
+\begin{definition}
+  A function $f$ is said to be convex if 
+  \begin{equation}
+    f(tx+(1-t)y) \leq tf(x)+(1-t)f(y),
+  \end{equation}
+  for all $x,y \in \mathbb{R}^n$ and $t \in [0,1]$.
+\end{definition}
+Obtaining global minimizers is difficult in practice. Therefore, in the following algorithms that converge to local minimizers are being considered.
+
+Next, it remains to be answered how one can obtain a local minimizer $x^\star$ of $f$.
+The following results provide some insight what sufficient and necessary conditions have to be fulfilled for local minimizer \cite{nocedal1999numerical}.
 \begin{theorem}
   If $x^\star$ is a local minimizer and $f$ is continuously differentiable in an open neighborhood of $x^\star$, then $\nabla f(x^\star) = 0$.
 \end{theorem}
@@ -216,20 +255,59 @@ This leads to the definition of conditions for minimizers.
   is called stationary point.
 \end{definition}
 \subsection{Iterative methods}
-In some cases it is not possible to determine the solution to (\ref*{eq:StationaryPoint})
-in closed form. Therefore, iterative methods are being used. The general form of an iterative scheme is given by
+For simple functions it is possible to determine the solution to (\ref*{eq:StationaryPoint})
+in analytically form. However, state of the art neural networks contain billions of parameters. Therefore, iterative methods that approximate solution gradually are being used. The general form of an iterative scheme is given by
 \begin{equation}
   x^{(k+1)} = x^{(k)} + \eta^{(k)} g^{(k)},
 \end{equation}
 where $\{\eta^{(k)}\}_{k=1}^\infty$ is called step size and $\{g^{(k)}\}_{k=1}^\infty$ is a sequence of descent directions. A descent direction is given by 
 
 \begin{definition}
-  Rate of convergence
+  An iterative method ($\{\eta^{(k)}\}_{k=1}^\infty$, $\{g^{(k)}\}_{k=1}^\infty$) is said to converge linearly if there exisits a constant $1 > C > 0$ such that 
+  \begin{equation}
+    \lim_{k \rightarrow \infty} \frac{||x^{(k+1)} - x^\star||}{||x^{(k)} - x^\star||} < M
+  \end{equation}
+  and it is said to converge sublinearly if 
+  \begin{equation}
+    \lim_{k \rightarrow \infty} \frac{||x^{(k+1)} - x^\star||}{||x^{(k)} - x^\star||} = 1
+  \end{equation}
+  holds.
 \end{definition}
 \subsubsection{Gradient Descent Method}
-\begin{equation}
+\begin{equation}  
   x^{(k+1)} = x^{(k)} - \eta^{(k)} \nabla f(x^{(k)}),
 \end{equation}
+Conventional convergence results require exact line search.
+
+\cite{nesterov2003introductory}
+\begin{theorem}
+  Let $f$ satisfy assumptions ... and let $x^{(0)}$ be chosen such that 
+  \begin{equation}
+    r^{(0)} = ||x^{(k)} - x^\star|| \leq \frac{\bar{r}r^{(0)}}{\bar{r}-r^{(0)}}(1-\frac{2l}{L+3l}),
+  \end{equation}
+  where $\bar{r} = \frac{2l}{M}$.
+\end{theorem}
+
+\begin{theorem}
+  Let $f$ be convex and L-smooth and let $\{x^{(k)}\}$ be a sequence generated by the gradient descent method. It follows that 
+  \begin{equation}
+    f(x^{(k)}) - f(x^\star) \leq \frac{2L||x^{(0)} - x^\star||^2}{k-1}
+  \end{equation}
+\end{theorem}
+
+\begin{theorem}
+  Let $f$ be L-smooth. It follows
+  \begin{equation}
+    \min_{k=1,\dots,N} ||\nabla f(x^{(k)})||^2 \leq \frac{L^2}{N}||x^{(0)}-x^\star||^2
+  \end{equation}
+\end{theorem}
+
+\begin{theorem}
+  Let $f$ be L-smooth and $\mu$-strongly convex. From a given $x^{(0)}$ and $\frac{1}{L} \geq \alpha > 0$, the iterates generated by the gradient descent method converge according to
+  \begin{equation}
+    ||x^{(k+1)} - x^\star ||^2 \leq (1-\alpha \mu)^{k+1}||x^{(0)} - x^star||^2
+  \end{equation}
+\end{theorem}
 \subsubsection{Newton's method}
 \begin{equation}
   x^{(k+1)} = x^{(k)} - (\nabla^2 f(x^{(k)}))^{-1}\nabla f(x^{(k)}),
@@ -275,6 +353,7 @@ where $\{\eta^{(k)}\}_{k=1}^\infty$ is called step size and $\{g^{(k)}\}_{k=1}^\
 \section{Experimental Verification} 
 \label{sec:ExperimentalVerification}
 \section{Conclusion}
-\printbibliography
+Test
 
+\printbibliography
 \end{document}
