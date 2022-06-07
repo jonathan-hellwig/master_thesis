@@ -1,12 +1,23 @@
 \babel@toc {ngerman}{}\relax 
 \contentsline {section}{\numberline {1}Motivation}{7}{section.1}%
-\contentsline {section}{\numberline {2}Einführung}{7}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Referenzen}{7}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Formeln}{9}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Hauptteil}{12}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Bilder}{12}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Sätze und Lemmata}{14}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Verweise}{14}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Numerische Ergebnisse}{14}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Python-Code für Bilder}{15}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Fazit und Ausblick}{15}{section.5}%
+\contentsline {subsection}{\numberline {1.1}Common activation functions}{7}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Background on Optimization}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Formal definition, Existence, Uniqueness}{7}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Iterative methods}{8}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Gradient Descent Method}{9}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Newton's method}{9}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Stochastic Optimization}{9}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Stochastic Gradient Descent}{10}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}State of the art algorithms}{10}{subsubsection.2.3.2}%
+\contentsline {section}{\numberline {3}Background SDE theory}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ito Integral}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}SDE Definition}{10}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}SDE Existence Uniqueness}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}SDE Numerical methods}{10}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Modeling stochastic model with SDE}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}SGD}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Generalization}{10}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Solving SDE Model}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Assumptions for solving}{10}{subsection.5.1}%
+\contentsline {section}{\numberline {6}Experimental Verification}{10}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion}{10}{section.7}%

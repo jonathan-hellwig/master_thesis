@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'Masterarbeit_Jonathan_Hellwig.blg'
+[71] biber:340> INFO - === Wed May 18, 2022, 13:32:09
+[85] Biber.pm:418> INFO - Reading 'Masterarbeit_Jonathan_Hellwig.bcf'
+[154] Biber.pm:972> INFO - Found 2 citekeys in bib section 0
+[167] Biber.pm:4383> INFO - Processing section 0
+[177] Biber.pm:4574> INFO - Looking for bibtex file 'Masterarbeit_Jonathan_Hellwig.bib' for section 0
+[178] bibtex.pm:1713> INFO - LaTeX decoding ...
+[182] bibtex.pm:1518> INFO - Found BibTeX data source 'Masterarbeit_Jonathan_Hellwig.bib'
+[224] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[225] UCollate.pm:68> INFO - Overriding locale 'de-DE' defaults 'variable = shifted' with 'variable = non-ignorable'
+[225] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'de-DE'
+[225] Biber.pm:4209> INFO - No sort tailoring available for locale 'de-DE'
+[227] bbl.pm:654> INFO - Writing 'Masterarbeit_Jonathan_Hellwig.bbl' with encoding 'UTF-8'
+[228] bbl.pm:757> INFO - Output to Masterarbeit_Jonathan_Hellwig.bbl
