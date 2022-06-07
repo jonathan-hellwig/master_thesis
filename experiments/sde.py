@@ -118,7 +118,7 @@ def sde_run():
             loss_values[i].append(loss(parameters, x, y))
             print(f'epoch: {epoch}, loss: {loss_values[i][epoch]}')
     loss_values = jnp.array(loss_values)
-    y_hat = manual_batched_predict(parameters, x)
+    y_hat = batched_predict(parameters, x)
     print(y_hat.shape)
     print(jnp.mean(jnp.square(y - y_hat)))
     plt.figure()
@@ -177,7 +177,7 @@ def linear_run():
             sgd_losses.append(loss(sgd_parameters, x, y))
         print(f'iteration: {epoch}, loss: {sgd_losses[-1]}')
 
-    y_hat = manual_batched_predict(sde_parameters, x)
+    y_hat = batched_predict(sde_parameters, x)
     print(jnp.square(y - y_hat))
     plt.figure()
     plt.plot(x, y_hat, x, y)
