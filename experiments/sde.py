@@ -183,10 +183,16 @@ def linear_run():
     plt.plot(x, y_hat, x, y)
 
     plt.figure()
-    plt.plot(
-        jnp.arange(len(sde_losses)) / len(sde_losses), sde_losses,
-        jnp.arange(len(gd_losses)) / len(gd_losses), gd_losses,
-        jnp.arange(len(sgd_losses)) / len(sgd_losses), sgd_losses)
+    plt.plot(jnp.arange(len(sde_losses)) / len(sde_losses),
+             sde_losses,
+             label="sde")
+    plt.plot(jnp.arange(len(gd_losses)) / len(gd_losses),
+             gd_losses,
+             label="gd")
+    plt.plot(jnp.arange(len(sgd_losses)) / len(sgd_losses),
+             sgd_losses,
+             label="sge")
+    plt.legend()
     plt.show()
 
 
