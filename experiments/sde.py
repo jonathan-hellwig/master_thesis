@@ -31,8 +31,11 @@ def sde_update(parameters, x, y, step_size, learning_rate, key):
     keys = [(key_w, key_b) for key_w, key_b in zip(keys[::2], keys[1::2])]
     return [
         (euler_step(w.reshape(w.size, 1), drift_w.reshape(w.size, 1),
-                    diffusion_w, step_size, key_w).reshape(w.shape),
-         euler_step(b, drift_b, diffusion_b, step_size, key_b))
+                    diffusion_w, step_size,
+                    jnp.sqrt(step_size) *
+                    random.normal(key_w, (w.size, 1))).reshape(w.shape),
+         euler_step(b, drift_b, diffusion_b, step_size,
+                    jnp.sqrt(step_size) * random.normal(key_b, (b.size, 1))))
         for (w,
              b), (drift_w, drift_b), (diffusion_w, diffusion_b), (
                  key_w, key_b) in zip(parameters, drifts, diffusions, keys)
@@ -46,15 +49,9 @@ def gd_update(parameters, x, y, learning_rate):
             for (w, b), (dw, db) in zip(parameters, gradients)]
 
 
-# Use the usual euler update and convert everything to the correct size after the update
 @jit
-def euler_step(x, drift, diffusion, step_size, key):
-    random_normal_increment = random.normal(key, x.shape)
-    # print(
-    #     f'x: {x}\n drift: {drift}\n diffusion: {diffusion}\n random_normal_increment: {random_normal_increment}'
-    # )
-    return x + drift * step_size + step_size * jnp.dot(
-        diffusion, random_normal_increment)
+def euler_step(x, drift, diffusion, step_size, brownian_increment):
+    return x + drift * step_size + jnp.dot(diffusion, brownian_increment)
 
 
 @jit
@@ -68,6 +65,7 @@ def diffusion(parameters, x, y, learning_rate):
 
 @jit
 def one_sample_covariance(parameters, inputs, outputs):
+    assert (len(inputs) == len(outputs))
     covariances_dw = []
     covariances_db = []
     full_gradients = grad(loss)(parameters, inputs, outputs)
@@ -86,7 +84,7 @@ def one_sample_covariance(parameters, inputs, outputs):
             covariances_db[j] += covariate(full_db, partial_db)
 
     return [
-        (covariance_dw, covariance_db)
+        (covariance_dw / len(inputs), covariance_db / len(inputs))
         for covariance_dw, covariance_db in zip(covariances_dw, covariances_db)
     ]
 
@@ -129,6 +127,10 @@ def sde_run():
     plt.show()
 
 
+def flatten(xss):
+    return [x for xs in xss for x in xs]
+
+
 def batches(x, y, batch_size, key):
     assert (len(x) == len(y))
     number_of_splits = jnp.ceil(len(x) / batch_size)
@@ -136,9 +138,11 @@ def batches(x, y, batch_size, key):
     return zip(jnp.array_split(x[permuated_indices], number_of_splits),
                jnp.array_split(y[permuated_indices], number_of_splits))
 
+
 # Goals
 # 1. Write test cases
 # 2. Adjust the iterations of each run such that they can be compared
+# I want to see process variance,
 def linear_run():
     x = jnp.linspace(0.0, 2.0, 100).reshape((100, 1))
     y = x
@@ -148,50 +152,48 @@ def linear_run():
     sde_parameters = init_network_parameters(sizes, key)
     gd_parameters = sde_parameters.copy()
     sgd_parameters = sde_parameters.copy()
-    print(f'parameters: {sde_parameters}')
     step_size = 0.001
+    final_time = 5.0
+    t = jnp.arange(0.0, final_time, step_size)
     learning_rate = 0.1
-    sde_iterations = 500
-    sde_losses = []
-    for iteration in range(sde_iterations):
-        key, subkey = random.split(key)
-        sde_parameters = sde_update(sde_parameters, x, y, step_size,
-                                    learning_rate, subkey)
-        sde_losses.append(loss(sde_parameters, x, y))
-        print(f'iteration: {iteration}, loss: {sde_losses[-1]}')
-    gd_epochs = 5
+    batch_size = 32
+    solver_iterations = 10
     gd_losses = []
-    for epoch in range(gd_epochs):
+    sgd_losses = []
+    sde_losses = []
+    for i in range(len(t[::solver_iterations])):
+        for _ in range(solver_iterations):
+            key, subkey = random.split(key)
+            sde_parameters = sde_update(sde_parameters, x, y, step_size,
+                                        learning_rate, subkey)
+            sde_losses.append(loss(sde_parameters, x, y))
+
+        key, key_x, key_y = random.split(key, 3)
+        sgd_parameters = gd_update(
+            sgd_parameters, random.choice(key_x, x, shape=(batch_size, 1)),
+            random.choice(key_y, y, shape=(batch_size, 1)), learning_rate)
+        sgd_losses.append(loss(sgd_parameters, x, y))
+
         gd_parameters = gd_update(gd_parameters, x, y, learning_rate)
         gd_losses.append(loss(gd_parameters, x, y))
-        print(f'iteration: {epoch}, loss: {gd_losses[-1]}')
+        print(f'sgd t: {t[i]}, loss: {sgd_losses[-1]}')
+        print(f'sde: {t[i]}, loss: {sde_losses[-1]}')
+        print(f'gd t: {t[i]}, loss: {gd_losses[-1]}')
 
-    sgd_epochs = 5
-    batch_size = 16
-    sgd_losses = []
-    for epoch in range(sgd_epochs):
-        key, sub_key = random.split(key)
-        for x_batch, y_batch in batches(x, y, batch_size, sub_key):
-            sgd_parameters = gd_update(sgd_parameters, x_batch, y_batch,
-                                       learning_rate)
-            sgd_losses.append(loss(sgd_parameters, x, y))
-        print(f'iteration: {epoch}, loss: {sgd_losses[-1]}')
-
-    y_hat = batched_predict(sde_parameters, x)
-    print(jnp.square(y - y_hat))
+    y_hat_sde = batched_predict(sde_parameters, x)
+    y_hat_gd = batched_predict(sde_parameters, x)
+    y_hat_sgd = batched_predict(sde_parameters, x)
     plt.figure()
-    plt.plot(x, y_hat, x, y)
+    plt.plot(x, y_hat_sde, label="sde")
+    plt.plot(x, y_hat_gd, label="gd")
+    plt.plot(x, y_hat_sgd, label="sgd")
+    plt.plot(x, y, label="ground truth")
+    plt.legend()
 
     plt.figure()
-    plt.plot(jnp.arange(len(sde_losses)) / len(sde_losses),
-             sde_losses,
-             label="sde")
-    plt.plot(jnp.arange(len(gd_losses)) / len(gd_losses),
-             gd_losses,
-             label="gd")
-    plt.plot(jnp.arange(len(sgd_losses)) / len(sgd_losses),
-             sgd_losses,
-             label="sge")
+    plt.plot(t, sde_losses, label="sde")
+    plt.plot(t[::solver_iterations], gd_losses, label="gd")
+    plt.plot(t[::solver_iterations], sgd_losses, label="sgd")
     plt.legend()
     plt.show()
 
