@@ -97,6 +97,20 @@ def right_hand_side(parameters, t, coefficients_0, coefficients_1,
     return dparametersdt
 
 
+def test_square_root_matrix():
+    key = random.PRNGKey(1)
+    n = 100
+    x = random.normal(key, (2, n))
+    mean = jnp.mean(x, axis=1)
+    x_normalized = x - mean.reshape((2, 1))
+    sqrt_matrix = get_sqrt_matrix(x_normalized)
+    assert_allclose(sqrt_matrix @ sqrt_matrix.T, x @ x.T, rtol=1e-3)
+
+
+def get_sqrt_matrix(normalized_matrix):
+    u, s, _ = jnp.linalg.svd(normalized_matrix)
+    return u @ jnp.diag(s)
+
 # def test_one_sample_covariance():
 #     points = 100
 #     x = jnp.linspace(0, 10, points).reshape((points, 1))
