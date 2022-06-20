@@ -1,8 +1,10 @@
+from locale import normalize
+import math
 from scipy.integrate import odeint
-import unittest
 import jax.numpy as jnp
 from svag import *
 from sde import *
+from numpy.testing import assert_allclose
 
 
 # Take the square root in this example!!
@@ -24,7 +26,8 @@ def test_one_sample_covariance():
             jnp.square(mean_gradient_b - 2.0 * (w * x + b - y))) / points
 
         parameters = [(w * jnp.ones((1, 1)), b * jnp.ones((1, 1)))]
-        covariance_w, covariance_b = one_sample_covariance(parameters, x, y)[0]
+        covariance_w, covariance_b = diagonal_one_sample_covariance(
+            parameters, x, y)[0]
         assert (jnp.allclose(expected_covariance_w, covariance_w))
         assert (jnp.allclose(expected_covariance_b, covariance_b))
 
@@ -38,7 +41,7 @@ def test_expected_value():
     step_size = 0.01
     learning_rate = 0.1
     t = jnp.arange(0.0, final_time, 0.1)
-    w = 2.25
+    w = 3.0
     b = 1.0
     initial_parameters = [w, b]
     coefficients = (-2.0 * jnp.sum(jnp.square(x)) / len(x),
@@ -107,9 +110,66 @@ def test_square_root_matrix():
     assert_allclose(sqrt_matrix @ sqrt_matrix.T, x @ x.T, rtol=1e-3)
 
 
-def get_sqrt_matrix(normalized_matrix):
-    u, s, _ = jnp.linalg.svd(normalized_matrix)
-    return u @ jnp.diag(s)
+def test_map_parameters_to_vector():
+    key = random.PRNGKey(1)
+    sizes = [1, 10, 15, 20, 1]
+    parameters = init_network_parameters(sizes, key)
+    flattend_parameters = [
+        weight_bias for parameter in parameters for weight_bias in parameter
+    ]
+    stacked_parameters = jnp.vstack(
+        tuple(parameter.reshape((-1, 1)) for parameter in flattend_parameters))
+    unstacked_parameters = unstack_parameters(sizes, stacked_parameters)
+    for (w, b), (expected_w, expected_b) in zip(unstacked_parameters,
+                                                parameters):
+        assert_allclose(w, expected_w)
+        assert_allclose(b, expected_b)
+
+
+
+def test_euler_update():
+    key = random.PRNGKey(1)
+    sizes = [1, 5, 1]
+    parameters = init_network_parameters(sizes, key)
+
+    points = 100
+    x = jnp.linspace(0, 10, points).reshape((points, 1))
+    y = 2.0 * x + 1.0
+    learning_rate = 0.1
+    time_step = 0.001
+    key, subkey = random.split(key)
+    parameters = new_sde_update(key, parameters, sizes, x, y, time_step,
+                                learning_rate)
+    print(parameters)
+
+
+def test_full_covariance():
+    key = random.PRNGKey(1)
+    sizes = [1, 5, 1]
+    parameters = init_network_parameters(sizes, key)
+
+    points = 100
+    x = jnp.linspace(0, 10, points).reshape((points, 1))
+    y = 2.0 * x + 1.0
+
+    sqrt_covariance = get_full_covariance(parameters, x, y)
+
+    # expected_gradient_w = jnp.vstack((2 * x[:, 0].reshape(
+    #     (points, 1, 1)) * ((W @ x.reshape((points, 3, 1))) + b - y.reshape(
+    #         (points, 3, 1)))).sum(axis=0), (2 * x[:, 1].reshape(
+    #             (points, 1, 1)) * ((W @ x.reshape(
+    #                 (points, 3, 1))) + b - y.reshape(
+    #                     (points, 3, 1)))).sum(axis=0), (2 * x[:, 2].reshape(
+    #                         (points, 1, 1)) * ((W @ x.reshape(
+    #                             (points, 3, 1))) + b - y.reshape(
+    #                                 (points, 3, 1)))).sum(axis=0)) / points
+    # expected_gradient_b = (2 * ((W @ x.reshape(
+    #     (points, 3, 1))) + b - y.reshape((100, 3, 1)))).sum(axis=0)
+    # expected_gradient = jnp.vstack((expected_gradient_w, expected_gradient_b))
+    # assert_allclose(expected_gradient, full_gradient)
+    # # print(sqrt_covariance)
+    # print(sqrt_covariance.shape)
+
 
 # def test_one_sample_covariance():
 #     points = 100
@@ -126,4 +186,4 @@ def get_sqrt_matrix(normalized_matrix):
 #     assert (jnp.allclose(expected_covariance_w, covariance_w))
 
 if __name__ == "__main__":
-    test_euler_murayama()
+    test_euler_update()

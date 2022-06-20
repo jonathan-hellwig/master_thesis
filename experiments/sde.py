@@ -56,7 +56,7 @@ def euler_step(x, drift, diffusion, step_size, brownian_increment):
 
 @jit
 def diffusion(parameters, x, y, learning_rate):
-    covariances = one_sample_covariance(parameters, x, y)
+    covariances = diagonal_one_sample_covariance(parameters, x, y)
     sqrt_covariances = [(jnp.real(linalg.sqrtm(learning_rate * covariance_w)),
                          jnp.real(linalg.sqrtm(learning_rate * covariance_b)))
                         for (covariance_w, covariance_b) in covariances]
@@ -64,7 +64,7 @@ def diffusion(parameters, x, y, learning_rate):
 
 
 @jit
-def one_sample_covariance(parameters, inputs, outputs):
+def diagonal_one_sample_covariance(parameters, inputs, outputs):
     assert (len(inputs) == len(outputs))
     covariances_dw = []
     covariances_db = []
@@ -87,6 +87,10 @@ def one_sample_covariance(parameters, inputs, outputs):
         (covariance_dw / len(inputs), covariance_db / len(inputs))
         for covariance_dw, covariance_db in zip(covariances_dw, covariances_db)
     ]
+
+
+def full_one_sample_covariance(parameters, inputs, outputs):
+    pass
 
 
 @jit
@@ -148,11 +152,75 @@ def sample_batch(key, x, y, batch_size):
                                                    shape=(batch_size, 1))
 
 
-# Goals
-# 1. Write test cases
-# 2. Adjust the iterations of each run such that they can be compared
-# I want to see process variance,
-def linear_run():
+@jit
+def get_sqrt_matrix(normalized_matrix):
+    rows, columns = normalized_matrix.shape
+    # TODO: Handle the other case
+    # assert (rows < columns)
+    u, s, _ = jnp.linalg.svd(normalized_matrix)
+    return u @ jnp.diag(s)
+
+
+def get_split_indices(sizes):
+    indices = []
+    current_index = 0
+    for in_size, out_size in zip(sizes, sizes[1:]):
+        indices.append(current_index + in_size * out_size)
+        current_index += in_size * out_size
+        indices.append(current_index + out_size)
+        current_index += out_size
+    return indices
+
+
+def stack_parameters(parameters):
+    flattend_parameters = flatten(parameters)
+    stacked_parameters = jnp.vstack(
+        tuple(parameter.reshape((-1, 1)) for parameter in flattend_parameters))
+    return stacked_parameters
+
+
+def unstack_parameters(sizes, stacked_parameters):
+    split_indices = get_split_indices(sizes)
+    split_parameters = jnp.split(stacked_parameters, split_indices)
+    reshaped_parameters = [(w.reshape(
+        (out_size, in_size)), b) for w, b, (
+            in_size,
+            out_size) in zip(split_parameters[::2], split_parameters[1::2],
+                             zip(sizes, sizes[1:]))]
+    return reshaped_parameters
+
+
+@jit
+def get_full_covariance(parameters, x, y):
+    # assert (len(x) == len(y))
+    gradient = grad(loss)
+    full_gradient = stack_parameters(gradient(parameters, x, y))
+    gradient_samples = jnp.hstack(
+        tuple(
+            stack_parameters(gradient(parameters, a, b))
+            for a, b in zip(x, y)))
+    normalized_gradient_samples = (gradient_samples - full_gradient) / len(x)
+    sqrt_covariance = get_sqrt_matrix(normalized_gradient_samples)
+    return sqrt_covariance
+
+
+@jit
+def get_drift(parameters, x, y):
+    return -stack_parameters(grad(loss)(parameters, x, y))
+
+
+def new_sde_update(key, parameters, sizes, x, y, time_step, learning_rate):
+    stacked_parameters = stack_parameters(parameters)
+    mu = -stack_parameters(grad(loss)(parameters, x, y))
+    sigma = jnp.sqrt(learning_rate) * get_full_covariance(parameters, x, y)
+    brownian_increment = jnp.sqrt(time_step) * random.normal(key, mu.shape)
+    updated_parameters = euler_step(stacked_parameters, mu, sigma, time_step,
+                                    brownian_increment)
+    unstacked_parameters = unstack_parameters(sizes, updated_parameters)
+    return unstacked_parameters
+
+
+def linear_test_case():
     x = jnp.linspace(0.0, 2.0, 100).reshape((100, 1))
     y = x
 
@@ -188,9 +256,11 @@ def linear_run():
         sgd_losses.append(loss(sgd_parameters, x, y))
 
         key, subkey = random.split(key)
-        svag_x_batch_first, svag_y_batch_first = sample_batch(subkey, x, y, batch_size)
+        svag_x_batch_first, svag_y_batch_first = sample_batch(
+            subkey, x, y, batch_size)
         key, subkey = random.split(key)
-        svag_x_batch_second, svag_y_batch_second = sample_batch(subkey, x, y, batch_size)
+        svag_x_batch_second, svag_y_batch_second = sample_batch(
+            subkey, x, y, batch_size)
         svag_parameters = svag_update(svag_parameters, svag_x_batch_first,
                                       svag_y_batch_first, svag_x_batch_second,
                                       svag_y_batch_second, svag_l)
@@ -219,6 +289,172 @@ def linear_run():
     plt.plot(t[::solver_iterations], gd_losses, label="gd")
     plt.plot(t[::solver_iterations], sgd_losses, label="sgd")
     plt.plot(t[::solver_iterations], svag_losses, label="svag")
+    plt.legend()
+    plt.show()
+
+
+def linear_svag_test_case_with_replacement():
+    x = jnp.linspace(0.0, 2.0, 100).reshape((100, 1))
+    y = x
+
+    key = random.PRNGKey(1)
+    sizes = [1, 1]
+    svag_l = [1, 2, 4, 8, 32, 64]
+    svag_parameters = []
+    for _ in svag_l:
+        svag_parameters.append(init_network_parameters(sizes, key))
+    step_size = 0.001
+    final_time = 0.5
+    learning_rate = 0.01
+    t = jnp.arange(0.0, final_time, step_size)
+    batch_size = 32
+    svag_losses = []
+    for _ in svag_l:
+        svag_losses.append([])
+    for i in range(len(t)):
+        key, subkey = random.split(key)
+        svag_x_batch_first, svag_y_batch_first = sample_batch(
+            subkey, x, y, batch_size)
+        key, subkey = random.split(key)
+        svag_x_batch_second, svag_y_batch_second = sample_batch(
+            subkey, x, y, batch_size)
+        for i, l in enumerate(svag_l):
+            svag_parameters[i] = svag_update(
+                svag_parameters[i], svag_x_batch_first, svag_y_batch_first,
+                svag_x_batch_second, svag_y_batch_second, l, learning_rate)
+            svag_losses[i].append(loss(svag_parameters[i], x, y))
+            print(f'sgd t: {t[i]}, loss: {svag_losses[i][-1]}')
+
+    plt.figure()
+    for i, l in enumerate(svag_l):
+        y_hat_svag = batched_predict(svag_parameters[i], x)
+        plt.plot(x, y_hat_svag, label=f"svag l={l}")
+
+    plt.plot(x, y, label="ground truth")
+    plt.legend()
+
+    plt.figure()
+    for i, l in enumerate(svag_l):
+        plt.plot(t, svag_losses[i], label=f"svag l={l}")
+    plt.legend()
+    plt.show()
+
+
+def linear_svag_test_case_without_replacement():
+    x = jnp.linspace(0.0, 2.0, 100).reshape((100, 1))
+    y = x
+
+    key = random.PRNGKey(1)
+    sizes = [1, 1]
+    svag_l = [1, 2, 4, 8, 16, 32, 64]
+    svag_parameters = []
+    for _ in svag_l:
+        svag_parameters.append(init_network_parameters(sizes, key))
+    step_size = 0.001
+    final_time = 0.5
+    learning_rate = 0.1
+    t = jnp.arange(0.0, final_time, step_size)
+    batch_size = 32
+    svag_losses = []
+    current_time = 0.0
+    for _ in svag_l:
+        svag_losses.append([])
+    while current_time < final_time:
+        key, subkey = random.split(key)
+        batches = list(get_batches(subkey, x, y, batch_size))
+        for (svag_x_batch_first,
+             svag_y_batch_first), (svag_x_batch_second,
+                                   svag_y_batch_second) in zip(
+                                       batches[::2], batches[1::2]):
+            for i, l in enumerate(svag_l):
+                svag_parameters[i] = svag_update(
+                    svag_parameters[i], svag_x_batch_first, svag_y_batch_first,
+                    svag_x_batch_second, svag_y_batch_second, l, learning_rate)
+                svag_losses[i].append(loss(svag_parameters[i], x, y))
+                print(f'sgd t: {t[i]}, loss: {svag_losses[i][-1]}')
+            current_time += step_size
+
+    plt.figure()
+    for i, l in enumerate(svag_l):
+        y_hat_svag = batched_predict(svag_parameters[i], x)
+        plt.plot(x, y_hat_svag, label=f"svag l={l}")
+
+    plt.plot(x, y, label="ground truth")
+    plt.legend()
+
+    plt.figure()
+    for i, l in enumerate(svag_l):
+        plt.plot(t, svag_losses[i], label=f"svag l={l}")
+    plt.legend()
+    plt.show()
+
+
+def linear_svag_sde_test():
+    x = jnp.linspace(0.0, 2.0, 100).reshape((100, 1))
+    y = x
+
+    key = random.PRNGKey(2)
+    sizes = [1, 1]
+    svag_l = [1, 2, 4, 8, 16, 32, 64]
+    svag_parameters = []
+    sde_parameters = init_network_parameters(sizes, key)
+    old_sde_parameters = init_network_parameters(sizes, key)
+    for _ in svag_l:
+        svag_parameters.append(sde_parameters.copy())
+    step_size = 0.001
+    final_time = 5.5
+    learning_rate = 0.05
+    t = jnp.arange(0.0, final_time, step_size)
+    batch_size = 32
+    sde_solver_iterations = 10
+    w_svag = []
+    w_sde = []
+    old_w_sde = []
+    current_time = 0.0
+    for _ in svag_l:
+        w_svag.append([])
+    # print(svag_parameters[0][0][0][0])
+    # print(svag_parameters[0][0][1][0])
+
+    # print(sde_parameters[0][0][0])
+    # print(sde_parameters[0][1][0])
+    while current_time < final_time - 0.0001:
+        key, subkey = random.split(key)
+        batches = list(get_batches(subkey, x, y, batch_size))
+        for (svag_x_batch_first,
+             svag_y_batch_first), (svag_x_batch_second,
+                                   svag_y_batch_second) in zip(
+                                       batches[::2], batches[1::2]):
+            for _ in range(sde_solver_iterations):
+                key, subkey = random.split(key)
+                sde_parameters = new_sde_update(subkey, sde_parameters, sizes,
+                                                x, y, step_size, learning_rate)
+                w_sde.append(sde_parameters[0][0][0])
+
+                key, subkey = random.split(key)
+                old_sde_parameters = sde_update(old_sde_parameters, x, y,
+                                                step_size, learning_rate, key)
+                old_w_sde.append(old_sde_parameters[0][0][0])
+
+            for i, l in enumerate(svag_l):
+                svag_parameters[i] = svag_update(
+                    svag_parameters[i], svag_x_batch_first, svag_y_batch_first,
+                    svag_x_batch_second, svag_y_batch_second, l, learning_rate)
+                w_svag[i].append(svag_parameters[i][0][0][0])
+
+            current_time += sde_solver_iterations * step_size
+            if current_time >= final_time - 0.0001:
+                break
+            print(current_time)
+
+    plt.figure()
+    for i, l in enumerate(svag_l):
+        plt.plot(t[::sde_solver_iterations],
+                 jnp.array(w_svag[i]).flatten(),
+                 label=f"svag l={l}")
+    plt.plot(t, jnp.array(w_sde).flatten(), label=f"sde w")
+    plt.plot(t, jnp.array(old_w_sde).flatten(), label=f"old sde w")
+    # plt.plot(t, jnp.array(b_sde).flatten(), label=f"sde b")
     plt.legend()
     plt.show()
 
@@ -279,4 +515,4 @@ def sin_test_case():
 
 
 if __name__ == "__main__":
-    linear_run()
+    linear_svag_sde_test()
