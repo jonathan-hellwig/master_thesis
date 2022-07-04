@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2022.4.19)  21 MAY 2022 16:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.27)  4 JUL 2022 10:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex
 (/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex
 LaTeX2e <2021-11-15> patch level 1
-L3 programming layer <2022-02-24> (/usr/share/texmf-dist/tex/latex/base/article.cls
+L3 programming layer <2022-04-10> (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size12.clo
 File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
@@ -374,14 +374,14 @@ File: biblatex.cfg
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
  (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2022-02-24 L3 programming layer (loader) 
+Package: expl3 2022-04-10 L3 programming layer (loader) 
  (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2022-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count403
 \l__pdf_internal_box=\box52
 ))
 Package biblatex Info: ... and expl3
-(biblatex)             2022-02-24 L3 programming layer (loader) 
+(biblatex)             2022-04-10 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
  (/usr/share/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
@@ -888,7 +888,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@lof=\write7
 \openout7 = `Masterarbeit_Jonathan_Hellwig.lof'.
 
- [6] [7] [8] [9] [10] (./Masterarbeit_Jonathan_Hellwig.aux)
+ [6] [7] [8] [9] [10] [11] [12] (./Masterarbeit_Jonathan_Hellwig.aux)
 Package rerunfilecheck Info: File `Masterarbeit_Jonathan_Hellwig.out' has not changed.
 (rerunfilecheck)             Checksum: 40258D03FC0D2DF42911EDE204E49274;3579.
 Package logreq Info: Writing requests to 'Masterarbeit_Jonathan_Hellwig.run.xml'.
@@ -896,18 +896,18 @@ Package logreq Info: Writing requests to 'Masterarbeit_Jonathan_Hellwig.run.xml'
 
  ) 
 Here is how much of TeX's memory you used:
- 31598 strings out of 478276
- 589138 string characters out of 5853013
- 1310149 words of memory out of 5000000
- 49283 multiletter control sequences out of 15000+600000
+ 31649 strings out of 478238
+ 590333 string characters out of 5850456
+ 1313039 words of memory out of 5000000
+ 49342 multiletter control sequences out of 15000+600000
  476668 words of font info for 55 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  84i,6n,89p,801b,2367s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Masterarbeit_Jonathan_Hellwig.pdf (10 pages, 207007 bytes).
+Output written on Masterarbeit_Jonathan_Hellwig.pdf (12 pages, 222475 bytes).
 PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
- 254 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 336 PDF objects out of 1000 (max. 8388607)
+ 288 compressed objects within 3 object streams
+ 94 named destinations out of 1000 (max. 500000)
  199 words of extra memory for PDF output out of 10000 (max. 10000000)
 

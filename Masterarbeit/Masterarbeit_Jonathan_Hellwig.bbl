@@ -19,6 +19,41 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{li2021validity}{article}{}
+      \name{author}{3}{}{%
+        {{hash=35069ab0f2565b95f02723d645a36cbd}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zhiyuan},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=83997ef133cee9d7489f458ddb3c01fd}{%
+           family={Malladi},
+           familyi={M\bibinitperiod},
+           given={Sadhika},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8e08b59145b9531815169c7ed0a0b055}{%
+           family={Arora},
+           familyi={A\bibinitperiod},
+           given={Sanjeev},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{acabdfdf9d3a3d356960a77b23063185}
+      \strng{fullhash}{acabdfdf9d3a3d356960a77b23063185}
+      \strng{bibnamehash}{acabdfdf9d3a3d356960a77b23063185}
+      \strng{authorbibnamehash}{acabdfdf9d3a3d356960a77b23063185}
+      \strng{authornamehash}{acabdfdf9d3a3d356960a77b23063185}
+      \strng{authorfullhash}{acabdfdf9d3a3d356960a77b23063185}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{On the validity of modeling sgd with stochastic differential equations (sdes)}
+      \field{volume}{34}
+      \field{year}{2021}
+      \field{pages}{12712\bibrangedash 12725}
+      \range{pages}{14}
+    \endentry
     \entry{nesterov2003introductory}{book}{}
       \name{author}{1}{}{%
         {{hash=8a41b35fe7b3d1725cb95bd7eec40b01}{%
