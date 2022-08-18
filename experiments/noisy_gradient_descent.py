@@ -2,30 +2,12 @@ from functools import partial
 from stochastic_variance_amplified_gradient import *
 import jax.scipy.linalg as linalg
 from network import root_mean_square_loss
+
 jax.config.update('jax_platform_name', 'cpu')
 
-# Goals
-# There are two points to investigate:
-# 1. Do the covariances get calculated correctly?
-# 2. Does the random noise get sampled correctly?
 
-# Goal
-# 1. How do I make sure I have implemented the algorithm correctly?
-#   - Extract funtionality into methods
-#   - Test output of methods
-#   - Look at very basic test cases
-#   - Look at averages and standard deviations
-#   - The average should result in gradient descent
-# 2. How can I make the algorithm run more quickly?
-#   - Benchmark code
-#   - Find the parts of the code that run the longest
-#   - Look for speed optimizations using jax
-
-
-# What does W * W.T mean when W is a matrix?
 @jit
-def partial_covariance_update(parameters, x, y, step_size, learning_rate,
-                                  key):
+def partial_covariance_update(parameters, x, y, step_size, learning_rate, key):
     full_gradients = grad(root_mean_square_loss)(parameters, x, y)
 
     drifts = [(-dw, -db) for (dw, db) in full_gradients]
@@ -77,8 +59,9 @@ def diagonal_one_sample_covariance(parameters, inputs, outputs):
         covariances_db.append(jnp.zeros(b.shape))
 
     for input, output in zip(inputs, outputs):
-        partial_gradients = grad(root_mean_square_loss)(parameters, input.reshape((1, 1)),
-                                       output.reshape((1, 1)))
+        partial_gradients = grad(root_mean_square_loss)(parameters,
+                                                        input.reshape((1, 1)),
+                                                        output.reshape((1, 1)))
         for j, ((full_dw, full_db), (partial_dw, partial_db)) in enumerate(
                 zip(full_gradients, partial_gradients)):
             covariances_dw[j] += covariate(
@@ -148,6 +131,7 @@ def stack_parameters(parameters):
         tuple(parameter.reshape((-1, 1)) for parameter in flattend_parameters))
     return stacked_parameters
 
+
 @partial(jax.jit, static_argnames=['sizes'])
 def unstack_parameters(sizes, stacked_parameters):
     split_indices = get_split_indices(sizes)
@@ -170,8 +154,9 @@ def get_full_covariance(parameters, x, y):
         tuple(
             stack_parameters(gradient(parameters, a, b))
             for a, b in zip(x, y)))
-    normalized_gradient_samples = (gradient_samples - full_gradient) / len(x)
-    sqrt_covariance = get_sqrt_matrix(normalized_gradient_samples)
+    normalized_gradient_samples = (gradient_samples - full_gradient)
+    sqrt_covariance = get_sqrt_matrix(normalized_gradient_samples) / jnp.sqrt(
+        len(x))
     return sqrt_covariance
 
 
@@ -179,14 +164,15 @@ def get_full_covariance(parameters, x, y):
 def get_drift(parameters, x, y):
     return -stack_parameters(grad(root_mean_square_loss)(parameters, x, y))
 
+
 @partial(jax.jit, static_argnames=['sizes'])
-def full_covariance_update(key, parameters, sizes, x, y, time_step, learning_rate):
+def full_covariance_update(key, parameters, sizes, x, y, time_step,
+                           learning_rate):
     stacked_parameters = stack_parameters(parameters)
     mu = -stack_parameters(grad(root_mean_square_loss)(parameters, x, y))
-    # sigma = jnp.sqrt(learning_rate) * get_full_covariance(parameters, x, y)
-    sigma = learning_rate * get_full_covariance(parameters, x, y)
+    sigma = jnp.sqrt(learning_rate) * get_full_covariance(parameters, x, y)
     brownian_increment = jnp.sqrt(time_step) * random.normal(key, mu.shape)
     updated_parameters = euler_step(stacked_parameters, mu, sigma, time_step,
                                     brownian_increment)
     unstacked_parameters = unstack_parameters(sizes, updated_parameters)
-    return unstacked_parameters
+    return unstacked_parameters, jnp.linalg.norm(sigma)
