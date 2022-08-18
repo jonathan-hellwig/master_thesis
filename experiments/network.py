@@ -44,3 +44,22 @@ def batched_predict(parameters, x):
 def root_mean_square_loss(parameters, x, y):
     error = batched_predict(parameters, x) - y
     return jnp.mean(jnp.square(error))
+
+
+
+
+def sample_two_batches(x, y, batch_size, key):
+    assert (len(x) == len(y))
+    number_of_splits = jnp.ceil(len(x) / batch_size)
+    permuated_indices = random.permutation(key, len(x))
+    return zip(jnp.array_split(x[permuated_indices], number_of_splits),
+               jnp.array_split(y[permuated_indices], number_of_splits))
+
+
+def sample_batch(key, x, y, batch_size):
+    key, key_x, key_y = random.split(key, 3)
+    return random.choice(key_x, x,
+                         shape=(batch_size,
+                                1)), random.choice(key_y,
+                                                   y,
+                                                   shape=(batch_size, 1))

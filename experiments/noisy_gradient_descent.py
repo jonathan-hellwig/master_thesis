@@ -7,31 +7,31 @@ jax.config.update('jax_platform_name', 'cpu')
 
 
 @jit
-def partial_covariance_update(parameters, x, y, step_size, learning_rate, key):
+def partial_covariance_update(key, parameters, x, y, time_step, learning_rate):
     full_gradients = grad(root_mean_square_loss)(parameters, x, y)
 
     drifts = [(-dw, -db) for (dw, db) in full_gradients]
     diffusions = diffusion(parameters, x, y, learning_rate)
     keys = random.split(key, 2 * len(parameters))
     keys = [(key_w, key_b) for key_w, key_b in zip(keys[::2], keys[1::2])]
-    return [
-        (euler_step(w.reshape(w.size, 1), drift_w.reshape(w.size, 1),
-                    diffusion_w, step_size,
-                    jnp.sqrt(step_size) *
-                    random.normal(key_w, (w.size, 1))).reshape(w.shape),
-         euler_step(b, drift_b, diffusion_b, step_size,
-                    jnp.sqrt(step_size) * random.normal(key_b, (b.size, 1))))
-        for (w,
-             b), (drift_w, drift_b), (diffusion_w, diffusion_b), (
-                 key_w, key_b) in zip(parameters, drifts, diffusions, keys)
-    ]
-
-
-@jit
-def gradient_descent_update(parameters, x, y, learning_rate):
-    gradients = grad(root_mean_square_loss)(parameters, x, y)
-    return [(w - learning_rate * dw, b - learning_rate * db)
-            for (w, b), (dw, db) in zip(parameters, gradients)]
+    updated_parameters = []
+    for (weight, bias), (drift_w,
+                         drift_b), (diffusion_w,
+                                    diffusion_b), (key_w, key_b) in zip(
+                                        parameters, drifts, diffusions, keys):
+        weight_brownian_increment = jnp.sqrt(time_step) * random.normal(
+            key_w, (weight.size, 1))
+        bias_brownian_increment = jnp.sqrt(time_step) * random.normal(
+            key_b, (bias.size, 1))
+        sigma_norm = jnp.linalg.norm(diffusion_w)
+        updated_parameters.append(
+            (euler_step(weight.reshape(weight.size, 1),
+                        drift_w.reshape(weight.size,
+                                        1), diffusion_w, time_step,
+                        weight_brownian_increment).reshape(weight.shape),
+             euler_step(bias, drift_b, diffusion_b, time_step,
+                        bias_brownian_increment)))
+    return updated_parameters, sigma_norm
 
 
 @jit
@@ -75,41 +75,14 @@ def diagonal_one_sample_covariance(parameters, inputs, outputs):
     ]
 
 
-def full_one_sample_covariance(parameters, inputs, outputs):
-    pass
-
-
 @jit
 def covariate(full, partial):
     return jnp.dot((partial - full), (partial - full).T)
 
 
-def flatten(xss):
-    return [x for xs in xss for x in xs]
-
-
-def batches(x, y, batch_size, key):
-    assert (len(x) == len(y))
-    number_of_splits = jnp.ceil(len(x) / batch_size)
-    permuated_indices = random.permutation(key, len(x))
-    return zip(jnp.array_split(x[permuated_indices], number_of_splits),
-               jnp.array_split(y[permuated_indices], number_of_splits))
-
-
-def sample_batch(key, x, y, batch_size):
-    key, key_x, key_y = random.split(key, 3)
-    return random.choice(key_x, x,
-                         shape=(batch_size,
-                                1)), random.choice(key_y,
-                                                   y,
-                                                   shape=(batch_size, 1))
-
-
 @jit
-def get_sqrt_matrix(normalized_matrix):
-    rows, columns = normalized_matrix.shape
+def sqrt_matrix(normalized_matrix):
     # TODO: Handle the other case
-    # assert (rows < columns)
     u, s, _ = jnp.linalg.svd(normalized_matrix)
     return u @ jnp.diag(s)
 
@@ -125,6 +98,10 @@ def get_split_indices(sizes):
     return indices
 
 
+def flatten(xss):
+    return [x for xs in xss for x in xs]
+
+@jit
 def stack_parameters(parameters):
     flattend_parameters = flatten(parameters)
     stacked_parameters = jnp.vstack(
@@ -147,7 +124,6 @@ def unstack_parameters(sizes, stacked_parameters):
 # TODO: Correct for batch size
 @jit
 def get_full_covariance(parameters, x, y):
-    # assert (len(x) == len(y))
     gradient = grad(root_mean_square_loss)
     full_gradient = stack_parameters(gradient(parameters, x, y))
     gradient_samples = jnp.hstack(
@@ -155,7 +131,7 @@ def get_full_covariance(parameters, x, y):
             stack_parameters(gradient(parameters, a, b))
             for a, b in zip(x, y)))
     normalized_gradient_samples = (gradient_samples - full_gradient)
-    sqrt_covariance = get_sqrt_matrix(normalized_gradient_samples) / jnp.sqrt(
+    sqrt_covariance = sqrt_matrix(normalized_gradient_samples) / jnp.sqrt(
         len(x))
     return sqrt_covariance
 
