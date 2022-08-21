@@ -101,6 +101,7 @@ def get_split_indices(sizes):
 def flatten(xss):
     return [x for xs in xss for x in xs]
 
+
 @jit
 def stack_parameters(parameters):
     flattend_parameters = flatten(parameters)
@@ -130,7 +131,7 @@ def get_full_covariance(parameters, x, y):
         tuple(
             stack_parameters(gradient(parameters, a, b))
             for a, b in zip(x, y)))
-    normalized_gradient_samples = (gradient_samples - full_gradient)
+    normalized_gradient_samples = gradient_samples - full_gradient
     sqrt_covariance = sqrt_matrix(normalized_gradient_samples) / jnp.sqrt(
         len(x))
     return sqrt_covariance
