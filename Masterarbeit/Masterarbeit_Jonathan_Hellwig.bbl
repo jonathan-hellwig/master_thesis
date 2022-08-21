@@ -19,6 +19,36 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{kushner2003stochastic}{book}{}
+      \name{author}{2}{}{%
+        {{hash=6be4c53f78cb227c1af73992c12ad818}{%
+           family={Kushner},
+           familyi={K\bibinitperiod},
+           given={Harold},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ae6674a6724a4bc157bd4e4d95373826}{%
+           family={Yin},
+           familyi={Y\bibinitperiod},
+           given={G\bibnamedelima George},
+           giveni={G\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{59bf73d1f642eea1babe4bb4b530e0c6}
+      \strng{fullhash}{59bf73d1f642eea1babe4bb4b530e0c6}
+      \strng{bibnamehash}{59bf73d1f642eea1babe4bb4b530e0c6}
+      \strng{authorbibnamehash}{59bf73d1f642eea1babe4bb4b530e0c6}
+      \strng{authornamehash}{59bf73d1f642eea1babe4bb4b530e0c6}
+      \strng{authorfullhash}{59bf73d1f642eea1babe4bb4b530e0c6}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Stochastic approximation and recursive algorithms and applications}
+      \field{volume}{35}
+      \field{year}{2003}
+    \endentry
     \entry{li2021validity}{article}{}
       \name{author}{3}{}{%
         {{hash=35069ab0f2565b95f02723d645a36cbd}{%

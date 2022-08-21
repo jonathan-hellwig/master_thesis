@@ -2345,11 +2345,13 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">nocedal1999numerical</bcf:citekey>
-    <bcf:citekey order="2">nesterov2003introductory</bcf:citekey>
-    <bcf:citekey order="3">li2021validity</bcf:citekey>
-    <bcf:citekey order="4">nocedal1999numerical</bcf:citekey>
-    <bcf:citekey order="5">nesterov2003introductory</bcf:citekey>
-    <bcf:citekey order="6">li2021validity</bcf:citekey>
+    <bcf:citekey order="2">kushner2003stochastic</bcf:citekey>
+    <bcf:citekey order="3">nesterov2003introductory</bcf:citekey>
+    <bcf:citekey order="4">li2021validity</bcf:citekey>
+    <bcf:citekey order="5">nocedal1999numerical</bcf:citekey>
+    <bcf:citekey order="6">kushner2003stochastic</bcf:citekey>
+    <bcf:citekey order="7">nesterov2003introductory</bcf:citekey>
+    <bcf:citekey order="8">li2021validity</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
