@@ -11,7 +11,7 @@ def random_layer_parameters(m, n, key, scale=1e-2):
                                  (n, m)), scale * random.normal(b_key, (n, 1))
 
 
-def initialize_network_parameters(sizes, key):
+def initialize_network_parameters(key, sizes):
     keys = random.split(key, len(sizes))
     return [
         random_layer_parameters(m, n, k)

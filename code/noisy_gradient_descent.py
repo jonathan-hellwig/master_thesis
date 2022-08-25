@@ -2,8 +2,8 @@ from functools import partial
 from stochastic_variance_amplified_gradient import *
 import jax.scipy.linalg as linalg
 from network import root_mean_square_loss
+import jax
 
-jax.config.update('jax_platform_name', 'cpu')
 
 
 @jit
@@ -12,16 +12,16 @@ def partial_covariance_update(key, parameters, x, y, time_step, learning_rate):
 
     drifts = [(-dw, -db) for (dw, db) in full_gradients]
     diffusions = diffusion(parameters, x, y, learning_rate)
-    keys = random.split(key, 2 * len(parameters))
+    keys = jax.random.split(key, 2 * len(parameters))
     keys = [(key_w, key_b) for key_w, key_b in zip(keys[::2], keys[1::2])]
     updated_parameters = []
     for (weight, bias), (drift_w,
                          drift_b), (diffusion_w,
                                     diffusion_b), (key_w, key_b) in zip(
                                         parameters, drifts, diffusions, keys):
-        weight_brownian_increment = jnp.sqrt(time_step) * random.normal(
+        weight_brownian_increment = jnp.sqrt(time_step) * jax.random.normal(
             key_w, (weight.size, 1))
-        bias_brownian_increment = jnp.sqrt(time_step) * random.normal(
+        bias_brownian_increment = jnp.sqrt(time_step) * jax.random.normal(
             key_b, (bias.size, 1))
         sigma_norm = jnp.linalg.norm(diffusion_w)
         updated_parameters.append(
@@ -148,7 +148,7 @@ def full_covariance_update(key, parameters, sizes, x, y, time_step,
     stacked_parameters = stack_parameters(parameters)
     mu = -stack_parameters(grad(root_mean_square_loss)(parameters, x, y))
     sigma = jnp.sqrt(learning_rate) * get_full_covariance(parameters, x, y)
-    brownian_increment = jnp.sqrt(time_step) * random.normal(key, mu.shape)
+    brownian_increment = jnp.sqrt(time_step) * jax.random.normal(key, mu.shape)
     updated_parameters = euler_step(stacked_parameters, mu, sigma, time_step,
                                     brownian_increment)
     unstacked_parameters = unstack_parameters(sizes, updated_parameters)
