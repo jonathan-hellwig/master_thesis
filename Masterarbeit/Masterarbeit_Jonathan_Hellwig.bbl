@@ -109,35 +109,6 @@
       \field{volume}{87}
       \field{year}{2003}
     \endentry
-    \entry{nocedal1999numerical}{book}{}
-      \name{author}{2}{}{%
-        {{hash=88a342d927bf795b0d92af8a5613da31}{%
-           family={Nocedal},
-           familyi={N\bibinitperiod},
-           given={Jorge},
-           giveni={J\bibinitperiod}}}%
-        {{hash=c49efb16d3fa7eef002cc3620d42ab8a}{%
-           family={Wright},
-           familyi={W\bibinitperiod},
-           given={Stephen\bibnamedelima J},
-           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{5b8fd28f6245ae8b0af119560622fa4f}
-      \strng{fullhash}{5b8fd28f6245ae8b0af119560622fa4f}
-      \strng{bibnamehash}{5b8fd28f6245ae8b0af119560622fa4f}
-      \strng{authorbibnamehash}{5b8fd28f6245ae8b0af119560622fa4f}
-      \strng{authornamehash}{5b8fd28f6245ae8b0af119560622fa4f}
-      \strng{authorfullhash}{5b8fd28f6245ae8b0af119560622fa4f}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Numerical optimization}
-      \field{year}{1999}
-    \endentry
   \enddatalist
 \endrefsection
 \endinput
