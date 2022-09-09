@@ -1,2 +1,5 @@
 venv
 results
+.vscode
+MNIST
+data
