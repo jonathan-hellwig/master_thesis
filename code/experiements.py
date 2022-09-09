@@ -1,6 +1,10 @@
 import jax.numpy as jnp
 from jax import random
-from experiments.noisy_gradient_descent import *
+import jax
+import matplotlib.pyplot as plt
+from helpers.gradient_descent import *
+from helpers.noisy_gradient_descent import *
+from helpers.network import *
 
 
 def sde_run():
@@ -23,8 +27,8 @@ def sde_run():
             parameters = partial_covariance_update(parameters, x, y,
                                                        step_size,
                                                        learning_rate, subkey)
-            loss_values[i].append(loss(parameters, x, y))
-            print(f'epoch: {epoch}, loss: {loss_values[i][epoch]}')
+            loss_values[i].append(root_mean_square_loss(parameters, x, y))
+            print(f'epoch: {epoch}, root_mean_square_loss: {loss_values[i][epoch]}')
     loss_values = jnp.array(loss_values)
     y_hat = batched_predict(parameters, x)
     print(y_hat.shape)
@@ -63,14 +67,14 @@ def linear_test_case():
             key, subkey = random.split(key)
             sde_parameters = partial_covariance_update(sde_parameters, x, y, step_size,
                                         learning_rate, subkey)
-            sde_losses.append(loss(sde_parameters, x, y))
+            sde_losses.append(root_mean_square_loss(sde_parameters, x, y))
 
         # sampling with replacement
         key, subkey = random.split(key)
         sgd_x_batch, sgd_y_batch = sample_batch(subkey, x, y, batch_size)
         sgd_parameters = gradient_descent_update(sgd_parameters, sgd_x_batch, sgd_y_batch,
                                    learning_rate)
-        sgd_losses.append(loss(sgd_parameters, x, y))
+        sgd_losses.append(root_mean_square_loss(sgd_parameters, x, y))
 
         key, subkey = random.split(key)
         svag_x_batch_first, svag_y_batch_first = sample_batch(
@@ -81,13 +85,13 @@ def linear_test_case():
         svag_parameters = svag_update(svag_parameters, svag_x_batch_first,
                                       svag_y_batch_first, svag_x_batch_second,
                                       svag_y_batch_second, svag_l)
-        svag_losses.append(loss(svag_parameters, x, y))
+        svag_losses.append(root_mean_square_loss(svag_parameters, x, y))
 
         gd_parameters = gradient_descent_update(gd_parameters, x, y, learning_rate)
-        gd_losses.append(loss(gd_parameters, x, y))
-        print(f'sgd t: {t[i]}, loss: {sgd_losses[-1]}')
-        print(f'sde: {t[i]}, loss: {sde_losses[-1]}')
-        print(f'gd t: {t[i]}, loss: {gd_losses[-1]}')
+        gd_losses.append(root_mean_square_loss(gd_parameters, x, y))
+        print(f'sgd t: {t[i]}, root_mean_square_loss: {sgd_losses[-1]}')
+        print(f'sde: {t[i]}, root_mean_square_loss: {sde_losses[-1]}')
+        print(f'gd t: {t[i]}, root_mean_square_loss: {gd_losses[-1]}')
 
     y_hat_sde = batched_predict(sde_parameters, x)
     y_hat_gd = batched_predict(gd_parameters, x)
@@ -139,8 +143,8 @@ def linear_svag_test_case_with_replacement():
             svag_parameters[i] = svag_update(
                 svag_parameters[i], svag_x_batch_first, svag_y_batch_first,
                 svag_x_batch_second, svag_y_batch_second, l, learning_rate)
-            svag_losses[i].append(loss(svag_parameters[i], x, y))
-            print(f'sgd t: {t[i]}, loss: {svag_losses[i][-1]}')
+            svag_losses[i].append(root_mean_square_loss(svag_parameters[i], x, y))
+            print(f'sgd t: {t[i]}, root_mean_square_loss: {svag_losses[i][-1]}')
 
     plt.figure()
     for i, l in enumerate(svag_l):
@@ -187,8 +191,8 @@ def linear_svag_test_case_without_replacement():
                 svag_parameters[i] = svag_update(
                     svag_parameters[i], svag_x_batch_first, svag_y_batch_first,
                     svag_x_batch_second, svag_y_batch_second, l, learning_rate)
-                svag_losses[i].append(loss(svag_parameters[i], x, y))
-                print(f'sgd t: {t[i]}, loss: {svag_losses[i][-1]}')
+                svag_losses[i].append(root_mean_square_loss(svag_parameters[i], x, y))
+                print(f'sgd t: {t[i]}, root_mean_square_loss: {svag_losses[i][-1]}')
             current_time += step_size
 
     plt.figure()
@@ -347,19 +351,19 @@ def sin_test_case():
             key, subkey = random.split(key)
             sde_parameters = partial_covariance_update(sde_parameters, x, y, step_size,
                                         learning_rate, subkey)
-            sde_losses.append(loss(sde_parameters, x, y))
+            sde_losses.append(root_mean_square_loss(sde_parameters, x, y))
 
         key, key_x, key_y = random.split(key, 3)
         sgd_parameters = gradient_descent_update(
             sgd_parameters, random.choice(key_x, x, shape=(batch_size, 1)),
             random.choice(key_y, y, shape=(batch_size, 1)), learning_rate)
-        sgd_losses.append(loss(sgd_parameters, x, y))
+        sgd_losses.append(root_mean_square_loss(sgd_parameters, x, y))
 
         gd_parameters = gradient_descent_update(gd_parameters, x, y, learning_rate)
-        gd_losses.append(loss(gd_parameters, x, y))
-        print(f'sgd t: {t[i]}, loss: {sgd_losses[-1]}')
-        print(f'sde: {t[i]}, loss: {sde_losses[-1]}')
-        print(f'gd t: {t[i]}, loss: {gd_losses[-1]}')
+        gd_losses.append(root_mean_square_loss(gd_parameters, x, y))
+        print(f'sgd t: {t[i]}, root_mean_square_loss: {sgd_losses[-1]}')
+        print(f'sde: {t[i]}, root_mean_square_loss: {sde_losses[-1]}')
+        print(f'gd t: {t[i]}, root_mean_square_loss: {gd_losses[-1]}')
 
     y_hat_sde = batched_predict(sde_parameters, x)
     y_hat_gd = batched_predict(sde_parameters, x)
@@ -377,3 +381,78 @@ def sin_test_case():
     plt.plot(t[::solver_iterations], sgd_losses, label="sgd")
     plt.legend()
     plt.show()
+
+
+def svag_test():
+    jax.config.update('jax_platform_name', 'cpu')
+    number_of_points = 1024
+    x = jnp.linspace(0.0, 2.0 * jnp.pi, number_of_points)
+    x = x.reshape((number_of_points, 1))
+    y = jnp.sin(x)
+    batch_size = 32
+    key = random.PRNGKey(0)
+    sizes = [1, 2048, 1]
+    parameters = initialize_network_parameters(sizes, key)
+    y_hat = batched_predict(parameters, jnp.array([10.0]).reshape((1, 1)))
+    step_size = 0.1
+    l = 1
+    loss_values = []
+    for epoch in range(1000):
+        batches = list(get_batches(key, x, y, batch_size))
+        for (x_batch_first,
+             y_batch_first), (x_batch_second,
+                              y_batch_second) in zip(batches[::2],
+                                                     batches[1::2]):
+            parameters = svag_update(parameters, x_batch_first, y_batch_first,
+                                     x_batch_second, y_batch_second, l)
+            loss_value = root_mean_square_loss(parameters, x_batch_first,
+                                               y_batch_first)
+            print(
+                f'Epoch: {epoch}, root_mean_square_loss: {loss_value}, step_size: {step_size}'
+            )
+            loss_values.append(root_mean_square_loss(parameters, x, y))
+
+    y_hat = batched_predict(parameters, x)
+    print(y_hat.shape)
+    print(jnp.mean(jnp.square(y - y_hat)))
+    plt.figure()
+    plt.plot(loss_values)
+    plt.figure()
+    plt.plot(x, y_hat)
+    plt.show()
+
+
+def svag_test_2():
+    jax.config.update('jax_platform_name', 'cpu')
+    number_of_points = 128
+    x = jnp.linspace(0.0, 2.0 * jnp.pi, number_of_points)
+    x = x.reshape((number_of_points, 1))
+    y = jnp.sin(x)
+
+    key = random.PRNGKey(1)
+    sizes = [1, 64, 1]
+    parameters = initialize_network_parameters(sizes, key)
+    step_size = 0.1
+    batch_size = 8
+    loss_values = []
+    for epoch in range(4000):
+        for x_batch, y_batch in get_batches(x, y, batch_size, key):
+            parameters = sgd_update(parameters, x_batch, y_batch)
+            loss_value = root_mean_square_loss(parameters, x_batch, y_batch)
+            print(
+                f'Epoch: {epoch}, root_mean_square_loss: {loss_value}, step_size: {step_size}'
+            )
+        loss_values.append(root_mean_square_loss(parameters, x, y))
+
+    y_hat = batched_predict(parameters, x)
+    print(jnp.mean(jnp.square(y - y_hat)))
+    plt.figure()
+    plt.plot(loss_values)
+    plt.figure()
+    plt.plot(x, y_hat, x, y)
+
+    plt.show()
+
+if __name__ == "__main__":
+    print('hello')
+    fi = unstack_parameters

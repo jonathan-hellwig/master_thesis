@@ -1,14 +1,14 @@
 from functools import partial
-from stochastic_variance_amplified_gradient import *
 import jax.scipy.linalg as linalg
-from network import root_mean_square_loss
+import jax.numpy as jnp
+from helpers.network import root_mean_square_loss
 import jax
 
 
 
-@jit
+@jax.jit
 def partial_covariance_update(key, parameters, x, y, time_step, learning_rate):
-    full_gradients = grad(root_mean_square_loss)(parameters, x, y)
+    full_gradients = jax.grad(root_mean_square_loss)(parameters, x, y)
 
     drifts = [(-dw, -db) for (dw, db) in full_gradients]
     diffusions = diffusion(parameters, x, y, learning_rate)
@@ -34,12 +34,12 @@ def partial_covariance_update(key, parameters, x, y, time_step, learning_rate):
     return updated_parameters, sigma_norm
 
 
-@jit
+@jax.jit
 def euler_step(x, drift, diffusion, step_size, brownian_increment):
     return x + drift * step_size + jnp.dot(diffusion, brownian_increment)
 
 
-@jit
+@jax.jit
 def diffusion(parameters, x, y, learning_rate):
     covariances = diagonal_one_sample_covariance(parameters, x, y)
     sqrt_covariances = [(jnp.real(linalg.sqrtm(learning_rate * covariance_w)),
@@ -48,18 +48,18 @@ def diffusion(parameters, x, y, learning_rate):
     return sqrt_covariances
 
 
-@jit
+@jax.jit
 def diagonal_one_sample_covariance(parameters, inputs, outputs):
     assert (len(inputs) == len(outputs))
     covariances_dw = []
     covariances_db = []
-    full_gradients = grad(root_mean_square_loss)(parameters, inputs, outputs)
+    full_gradients = jax.grad(root_mean_square_loss)(parameters, inputs, outputs)
     for (w, b) in parameters:
         covariances_dw.append(jnp.zeros((w.size, w.size)))
         covariances_db.append(jnp.zeros(b.shape))
 
     for input, output in zip(inputs, outputs):
-        partial_gradients = grad(root_mean_square_loss)(parameters,
+        partial_gradients = jax.grad(root_mean_square_loss)(parameters,
                                                         input.reshape((1, 1)),
                                                         output.reshape((1, 1)))
         for j, ((full_dw, full_db), (partial_dw, partial_db)) in enumerate(
@@ -75,12 +75,12 @@ def diagonal_one_sample_covariance(parameters, inputs, outputs):
     ]
 
 
-@jit
+@jax.jit
 def covariate(full, partial):
     return jnp.dot((partial - full), (partial - full).T)
 
 
-@jit
+@jax.jit
 def sqrt_matrix(normalized_matrix):
     # TODO: Handle the other case
     u, s, _ = jnp.linalg.svd(normalized_matrix)
@@ -102,7 +102,7 @@ def flatten(xss):
     return [x for xs in xss for x in xs]
 
 
-@jit
+@jax.jit
 def stack_parameters(parameters):
     flattend_parameters = flatten(parameters)
     stacked_parameters = jnp.vstack(
@@ -110,7 +110,7 @@ def stack_parameters(parameters):
     return stacked_parameters
 
 
-@partial(jax.jit, static_argnames=['sizes'])
+@partial(jax.jax.jit, static_argnames=['sizes'])
 def unstack_parameters(sizes, stacked_parameters):
     split_indices = get_split_indices(sizes)
     split_parameters = jnp.split(stacked_parameters, split_indices)
@@ -123,9 +123,9 @@ def unstack_parameters(sizes, stacked_parameters):
 
 
 # TODO: Correct for batch size
-@jit
+@jax.jit
 def get_full_covariance(parameters, x, y):
-    gradient = grad(root_mean_square_loss)
+    gradient = jax.grad(root_mean_square_loss)
     full_gradient = stack_parameters(gradient(parameters, x, y))
     gradient_samples = jnp.hstack(
         tuple(
@@ -137,16 +137,16 @@ def get_full_covariance(parameters, x, y):
     return sqrt_covariance
 
 
-@jit
+@jax.jit
 def get_drift(parameters, x, y):
-    return -stack_parameters(grad(root_mean_square_loss)(parameters, x, y))
+    return -stack_parameters(jax.grad(root_mean_square_loss)(parameters, x, y))
 
 
-@partial(jax.jit, static_argnames=['sizes'])
+@partial(jax.jax.jit, static_argnames=['sizes'])
 def full_covariance_update(key, parameters, sizes, x, y, time_step,
                            learning_rate):
     stacked_parameters = stack_parameters(parameters)
-    mu = -stack_parameters(grad(root_mean_square_loss)(parameters, x, y))
+    mu = -stack_parameters(jax.grad(root_mean_square_loss)(parameters, x, y))
     sigma = jnp.sqrt(learning_rate) * get_full_covariance(parameters, x, y)
     brownian_increment = jnp.sqrt(time_step) * jax.random.normal(key, mu.shape)
     updated_parameters = euler_step(stacked_parameters, mu, sigma, time_step,

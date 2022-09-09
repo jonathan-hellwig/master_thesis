@@ -1,5 +1,5 @@
 from jax import jit, grad
-from network import root_mean_square_loss
+from helpers.network import root_mean_square_loss
 
 @jit
 def gradient_descent_update(parameters, x, y, learning_rate):

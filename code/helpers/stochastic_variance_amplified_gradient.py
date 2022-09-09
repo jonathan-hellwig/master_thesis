@@ -1,6 +1,6 @@
 from jax import grad, jit
 import jax.numpy as jnp
-from network import root_mean_square_loss
+from helpers.network import root_mean_square_loss
 
 
 @jit
