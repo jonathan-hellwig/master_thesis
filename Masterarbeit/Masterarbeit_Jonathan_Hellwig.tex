@@ -241,7 +241,7 @@ Notice that every global minimizer is also a local minimizer. It is difficult to
 \end{theorem}
 The first theorem builds the foundation for all commonly used optimization techniques in deep learning. The gradient can be  efficiently calculated with a procedure called backpropagation which makes use of the recursive structure of neural networks. Finding candidates for local minima boils down to finding $w^\star$ such that $\nabla f(w^\star) = 0$. This leads to the following definition.
 \begin{definition}
-  A solution $w^\star \in S$ to the equation
+  A solution $w^\star \in \mathbb{R}^d$ to the equation
   \begin{equation}
   \label{eq:StationaryPoint}
     \nabla f(w^\star) = 0
@@ -262,96 +262,138 @@ It is easy to show that given an initial value $w \in \mathbb{R}^d$ and a descen
 \begin{definition}
   For a given initial value $x_0 \in \mathbb{R}^d$ a sequence defined by
 \begin{equation}
-  w^{(k+1)} = w^{(k)} + \eta^{(k)} g^{(k)}(w^{(k)}),
+  w^{(k+1)} = w^{(k)} + \eta^{(k)} g(w^{(k)}),
 \end{equation}
-  where $\{\eta^{(k)}\}_{k=1}^\infty$ is called step size and $\{g^{(k)}\}_{k=1}^\infty$ is a sequence of descent directions is called \emph{one-step descent method}.
+  where $\{\eta^{(k)}\}_{k=1}^\infty$ is called step size and $\{g(w^{(k)})\}_{k=1}^\infty$ is a sequence of descent directions is called \emph{one-step descent method}.
 \end{definition}
 
 The most quintessential descent method for $g^{(k)} = - \nabla f(w^{(k)})$ is given by
-\begin{equation}  
+\begin{equation}
+  \label{eq:gradient_descent}
   w^{(k+1)} = w^{(k)} - \eta^{(k)} \nabla f(w^{(k)}).
 \end{equation}
-It is easy to see that we have ${g^{(k)}}^T \nabla f(w^{(k)}) = -|| f(w^{(k)}) ||^2 < 0$ as long as the iterates have not converged to a stationary point. This iterative scheme is called \emph{gradient descent method} and forms the basis for many of the iterative schemes used in deep learning practice. 
-
-Notice that the computation of each iterate requires the computation of the gradient $\nabla f$. For functions of the form $f(w) = \frac{1}{n} \sum_{i=1}^n f_i(w)$ this means computing each $\nabla f_i$ individually. Remember that in deep learning settings $f_i$ represents the loss with respect to one data point $(x_i, y_i)$. When the number of data points is large, computing the full gradient $\nabla f$ becomes prohibitively expensive. 
-Instead of computing the full gradient a sample $\frac{1}{b}\sum \nabla f$ is used. This introduces stochasticity to the optimization process. 
-Other schemes,\dots
-
+It is easy to see that we have ${g^{(k)}}^T \nabla f(w^{(k)}) = -|| f(w^{(k)}) ||^2 < 0$ as long as the iterates have not converged to a stationary point. This iterative scheme is called \emph{gradient descent method} (GD) and forms the basis for many of the iterative schemes used in deep learning practice. It is important to note that after defining such an iterative scheme it is unclear whether it actually converges to a minimizer. In the later sections of this chapter we will discuss the classes of functions for which convergence can be established and how they relate to deep learning practice. Before diving into the theoretical analysis of descent methods let us consider an extension to the gradient descent method. \\ 
+Notice that in (\ref{eq:gradient_descent}) the computation of each iterate requires the computation of the gradient $\nabla f$. For objective functions of the form $f(w) = \frac{1}{n} \sum_{i=1}^n f_i(w)$ this requires the computation of each $\nabla f_i(w)$ individually. Remember that in deep learning settings $f_i$ represents the loss $l(m_w(x_i), y_i)$ with respect to a single data point $(x_i, y_i)$. When the number of data points is large, computing the full gradient $\nabla f$ becomes prohibitively expensive. In fact, ImageNet (citation), a benchmark dataset for image classification, contains over 1.2 million images. If we treat each individual gradient $\nabla f_i(w)$ as a realization of a random variable $\nabla f_{\gamma}(w)$ with expected value $\mathbb{E}(\nabla f_{\gamma}(w)) = \nabla f(w)$, we can estimate $\nabla f(w)$ by calculating the sample average. In particular, this leads to the definition of the following random process:
+\begin{equation}
+  \label{eq:stochastic_gradient_descent}
+  w^{(k+1)} = w^{(k)} - \eta^{(k)} \nabla f_{\gamma_k}(w^{(k)}),
+\end{equation}
+where $\gamma_k$ are independently distributed random variables with the same distribution as $\gamma$. This iteration method is called \emph{stochastic gradient descent} (SGD).
+In view of (\ref{eq:stochastic_gradient_descent}), let us define a class of one-step stochastic descent methods:
 \begin{definition}
-  An iterative method ($\{\eta^{(k)}\}_{k=1}^\infty$, $\{g^{(k)}\}_{k=1}^\infty$) is said to converge linearly if there exists a constant $1 > C > 0$ such that 
-  \begin{equation}
-    \lim_{k \rightarrow \infty} \frac{||w^{(k+1)} - w^\star||}{||w^{(k)} - w^\star||} < M
-  \end{equation}
-  and it is said to converge sublinearly if 
-  \begin{equation}
-    \lim_{k \rightarrow \infty} \frac{||w^{(k+1)} - w^\star||}{||w^{(k)} - w^\star||} = 1
-  \end{equation}
-  holds.
+  For a given initial value $x_0 \in \mathbb{R}^d$ the stochastic process defined by
+\begin{equation}
+  w^{(k+1)} = w^{(k)} + \eta^{(k)} g(w^{(k)}, \gamma_k),
+\end{equation}
+  where $g:\mathbb{R}^d \times \Gamma \rightarrow \mathbb{R}^d$ is a measurable function, is called \emph{stochastic one-step descent method}.
 \end{definition}
-
+This class of stochastic iterative methods encompasses many commonly used optimization methods. Note that while introducing stochasticity to the optimization process allows for increased computational speed, it makes analysis of a method more difficult. In fact, for the analysis of stochastic methods it is not sufficient to only consider the expected value $\mathbb{E}(\nabla f_{\gamma}(w))$ of the gradients. As we will see in the following sections, the variance $\mathbb{V}(\nabla f_{\gamma}(w)) = \mathbb{E}((\nabla f_{\gamma}(w) - \nabla f(w)){(\nabla f_{\gamma}(w) - \nabla f(w))}^T)$ of the gradients also needs to be considered. (rephrase) \\
+The SGD method serves as a prototype for a lot of optimization methods. (rephrase) A simple extension is \emph{stochastic gradient descent with momentum}. 
+\begin{align*}
+  w^{(k+1)} &= \mu v^{(k)} - \eta \nabla f_{\gamma_k}(w^{(k)}) \\
+  v^{(k+1)} &= w^{(k)} + v^{(k)},
+\end{align*}
+where $\mu \in (0,1)$ is called \emph{momentum parameter}. (citation)
+\subsection{Convergence analysis}
+% \begin{definition}
+%   An iterative method ($\{\eta^{(k)}\}_{k=1}^\infty$, $\{g^{(k)}\}_{k=1}^\infty$) is said to converge linearly if there exists a constant $1 > C > 0$ such that 
+%   \begin{equation}
+%     \lim_{k \rightarrow \infty} \frac{||w^{(k+1)} - w^\star||}{||w^{(k)} - w^\star||} < M
+%   \end{equation}
+%   and it is said to converge sublinearly if 
+%   \begin{equation}
+%     \lim_{k \rightarrow \infty} \frac{||w^{(k+1)} - w^\star||}{||w^{(k)} - w^\star||} = 1
+%   \end{equation}
+%   holds.
+% \end{definition}
+In this section, we will discuss some convergence results for SGD present in literature. First, we will introduce smoothness and convexity concepts.  
 
 \begin{definition}
-  A function $f$ is said to be L-smooth if its gradient are Lipschitz continuous, that is 
+  \label{def:l_smooth}
+  A function $f$ is said to be \emph{$L$-smooth} if its gradient are Lipschitz continuous, that is 
   \begin{equation}
-    ||\nabla f(w) - \nabla f(y) || \leq L ||w-y||,
+    ||\nabla f(w) - \nabla f(v) || \leq L ||w-v||,
   \end{equation}
-  for $w,y \in \mathbb{R}$.
+  for $w,v \in \mathbb{R}^d$.
 \end{definition}
-
+From the above definition we have the following lemma.
+\begin{lemma}
+  Let $f : \mathbb{R}^d \rightarrow \mathbb{R}$ be a $L$-smooth function. Then, we have 
+  \begin{equation}
+    f(w) \leq f(v) + \langle \nabla f(w), v - w \rangle + \frac{L}{2} || v - w ||^2,
+  \end{equation}
+  for all $v, w \in \mathbb{R}^d$.
+\end{lemma}
 \begin{definition}
-  A function $f$ is said to be convex if 
+  A function $f$ is said to be \emph{convex} if 
   \begin{equation}
     f(tx+(1-t)y) \leq tf(x)+(1-t)f(y),
   \end{equation}
   for all $x,y \in \mathbb{R}^n$ and $t \in [0,1]$.
 \end{definition}
-Conventional convergence results require exact line search.
 
-\cite{nesterov2003introductory}
-\begin{theorem}
-  Let $f$ satisfy assumptions ... and let $x^{(0)}$ be chosen such that 
+\begin{definition}
+  A function $f : \mathbb{R}^d \rightarrow \mathbb{R}$ is said to be $\mu$-\emph{strongly convex} if
   \begin{equation}
-    r^{(0)} = ||x^{(k)} - x^\star|| \leq \frac{\bar{r}r^{(0)}}{\bar{r}-r^{(0)}}(1-\frac{2l}{L+3l}),
+    f(w) \geq f(v) + \langle \nabla f(w), v - w \rangle + \frac{\mu}{2} || v - w ||^2,
   \end{equation}
-  where $\bar{r} = \frac{2l}{M}$.
-\end{theorem}
+  for all $v, w \in \mathbb{R}^d$.
+\end{definition}
+
+\begin{assumption}
+  \begin{enumerate}
+    \item The sequence of iterates $w^{(k)}$ is contained in an open set over which $f$ is bounded from below by a scalar $f_{inf}$.
+    \item There exist scalars $\mu_G \leq \mu > 0$ such that, for all $k \in \mathbb{N}$, \begin{align}
+      \nabla {f(w^{(k)})}^T\mathbb{E}(g(w^{(k)}, \gamma_k)) &\leq || \nabla f (w^{(k)}) ||^2 \\
+      || \mathbb{E}(g(w^{(k)}, \gamma_k))|| &\leq \mu_G ||\nabla f (w^{(k)})||.
+    \end{align}
+    \item There exist scalars $M \leq 0$ and $M_V \leq 0$ such that, for all $k \in \mathbb{N}$, \begin{equation}
+      \mathbb{V}(g(w^{(k)}, \gamma_k)) \leq M + M_V ||\nabla f(w^{(k)}) ||^2
+    \end{equation} 
+  \end{enumerate}
+\end{assumption}
+(citation)
+
+\begin{assumption}
+  A function $f:\mathbb{R}^d \rightarrow \mathbb{R}$ is said to be $L$-\emph{smooth in expectation} with respect to the distribution $\mathcal{D}$ if there exists $L = L(f, \mathcal{D}) > 0$ such that 
+  \begin{equation}
+    \mathbb{E}(||\nabla f_{\gamma}(w) - \nabla f_{\gamma}(w^\star)||^2) \leq 2 L(f(w) - f(w^\star)),
+  \end{equation}
+  for all $w \in \mathbb{R}^d$. 
+\end{assumption}
+
+% Conventional convergence results require exact line search.
+
+% \cite{nesterov2003introductory}
+% \begin{theorem}
+%   Let $f$ satisfy assumptions ... and let $x^{(0)}$ be chosen such that 
+%   \begin{equation}
+%     r^{(0)} = ||x^{(k)} - x^\star|| \leq \frac{\bar{r}r^{(0)}}{\bar{r}-r^{(0)}}(1-\frac{2l}{L+3l}),
+%   \end{equation}
+%   where $\bar{r} = \frac{2l}{M}$.
+% \end{theorem}
 
 \begin{theorem}
-  Let $f$ be convex and L-smooth and let $\{x^{(k)}\}$ be a sequence generated by the gradient descent method. It follows that 
+  Let $f$ be convex and L-smooth and let $\{w^{(k)}\}$ be a sequence generated by the gradient descent method. It follows that 
   \begin{equation}
-    f(x^{(k)}) - f(x^\star) \leq \frac{2L||x^{(0)} - x^\star||^2}{k-1}
+    f(w^{(k)}) - f(w^\star) \leq \frac{2L||w^{(0)} - w^\star||^2}{k-1}
   \end{equation}
 \end{theorem}
 
 \begin{theorem}
   Let $f$ be L-smooth. It follows
   \begin{equation}
-    \min_{k=1,\dots,N} ||\nabla f(x^{(k)})||^2 \leq \frac{L^2}{N}||x^{(0)}-x^\star||^2
+    \min_{k=1,\dots,N} ||\nabla f(w^{(k)})||^2 \leq \frac{L^2}{N}||w^{(0)}-w^\star||^2
   \end{equation}
 \end{theorem}
 
 \begin{theorem}
-  Let $f$ be L-smooth and $\mu$-strongly convex. From a given $x^{(0)}$ and $\frac{1}{L} \geq \alpha > 0$, the iterates generated by the gradient descent method converge according to
+  Let $f$ be L-smooth and $\mu$-strongly convex. From a given $w^{(0)}$ and $\frac{1}{L} \geq \alpha > 0$, the iterates generated by the gradient descent method converge according to
   \begin{equation}
-    ||x^{(k+1)} - x^\star ||^2 \leq (1-\alpha \mu)^{k+1}||x^{(0)} - x^star||^2
+    ||w^{(k+1)} - w^\star ||^2 \leq (1-\alpha \mu)^{k+1}||w^{(0)} - w^\star||^2
   \end{equation}
 \end{theorem}
-\subsubsection{Newton's method}
-\begin{equation}
-  x^{(k+1)} = x^{(k)} - (\nabla^2 f(x^{(k)}))^{-1}\nabla f(x^{(k)}),
-\end{equation}
-\subsection{Stochastic Optimization}
-\label{sec:StochasticOptimization}
-\begin{equation}
-  x^{(k+1)} = x^{(k)} - \eta^{(k)} Z^{(k)},
-\end{equation}
-\subsubsection{Stochastic Gradient Descent}
-% Convergence results
-% Variants
-% Gradient flow
 
-\subsubsection{State of the art algorithms}
-\label{sec:StateOfTheArtAlgorithms}
 
 \section{Background SDE theory}
 \label{sec:BackgroundSDETheory}
@@ -433,6 +475,15 @@ for $0 \leq n \leq N$.
 \section{Modeling stochastic model with SDE}
 
 \subsection{SGD}
+
+\begin{assumption}
+  The random variable satisfies 
+  \begin{enumerate}
+    \item $f_{\gamma}(w) \in \mathcal{L}^1(\Omega)$ for all $w \in \mathbb{R}^d$
+    \item $f_{\gamma}(w)$ is continuously differentiable in $w$ almost surely and for each $R > 0$, there exists a random variable $M_{R,\gamma}$ such that $\max_{||x|| \leq R}|| \nabla f_{\gamma}(w) || \leq M_{R,\gamma}$ almost surely, with $\mathbb{E} |M_{R,\gamma}| < \infty$.
+    \item $\nabla f_{\gamma}(w) \in \mathcal{L}^2(\Omega)$ for all $w \in \mathbb{R}^d$.
+  \end{enumerate}
+\end{assumption}
 A class of loss function $f$ relevant to machine learning applications is usually given in the form $f(x,y) = \sum_{i=1}^n f_i(x,y)$.
 \begin{equation}
   x^{(k+1)} = x^{(k)} - \psi^k \nabla f(x^{(k)}) h +  \psi(t)\sqrt{h/b^{(k)}} \sigma_{MB}(x^{(k)})Z^{(k)}
@@ -468,6 +519,19 @@ for independently sampled $i,j$.
 \subsection{Assumptions for solving}
 \section{Experimental Verification} 
 \label{sec:ExperimentalVerification}
+Consider the following model: Let $H \in \mathbb{R}^{d\times d}$ be a symmetric, positive matrix. Define the sample objective 
+\begin{equation}
+  f_{\gamma}(w) = \frac{1}{2} (w - \gamma)^T H (w - \gamma) - \frac{1}{2} Tr(H)
+\end{equation}
+for $\gamma ~ N(0,I)$. The total objective is $f(w) = \mathbb{E} f_{\gamma}(w) = \frac{1}{2} w^T H w$.
+The stochastic differential equation becomes 
+\begin{equation}
+  dW_t = -H W_t dt + \sqrt{\eta}H dB_t.
+\end{equation}
+This process is called Ornstein-Uhlenbeck process and posses the analytical solution
+\begin{equation}
+  W_t = e^{-t H}(W_0 + \sqrt{\eta}\int_0^te^{s H}H dB_s).
+\end{equation}
 \section{Conclusion}
 
 \printbibliography

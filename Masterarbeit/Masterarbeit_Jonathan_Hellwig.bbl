@@ -84,31 +84,6 @@
       \field{pages}{12712\bibrangedash 12725}
       \range{pages}{14}
     \endentry
-    \entry{nesterov2003introductory}{book}{}
-      \name{author}{1}{}{%
-        {{hash=8a41b35fe7b3d1725cb95bd7eec40b01}{%
-           family={Nesterov},
-           familyi={N\bibinitperiod},
-           given={Yurii},
-           giveni={Y\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer Science \& Business Media}%
-      }
-      \strng{namehash}{8a41b35fe7b3d1725cb95bd7eec40b01}
-      \strng{fullhash}{8a41b35fe7b3d1725cb95bd7eec40b01}
-      \strng{bibnamehash}{8a41b35fe7b3d1725cb95bd7eec40b01}
-      \strng{authorbibnamehash}{8a41b35fe7b3d1725cb95bd7eec40b01}
-      \strng{authornamehash}{8a41b35fe7b3d1725cb95bd7eec40b01}
-      \strng{authorfullhash}{8a41b35fe7b3d1725cb95bd7eec40b01}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Introductory lectures on convex optimization: A basic course}
-      \field{volume}{87}
-      \field{year}{2003}
-    \endentry
   \enddatalist
 \endrefsection
 \endinput

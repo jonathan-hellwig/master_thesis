@@ -5,14 +5,11 @@
 \contentsline {subsection}{\numberline {2.1}Formal problem definition}{7}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Characterization of minimizers}{7}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Iterative methods}{9}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Newton's method}{10}{subsubsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.4}Stochastic Optimization}{11}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Stochastic Gradient Descent}{11}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}State of the art algorithms}{11}{subsubsection.2.4.2}%
-\contentsline {section}{\numberline {3}Background SDE theory}{11}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Ito Integral}{11}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}SDE Definition}{11}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}SDE Existence Uniqueness}{11}{subsection.3.3}%
+\contentsline {subsection}{\numberline {2.4}Convergence analysis}{10}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Background SDE theory}{12}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ito Integral}{12}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}SDE Definition}{12}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}SDE Existence Uniqueness}{12}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}SDE Numerical methods}{12}{subsection.3.4}%
 \contentsline {section}{\numberline {4}Modeling stochastic model with SDE}{13}{section.4}%
 \contentsline {subsection}{\numberline {4.1}SGD}{13}{subsection.4.1}%
@@ -20,4 +17,4 @@
 \contentsline {section}{\numberline {5}Solving SDE Model}{14}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Assumptions for solving}{14}{subsection.5.1}%
 \contentsline {section}{\numberline {6}Experimental Verification}{14}{section.6}%
-\contentsline {section}{\numberline {7}Conclusion}{14}{section.7}%
+\contentsline {section}{\numberline {7}Conclusion}{15}{section.7}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.27)  8 SEP 2022 15:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.27)  8 SEP 2022 18:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -855,12 +855,12 @@ LaTeX Info: Redefining \nameref on input line 108.
 \@outlinefile=\write5
 \openout5 = `Masterarbeit_Jonathan_Hellwig.out'.
 
-<pics/MATH_de.pdf, id=95, 234.8775pt x 69.25874pt>
+<pics/MATH_de.pdf, id=83, 234.8775pt x 69.25874pt>
 File: pics/MATH_de.pdf Graphic file (type pdf)
 <use pics/MATH_de.pdf>
 Package pdftex.def Info: pics/MATH_de.pdf  used on input line 114.
 (pdftex.def)             Requested size: 221.93173pt x 65.44142pt.
-<pics/TUHH_de.pdf, id=96, 1189.44376pt x 409.53pt>
+<pics/TUHH_de.pdf, id=84, 1189.44376pt x 409.53pt>
 File: pics/TUHH_de.pdf Graphic file (type pdf)
 <use pics/TUHH_de.pdf>
 Package pdftex.def Info: pics/TUHH_de.pdf  used on input line 116.
@@ -883,26 +883,26 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@lof=\write7
 \openout7 = `Masterarbeit_Jonathan_Hellwig.lof'.
 
- [6] [7] [8] [9] [10] [11] [12] [13] [14] (./Masterarbeit_Jonathan_Hellwig.aux)
+ [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] (./Masterarbeit_Jonathan_Hellwig.aux)
 Package rerunfilecheck Info: File `Masterarbeit_Jonathan_Hellwig.out' has not changed.
-(rerunfilecheck)             Checksum: 72A4D796E9FF41A90E3D0FC2433A4D20;3526.
+(rerunfilecheck)             Checksum: 63E9D4485F0CA6F2CE42D0DD5A59F9EA;2941.
 Package logreq Info: Writing requests to 'Masterarbeit_Jonathan_Hellwig.run.xml'.
 \openout1 = `Masterarbeit_Jonathan_Hellwig.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 32105 strings out of 478238
- 597844 string characters out of 5850456
- 1297053 words of memory out of 5000000
- 49800 multiletter control sequences out of 15000+600000
+ 32111 strings out of 478238
+ 597671 string characters out of 5850456
+ 1297978 words of memory out of 5000000
+ 49794 multiletter control sequences out of 15000+600000
  476668 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,6n,89p,801b,1850s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 84i,9n,89p,1053b,1850s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Masterarbeit_Jonathan_Hellwig.pdf (14 pages, 228154 bytes).
+Output written on Masterarbeit_Jonathan_Hellwig.pdf (15 pages, 237303 bytes).
 PDF statistics:
- 352 PDF objects out of 1000 (max. 8388607)
- 301 compressed objects within 4 object streams
- 100 named destinations out of 1000 (max. 500000)
- 199 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 359 PDF objects out of 1000 (max. 8388607)
+ 307 compressed objects within 4 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 175 words of extra memory for PDF output out of 10000 (max. 10000000)
 
