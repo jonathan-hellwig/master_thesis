@@ -19,37 +19,694 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{kushner2003stochastic}{book}{}
-      \name{author}{2}{}{%
-        {{hash=6be4c53f78cb227c1af73992c12ad818}{%
-           family={Kushner},
-           familyi={K\bibinitperiod},
-           given={Harold},
-           giveni={H\bibinitperiod}}}%
-        {{hash=ae6674a6724a4bc157bd4e4d95373826}{%
-           family={Yin},
-           familyi={Y\bibinitperiod},
-           given={G\bibnamedelima George},
-           giveni={G\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+    \entry{bottouOptimizationMethodsLargeScale2018}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ac762f2592005edf6bad58f566967c6c}{%
+           family={Bottou},
+           familyi={B\bibinitperiod},
+           given={Léon},
+           giveni={L\bibinitperiod}}}%
+        {{hash=70bd503fe79d5024977023f0d0f2e6dd}{%
+           family={Curtis},
+           familyi={C\bibinitperiod},
+           given={Frank\bibnamedelima E.},
+           giveni={F\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=88a342d927bf795b0d92af8a5613da31}{%
+           family={Nocedal},
+           familyi={N\bibinitperiod},
+           given={Jorge},
+           giveni={J\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Springer Science \& Business Media}%
+        {Society for Industrial and Applied Mathematics}%
       }
-      \strng{namehash}{59bf73d1f642eea1babe4bb4b530e0c6}
-      \strng{fullhash}{59bf73d1f642eea1babe4bb4b530e0c6}
-      \strng{bibnamehash}{59bf73d1f642eea1babe4bb4b530e0c6}
-      \strng{authorbibnamehash}{59bf73d1f642eea1babe4bb4b530e0c6}
-      \strng{authornamehash}{59bf73d1f642eea1babe4bb4b530e0c6}
-      \strng{authorfullhash}{59bf73d1f642eea1babe4bb4b530e0c6}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \strng{namehash}{e1edfb395f54bf5da0ff4732b4f64379}
+      \strng{fullhash}{e1edfb395f54bf5da0ff4732b4f64379}
+      \strng{bibnamehash}{e1edfb395f54bf5da0ff4732b4f64379}
+      \strng{authorbibnamehash}{e1edfb395f54bf5da0ff4732b4f64379}
+      \strng{authornamehash}{e1edfb395f54bf5da0ff4732b4f64379}
+      \strng{authorfullhash}{e1edfb395f54bf5da0ff4732b4f64379}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Stochastic approximation and recursive algorithms and applications}
-      \field{volume}{35}
-      \field{year}{2003}
+      \field{abstract}{This paper provides a review and commentary on the past, present, and future of numerical optimization algorithms in the context of machine learning applications. Through case studies on text classification and the training of deep neural networks, we discuss how optimization problems arise in machine learning and what makes them challenging. A major theme of our study is that large-scale machine learning represents a distinctive setting in which the stochastic gradient (SG) method has traditionally played a central role while conventional gradient-based nonlinear optimization techniques typically falter. Based on this viewpoint, we present a comprehensive theory of a straightforward, yet versatile SG algorithm, discuss its practical behavior, and highlight opportunities for designing algorithms with improved performance. This leads to a discussion about the next generation of optimization methods for large-scale machine learning, including an investigation of two main streams of research on techniques that diminish noise in the stochastic directions and methods that make use of second-order derivative approximations.}
+      \field{issn}{0036-1445}
+      \field{journaltitle}{SIAM Review}
+      \field{month}{1}
+      \field{number}{2}
+      \field{shortjournal}{SIAM Rev.}
+      \field{title}{Optimization {{Methods}} for {{Large-Scale Machine Learning}}}
+      \field{urlday}{5}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{60}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{223\bibrangedash 311}
+      \range{pages}{89}
+      \verb{doi}
+      \verb 10.1137/16M1080173
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/HVTDRSTJ/Bottou et al_2018_Optimization Methods for Large-Scale Machine Learning.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://epubs.siam.org/doi/10.1137/16M1080173
+      \endverb
+      \verb{url}
+      \verb https://epubs.siam.org/doi/10.1137/16M1080173
+      \endverb
+      \keyw{convergence,SGD,theory,thesis,toread}
     \endentry
-    \entry{li2021validity}{article}{}
+    \entry{boydConvexOptimization2004}{book}{}
+      \name{author}{2}{}{%
+        {{hash=ec94d94cc487dd71939a90cbeaaf47d0}{%
+           family={Boyd},
+           familyi={B\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=2608d599a0bc2a784c301329a8da5f7b}{%
+           family={Vandenberghe},
+           familyi={V\bibinitperiod},
+           given={Lieven},
+           giveni={L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{436abed3bce8d1b1d30640d4e5ff3d58}
+      \strng{fullhash}{436abed3bce8d1b1d30640d4e5ff3d58}
+      \strng{bibnamehash}{436abed3bce8d1b1d30640d4e5ff3d58}
+      \strng{authorbibnamehash}{436abed3bce8d1b1d30640d4e5ff3d58}
+      \strng{authornamehash}{436abed3bce8d1b1d30640d4e5ff3d58}
+      \strng{authorfullhash}{436abed3bce8d1b1d30640d4e5ff3d58}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Convex optimization problems arise frequently in many different fields. This book provides a comprehensive introduction to the subject, and shows in detail how such problems can be solved numerically with great efficiency. The book begins with the basic elements of convex sets and functions, and then describes various classes of convex optimization problems. Duality and approximation techniques are then covered, as are statistical estimation techniques. Various geometrical problems are then presented, and there is detailed discussion of unconstrained and constrained minimization problems, and interior-point methods. The focus of the book is on recognizing convex optimization problems and then finding the most appropriate technique for solving them. It contains many worked examples and homework exercises and will appeal to students, researchers and practitioners in fields such as engineering, computer science, mathematics, statistics, finance and economics.}
+      \field{day}{8}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-1-107-39400-1}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{pagetotal}{744}
+      \field{title}{Convex {{Optimization}}}
+      \field{year}{2004}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb IUZdAAAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/I8Z26ZZ5/Boyd_Vandenberghe_2004_Convex Optimization.pdf
+      \endverb
+      \keyw{background,optimization,theory,thesis}
+    \endentry
+    \entry{brownLanguageModelsAre2020}{misc}{}
+      \name{author}{31}{}{%
+        {{hash=7c16e8d36475e58d4f2d161e6ecb7704}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Tom\bibnamedelima B.},
+           giveni={T\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=d4543c3bcd6aaf414da4296b349603e5}{%
+           family={Mann},
+           familyi={M\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9ac58bd43db2434e8e1ffd6182c3fcda}{%
+           family={Ryder},
+           familyi={R\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod}}}%
+        {{hash=9ed243177743da3e650f1cff6376bb3c}{%
+           family={Subbiah},
+           familyi={S\bibinitperiod},
+           given={Melanie},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9e85370e215d552f72c95a2b63a37802}{%
+           family={Kaplan},
+           familyi={K\bibinitperiod},
+           given={Jared},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4164e43d8cf919f5e3f8d80f5ea23f36}{%
+           family={Dhariwal},
+           familyi={D\bibinitperiod},
+           given={Prafulla},
+           giveni={P\bibinitperiod}}}%
+        {{hash=4ca421ceeb5b516dd8fc64bea5a23f2a}{%
+           family={Neelakantan},
+           familyi={N\bibinitperiod},
+           given={Arvind},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ab5d7d7b9cfeaad635c4a60e8950d7dd}{%
+           family={Shyam},
+           familyi={S\bibinitperiod},
+           given={Pranav},
+           giveni={P\bibinitperiod}}}%
+        {{hash=3c1d9a663596faaf544c1a65aac581be}{%
+           family={Sastry},
+           familyi={S\bibinitperiod},
+           given={Girish},
+           giveni={G\bibinitperiod}}}%
+        {{hash=1e84eff933be9f4887bf369cf181bf12}{%
+           family={Askell},
+           familyi={A\bibinitperiod},
+           given={Amanda},
+           giveni={A\bibinitperiod}}}%
+        {{hash=abe4801e322e893b23785fd6d0800b5c}{%
+           family={Agarwal},
+           familyi={A\bibinitperiod},
+           given={Sandhini},
+           giveni={S\bibinitperiod}}}%
+        {{hash=787b9715a98ea66a8d5e6bae042ae0b9}{%
+           family={Herbert-Voss},
+           familyi={H\bibinithyphendelim V\bibinitperiod},
+           given={Ariel},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c3a5cc5e520e0d1a9f8bbf377c74cd27}{%
+           family={Krueger},
+           familyi={K\bibinitperiod},
+           given={Gretchen},
+           giveni={G\bibinitperiod}}}%
+        {{hash=eb1d3044b466619459c76843f0e98bb9}{%
+           family={Henighan},
+           familyi={H\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+        {{hash=5c2f5c2e6d4a9ec8681377f8a8e5e6af}{%
+           family={Child},
+           familyi={C\bibinitperiod},
+           given={Rewon},
+           giveni={R\bibinitperiod}}}%
+        {{hash=82063a12702e7b2c026ae0ff03b8f102}{%
+           family={Ramesh},
+           familyi={R\bibinitperiod},
+           given={Aditya},
+           giveni={A\bibinitperiod}}}%
+        {{hash=18becbb5ea500211a8219e94dd0a975c}{%
+           family={Ziegler},
+           familyi={Z\bibinitperiod},
+           given={Daniel\bibnamedelima M.},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=495187f3a2c93ddb8083bd18a5702527}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fdaff50f84c08440dcb5fad75b559780}{%
+           family={Winter},
+           familyi={W\bibinitperiod},
+           given={Clemens},
+           giveni={C\bibinitperiod}}}%
+        {{hash=68a04c5006dbbf98f7719709540c6b56}{%
+           family={Hesse},
+           familyi={H\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=fb15a691583ec94aafe0be6e7da4878f}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=2a5f009f12a0567430729b5ace41435d}{%
+           family={Sigler},
+           familyi={S\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+        {{hash=e5aa3a709cbe706efba113bec9789364}{%
+           family={Litwin},
+           familyi={L\bibinitperiod},
+           given={Mateusz},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7006ca8c1ce969019b89de50fece60dd}{%
+           family={Gray},
+           familyi={G\bibinitperiod},
+           given={Scott},
+           giveni={S\bibinitperiod}}}%
+        {{hash=01f70651539bbd7dccc01e86ed9c78c3}{%
+           family={Chess},
+           familyi={C\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=1480c861b1a73e1d1de1b227e985b179}{%
+           family={Clark},
+           familyi={C\bibinitperiod},
+           given={Jack},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ca86811e7a0582a9e7cb8d33e7ab445d}{%
+           family={Berner},
+           familyi={B\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b51e7c5fe92844f39ce52b8a5fa5675f}{%
+           family={McCandlish},
+           familyi={M\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod}}}%
+        {{hash=a812c46caad94fc8701be37871f303ba}{%
+           family={Radford},
+           familyi={R\bibinitperiod},
+           given={Alec},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8d569d1d5b8b5a7836017a98b430f959}{%
+           family={Sutskever},
+           familyi={S\bibinitperiod},
+           given={Ilya},
+           giveni={I\bibinitperiod}}}%
+        {{hash=1e6adbf36ab730cd5fdadb838b4d2667}{%
+           family={Amodei},
+           familyi={A\bibinitperiod},
+           given={Dario},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{0884233a667161739ddd01569813457f}
+      \strng{fullhash}{b108601e4cbc36ef53b96ac01974e069}
+      \strng{bibnamehash}{0884233a667161739ddd01569813457f}
+      \strng{authorbibnamehash}{0884233a667161739ddd01569813457f}
+      \strng{authornamehash}{0884233a667161739ddd01569813457f}
+      \strng{authorfullhash}{b108601e4cbc36ef53b96ac01974e069}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general.}
+      \field{day}{22}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arxiv}
+      \field{month}{7}
+      \field{number}{arXiv:2005.14165}
+      \field{title}{Language {{Models}} Are {{Few-Shot Learners}}}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{version}{4}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2005.14165
+      \endverb
+      \verb{eprint}
+      \verb 2005.14165
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/ZFJVLUBD/Brown et al_2020_Language Models are Few-Shot Learners.pdf;/home/jonathan/Zotero/storage/Q6TQ82US/2005.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2005.14165
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2005.14165
+      \endverb
+      \keyw{motivation,thesis}
+    \endentry
+    \entry{durrettProbabilityTheoryExamples2019}{book}{}
+      \name{author}{1}{}{%
+        {{hash=175a15e34b656dab74bea645e2ed84d0}{%
+           family={Durrett},
+           familyi={D\bibinitperiod},
+           given={Rick},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{fullhash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{bibnamehash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{authorbibnamehash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{authornamehash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{authorfullhash}{175a15e34b656dab74bea645e2ed84d0}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This lively introduction to measure-theoretic probability theory covers laws of large numbers, central limit theorems, random walks, martingales, Markov chains, ergodic theorems, and Brownian motion. Concentrating on results that are the most useful for applications, this comprehensive treatment is a rigorous graduate text and reference. Operating under the philosophy that the best way to learn probability is to see it in action, the book contains extended examples that apply the theory to concrete applications. This fifth edition contains a new chapter on multidimensional Brownian motion and its relationship to partial differential equations (PDEs), an advanced topic that is finding new applications. Setting the foundation for this expansion, Chapter 7 now features a proof of Itô's formula. Key exercises that previously were simply proofs left to the reader have been directly inserted into the text as lemmas. The new edition re-instates discussion about the central limit theorem for martingales and stationary sequences.}
+      \field{day}{18}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-1-108-47368-2}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{pagetotal}{433}
+      \field{shorttitle}{Probability}
+      \field{title}{Probability: {{Theory}} and {{Examples}}}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb b22MDwAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/UKLZ9CJD/Durrett_2019_Probability.pdf
+      \endverb
+      \keyw{background}
+    \endentry
+    \entry{eAppliedStochasticAnalysis2021}{book}{}
+      \name{author}{3}{}{%
+        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
+           family={E},
+           familyi={E\bibinitperiod},
+           given={Weinan},
+           giveni={W\bibinitperiod}}}%
+        {{hash=c0cb1a20ae7697536af40c5d0af48095}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Tiejun},
+           giveni={T\bibinitperiod}}}%
+        {{hash=3e3d82a14a02cda960c2d71e77f5453c}{%
+           family={Vanden-Eijnden},
+           familyi={V\bibinithyphendelim E\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Soc.}%
+      }
+      \strng{namehash}{495826976eada715a888e7719521b72a}
+      \strng{fullhash}{495826976eada715a888e7719521b72a}
+      \strng{bibnamehash}{495826976eada715a888e7719521b72a}
+      \strng{authorbibnamehash}{495826976eada715a888e7719521b72a}
+      \strng{authornamehash}{495826976eada715a888e7719521b72a}
+      \strng{authorfullhash}{495826976eada715a888e7719521b72a}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This is a textbook for advanced undergraduate students and beginning graduate students in applied mathematics. It presents the basic mathematical foundations of stochastic analysis (probability theory and stochastic processes) as well as some important practical tools and applications (e.g., the connection with differential equations, numerical methods, path integrals, random fields, statistical physics, chemical kinetics, and rare events). The book strikes a nice balance between mathematical formalism and intuitive arguments, a style that is most suited for applied mathematicians. Readers can learn both the rigorous treatment of stochastic analysis as well as practical applications in modeling and simulation. Numerous exercises nicely supplement the main exposition.}
+      \field{day}{22}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-1-4704-6569-8}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{pagetotal}{329}
+      \field{title}{Applied {{Stochastic Analysis}}}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb YVpQEAAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/G3DGXFTY/E et al. - 2021 - Applied Stochastic Analysis.pdf
+      \endverb
+      \keyw{background,thesis}
+    \endentry
+    \entry{gowerSGDGeneralAnalysis2019}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=b8950914a990e888e3eb856ff4edf20b}{%
+           family={Gower},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima Mansel},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=086c9622489669fe60b7a4364d1e8a7c}{%
+           family={Loizou},
+           familyi={L\bibinitperiod},
+           given={Nicolas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=ef0d49292bf94cd9765f8db932e59522}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Xun},
+           giveni={X\bibinitperiod}}}%
+        {{hash=b8083cc5779ee9892f1e8bb6d7c37f07}{%
+           family={Sailanbayev},
+           familyi={S\bibinitperiod},
+           given={Alibek},
+           giveni={A\bibinitperiod}}}%
+        {{hash=db2bb4d75c559da2eb3acb8f376d94b8}{%
+           family={Shulgin},
+           familyi={S\bibinitperiod},
+           given={Egor},
+           giveni={E\bibinitperiod}}}%
+        {{hash=972f2a6c228c82719a54368d49838fd7}{%
+           family={Richtárik},
+           familyi={R\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{1260d18a028fdf9f30614524219bcb8c}
+      \strng{fullhash}{fca2713e200adc6b153b9a62639d1f88}
+      \strng{bibnamehash}{1260d18a028fdf9f30614524219bcb8c}
+      \strng{authorbibnamehash}{1260d18a028fdf9f30614524219bcb8c}
+      \strng{authornamehash}{1260d18a028fdf9f30614524219bcb8c}
+      \strng{authorfullhash}{fca2713e200adc6b153b9a62639d1f88}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We propose a general yet simple theorem describing the convergence of SGD under the arbitrary sampling paradigm. Our theorem describes the convergence of an infinite array of variants of SGD, each of which is associated with a specific probability law governing the data selection rule used to form minibatches. This is the first time such an analysis is performed, and most of our variants of SGD were never explicitly considered in the literature before. Our analysis relies on the recently introduced notion of expected smoothness and does not rely on a uniform bound on the variance of the stochastic gradients. By specializing our theorem to different mini-batching strategies, such as sampling with replacement and independent sampling, we derive exact expressions for the stepsize as a function of the mini-batch size. With this we can also determine the mini-batch size that optimizes the total complexity, and show explicitly that as the variance of the stochastic gradient evaluated at the minimum grows, so does the optimal mini-batch size. For zero variance, the optimal mini-batch size is one. Moreover, we prove insightful stepsize-switching rules which describe when one should switch from a constant to a decreasing stepsize regime.}
+      \field{booktitle}{Proceedings of the 36th {{International Conference}} on {{Machine Learning}}}
+      \field{day}{24}
+      \field{eventtitle}{International {{Conference}} on {{Machine Learning}}}
+      \field{issn}{2640-3498}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{shorttitle}{{{SGD}}}
+      \field{title}{{{SGD}}: {{General Analysis}} and {{Improved Rates}}}
+      \field{urlday}{5}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{5200\bibrangedash 5209}
+      \range{pages}{10}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/5JL58NLC/Gower et al. - 2019 - SGD General Analysis and Improved Rates.pdf;/home/jonathan/Zotero/storage/9QVY34YG/Gower et al_2019_SGD.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v97/qian19b.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v97/qian19b.html
+      \endverb
+      \keyw{convergence,SGD,theory,thesis,toread}
+    \endentry
+    \entry{jumperHighlyAccurateProtein2021}{article}{}
+      \name{author}{34}{}{%
+        {{hash=10a7a824028a842a17d901b4ec09993d}{%
+           family={Jumper},
+           familyi={J\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=173072a12c87679d6e0aeed7dbfb2abc}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=4295e4094c426f01903ac60155866130}{%
+           family={Pritzel},
+           familyi={P\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3e0f493c1ce741283206bf1f0d3c12f5}{%
+           family={Green},
+           familyi={G\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=79e7b7b6d4522585cad02503c7d5c53c}{%
+           family={Figurnov},
+           familyi={F\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=8e46da9de9e53ea5d37089897d69cdd9}{%
+           family={Ronneberger},
+           familyi={R\bibinitperiod},
+           given={Olaf},
+           giveni={O\bibinitperiod}}}%
+        {{hash=c65f7c717e43948afa4c164334478ff0}{%
+           family={Tunyasuvunakool},
+           familyi={T\bibinitperiod},
+           given={Kathryn},
+           giveni={K\bibinitperiod}}}%
+        {{hash=8fdcc93ec2f81694fe0e05f9515307f0}{%
+           family={Bates},
+           familyi={B\bibinitperiod},
+           given={Russ},
+           giveni={R\bibinitperiod}}}%
+        {{hash=314115f4f8838d7bcb17334f981615d0}{%
+           family={Žídek},
+           familyi={Ž\bibinitperiod},
+           given={Augustin},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4b3acabda3fd87e1abd111ed903b2d51}{%
+           family={Potapenko},
+           familyi={P\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9bb6bd16bbcdb2bb998f8bc4038abede}{%
+           family={Bridgland},
+           familyi={B\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=10928a06d1ffe00108ee7f051eef29a6}{%
+           family={Meyer},
+           familyi={M\bibinitperiod},
+           given={Clemens},
+           giveni={C\bibinitperiod}}}%
+        {{hash=c8db325f01e156e511c9a87a5e890d22}{%
+           family={Kohl},
+           familyi={K\bibinitperiod},
+           given={Simon\bibnamedelimb A.\bibnamedelimi A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=8e2b07cf777b4e100518006a0306d430}{%
+           family={Ballard},
+           familyi={B\bibinitperiod},
+           given={Andrew\bibnamedelima J.},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=699f0d8b3b8c59a0bf815183b5a587d1}{%
+           family={Cowie},
+           familyi={C\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a4ad88ba00428c727fd7a7295f097c6d}{%
+           family={Romera-Paredes},
+           familyi={R\bibinithyphendelim P\bibinitperiod},
+           given={Bernardino},
+           giveni={B\bibinitperiod}}}%
+        {{hash=948ac64053194ba4926e57c400b43dae}{%
+           family={Nikolov},
+           familyi={N\bibinitperiod},
+           given={Stanislav},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e44ef077603c4c2159908f44186dedfa}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Rishub},
+           giveni={R\bibinitperiod}}}%
+        {{hash=30e117447522ea5c589b531025c81621}{%
+           family={Adler},
+           familyi={A\bibinitperiod},
+           given={Jonas},
+           giveni={J\bibinitperiod}}}%
+        {{hash=329e447b0059cd0bc92227b1dd08c81e}{%
+           family={Back},
+           familyi={B\bibinitperiod},
+           given={Trevor},
+           giveni={T\bibinitperiod}}}%
+        {{hash=4e381e44037009b1cd834d794735c311}{%
+           family={Petersen},
+           familyi={P\bibinitperiod},
+           given={Stig},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d805812e442bf9b99ef9b60be3389113}{%
+           family={Reiman},
+           familyi={R\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=19819a31d99ee8ba869ec9b7fee14613}{%
+           family={Clancy},
+           familyi={C\bibinitperiod},
+           given={Ellen},
+           giveni={E\bibinitperiod}}}%
+        {{hash=00bb8dcd0d7dc6963e2b9481ce8e7cdf}{%
+           family={Zielinski},
+           familyi={Z\bibinitperiod},
+           given={Michal},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c06ac6a6fdcf2ee2092d61fc58c1f21b}{%
+           family={Steinegger},
+           familyi={S\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d33020bce7d227c8dd58677580d8df0f}{%
+           family={Pacholska},
+           familyi={P\bibinitperiod},
+           given={Michalina},
+           giveni={M\bibinitperiod}}}%
+        {{hash=de7e7f4d56e896db85f56c06f77016a4}{%
+           family={Berghammer},
+           familyi={B\bibinitperiod},
+           given={Tamas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=0c0cd2e2fbeb23bb50214e8c94c61b08}{%
+           family={Bodenstein},
+           familyi={B\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+        {{hash=89dbd30410c2085cd059f32c57d4593e}{%
+           family={Silver},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=494b568c5dc85ba8f3f409635f9c5f25}{%
+           family={Vinyals},
+           familyi={V\bibinitperiod},
+           given={Oriol},
+           giveni={O\bibinitperiod}}}%
+        {{hash=211e54ca76df5d8c1de6957d48792545}{%
+           family={Senior},
+           familyi={S\bibinitperiod},
+           given={Andrew\bibnamedelima W.},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=481308b301166b521c74fde6566e97e6}{%
+           family={Kavukcuoglu},
+           familyi={K\bibinitperiod},
+           given={Koray},
+           giveni={K\bibinitperiod}}}%
+        {{hash=d0d21ff02dda6c0a7d09ef7436bd329b}{%
+           family={Kohli},
+           familyi={K\bibinitperiod},
+           given={Pushmeet},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b160026950ebb1e2286dfb40c15482f5}{%
+           family={Hassabis},
+           familyi={H\bibinitperiod},
+           given={Demis},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{385b84ff9ec134408fea9aeba42f4525}
+      \strng{fullhash}{fa5dce0980388f0460da0632f0c9ade1}
+      \strng{bibnamehash}{385b84ff9ec134408fea9aeba42f4525}
+      \strng{authorbibnamehash}{385b84ff9ec134408fea9aeba42f4525}
+      \strng{authornamehash}{385b84ff9ec134408fea9aeba42f4525}
+      \strng{authorfullhash}{fa5dce0980388f0460da0632f0c9ade1}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Proteins are essential to life, and understanding their structure can facilitate a mechanistic understanding of their function. Through an enormous experimental effort1–4, the structures of around 100,000 unique proteins have been determined5, but this represents a small fraction of the billions of known protein sequences6,7. Structural coverage is bottlenecked by the months to years of painstaking effort required to determine a single protein structure. Accurate computational approaches are needed to address this gap and to enable large-scale structural bioinformatics. Predicting the three-dimensional structure that a protein will adopt based solely on its amino acid sequence—the structure prediction component of the ‘protein folding problem’8—has been an important open research problem for more than 50~years9. Despite recent progress10–14, existing methods fall far~short of atomic accuracy, especially when no homologous structure is available. Here we provide the first computational method that can regularly predict protein structures with atomic accuracy even in cases in which no similar structure is known. We validated an entirely redesigned version of our neural network-based model, AlphaFold, in the challenging 14th Critical Assessment of protein Structure Prediction (CASP14)15, demonstrating accuracy competitive with experimental structures in a majority of cases and greatly outperforming other methods. Underpinning the latest version of AlphaFold is a novel machine learning approach that incorporates physical and biological knowledge about protein structure, leveraging multi-sequence alignments, into the design of the deep learning algorithm.}
+      \field{issn}{1476-4687}
+      \field{issue}{7873}
+      \field{journaltitle}{Nature}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{number}{7873}
+      \field{title}{Highly Accurate Protein Structure Prediction with {{AlphaFold}}}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{596}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{583\bibrangedash 589}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1038/s41586-021-03819-2
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/3XWK5JAZ/Jumper et al_2021_Highly accurate protein structure prediction with AlphaFold.pdf;/home/jonathan/Zotero/storage/5SSC5GX4/s41586-021-03819-2.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.nature.com/articles/s41586-021-03819-2
+      \endverb
+      \verb{url}
+      \verb https://www.nature.com/articles/s41586-021-03819-2
+      \endverb
+      \keyw{motivation,thesis}
+    \endentry
+    \entry{liValidityModelingSGD2021}{misc}{}
       \name{author}{3}{}{%
         {{hash=35069ab0f2565b95f02723d645a36cbd}{%
            family={Li},
@@ -67,6 +724,9 @@
            given={Sanjeev},
            giveni={S\bibinitperiod}}}%
       }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
       \strng{namehash}{acabdfdf9d3a3d356960a77b23063185}
       \strng{fullhash}{acabdfdf9d3a3d356960a77b23063185}
       \strng{bibnamehash}{acabdfdf9d3a3d356960a77b23063185}
@@ -77,12 +737,593 @@
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Advances in Neural Information Processing Systems}
-      \field{title}{On the validity of modeling sgd with stochastic differential equations (sdes)}
-      \field{volume}{34}
+      \field{abstract}{It is generally recognized that finite learning rate (LR), in contrast to infinitesimal LR, is important for good generalization in real-life deep nets. Most attempted explanations propose approximating finite-LR SGD with Ito Stochastic Differential Equations (SDEs), but formal justification for this approximation (e.g., (Li et al., 2019)) only applies to SGD with tiny LR. Experimental verification of the approximation appears computationally infeasible. The current paper clarifies the picture with the following contributions: (a) An efficient simulation algorithm SVAG that provably converges to the conventionally used Ito SDE approximation. (b) A theoretically motivated testable necessary condition for the SDE approximation and its most famous implication, the linear scaling rule (Goyal et al., 2017), to hold. (c) Experiments using this simulation to demonstrate that the previously proposed SDE approximation can meaningfully capture the training and generalization properties of common deep nets.}
+      \field{day}{16}
+      \field{month}{6}
+      \field{number}{arXiv:2102.12470}
+      \field{title}{On the {{Validity}} of {{Modeling SGD}} with {{Stochastic Differential Equations}} ({{SDEs}})}
+      \field{urlday}{17}
+      \field{urlmonth}{8}
+      \field{urlyear}{2022}
       \field{year}{2021}
-      \field{pages}{12712\bibrangedash 12725}
-      \range{pages}{14}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2102.12470
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/T4H6WURH/Li et al. - 2021 - On the Validity of Modeling SGD with Stochastic Di.pdf;/home/jonathan/Zotero/storage/UR38RDHX/2102.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2102.12470
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2102.12470
+      \endverb
+      \keyw{paper,SDE,SGD,SVAG,thesis}
+    \endentry
+    \entry{nesterovLecturesConvexOptimization2018}{book}{}
+      \name{author}{1}{}{%
+        {{hash=8a41b35fe7b3d1725cb95bd7eec40b01}{%
+           family={Nesterov},
+           familyi={N\bibinitperiod},
+           given={Yurii},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8a41b35fe7b3d1725cb95bd7eec40b01}
+      \strng{fullhash}{8a41b35fe7b3d1725cb95bd7eec40b01}
+      \strng{bibnamehash}{8a41b35fe7b3d1725cb95bd7eec40b01}
+      \strng{authorbibnamehash}{8a41b35fe7b3d1725cb95bd7eec40b01}
+      \strng{authornamehash}{8a41b35fe7b3d1725cb95bd7eec40b01}
+      \strng{authorfullhash}{8a41b35fe7b3d1725cb95bd7eec40b01}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{It was in the middle of the 1980s, when the seminal paper by Kar markar opened a new epoch in nonlinear optimization. The importance of this paper, containing a new polynomial-time algorithm for linear op timization problems, was not only in its complexity bound. At that time, the most surprising feature of this algorithm was that the theoretical pre diction of its high efficiency was supported by excellent computational results. This unusual fact dramatically changed the style and direc tions of the research in nonlinear optimization. Thereafter it became more and more common that the new methods were provided with a complexity analysis, which was considered a better justification of their efficiency than computational experiments. In a new rapidly develop ing field, which got the name "polynomial-time interior-point methods", such a justification was obligatory. Afteralmost fifteen years of intensive research, the main results of this development started to appear in monographs [12, 14, 16, 17, 18, 19]. Approximately at that time the author was asked to prepare a new course on nonlinear optimization for graduate students. The idea was to create a course which would reflect the new developments in the field. Actually, this was a major challenge. At the time only the theory of interior-point methods for linear optimization was polished enough to be explained to students. The general theory of self-concordant functions had appeared in print only once in the form of research monograph [12].}
+      \field{day}{19}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-3-319-91578-4}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{pagetotal}{603}
+      \field{title}{Lectures on {{Convex Optimization}}}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb IPh6DwAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/DMSGV4QG/Nesterov_2018_Lectures on Convex Optimization.pdf
+      \endverb
+      \keyw{background,optimization,theory}
+    \endentry
+    \entry{nguyenSGDHogwildConvergence2018}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=599edac0e3691892a2a8f704d0f3072e}{%
+           family={Nguyen},
+           familyi={N\bibinitperiod},
+           given={Lam},
+           giveni={L\bibinitperiod}}}%
+        {{hash=70db9522f13ff81336aab84ea3b65f73}{%
+           family={Nguyen},
+           familyi={N\bibinitperiod},
+           given={Phuong\bibnamedelima Ha},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=90f519faf9c6c2031e393e32d792de69}{%
+           family={Dijk},
+           familyi={D\bibinitperiod},
+           given={Marten},
+           giveni={M\bibinitperiod}}}%
+        {{hash=deb8076310b3d7e628147005cca384c9}{%
+           family={Richtarik},
+           familyi={R\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=227fd756890273896e67d801c215790f}{%
+           family={Scheinberg},
+           familyi={S\bibinitperiod},
+           given={Katya},
+           giveni={K\bibinitperiod}}}%
+        {{hash=0111eb2e5d937cdff42a82c58eb5a73f}{%
+           family={Takac},
+           familyi={T\bibinitperiod},
+           given={Martin},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{f8c77bf05347b5bf578b639c0415a23d}
+      \strng{fullhash}{2653f7ef7aaa4034c35e5283f249a3c3}
+      \strng{bibnamehash}{f8c77bf05347b5bf578b639c0415a23d}
+      \strng{authorbibnamehash}{f8c77bf05347b5bf578b639c0415a23d}
+      \strng{authornamehash}{f8c77bf05347b5bf578b639c0415a23d}
+      \strng{authorfullhash}{2653f7ef7aaa4034c35e5283f249a3c3}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Stochastic gradient descent (SGD) is the optimization algorithm of choice in many machine learning applications such as regularized empirical risk minimization and training deep neural networks. The classical convergence analysis of SGD is carried out under the assumption that the norm of the stochastic gradient is uniformly bounded. While this might hold for some loss functions, it is always violated for cases where the objective function is strongly convex. In (Bottou et al.,2016), a new analysis of convergence of SGD is performed under the assumption that stochastic gradients are bounded with respect to the true gradient norm. Here we show that for stochastic problems arising in machine learning such bound always holds; and we also propose an alternative convergence analysis of SGD with diminishing learning rate regime, which results in more relaxed conditions than those in (Bottou et al.,2016). We then move on the asynchronous parallel setting, and prove convergence of Hogwild! algorithm in the same regime, obtaining the first convergence results for this method in the case of diminished learning rate.}
+      \field{booktitle}{Proceedings of the 35th {{International Conference}} on {{Machine Learning}}}
+      \field{day}{3}
+      \field{eventtitle}{International {{Conference}} on {{Machine Learning}}}
+      \field{issn}{2640-3498}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{title}{{{SGD}} and {{Hogwild}}! {{Convergence Without}} the {{Bounded Gradients Assumption}}}
+      \field{urlday}{29}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{3750\bibrangedash 3758}
+      \range{pages}{9}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/A7GRMKW2/Nguyen et al. - 2018 - SGD and Hogwild! Convergence Without the Bounded G.pdf;/home/jonathan/Zotero/storage/QN8TDXNA/Nguyen et al_2018_SGD and Hogwild.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v80/nguyen18c.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v80/nguyen18c.html
+      \endverb
+    \endentry
+    \entry{nocedalNumericalOptimization2006}{book}{}
+      \name{author}{2}{}{%
+        {{hash=88a342d927bf795b0d92af8a5613da31}{%
+           family={Nocedal},
+           familyi={N\bibinitperiod},
+           given={Jorge},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7763509f7c4b10ac0b0770c30259cb1d}{%
+           family={Wright},
+           familyi={W\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{ce7f3d831c22b27fad5b1d2afbe4ec28}
+      \strng{fullhash}{ce7f3d831c22b27fad5b1d2afbe4ec28}
+      \strng{bibnamehash}{ce7f3d831c22b27fad5b1d2afbe4ec28}
+      \strng{authorbibnamehash}{ce7f3d831c22b27fad5b1d2afbe4ec28}
+      \strng{authornamehash}{ce7f3d831c22b27fad5b1d2afbe4ec28}
+      \strng{authorfullhash}{ce7f3d831c22b27fad5b1d2afbe4ec28}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Numerical Optimization presents a comprehensive and up-to-date description of the most effective methods in continuous optimization. It responds to the growing interest in optimization in engineering, science, and business by focusing on the methods that are best suited to practical problems. For this new edition the book has been thoroughly updated throughout. There are new chapters on nonlinear interior methods and derivative-free methods for optimization, both of which are used widely in practice and the focus of much current research. Because of the emphasis on practical methods, as well as the extensive illustrations and exercises, the book is accessible to a wide audience. It can be used as a graduate text in engineering, operations research, mathematics, computer science, and business. It also serves as a handbook for researchers and practitioners in the field. The authors have strived to produce a text that is pleasant to read, informative, and rigorous - one that reveals both the beautiful nature of the discipline and its practical side. There is a selected solutions manual for instructors for the new edition.}
+      \field{day}{27}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-0-387-30303-1}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{pagetotal}{694}
+      \field{title}{Numerical {{Optimization}}}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb eNlPAAAAMAAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/2TMCX6FC/Nocedal_Wright_2006_Numerical Optimization.pdf
+      \endverb
+    \endentry
+    \entry{rameshHierarchicalTextConditionalImage2022}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=82063a12702e7b2c026ae0ff03b8f102}{%
+           family={Ramesh},
+           familyi={R\bibinitperiod},
+           given={Aditya},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4164e43d8cf919f5e3f8d80f5ea23f36}{%
+           family={Dhariwal},
+           familyi={D\bibinitperiod},
+           given={Prafulla},
+           giveni={P\bibinitperiod}}}%
+        {{hash=fc19c0dc057e2a02419916b39da6895b}{%
+           family={Nichol},
+           familyi={N\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=73c06c1d85385c5a690e667e9d6f64ea}{%
+           family={Chu},
+           familyi={C\bibinitperiod},
+           given={Casey},
+           giveni={C\bibinitperiod}}}%
+        {{hash=fb15a691583ec94aafe0be6e7da4878f}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{01fa2e22064cfc88b7963c1f70eeaa5e}
+      \strng{fullhash}{fce744ae15bcc5a3c7b36835e58e24e9}
+      \strng{bibnamehash}{01fa2e22064cfc88b7963c1f70eeaa5e}
+      \strng{authorbibnamehash}{01fa2e22064cfc88b7963c1f70eeaa5e}
+      \strng{authornamehash}{01fa2e22064cfc88b7963c1f70eeaa5e}
+      \strng{authorfullhash}{fce744ae15bcc5a3c7b36835e58e24e9}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Contrastive models like CLIP have been shown to learn robust representations of images that capture both semantics and style. To leverage these representations for image generation, we propose a two-stage model: a prior that generates a CLIP image embedding given a text caption, and a decoder that generates an image conditioned on the image embedding. We show that explicitly generating image representations improves image diversity with minimal loss in photorealism and caption similarity. Our decoders conditioned on image representations can also produce variations of an image that preserve both its semantics and style, while varying the non-essential details absent from the image representation. Moreover, the joint embedding space of CLIP enables language-guided image manipulations in a zero-shot fashion. We use diffusion models for the decoder and experiment with both autoregressive and diffusion models for the prior, finding that the latter are computationally more efficient and produce higher-quality samples.}
+      \field{day}{12}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arxiv}
+      \field{month}{4}
+      \field{number}{arXiv:2204.06125}
+      \field{title}{Hierarchical {{Text-Conditional Image Generation}} with {{CLIP Latents}}}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2204.06125
+      \endverb
+      \verb{eprint}
+      \verb 2204.06125
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/FDTGXDWS/Ramesh et al_2022_Hierarchical Text-Conditional Image Generation with CLIP Latents.pdf;/home/jonathan/Zotero/storage/6RXSLEHY/2204.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2204.06125
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2204.06125
+      \endverb
+      \keyw{motivation,thesis}
+    \endentry
+    \entry{robbinsStochasticApproximationMethod1951}{article}{}
+      \name{author}{2}{}{%
+        {{hash=163566b92b332258782e61e3d217a2bb}{%
+           family={Robbins},
+           familyi={R\bibinitperiod},
+           given={Herbert},
+           giveni={H\bibinitperiod}}}%
+        {{hash=95751f7f614bc2af42f1a078b3e2ba61}{%
+           family={Monro},
+           familyi={M\bibinitperiod},
+           given={Sutton},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Institute of Mathematical Statistics}%
+      }
+      \strng{namehash}{5d85b58c5cbfcc8fc266cf4f5f6fbdbb}
+      \strng{fullhash}{5d85b58c5cbfcc8fc266cf4f5f6fbdbb}
+      \strng{bibnamehash}{5d85b58c5cbfcc8fc266cf4f5f6fbdbb}
+      \strng{authorbibnamehash}{5d85b58c5cbfcc8fc266cf4f5f6fbdbb}
+      \strng{authornamehash}{5d85b58c5cbfcc8fc266cf4f5f6fbdbb}
+      \strng{authorfullhash}{5d85b58c5cbfcc8fc266cf4f5f6fbdbb}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Let \$M(x)\$ denote the expected value at level \$x\$ of the response to a certain experiment. \$M(x)\$ is assumed to be a monotone function of \$x\$ but is unknown to the experimenter, and it is desired to find the solution \$x = \textbackslash theta\$ of the equation \$M(x) = \textbackslash alpha\$, where \$\textbackslash alpha\$ is a given constant. We give a method for making successive experiments at levels \$x\_1,x\_2,\textbackslash cdots\$ in such a way that \$x\_n\$ will tend to \$\textbackslash theta\$ in probability.}
+      \field{issn}{0003-4851, 2168-8990}
+      \field{journaltitle}{The Annals of Mathematical Statistics}
+      \field{month}{9}
+      \field{number}{3}
+      \field{title}{A {{Stochastic Approximation Method}}}
+      \field{urlday}{29}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{22}
+      \field{year}{1951}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{400\bibrangedash 407}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1214/aoms/1177729586
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/7UGIIDFM/Robbins_Monro_1951_A Stochastic Approximation Method.pdf;/home/jonathan/Zotero/storage/SMM3N24C/1177729586.html
+      \endverb
+      \verb{urlraw}
+      \verb https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full
+      \endverb
+      \verb{url}
+      \verb https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full
+      \endverb
+    \endentry
+    \entry{schrittwieserMasteringAtariGo2020}{article}{}
+      \name{author}{12}{}{%
+        {{hash=8fad8df927bc0014c0bd6a9feb7aa71d}{%
+           family={Schrittwieser},
+           familyi={S\bibinitperiod},
+           given={Julian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=af540e84ef1ecdaa70b1f7c90f59fd7d}{%
+           family={Antonoglou},
+           familyi={A\bibinitperiod},
+           given={Ioannis},
+           giveni={I\bibinitperiod}}}%
+        {{hash=80c63e95a9e243591a33a7e3156f1d78}{%
+           family={Hubert},
+           familyi={H\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9d16b7284df92c9adaee86c37ab992df}{%
+           family={Simonyan},
+           familyi={S\bibinitperiod},
+           given={Karen},
+           giveni={K\bibinitperiod}}}%
+        {{hash=50d24de916599d306c5cb1a77156e4b9}{%
+           family={Sifre},
+           familyi={S\bibinitperiod},
+           given={Laurent},
+           giveni={L\bibinitperiod}}}%
+        {{hash=80f59bf87c57eee7dab96e04c0a83c30}{%
+           family={Schmitt},
+           familyi={S\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=4131bd14e5ca890278ecd351e356dc34}{%
+           family={Guez},
+           familyi={G\bibinitperiod},
+           given={Arthur},
+           giveni={A\bibinitperiod}}}%
+        {{hash=67c36471603b6de0347c489b0f8b05b0}{%
+           family={Lockhart},
+           familyi={L\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod}}}%
+        {{hash=b160026950ebb1e2286dfb40c15482f5}{%
+           family={Hassabis},
+           familyi={H\bibinitperiod},
+           given={Demis},
+           giveni={D\bibinitperiod}}}%
+        {{hash=368b9b2de627b852658c433b062d4e1e}{%
+           family={Graepel},
+           familyi={G\bibinitperiod},
+           given={Thore},
+           giveni={T\bibinitperiod}}}%
+        {{hash=3a6fdf4df9a25f1d2d506ad9e86e1f6c}{%
+           family={Lillicrap},
+           familyi={L\bibinitperiod},
+           given={Timothy},
+           giveni={T\bibinitperiod}}}%
+        {{hash=89dbd30410c2085cd059f32c57d4593e}{%
+           family={Silver},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{ba8dd9d821587916ffa0d5d85ba62066}
+      \strng{fullhash}{a2393dd56fc0d1677b29875d3184f845}
+      \strng{bibnamehash}{ba8dd9d821587916ffa0d5d85ba62066}
+      \strng{authorbibnamehash}{ba8dd9d821587916ffa0d5d85ba62066}
+      \strng{authornamehash}{ba8dd9d821587916ffa0d5d85ba62066}
+      \strng{authorfullhash}{a2393dd56fc0d1677b29875d3184f845}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Constructing agents with planning capabilities has long been one of the main challenges in the pursuit of artificial intelligence. Tree-based planning methods have enjoyed huge success in challenging domains, such as chess and Go, where a perfect simulator is available. However, in real-world problems the dynamics governing the environment are often complex and unknown. In this work we present the MuZero algorithm which, by combining a tree-based search with a learned model, achieves superhuman performance in a range of challenging and visually complex domains, without any knowledge of their underlying dynamics. MuZero learns a model that, when applied iteratively, predicts the quantities most directly relevant to planning: the reward, the action-selection policy, and the value function. When evaluated on 57 different Atari games - the canonical video game environment for testing AI techniques, in which model-based planning approaches have historically struggled - our new algorithm achieved a new state of the art. When evaluated on Go, chess and shogi, without any knowledge of the game rules, MuZero matched the superhuman performance of the AlphaZero algorithm that was supplied with the game rules.}
+      \field{day}{24}
+      \field{eprintclass}{cs, stat}
+      \field{eprinttype}{arxiv}
+      \field{issn}{0028-0836, 1476-4687}
+      \field{journaltitle}{Nature}
+      \field{month}{12}
+      \field{number}{7839}
+      \field{shortjournal}{Nature}
+      \field{title}{Mastering {{Atari}}, {{Go}}, {{Chess}} and {{Shogi}} by {{Planning}} with a {{Learned Model}}}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{588}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{604\bibrangedash 609}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1038/s41586-020-03051-4
+      \endverb
+      \verb{eprint}
+      \verb 1911.08265
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/Y4H7QWLF/Schrittwieser et al_2020_Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model.pdf;/home/jonathan/Zotero/storage/4QJ4BJ6Y/1911.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1911.08265
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1911.08265
+      \endverb
+      \keyw{motivation,thesis}
+    \endentry
+    \entry{sebbouhAlmostSureConvergence2021}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=f945ea2364f348a67141fc274a4a4a0c}{%
+           family={Sebbouh},
+           familyi={S\bibinitperiod},
+           given={Othmane},
+           giveni={O\bibinitperiod}}}%
+        {{hash=d740b920ee7b92aaa73e3450f6a6e085}{%
+           family={Gower},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=a5551dfae979b8c2befb546fac59ffee}{%
+           family={Defazio},
+           familyi={D\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{4a9548a46c2451d899c3abf7f2cd4c1c}
+      \strng{fullhash}{4a9548a46c2451d899c3abf7f2cd4c1c}
+      \strng{bibnamehash}{4a9548a46c2451d899c3abf7f2cd4c1c}
+      \strng{authorbibnamehash}{4a9548a46c2451d899c3abf7f2cd4c1c}
+      \strng{authornamehash}{4a9548a46c2451d899c3abf7f2cd4c1c}
+      \strng{authorfullhash}{4a9548a46c2451d899c3abf7f2cd4c1c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We study stochastic gradient descent (SGD) and the stochastic heavy ball method (SHB, otherwise known as the momentum method) for the general stochastic approximation problem. For SGD, in the convex and smooth setting, we provide the first \textbackslash emph\{almost sure\} asymptotic convergence \textbackslash emph\{rates\} for a weighted average of the iterates . More precisely, we show that the convergence rate of the function values is arbitrarily close to o(1/k−−√)o(1/k)o(1/\textbackslash sqrt\{k\}), and is exactly o(1/k)o(1/k)o(1/k) in the so-called overparametrized case. We show that these results still hold when using a decreasing step size version of stochastic line search and stochastic Polyak stepsizes, thereby giving the first proof of convergence of these methods in the non-overparametrized regime. Using a substantially different analysis, we show that these rates hold for SHB as well, but at the last iterate. This distinction is important because it is the last iterate of SGD and SHB which is used in practice. We also show that the last iterate of SHB converges to a minimizer \textbackslash emph\{almost surely\}. Additionally, we prove that the function values of the deterministic HB converge at a o(1/k)o(1/k)o(1/k) rate, which is faster than the previously known O(1/k)O(1/k)O(1/k). Finally, in the nonconvex setting, we prove similar rates on the lowest gradient norm along the trajectory of SGD.}
+      \field{booktitle}{Proceedings of {{Thirty Fourth Conference}} on {{Learning Theory}}}
+      \field{day}{21}
+      \field{eventtitle}{Conference on {{Learning Theory}}}
+      \field{issn}{2640-3498}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{title}{Almost Sure Convergence Rates for {{Stochastic Gradient Descent}} and {{Stochastic Heavy Ball}}}
+      \field{urlday}{5}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{3935\bibrangedash 3971}
+      \range{pages}{37}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/2NINK37W/Sebbouh et al_2021_Almost sure convergence rates for Stochastic Gradient Descent and Stochastic.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v134/sebbouh21a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v134/sebbouh21a.html
+      \endverb
+      \keyw{convergence,SGD,theory,thesis,toread}
+    \endentry
+    \entry{uhlenbeckTheoryBrownianMotion1930}{article}{}
+      \name{author}{2}{}{%
+        {{hash=3cb5f635974bd39fd8858d930a97e4c8}{%
+           family={Uhlenbeck},
+           familyi={U\bibinitperiod},
+           given={G.\bibnamedelimi E.},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=6aa3305d0ced76439870cb07bc3c48c6}{%
+           family={Ornstein},
+           familyi={O\bibinitperiod},
+           given={L.\bibnamedelimi S.},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{160392c4717bd1ae477c777e26beeebc}
+      \strng{fullhash}{160392c4717bd1ae477c777e26beeebc}
+      \strng{bibnamehash}{160392c4717bd1ae477c777e26beeebc}
+      \strng{authorbibnamehash}{160392c4717bd1ae477c777e26beeebc}
+      \strng{authornamehash}{160392c4717bd1ae477c777e26beeebc}
+      \strng{authorfullhash}{160392c4717bd1ae477c777e26beeebc}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{With a method first indicated by Ornstein the mean values of all the powers of the velocity u and the displacement s of a free particle in Brownian motion are calculated. It is shown that u−u0exp(−βt) and s−u0β[1−exp(−βt)] where u0 is the initial velocity and β the friction coefficient divided by the mass of the particle, follow the normal Gaussian distribution law. For s this gives the exact frequency distribution corresponding to the exact formula for s2 of Ornstein and Fürth. Discussion is given of the connection with the Fokker-Planck partial differential equation. By the same method exact expressions are obtained for the square of the deviation of a harmonically bound particle in Brownian motion as a function of the time and the initial deviation. Here the periodic, aperiodic and overdamped cases have to be treated separately. In the last case, when β is much larger than the frequency and for values of t≫β−1, the formula takes the form of that previously given by Smoluchowski.}
+      \field{day}{1}
+      \field{journaltitle}{Physical Review}
+      \field{month}{9}
+      \field{number}{5}
+      \field{shortjournal}{Phys. Rev.}
+      \field{title}{On the {{Theory}} of the {{Brownian Motion}}}
+      \field{urlday}{12}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{36}
+      \field{year}{1930}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{823\bibrangedash 841}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1103/PhysRev.36.823
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/FQQXCPHW/PhysRev.36.html
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRev.36.823
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRev.36.823
+      \endverb
+      \keyw{SDE,thesis}
+    \endentry
+    \entry{zhouStochasticMirrorDescent2017}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=92bcf64f6a434d65d69d4718e65a964b}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Zhengyuan},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=e1238114e077a96e6a9a2849535aa0ac}{%
+           family={Mertikopoulos},
+           familyi={M\bibinitperiod},
+           given={Panayotis},
+           giveni={P\bibinitperiod}}}%
+        {{hash=24d79d32df4f0bf49ed468479df9b85d}{%
+           family={Bambos},
+           familyi={B\bibinitperiod},
+           given={Nicholas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=ec94d94cc487dd71939a90cbeaaf47d0}{%
+           family={Boyd},
+           familyi={B\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+        {{hash=bbb2938067028135a82ee516bd25dece}{%
+           family={Glynn},
+           familyi={G\bibinitperiod},
+           given={Peter\bibnamedelima W},
+           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{7eb30bec1cd2d4a9f43e2d14aeb3d8b7}
+      \strng{fullhash}{a8c723d01dd69bdbb0e063d3430725db}
+      \strng{bibnamehash}{7eb30bec1cd2d4a9f43e2d14aeb3d8b7}
+      \strng{authorbibnamehash}{7eb30bec1cd2d4a9f43e2d14aeb3d8b7}
+      \strng{authornamehash}{7eb30bec1cd2d4a9f43e2d14aeb3d8b7}
+      \strng{authorfullhash}{a8c723d01dd69bdbb0e063d3430725db}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we examine a class of non-convex stochastic optimization problems which we call variationally coherent, and which properly includes pseudo-/quasiconvex and star-convex optimization problems. To solve such problems, we focus on the widely used stochastic mirror descent (SMD) family of algorithms (which contains stochastic gradient descent as a special case), and we show that the last iterate of SMD converges to the problem’s solution set with probability 1. This result contributes to the landscape of non-convex stochastic optimization by clarifying that neither pseudo-/quasi-convexity nor star-convexity is essential for (almost sure) global convergence; rather, variational coherence, a much weaker requirement, suffices. Characterization of convergence rates for the subclass of strongly variationally coherent optimization problems as well as simulation results are also presented.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{title}{Stochastic {{Mirror Descent}} in {{Variationally Coherent Optimization Problems}}}
+      \field{urlday}{29}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/6CE883YF/Zhou et al_2017_Stochastic Mirror Descent in Variationally Coherent Optimization Problems.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper/2017/hash/e6ba70fc093b4ce912d769ede1ceeba8-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper/2017/hash/e6ba70fc093b4ce912d769ede1ceeba8-Abstract.html
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

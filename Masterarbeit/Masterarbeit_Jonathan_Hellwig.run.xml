@@ -79,7 +79,7 @@
       <file>Masterarbeit_Jonathan_Hellwig.bcf</file>
     </requires>
     <requires type="editable">
-      <file>Masterarbeit_Jonathan_Hellwig.bib</file>
+      <file>thesis.bib</file>
     </requires>
   </external>
 </requests>
