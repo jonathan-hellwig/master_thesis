@@ -117,6 +117,8 @@
 \newcommand{\bfa}{\mathbf{a}}
 \newcommand{\bfb}{\mathbf{b}}
 
+\newcommand{\ev}[1]{\mathbb{E}\left[{#1}\right]}
+\newcommand{\norm}[1]{\lVert{#1}\rVert_2}
 \usepackage{mathtools}
 \newcommand{\defeq}{\vcentcolon=}
 % Beginn des Dokumentes
@@ -208,7 +210,7 @@ One challenging area of research remains in understanding why these models work 
 % Formal definition of data distribution
 In this section, we introduce a general optimization problem that is approximated in practice. The goal is to construct a model that represents a set of data in an optimal way. Further, a model should generalize well, i.e.\ deliver good performance on unseen data. More formally, a model is a mapping $m_w$ that depends on some set of parameters $w \in \mathbb{R}^d$ and maps input features $x \in X$ to output features $y \in Y$. The data points $(x,y) \in X \times Y$ follow a joint probability distribution $p(x,y)$. The mapping $\ell$ quantifies the distance between a prediction $m_{w}$ and is called loss function. Finding a model that generalizes well can be understood as minimizing the \emph{expected risk}
 \begin{equation}
-  \min_{w \in \mathbb{R}^d} R(w) = \mathbb{E}[\ell(m_{w}(x),y)].
+  \min_{w \in \mathbb{R}^d} R(w) = \ev{\ell(m_{w}(x),y)}.
 \end{equation}
 In practice, the distribution $p(x,y)$ is unknown and the computation of the expected risk is not possible. Defining the minimization problem in terms of the sample average also known as the \emph{empirical risk} allow the problem to be solved. For a sample of $n \in \mathbb{N}$ data points $\{(x_i, y_i)\}_{i=1}^n$ the empirical risk is defined as 
 \begin{equation}
@@ -231,7 +233,7 @@ For this problem we define two notions of minimizers.
     \label{eq:minimizer}
     f(w^\star) \leq f(w)
   \end{equation} 
-  for all $w \in \mathbb{R}^d$. A value $w^\star \in \mathbb{R}^d$ is called \emph{local minimizer} if there exists an $\epsilon > 0$ such that \ref{eq:minimizer} holds for all $w \in \mathbb{R}^d, ||w-w^\star|| < \epsilon$.
+  for all $w \in \mathbb{R}^d$. A value $w^\star \in \mathbb{R}^d$ is called \emph{local minimizer} if there exists an $\epsilon > 0$ such that \ref{eq:minimizer} holds for all $w \in \mathbb{R}^d, \norm{w-w^\star} < \epsilon$.
 \end{definition}
 Notice that every global minimizer is also a local minimizer. It is difficult to obtain global minimizers in deep learning settings. One key aspect of neural networks is that they are differentiable. If we make some smoothness assumptions on the function $f$, we can obtain sufficient and necessary conditions that provide some insight on local minimizers.
 \begin{theorem}
@@ -276,8 +278,8 @@ The most quintessential descent method for $g^{(k)} = - \nabla f(w^{(k)})$ is gi
   \label{eq:gradient_descent}
   w^{(k+1)} = w^{(k)} - \eta_k \nabla f(w^{(k)}).
 \end{equation}
-It is easy to see that we have ${g^{(k)}}^T \nabla f(w^{(k)}) = -|| f(w^{(k)}) ||^2 < 0$ as long as the iterates have not converged to a stationary point. This iterative scheme is called \emph{gradient descent method} (GD) and forms the basis for many of the iterative schemes used in deep learning practice. It is important to note that after defining such an iterative scheme it is unclear whether it actually converges to a minimizer. In the later sections of this chapter we will discuss the classes of functions for which convergence can be established and how they relate to deep learning practice. Before diving into the theoretical analysis of descent methods let us consider an extension to the gradient descent method.
-Notice that in (\ref{eq:gradient_descent}) the computation of each iterate requires the computation of the gradient $\nabla f$. For objective functions of the form $f(w) = \frac{1}{n} \sum_{i=1}^n f_i(w)$ this requires the computation of each $\nabla f_i(w)$ individually. Remember that in deep learning settings $f_i$ represents the loss $\ell(m_w(x_i), y_i)$ with respect to a single data point $(x_i, y_i)$. When the number of data points is large, computing the full gradient $\nabla f$ becomes prohibitively expensive. In fact, ImageNet (citation), a benchmark dataset for image classification, contains over 1.2 million images. If we treat each individual gradient $\nabla f_i(w)$ as a realization of a random variable $\nabla f_{\gamma}(w)$ with expected value $\mathbb{E}[\nabla f_{\gamma}(w)] = \nabla f(w)$, we can estimate $\nabla f(w)$ by calculating the sample average. In particular, this leads to the definition of the following random process:
+It is easy to see that we have ${g^{(k)}}^T \nabla f(w^{(k)}) = -\norm{ f(w^{(k)}) }^2 < 0$ as long as the iterates have not converged to a stationary point. This iterative scheme is called \emph{gradient descent method} (GD) and forms the basis for many of the iterative schemes used in deep learning practice. It is important to note that after defining such an iterative scheme it is unclear whether it actually converges to a minimizer. In the later sections of this chapter we will discuss the classes of functions for which convergence can be established and how they relate to deep learning practice. Before diving into the theoretical analysis of descent methods let us consider an extension to the gradient descent method.
+Notice that in (\ref{eq:gradient_descent}) the computation of each iterate requires the computation of the gradient $\nabla f$. For objective functions of the form $f(w) = \frac{1}{n} \sum_{i=1}^n f_i(w)$ this requires the computation of each $\nabla f_i(w)$ individually. Remember that in deep learning settings $f_i$ represents the loss $\ell(m_w(x_i), y_i)$ with respect to a single data point $(x_i, y_i)$. When the number of data points is large, computing the full gradient $\nabla f$ becomes prohibitively expensive. In fact, ImageNet (citation), a benchmark dataset for image classification, contains over 1.2 million images. If we treat each individual gradient $\nabla f_i(w)$ as a realization of a random variable $\nabla f_{\gamma}(w)$ with expected value $\ev{\nabla f_{\gamma}(w)} = \nabla f(w)$, we can estimate $\nabla f(w)$ by calculating the sample average. In particular, this leads to the definition of the following random process:
 \begin{equation}
   \label{eq:stochastic_gradient_descent}
   w^{(k+1)} = w^{(k)} - \eta_k \nabla f_{\gamma^{(k)}}(w^{(k)}),
@@ -326,17 +328,17 @@ Let $\{W_k\}_{k=0}^{\infty}$ be a sequence of stochastic variables and $W$ a sto
 \end{equation}
 We say the sequence  $\{W_k\}_{k=0}^{\infty}$ converges to $W$ \emph{in distribution} if
   \begin{equation}
-    \lim_{k \rightarrow \infty}\E [f(W_k) - f(W)] = 0
+    \lim_{k \rightarrow \infty}\ev{f(W_k) - f(W)} = 0
   \end{equation}
   for all $f \in C_b(\R^n, \R)$.
 \end{definition}
 Note that convergence in expectation implies convergence in expectation. Let $f \in C_b(\R^n, \R)$ and let $\Omega_{\text{conv}} = \{\omega \in \Omega : \lim_{n \rightarrow \infty}W_n(\omega) = W(\omega)\}$ Then, by the dominated convergence theorem we have 
 \begin{align*}
-  \lim_{k \rightarrow \infty} \E [f(W_k) - f(W)] &= \lim_{k \rightarrow \infty}\int_{\Omega} f(W_k) - f(W) d\BP \\
+  \lim_{k \rightarrow \infty} \ev{f(W_k) - f(W)} &= \lim_{k \rightarrow \infty}\int_{\Omega} f(W_k) - f(W) d\BP \\
   &= \int_{\Omega} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP \\
   &= \int_{\Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP
    + \int_{\Omega \setminus \Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP \\
-  &= \int_{\Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP = 0
+  &= \int_{\Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP = 0.
 \end{align*}
 
 \begin{example}
@@ -349,7 +351,7 @@ Next, we introduce a strong smoothness condition.
   \label{def:l_smooth}
   A continuously differentiable function $f : \mathbb{R}^d \rightarrow \mathbb{R}$ is said to be \emph{$L$-smooth} if its gradient is Lipschitz continuous, that is 
   \begin{equation}
-    ||\nabla f(w) - \nabla f(v) || \leq L ||w-v||,
+    \norm{\nabla f(w) - \nabla f(v) } \leq L \norm{w-v},
   \end{equation}
   for $w,v \in \mathbb{R}^d$.
 \end{definition}
@@ -357,7 +359,7 @@ From the above definition we have the following lemma.
 \begin{lemma}
   Let $f : \mathbb{R}^d \rightarrow \mathbb{R}$ be a $L$-smooth function. Then, we have 
   \begin{equation}
-    f(w) \leq f(v) + \langle \nabla f(w), v - w \rangle + \frac{L}{2} || v - w ||^2,
+    f(w) \leq f(v) + \langle \nabla f(w), v - w \rangle + \frac{L}{2} \norm{ v - w }^2,
   \end{equation}
   for all $v, w \in \mathbb{R}^d$.
 \end{lemma}
@@ -375,18 +377,18 @@ From the above definition we have the following lemma.
   Now, using Cauchy-Schwarz inequality we have
   \begin{align}
     \label{eq:Lsmoothproof2}
-    \int_0^1 (\nabla f(w_t) - \nabla f(w))^T(v-w)dt &\leq \int_0^1 L ||w_t-w||_2 ||v-w||_2dt \\
-    &= L ||v-w||_2 \int_0^1 t dt = \frac{L}{2} ||v-w||_2
+    \int_0^1 (\nabla f(w_t) - \nabla f(w))^T(v-w)dt &\leq \int_0^1 L \norm{w_t-w} \norm{v-w}dt \\
+    &= L \norm{v-w} \int_0^1 t dt = \frac{L}{2} \norm{v-w}
   \end{align}
   Combining \ref{eq:Lsmoothproof1} and \ref{eq:Lsmoothproof2} we obtain
   \begin{equation*}
-    f(w) \leq f(v) + \langle \nabla f(w), v - w \rangle + \frac{L}{2} || v - w ||^2,
+    f(w) \leq f(v) + \langle \nabla f(w), v - w \rangle + \frac{L}{2} \norm{v - w}^2,
   \end{equation*}
 \end{proof}
 \begin{definition}[Convexity]
   A function $f : \mathbb{R}^d \rightarrow \mathbb{R}$ is said to be \emph{convex} if 
   \begin{equation}
-    f(tx+(1-t)y) \leq tf(x)+(1-t)f(y),
+    f(tx+(1-t)y) \leq tf(x)+(1-t)f(y)
   \end{equation}
   for all $x,y \in \mathbb{R}^n$ and $t \in [0,1]$.
 \end{definition}
@@ -402,19 +404,19 @@ From the above definition we have the following lemma.
   The proof can be found in \autocite{boydConvexOptimization2004}.
 \end{proof}
 
-Now, we present a notion of convexity that is present in the convergence literature of SGD \autocite{sebbouhAlmostSureConvergence2021}.
+Now, (reformulate) we present a notion of convexity that is used in the convergence literature of SGD \autocite{sebbouhAlmostSureConvergence2021}. 
 \begin{definition}[Strong convexity]
   A continuously differentiable function $f : \mathbb{R}^d \rightarrow \mathbb{R}$ is said to be $\mu$-\emph{strongly convex} if
   \begin{equation}
-    f(v) \geq f(w) + \langle \nabla f(w), v - w \rangle + \frac{\mu}{2} || v - w ||^2,
+    f(v) \geq f(w) + \langle \nabla f(w), v - w \rangle + \frac{\mu}{2} \norm{v - w}^2
   \end{equation}
   for all $v, w \in \mathbb{R}^d$.
 \end{definition}
 
-\begin{definition}[$L$-\emph{smooth in expectation}]
+\begin{definition}[$L$-\emph{smooth in expectation}, \protect{\cite{?}}]
   A continuously differentiable  function $f_{\gamma}:\mathbb{R}^d \rightarrow \mathbb{R}$ is said to be $L$-\emph{smooth in expectation} with respect to the distribution $\mathcal{D}$ if there exists $L = L(f, \mathcal{D}) > 0$ such that 
   \begin{equation}
-    \mathbb{E}[||\nabla f_{\gamma}(w) - \nabla f_{\gamma}(w^\star)||^2] \leq 2 L(f(w) - f(w^\star)),
+    \mathbb{E}[\norm{\nabla f_{\gamma}(w) - \nabla f_{\gamma}(w^\star)}^2] \leq 2 L(f(w) - f(w^\star)),
   \end{equation}
   for all $w \in \mathbb{R}^d$. 
 \end{definition}
@@ -431,19 +433,19 @@ Now, we present a notion of convexity that is present in the convergence literat
   \begin{enumerate}
     \item There exists a scalar $\mu > 0$ such that 
     \begin{equation*}
-      \E[\nabla f_{\gamma}(w)] \leq \mu,
+      \ev{\nabla f_{\gamma}(w)} \leq \mu,
     \end{equation*}
     for all $w \in \R^d$.
     \item There exist scalars $\mu_1, \mu_2 > 0$ such that 
     \begin{equation*}
       \label{eq:variance_linear_growth}
-      \E[\lVert \nabla f_{\gamma}(w) \rVert^2] \leq \mu_1 + \mu_2 \lVert \nabla f(w) \rVert^2,
+      \ev{\lVert \nabla f_{\gamma}(w) \rVert^2} \leq \mu_1 + \mu_2 \lVert \nabla f(w) \rVert^2,
     \end{equation*}
     for all $w \in \R^d$.
   \end{enumerate}
 \end{assumption}
 \subsubsection{Convergence results}
-In recent years, there have been developments that build on the initial converge results from Robbins et al.\ \autocite{robbinsStochasticApproximationMethod1951}. There are results for almost sure convergence of the iterates \autocite{zhouStochasticMirrorDescent2017}\autocite{nguyenSGDHogwildConvergence2018}\autocite{sebbouhAlmostSureConvergence2021}, convergence of the function values and convergence of the gradients in expectation \autocite{bottouOptimizationMethodsLargeScale2018}.  
+In recent years, there have been developments that build on the initial converge results from Robbins et al.\ \autocite{robbinsStochasticApproximationMethod1951}. There are results for almost sure convergence of the iterates \autocite{zhouStochasticMirrorDescent2017, nguyenSGDHogwildConvergence2018, sebbouhAlmostSureConvergence2021}, convergence of the function values and convergence of the gradients in expectation \autocite{bottouOptimizationMethodsLargeScale2018}.  
 In Bottou et al.\ \autocite{bottouOptimizationMethodsLargeScale2018}, the authors present convergence for $L$-smooth objectives that satisfy condition \ref{eq:variance_linear_growth}. They show convergence in expectation of the function values for strongly convex objectives and convergence of gradients to a stationary point for non-convex objectives. It is important to note that in the non-convex case, the authors only show the convergence of a subsequence to a stationary point. In Gower et al.\ \autocite{gowerSGDGeneralAnalysis2019}, the notion of expected notion of expected smoothness is introduced. Expected smoothness combines $L$-smoothness with a bound on the variance in a novel way. In combination with strong quasi-convexity the authors show convergence of the iterates in expectation for decreasing step sizes.
 In the following we have a detailed look at an analysis by Sebbouh et al.\ \autocite{sebbouhAlmostSureConvergence2021} that gives insight into the assumptions and techniques required for a convergence proof.
 Combining convexity and $L$-smoothness leads to the following lemma presented by \autocite{sebbouhAlmostSureConvergence2021}.
@@ -451,25 +453,25 @@ Combining convexity and $L$-smoothness leads to the following lemma presented by
   \label{lemma:gradient_inequality}
   Let $f_{\gamma} : \R^d \rightarrow \R$ be a continuously differentiable function and $\gamma$ be a random variable defined on $(\Omega, \CF, \BP)$. If $f$ is both $L$-smooth and convex and $w^\star$ is a minimizer of $f$, then we have
   \begin{equation}
-    \E [||\nabla f_{\gamma}(w)||^2_2] \leq 4 \CL (f(w) - f(w^\star)) + 2 \sigma^2,
+    \ev{\norm{\nabla f_{\gamma}(w)}^2} \leq 4 \CL (f(w) - f(w^\star)) + 2 \sigma^2,
   \end{equation}
-  where $\sigma^2 \defeq \sup_{w \in \R^d} \E [||\nabla f(w)||^2]$ and $\CL \defeq \sup_{\gamma} L_{\gamma}$.
+  where $\sigma^2 \defeq \sup_{w \in \R^d} \ev{\norm{\nabla f(w)}^2}$ and $\CL \defeq \sup_{\gamma} L_{\gamma}$.
 \end{lemma}
 \begin{proof}
   Let $w, w^\star \in \R^d$ where $w^\star$ is a minimizer of $f$. We use the inequality (2.1.10) from \autocite{nesterovLecturesConvexOptimization2018} to obtain
   \begin{align*}
-    ||\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)||^2 &\leq 2L_{\gamma}(f_{\gamma}(w) - f_{\gamma}(w^\star) - \langle \nabla f_{\gamma}(w^\star), w - w^\star \rangle) \\
+    \norm{\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)}^2 &\leq 2L_{\gamma}(f_{\gamma}(w) - f_{\gamma}(w^\star) - \langle \nabla f_{\gamma}(w^\star), w - w^\star \rangle) \\
     &\leq 2\CL(f_{\gamma}(w) - f_{\gamma}(w^\star) - \langle \nabla f_{\gamma}(w^\star), w - w^\star \rangle).
   \end{align*}
   Thus, we have
   \begin{align*}
-    \E [||\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)||^2 ] &\leq 2\CL(f(w) - f(w^\star) - \langle \nabla f(w^\star), w - w^\star \rangle) \\
+    \ev{\norm{\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)}^2 } &\leq 2\CL(f(w) - f(w^\star) - \langle \nabla f(w^\star), w - w^\star \rangle) \\
     &= 2\CL(f(w) - f(w^\star)).
   \end{align*}
   Now, by using lemma \ref{lemma:inequality} and the previous inequality we have
   \begin{align*}
-    \E [||\nabla f_{\gamma}(w)||^2_2] &= \E [||(\nabla f_{\gamma}(w) - \nabla f_{\gamma}(w^\star)) + \nabla f_{\gamma}(w^\star)||^2_2] \\
-    &\leq 2( \E [||\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)||^2 ] + \E [||\nabla f_{\gamma}(w^\star)||^2]) \\
+    \ev{\norm{\nabla f_{\gamma}(w)}^2} &= \ev{\norm{(\nabla f_{\gamma}(w) - \nabla f_{\gamma}(w^\star)) + \nabla f_{\gamma}(w^\star)}^2} \\
+    &\leq 2( \ev{\norm{\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)}^2 } + \ev{\norm{\nabla f_{\gamma}(w^\star)}^2}) \\
     &= 4\CL(f(w) - f(w^\star)) + 2\sigma^2.
   \end{align*}
 \end{proof}
@@ -478,7 +480,7 @@ We now present the following result from \autocite{sebbouhAlmostSureConvergence2
   \label{lemma:sgd_iterates}
   Let $f_{\gamma} : \R^d \rightarrow \R$ be a continuously differentiable function that is $L$-smooth and convex for each $\gamma \in \Gamma$. Further, let $\{w^{(k)}\}_{k=1}^{\infty}$ be the iterates given by SGD and let $\eta_k \leq \frac{1}{4 \CL}$ for $k=1,2,\dots$. Then, we have
   \begin{equation*}
-    \E_k[||w^{(k+1)} - w^\star||] + \eta_k (f(w^{(k)}) - f^\star)) \leq ||w^{(k)} - w^\star||^2 + 2{\eta_k}^2\sigma^2,
+    \E_k[\norm{w^{(k+1)} - w^\star}] + \eta_k (f(w^{(k)}) - f^\star)) \leq \norm{w^{(k)} - w^\star}^2 + 2{\eta_k}^2\sigma^2,
   \end{equation*}
   for $k=1,2,\dots$.
 \end{lemma}
@@ -489,17 +491,17 @@ We now present the following result from \autocite{sebbouhAlmostSureConvergence2
   \end{equation*}
   We can use this to obtain the following:
   \begin{align*}
-    ||w^{(k+1)} - w^\star||^2 &= ||w^{(k)} - w^\star - \eta_k \nabla f_{\gamma_k}(w^{(k)})||^2 \\
-    &= ||w^{(k)} - w^\star||^2 + 2 \eta_k \langle \nabla f_{\gamma_k}(w^{(k)}), w^\star - w^{(k)}\rangle + {\eta_k}^2||\nabla f_{\gamma_k}(w^{(k)})||^2.
+    \norm{w^{(k+1)} - w^\star}^2 &= \norm{w^{(k)} - w^\star - \eta_k \nabla f_{\gamma_k}(w^{(k)})}^2 \\
+    &= \norm{w^{(k)} - w^\star}^2 + 2 \eta_k \langle \nabla f_{\gamma_k}(w^{(k)}), w^\star - w^{(k)}\rangle + {\eta_k}^2\norm{\nabla f_{\gamma_k}(w^{(k)})}^2.
   \end{align*}
-  Now using Lemma \ref{lemma:gradient_inequality} and Lemma \ref{lemma:convexity} we obtain
+  Now using Lemma~\ref{lemma:gradient_inequality} and Lemma~\ref{lemma:convexity} we obtain
   \begin{align*}
-    \E_k[||w^{(k+1)} - w^\star||^2] &= ||w^{(k)} - w^\star||^2 + 2 \eta_k \langle \nabla f(w^{(k)}), w^\star - w^{(k)}\rangle + {\eta_k}^2\E_k[||\nabla f_{\gamma_k}(w^{(k)})||^2] \\
-    &\leq ||w^{(k)} - w^\star||^2 + 2 \eta_k(2\CL \eta_k - 1)(f(w^{(k)}) - f(w^\star))+ {\eta_k}^22\sigma^2 \\
+    \E_k[\norm{w^{(k+1)} - w^\star}^2] &= \norm{w^{(k)} - w^\star}^2 + 2 \eta_k \langle \nabla f(w^{(k)}), w^\star - w^{(k)}\rangle + {\eta_k}^2\E_k[\norm{\nabla f_{\gamma_k}(w^{(k)})}^2] \\
+    &\leq \norm{w^{(k)} - w^\star}^2 + 2 \eta_k(2\CL \eta_k - 1)(f(w^{(k)}) - f(w^\star))+ {\eta_k}^22\sigma^2 \\
   \end{align*}
   Now, using $\eta_k \leq \frac{1}{4 \CL}$, we have
   \begin{equation*}
-    \E_k[||w^{(k+1)} - w^\star||^2] \leq ||w^{(k)} - w^\star||^2 - \eta_k(f(w^{(k)}) - f(w^\star))+ {\eta_k}^22\sigma^2.
+    \E_k[\norm{w^{(k+1)} - w^\star}^2] \leq \norm{w^{(k)} - w^\star}^2 - \eta_k(f(w^{(k)}) - f(w^\star))+ {\eta_k}^22\sigma^2.
   \end{equation*}
 \end{proof}
 We now present a non-asymptotic bound for the convex and $L$-smooth case.
@@ -507,37 +509,37 @@ We now present a non-asymptotic bound for the convex and $L$-smooth case.
   \label{thm:SGD_bound}
   Let $f_{\gamma} : \R^d \rightarrow \R$ be a continuously differentiable function that is both $L$-smooth and convex for each $\gamma \in \Gamma$. Then, we have
   \begin{equation*}
-    \E [f(\widetilde{w^{(k)}}) - f(w^\star)] \leq \frac{||w^{(0)} - w^\star||^2}{\sum_{i=0}^{k-1}\eta_i} + 2 \sigma^2 \frac{\sum_{i=0}^{k-1}\eta_i^2}{\sum_{i=0}^{k-1}\eta_i},
+    \ev{f(\widetilde{w^{(k)}}) - f(w^\star)} \leq \frac{\norm{w^{(0)} - w^\star}^2}{\sum_{i=0}^{k-1}\eta_i} + 2 \sigma^2 \frac{\sum_{i=0}^{k-1}\eta_i^2}{\sum_{i=0}^{k-1}\eta_i},
   \end{equation*}
   for $k = 1, 2, \dots$.
 \end{theorem}
 \begin{proof}
   Using lemma \ref{lemma:sgd_iterates} we have
   \begin{equation*}
-    \E_k[||w^{(k+1)} - w^\star||] + \eta_k (f(w^{(k)}) - f^\star)) \leq ||w^{(k)} - w^\star||^2 + 2{\eta_k}^2\sigma^2.
+    \E_k[\norm{w^{(k+1)} - w^\star}] + \eta_k (f(w^{(k)}) - f^\star)) \leq \norm{w^{(k)} - w^\star}^2 + 2{\eta_k}^2\sigma^2.
   \end{equation*}
   Summing over $k$ and taking the expected value we have
   \begin{equation*}
-    \sum_{t=0}^{k-1}\E[||w^{(t+1)} - w^\star||] + \sum_{t=0}^{k-1} \eta_t \E[f(w^{(t)}) - f^\star)] \leq \sum_{t=0}^{k-1} \E[||w^{(t)} - w^\star||^2] + \sum_{t=0}^{k-1} 2{\eta_t}^2\sigma^2.
+    \sum_{t=0}^{k-1}\ev{\norm{w^{(t+1)} - w^\star}} + \sum_{t=0}^{k-1} \eta_t \ev{f(w^{(t)}) - f^\star)} \leq \sum_{t=0}^{k-1} \ev{\norm{w^{(t)} - w^\star}^2} + \sum_{t=0}^{k-1} 2{\eta_t}^2\sigma^2.
   \end{equation*}
   Rearranging we have
   \begin{equation*}
-    \sum_{t=0}^{k-1} \eta_t \E[f(w^{(t)}) - f^\star)] \leq \E[||w^{(0)} - w^\star||^2] - \E[||w^{(k+1)} - w^\star||^2] + \sigma^2\sum_{t=0}^{k-1} 2{\eta_t}^2.
+    \sum_{t=0}^{k-1} \eta_t \ev{f(w^{(t)}) - f^\star)} \leq \ev{\norm{w^{(0)} - w^\star}^2} - \ev{\norm{w^{(k+1)} - w^\star}^2} + \sigma^2\sum_{t=0}^{k-1} 2{\eta_t}^2.
   \end{equation*}
   Now, normalizing with the sum of the learning rates, we use Jensen's inequality to obtain
   \begin{equation*}
-    \E[f(\widetilde{w^{(t)}}) - f^\star)] \leq \sum_{t=0}^{k-1} \frac{\eta_t}{\sum_{i=0}^{k-1}\eta_i} \E[f(w^{(t)}) - f^\star)] \leq \frac{\E[||w^{(0)} - w^\star||^2]}{\sum_{i=0}^{k-1}\eta_i} + \frac{\sigma^2\sum_{t=0}^{k-1} 2{\eta_t}^2}{\sum_{i=0}^{k-1}\eta_i}.
+    \ev{f(\widetilde{w^{(t)}}) - f^\star)} \leq \sum_{t=0}^{k-1} \frac{\eta_t}{\sum_{i=0}^{k-1}\eta_i} \ev{f(w^{(t)}) - f^\star)} \leq \frac{\ev{\norm{w^{(0)} - w^\star}^2}}{\sum_{i=0}^{k-1}\eta_i} + \frac{\sigma^2\sum_{t=0}^{k-1} 2{\eta_t}^2}{\sum_{i=0}^{k-1}\eta_i}.
   \end{equation*}
 \end{proof}
 Theorem \ref{thm:SGD_bound} shows the relation between learning rate and gradient noise for the optimality gap. Note that for a fixed learning rate $\eta \in \R$ we have
 \begin{equation*}
-  \E [f(\widetilde{w^{(k)}}) - f(w^\star)] \leq \frac{||w^{(0)} - w^\star||^2}{\eta k} + 2 \sigma^2 \eta.
+  \E [f(\widetilde{w^{(k)}}) - f(w^\star)] \leq \frac{\norm{w^{(0)} - w^\star}^2}{\eta k} + 2 \sigma^2 \eta.
 \end{equation*}
 While the first term converges to zero as $k \rightarrow \infty$, the second term remains constant. This gap is induced by gradient noise scaled with the learning rate. Intuitively, this is verified by the fact that each gradient step is scaled by the learning rate.
 \begin{lemma}
   Let $\{\CF_t\}_{t=0}^\infty$ be a filtration and $\{V_t\}_{t=0}^\infty, \{U_t\}_{t=0}^\infty, \{Z_t\}_{t=0}^\infty$ be $\{\CF_t\}_{t=0}^\infty$-adapted nonnegative processes such that $\sum_{t=0}^\infty Z_t < \infty$ and for all $t \geq 0$
   \begin{equation*}
-    \E[V_{t+1}|\CF_t] + U_{t+1} \leq V_t + Z_t.
+    \ev{V_{t+1}|\CF_t} + U_{t+1} \leq V_t + Z_t.
   \end{equation*}
   Then, $\{V_t\}_{t=0}^\infty$ converges and $\sum_{t=0}^\infty U_t < \infty$ almost surely.
 \end{lemma}
@@ -587,10 +589,10 @@ At this point, we note that all analyses in literature employ different techniqu
 
 \section{Stochastic differential equations}
 \label{sec:BackgroundSDETheory}
-In this section, we introduce the concept of stochastic differential equations (SDEs). First, we define a new notion of integration: Ito integration. Then, by reformulating an ordinary differential equation (ODE) as an integral equation, we generalize ODEs to stochastic processes by building on Ito integrals. Next, we discuss the existence and uniqueness of solution to SDEs. Finally, we introduce a framework for approximating solutions to SDEs numerically.
-\subsection{Ito Integral}
+In this section, we introduce the concept of stochastic differential equations (SDEs). First, we define a new notion of integration: Itô integration. Then, by reformulating an ordinary differential equation (ODE) as an integral equation, we generalize ODEs to stochastic processes by building on Itô integrals. Next, we discuss the existence and uniqueness of solution to SDEs. Finally, we introduce a framework for approximating solutions to SDEs numerically.
+\subsection{Itô Integral}
 \label{subsec:ItoIntegral}
-We briefly introduce the notion of Ito integral. Note that further details on the derivation can be found in \autocite{eAppliedStochasticAnalysis2021}. 
+We briefly introduce the notion of Itô integral. Note that further details on the derivation can be found in \autocite{eAppliedStochasticAnalysis2021}. 
 First, we introduce a continuous time generalization of a random walk: the Wiener Process.
 \begin{definition}[\autocite{durrettProbabilityTheoryExamples2019}]
   A stochastic process $\{B_t\}_{t \geq 0}$ is called \emph{Brownian motion} if it satisfies the following properties
@@ -610,8 +612,8 @@ Now, we can define a notion of stochastic integration. Let $f : \R^d \rightarrow
 \begin{equation*}
   \int_0^t f(X_s) dB_s = \lim\limits_{|\delta| \rightarrow 0} \sum_j f(X_j)(B_{t_{j+1}} - B_{t_j})
 \end{equation*}
-The rigorous construction of the Ito integral requires the definition on piece wise constant functions. Then, it can be shown that a general class of functions can be approximated by these functions. This establishes the existence of the integrals as a limit.
-\begin{definition}[\autocite{eAppliedStochasticAnalysis2021}]
+The rigorous construction of the Itô integral requires the definition on piece wise constant functions. Then, it can be shown that a general class of functions can be approximated by these functions. This establishes the existence of the integrals as a limit.
+\begin{definition}[\protect{\cite[page 5]{eAppliedStochasticAnalysis2021}}]
   We define the class of functions $\CV[S,T]$ to be function $f$ that satisfy the following properties:
   \begin{enumerate}
     \item $f$ is $(\CR \times \CF)$-measurable as a function from $[S,T] \times \Omega$ to $\R$.
@@ -623,7 +625,7 @@ The rigorous construction of the Ito integral requires the definition on piece w
   \end{enumerate}
 \end{definition}
 \begin{lemma}[\autocite{eAppliedStochasticAnalysis2021}]
-  For $f \in \CV[S,T]$, the Ito integral satisfies
+  For $f \in \CV[S,T]$, the Itô integral satisfies
   \begin{equation}
     \E \left[ \int_S^T f(\omega,t)dB_t \right] = 0,
   \end{equation}
@@ -631,10 +633,20 @@ The rigorous construction of the Ito integral requires the definition on piece w
     \E \left[ \int_S^T f(\omega,t)dB_t \right]^2 = \E \left[ \int_S^T f^2(\omega,t)dt \right]
   \end{equation}
 \end{lemma}
+\begin{definition}[Itô process]
+  A stochastic process is called \emph{Itô process} if it is given by
+  \begin{equation}
+    X_t = X_0 + \int_0^tb(s, X_s)ds + \int_0^t \sigma(s, X_s)dB_s,
+  \end{equation}
+  where $\sigma \in \CV[0,T]$, b is $\CF_t$-adapted, and $\int_0^T |b(\omega,t)|dt < \infty$ almost surely.
+\end{definition}
+\begin{theorem}
+  Let $f : \R \rightarrow \R$ be a twice differentiable function, and let $Y_t = f(X_t)$ where $X_t$ is an It'o process defined in 
+\end{theorem}
 \subsection{SDE Definition}
 \label{subsec:SDEDefinition}
 
-An Ito process 
+An Itô process 
 \begin{equation}
   X_t = X_0 + \int_0^tb(s, X_s)ds + \int_0^t \sigma(s, X_s)dB_s
 \end{equation}
@@ -677,11 +689,11 @@ There are two classes of numerical approximations for SDEs: Strong and weak appr
 \begin{definition}
   A time discrete approximation $\widehat{X}$ with maximum step size $h$ \emph{converges strongly} to $X$ at time $T$ as $h \rightarrow 0$ if 
   \begin{equation}
-    \lim_{h \rightarrow 0} \mathbb{E}(||X_T - \widehat{X}(T)||) = 0.
+    \lim_{h \rightarrow 0} \mathbb{E}(\norm{X_T - \widehat{X}(T)}) = 0.
   \end{equation}
   The time discrete approximation $\widehat{X}$ converges strongly with order $p>0$ to $X$ at time $T$ as $h \rightarrow 0$ if there exists a constant $K > 0$, which does not depend on $h$, and a $\delta_0 > 0$ such that 
   \begin{equation}
-    \mathbb{E}(||X_T - \widehat{X}(T)||) \leq K h^p
+    \mathbb{E}(\norm{X_T - \widehat{X}(T)}) \leq K h^p
   \end{equation}
   holds for each $h \in ]0, \delta_0[$.
 \end{definition}
@@ -712,7 +724,7 @@ for $0 \leq n \leq N$.
   The random variable satisfies 
   \begin{enumerate}
     \item $f_{\gamma}(w) \in \mathcal{L}^1(\Omega)$ for all $w \in \mathbb{R}^d$
-    \item $f_{\gamma}(w)$ is continuously differentiable in $w$ almost surely and for each $R > 0$, there exists a random variable $M_{R,\gamma}$ such that $\max_{||x|| \leq R}|| \nabla f_{\gamma}(w) || \leq M_{R,\gamma}$ almost surely, with $\mathbb{E} |M_{R,\gamma}| < \infty$.
+    \item $f_{\gamma}(w)$ is continuously differentiable in $w$ almost surely and for each $R > 0$, there exists a random variable $M_{R,\gamma}$ such that $\max_{\norm{x} \leq R} \norm{ \nabla f_{\gamma}(w) } \leq M_{R,\gamma}$ almost surely, with $\mathbb{E} |M_{R,\gamma}| < \infty$.
     \item $\nabla f_{\gamma}(w) \in \mathcal{L}^2(\Omega)$ for all $w \in \mathbb{R}^d$.
   \end{enumerate}
 \end{assumption}
