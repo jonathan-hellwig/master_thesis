@@ -1,17 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'Masterarbeit_Jonathan_Hellwig.blg'
-[144] biber:340> INFO - === Wed Oct  5, 2022, 16:31:36
-[169] Biber.pm:418> INFO - Reading 'Masterarbeit_Jonathan_Hellwig.bcf'
-[294] Biber.pm:972> INFO - Found 18 citekeys in bib section 0
-[317] Biber.pm:4383> INFO - Processing section 0
-[332] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[350] bibtex.pm:1713> INFO - LaTeX decoding ...
-[531] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
-[1267] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1267] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1267] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[1267] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[1305] bbl.pm:654> INFO - Writing 'Masterarbeit_Jonathan_Hellwig.bbl' with encoding 'UTF-8'
-[1360] bbl.pm:757> INFO - Output to Masterarbeit_Jonathan_Hellwig.bbl
-[1361] Biber.pm:130> WARN - I didn't find a database entry for '?' (section 0)
-[1361] Biber.pm:132> INFO - WARNINGS: 1
+[74] biber:340> INFO - === Wed Oct  5, 2022, 18:00:26
+[90] Biber.pm:418> INFO - Reading 'Masterarbeit_Jonathan_Hellwig.bcf'
+[161] Biber.pm:972> INFO - Found 18 citekeys in bib section 0
+[174] Biber.pm:4383> INFO - Processing section 0
+[185] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[197] bibtex.pm:1713> INFO - LaTeX decoding ...
+[336] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
+[613] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[613] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[613] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[613] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[636] bbl.pm:654> INFO - Writing 'Masterarbeit_Jonathan_Hellwig.bbl' with encoding 'UTF-8'
+[676] bbl.pm:757> INFO - Output to Masterarbeit_Jonathan_Hellwig.bbl
+[676] Biber.pm:130> WARN - I didn't find a database entry for '?' (section 0)
+[677] Biber.pm:132> INFO - WARNINGS: 1
