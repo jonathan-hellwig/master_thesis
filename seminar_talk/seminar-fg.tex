@@ -1,0 +1,597 @@
+\documentclass[17pt,institute=e10]{tuhh_presentation}
+%\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{tikz}
+\usepackage[backend=biber,style=ieee]{biblatex}
+\usepackage[nolinks]{qrcode}
+\usepackage{pythonhighlight}
+\def\UrlBreaks{\do\/\do-}
+
+\title{Stochastic gradient descent in a SDE framework}
+\date{24.10.2022} % or \date{dd}{mm}{yyyy} or \date{Text}
+\author[Jonathan Hellwig]{Jonathan Hellwig}
+% \email{fabian.gabel@tuhh.de}
+% %\institute{Corresponding Author's Institute} % Optional: Please refer to https://collaborating.tuhh.de/e-4/tuhh_latex_presentation/-/wikis/Slides-with-Institute-Logos .
+% \street{Am Schwarzenberg-Campus 3}
+% \city{21073 Hamburg}
+% \website{pntfx.com}
+% \telephonenumber{+49 40 42878-3469}
+
+\autofontdecrement % This commands will automatically reduce font size for itemize/enumerate environments
+\definecolor{purple-pontifex}{RGB}{93,47,134}
+\definecolor{blue-pontifex}{RGB}{171,232,239}
+\definecolor{gray-pontifex}{RGB}{184,184,184}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\f}{f : \R^n \rightarrow \R}
+\newcommand{\expnumber}[2]{{#1}\mathrm{e}{#2}}
+\begin{document}
+
+\titlepage
+
+% \begin{frame}[agenda]
+%     \tableofcontents
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Outline}
+% \vspace{-1cm}
+%   \pause
+
+%   \begin{block}{Scope}
+%   \begin{itemize}
+%     \item Make a prediction on past outputs
+%     \item "Sequence model" but not recurrent
+%     \item Alternative to RNNs for sequential data
+%     \item Alternative to GANs for generation tasks
+%   \end{itemize}
+% \end{block}
+
+% \pause 
+
+% \begin{block}{Applications (\textbf{G}enerative \textbf{P}retrained \textbf{T}ransformer-3 )}
+%   \begin{itemize}
+%     \item GitHub Copilot (Programmer)
+%     \item Project December (Chatbot)
+%     \item AI Writer (E-Mail Correspondence with historical persons)
+%     \item AI Dungeon (Text Adventure)
+%     \item Write With Transformer (Auto-complete)
+%   \end{itemize}
+% \end{block}
+
+
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Our data and our goal}
+
+%   \pause
+
+%   \begin{itemize}
+%   \item \emph{train}: text from the \textbf{IMDB sentiment classification dataset}
+%   \item \emph{goal}: generate new movie reviews for a given prompt
+%   \end{itemize}
+
+%   \pause
+%   \vspace{0.5cm}
+
+%   \begin{block}{this movie is about...}
+%     ... the worst movie that i have ever seen and i 've ever seen this film , or even if i was going for the movie . the acting , and the plot was just plain . but the only thing i
+%   \end{block}
+
+%   \pause
+%   \vspace{0.5cm}
+%   Structure of the dataset:
+
+%   \begin{itemize}
+%     \item 50 000 reviews in text files ($\sim 5 * 10^6$ words)
+%     \item associated binary sentiment polarity labels (\texttt{pos} vs.\ \texttt{neg})
+%     \item one line UTF-8 with HTML-tags \texttt{<br /><br />} 
+%   \end{itemize}
+
+
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Futz (1969)}
+
+%   \vspace{-1cm}
+
+%   \includegraphics[height=10cm]{futz.png}
+
+%   \vspace{0.5cm}
+
+%   Original: \url{https://www.imdb.com/review/rw0107136/}\\[0.5em]
+%   File: \,\qquad\texttt{./train/neg/0\_3.txt} 
+
+% \end{frame}
+
+\begin{frame}[agenda]
+  \tableofcontents
+\end{frame}
+
+\section{Problem formulation}
+
+\begin{frame}
+  \frametitle{Problem formulation}
+  \emph{Task}: Given a function $\f$, find $w^\star \in \R^n$ such that 
+  \begin{equation*}
+    f(w^\star) = \min_{w \in \R^n} f(w).
+  \end{equation*}
+  \begin{block}{Applications}
+  \begin{itemize}
+    \item Image classification
+    \item Text generation
+    \item Reinforcement learning
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Gradient descent}
+
+  \begin{block}{Definition}
+    Let $\f$ be a function and $\eta > 0$. Then, given an initial value $w_0 \in R^n$ the iterates of \emph{gradient descent} are given by
+  \begin{equation*}
+    w_{k+1} = w_k - \eta f(w_k)
+  \end{equation*}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Example}
+  
+    \vspace{-1cm}
+    \begin{figure}
+      \centering
+      \includegraphics[height=12cm]{plots/sample_data.pdf}
+      \caption{Sample data}
+    \end{figure}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Example: Model}
+  Given sample data $\{(x_i,y_i)\}_{i=1}^n$ we construct the model
+  \begin{equation*}
+    y_i = w x_i + b + \epsilon,
+  \end{equation*}
+  where $w, b \in \R$ and $\epsilon \sim \mathcal{N}(0,1)$.
+
+  Next, we define the loss function $f : \R^2 \rightarrow \R$ by
+  \begin{equation*}
+    f(w,b) = \sum_{i = 1}^{n} \left(w x_i + b - y_i\right)^2.
+  \end{equation*}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Example: Loss function}
+    \vspace{-1cm}
+    \begin{figure}
+      \centering
+      \includegraphics[height=12cm]{plots/quadratic_loss.pdf}
+      \caption{Loss function}
+    \end{figure}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Example: Numerical experiments}
+  We conduct numerical experiments with gradient descent with the following settings
+  \begin{itemize}
+    \item $\eta \in \{\expnumber{1}{-5},\expnumber{5}{-5}, \expnumber{1}{-4}, \expnumber{5}{-4}, \expnumber{1}{-3}\}$
+    \item $w_0 = 0.62, b_0 = 0.53$
+    \item 1000 total iterations.
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Example: Gradient descent}
+    \vspace{-1cm}
+    \begin{figure}
+      \centering
+      \includegraphics[height=12cm,width=\textwidth]{plots/learning_rates.pdf}
+      \caption{Loss function}
+    \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Example: Gradient descent}
+    \vspace{-1cm}
+    \begin{figure}
+      \centering
+      \includegraphics[height=12cm,width=\textwidth]{plots/large_learning_rate.pdf}
+      \caption{Loss function}
+    \end{figure}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Token and positional embedding}
+  \begin{itemize}
+    \item Vector of integers to a matrix of float vectors
+  \end{itemize}
+
+  \vspace{1cm}
+
+  \begin{block}{\texttt{tf.keras.layers.Embedding}}
+  \texttt{input\_dim}:  \;Size of the vocabulary (20 000)
+
+  \texttt{output\_dim}:  Dimension of the embedding (256)
+
+  \end{block}
+  \pause
+
+  \vspace{1cm}
+
+\begin{python}
+self.token_emb = layers.Embedding(input_dim=vocab_size, output_dim=embed_dim)
+self.pos_emb   = layers.Embedding(input_dim=maxlen,     output_dim=embed_dim)
+\end{python}
+
+\vspace{1cm}
+
+  \begin{itemize}
+    \item Sum of token embedding and positional embedding
+    \item Each token corresponds to a float vector
+    \item \url{http://projector.tensorflow.org/}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Projected Embedding}
+\vspace{-1cm}
+  \begin{columns}[c]
+    \begin{column}{.35\textwidth}
+    \begin{figure}
+        \includegraphics[width=0.9\textwidth]{woman.png}
+    \end{figure}      
+    \end{column}
+    \begin{column}{.35\textwidth}
+    \begin{figure}
+        \includegraphics[width=0.9\textwidth]{film.png}
+    \end{figure}
+    \end{column}
+\end{columns}
+
+\end{frame}
+
+\section{Transformer architecture}
+
+\begin{frame}
+  \frametitle{Overall structure}
+  \vspace{-1cm}
+  \begin{columns}[c]
+    \begin{column}{.4\textwidth}
+    \begin{figure}
+    \centering
+    \includegraphics[height=12cm]{transformer.png}
+    \caption{Radford et.\ al.}
+  \end{figure}
+    \end{column}
+    \pause
+    \begin{column}{.5\textwidth}
+      \begin{itemize}
+      \item Here: only 1 transformer layer
+      \item \emph{Miniature} GPT
+      \end{itemize}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Self-attention and masking}
+  \vspace{-1.5cm}
+\begin{columns}[c]
+\begin{column}{0.6\textwidth}
+  \begin{align*}
+    \operatorname{Attention}(Q,K,V) = \operatorname{SoftMax}\left(M + \frac{Q K^T}{\sqrt{d_k}} \right) V \in \mathbb{R}^{s_q \times d_v}
+  \end{align*}
+
+\vspace{2cm}
+
+Self-attention: $Q = K = V$ \\
+($Q$uery, $K$ey, $V$alue)
+\end{column}
+\begin{column}{0.4\textwidth}
+    \begin{figure}
+        \includegraphics[height=10cm]{attention.png}
+        \caption{Vaswani et.\ al.}
+    \end{figure}      
+\end{column}
+\end{columns}
+\pause
+\vspace{-0.5cm}
+\emph{Causal attention mask}: \\
+prevent flow of information from future tokens to current token
+
+\vspace{1cm}
+
+  \begin{python}
+    attention_output = self.att(inputs, inputs, attention_mask=causal_mask)
+  \end{python}
+\end{frame}
+
+\begin{frame}
+  \frametitle{End-to-end multi-head attention}
+  \vspace{-1cm}
+    \begin{figure}
+    \centering
+    \includegraphics[height=12cm]{multihead.png}
+    \caption{K. Doshi, towardsdatascience.com}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Overall structure}
+  \vspace{-1cm}
+    \begin{figure}
+    \centering
+    \includegraphics[height=12cm]{transformer.png}
+    \caption{Radford et.\ al.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Dropout, norm, and shortcut}
+  \vspace{-1cm}
+  \begin{block}{Dropout}
+    \begin{itemize}
+      \item Prevent overfitting
+      \item Set activation to zero based on rate $p \in [0,1]$
+      \item rescale remaining entries
+    \end{itemize} 
+    \vspace{0.5cm}
+    \begin{python}
+    self.dropout1 = layers.Dropout(rate)
+    ...
+    attention_output = self.dropout1(attention_output)
+    \end{python}
+  \end{block}
+  \pause
+  \begin{block}{Norm}
+    \begin{itemize}
+      \item normalize activations
+      \item rescale to mean $\beta$ and variance $\gamma$ (parameters)
+      \item for each given example independently ($\neq$ batch normalization)
+    \end{itemize}
+    \vspace{0.5cm}
+    \begin{python}
+    self.layernorm1 = layers.LayerNormalization(epsilon=1e-6)
+    ...
+    out1 = self.layernorm1(inputs + attention_output)
+    \end{python}
+  \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Full transformer block}
+\begin{python}
+  class TransformerBlock(layers.Layer):
+    def __init__(self, embed_dim, num_heads, ff_dim, rate=0.1):
+        super(TransformerBlock, self).__init__()
+        self.att = layers.MultiHeadAttention(num_heads, embed_dim)
+        self.ffn = keras.Sequential(
+            [layers.Dense(ff_dim, activation="relu"), layers.Dense(embed_dim),]
+        )
+        self.layernorm1 = layers.LayerNormalization(epsilon=1e-6)
+        self.layernorm2 = layers.LayerNormalization(epsilon=1e-6)
+        self.dropout1 = layers.Dropout(rate)
+        self.dropout2 = layers.Dropout(rate)
+
+    def call(self, inputs):
+        input_shape = tf.shape(inputs)
+        batch_size = input_shape[0]
+        seq_len = input_shape[1]
+        causal_mask = causal_attention_mask(batch_size, seq_len, seq_len, tf.bool)
+        attention_output = self.att(inputs, inputs, attention_mask=causal_mask)
+        attention_output = self.dropout1(attention_output)
+        out1 = self.layernorm1(inputs + attention_output)
+        ffn_output = self.ffn(out1)
+        ffn_output = self.dropout2(ffn_output)
+        return self.layernorm2(out1 + ffn_output)
+\end{python}
+\end{frame}
+
+\section{Miniature GPT model}
+
+\begin{frame}[fragile]
+  \frametitle{Miniature GPT model}
+  \begin{itemize}
+    \item Token and position embedding
+    \item Transformer block
+    \item Dense layer (\emph{logits layer})
+  \end{itemize}
+\vspace{1cm}
+  \begin{python}
+  def create_model():
+    inputs = layers.Input(shape=(maxlen,), dtype=tf.int32)
+    embedding_layer = TokenAndPositionEmbedding(maxlen, vocab_size, embed_dim)
+    x = embedding_layer(inputs)
+    transformer_block = TransformerBlock(embed_dim, num_heads, feed_forward_dim)
+    x = transformer_block(x)
+    outputs = layers.Dense(vocab_size)(x)
+    model = keras.Model(inputs=inputs, outputs=[outputs, x])
+    loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+    model.compile(
+        "adam", loss=[loss_fn, None],
+    )  
+    return model
+  \end{python}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Model summary}
+\begin{lstlisting}[basicstyle=\small]
+Model: "model"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         [(None, 80)]              0         
+_________________________________________________________________
+token_and_position_embedding (None, 80, 256)           5140480   
+_________________________________________________________________
+transformer_block (Transform (None, 80, 256)           658688    
+_________________________________________________________________
+dense_2 (Dense)              (None, 80, 20000)         5140000   
+=================================================================
+Total params: 10,939,168
+Trainable params: 10,939,168
+Non-trainable params: 0
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Loss function}
+  \begin{block}{Entropy}
+    Average level of \emph{surprise}
+    \begin{align*}
+      \operatorname{H}(X) = -\sum_{x \in \Omega} p(x) \log(p(x)) = \mathbb{E}[-\log p(X)]
+    \end{align*}
+    $-\log(p (X))$ denotes surprise.
+  \end{block}
+  \pause
+\vspace{1cm}
+  \begin{block}{Cross-Entropy}
+    Two distributions $p$ and $q$ over the same event space.
+    \begin{align*}
+      \operatorname{H}(X,p,q) = -\sum_{x \in \Omega} p(x) \log(q(x)) 
+    \end{align*}
+  \end{block}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+  \frametitle{Cross-entropy loss function}
+
+  \begin{itemize}
+  \item \texttt{tf.keras.losses.SparseCategoricalCrossentropy} \\
+  expects probability distributions,
+   but our model produces logits
+  \end{itemize}
+\vspace{1cm}
+  \begin{python}
+  loss_fn = tf.keras.losses.SparseCategoricalCrossentropy( from_logits = True )
+  \end{python}
+  \pause
+\vspace{1cm}
+Logic behind logits:
+\begin{python}
+  raw_predictions = neural_net(input_layer)
+  predicted_class_index_by_raw = argmax(raw_predictions)
+  probabilities = softmax(raw_predictions)
+  predicted_class_index_by_prob = argmax(probabilities)
+\end{python}
+\pause
+\begin{itemize}
+  \item Maximum index of the first and third tensor coincide. 
+  \item Probabilities not necessary for training...
+  \pause
+  \item ...but for text generation $\Rightarrow$
+\end{itemize}
+
+\end{frame}
+
+\section{Callback for generating text}
+
+\begin{frame}[fragile]
+  \frametitle{Callback}
+  \vspace{-1cm}
+  \begin{itemize}
+    \item Feed some starting prompt to the model
+    \item Predict probability distribution and sample next token
+  \end{itemize}
+
+  \pause
+
+  \begin{block}{Sampling tokens}
+    \begin{python}
+        def sample_from(self, logits):
+        logits, indices = tf.math.top_k(logits, k=self.k, sorted=True)
+        indices = np.asarray(indices).astype("int32")
+        preds = keras.activations.softmax(tf.expand_dims(logits, 0))[0]
+        preds = np.asarray(preds).astype("float32")
+        return np.random.choice(indices, p=preds)
+    \end{python}
+  \end{block}
+
+  \pause
+
+\begin{block}{Text generation}
+  \begin{python}
+        x = start_tokens
+        while num_tokens_generated <= self.max_tokens:
+          #padding
+          ...
+            y, _ = self.model.predict(x)
+            sample_token = self.sample_from(y[0][sample_index])
+            tokens_generated.append(sample_token)
+            start_tokens.append(sample_token)
+            num_tokens_generated = len(tokens_generated)
+        txt = " ".join( [self.detokenize(_) for _ in self.start_tokens + tokens_generated])
+  \end{python}
+\end{block}
+
+\end{frame}
+\section{Training of the network}
+\begin{frame}[fragile]
+  \frametitle{Training}
+\vspace{-1cm}
+  \emph{Generative pretraining}: predict the next token
+  \vspace{1cm}
+  \begin{python}
+  model.fit(text_ds, verbose=2, epochs=25, callbacks=[text_gen_callback])
+  \end{python}
+  \pause
+\vspace{1cm}
+\begin{itemize}
+  \item Target is generated in the preprocessing phase 
+  \item consists of shifted vectorized inputs.
+\end{itemize}
+\vspace{1cm}
+  \begin{python}
+  def prepare_lm_inputs_labels(text):
+    """
+    Shift word sequences by 1 position so that the target for position (i) is
+    word at position (i+1). The model will use all words up till position (i)
+    to predict the next word.
+    """
+    text = tf.expand_dims(text, -1)
+    tokenized_sentences = vectorize_layer(text)
+    x = tokenized_sentences[:, :-1]
+    y = tokenized_sentences[:, 1:]
+    return x, y
+  \end{python}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Take-home messages}
+  \begin{itemize}
+    \item Text processing involves different non-trivial preprocessing steps
+    \item Power of transformer vs. RNN: parallelizable 
+    \item Text generation is similar to classification task
+    \item Logits encode probabilities 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{References}
+  \begin{thebibliography}{10}
+\bibitem{gpt}
+\alert{Radford, A., Narasimhan, K., Salimans, T., and Sutskever, I.}
+\newblock  {Improving Language Understanding by Generative Pre-Training}
+\newblock {\em Preprint, 2018}.
+
+\bibitem{attention}
+\alert{Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., and Polosukhin, I.}
+\newblock {Attention Is All You Need}
+\newblock {\em arXiv preprint, arXiv:1706.03762 [cs.CL], 2018}.
+
+\bibitem{ds}
+\alert{Doshi, K.}
+\newblock {Transformers Explained Visually (Part 3)}
+\newblock {\em Blog, \url{https://towardsdatascience.com/transformers-explained-visually-part-3-multi-head-attention-deep-dive-1c1ff1024853}, (last acess 08/02/2022)}.
+
+\end{thebibliography}
+\end{frame}
+
+\end{document}

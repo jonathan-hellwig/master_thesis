@@ -1,0 +1,206 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\RequirePackage{tikzpagenodes}
+\RequirePackage{enumitem}
+\RequirePackage{colortbl}
+
+% Settings
+\useinnertheme{tuhh}
+\useoutertheme{tuhh}
+\usecolortheme{tuhh}
+\usefonttheme{tuhh}
+
+\geometry{papersize={338.67mm, 190.50mm}}
+\setbeamersize{text margin left  = 21.30mm, 
+               text margin right = 61.67mm} 
+
+\usebeamercolor{tuhh teal}\definecolor{tuhhTeal}{named}{fg}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{bibliography item}[text]
+
+% URL links highlighting 
+\hypersetup{colorlinks=true, allcolors=tuhhTecBlue}
+
+% Remove link coloring for specific environments
+\AtBeginDocument{
+  % If citations are used, we remove link coloring
+  \@ifundefined{cite}{}
+  {\let\oldcite\cite%
+   \renewcommand{\cite}[1]{{\hypersetup{hidelinks}\oldcite{#1}}}%
+  }
+  % References should not be colored
+  \let\oldref\ref%
+  \renewcommand{\ref}[1]{{\hypersetup{hidelinks}\oldref{#1}}}%
+  % TOC entry links have to be hidden as well, but this is done in the following command renew of \tableofcontents.
+  % Links in frame titles should also be hidden. This is done in the frame composition itself.
+}
+
+\let\oldttfamily\ttfamily
+\renewcommand{\ttfamily}{\Large\oldttfamily}
+
+\let\oldItemize\itemize
+\let\oldItemizeEnd\enditemize
+\renewenvironment{itemize}{\oldItemize\addtolength{\itemsep}{1.5mm}}{\oldItemizeEnd}
+
+\let\oldEnumerate\enumerate
+\let\oldEnumerateEnd\endenumerate
+\renewenvironment{enumerate}{\oldEnumerate\addtolength{\itemsep}{1.5mm}}{\oldEnumerateEnd}
+
+\setlist[enumerate]{leftmargin=\leftmargini, label=\makebox[0.5em][c]{\arabic*}.}
+\setlist[itemize]{leftmargin=\leftmargini, label=\raisebox{0.375ex}{\footnotesize$\bullet$}}
+
+% Allows the user to decrement font size for sub items in enumerate and itemize envs
+\newcommand{\autofontdecrement}{
+  \setlist[enumerate, 2]{leftmargin=\leftmargini, label=\makebox[0.5em][c]{\arabic*}., before*=\small } 
+  \setlist[enumerate, 3]{leftmargin=\leftmargini, label=\makebox[0.5em][c]{\arabic*}., before*=\footnotesize }
+  \setlist[itemize, 2]{leftmargin=\leftmargini, label=\raisebox{0.375ex}{\footnotesize$\bullet$}, before*=\small } 
+  \setlist[itemize, 3]{leftmargin=\leftmargini, label=\raisebox{0.375ex}{\footnotesize$\bullet$}, before*=\footnotesize }  
+}
+
+\newcommand{\tuhhwordmark}{.theme_imgs/TUHH_logo-wortmarke_en_rgb.pdf}% Titlepage definition
+\newcommand{\settuhhwordmark}[2][]{\renewcommand{\tuhhwordmark}{#2}}
+
+% A default frame should always use a content_frame background unless the institut version is selected
+\newcommand{\frameicon}{.theme_imgs/TUHH_logo_rgb.pdf}% Titlepage definition
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{content_frame}{\usebeamertemplate{content_frame_background}}
+  \usebeamertemplate{content_frame}%
+}
+
+% Titlepage definition
+% A titlepage frame should always use a titlepage_frame background unless the institut version is selected
+\newcommand{\titlepageformat}{titlepage_frame}% Titlepage definition
+\newcommand{\titlepagetextformat}{titlepage}% Titlepage definition
+\newcommand{\titlepageicon}{.theme_imgs/institute_wordmark.pdf}
+\makeatletter
+\define@key{beamerframe}{titlepage}[true]{%
+  \setbeamertemplate{content_frame}{\usebeamertemplate{\titlepageformat}}
+  \usebeamertemplate{content_frame}%
+  }
+\makeatother
+
+\renewcommand*{\titlepage}{
+  \begin{frame}[titlepage]
+    \usebeamertemplate{\titlepagetextformat}
+  \end{frame}
+}
+
+% Finalpage definition
+\makeatletter
+\define@key{beamerframe}{finalpage}[true]{%
+  \setbeamertemplate{content_frame}{\usebeamertemplate{endpage_frame}}
+  \usebeamertemplate{content_frame}%
+  }
+\makeatother
+
+% Custom final page setup
+\newcommand{\finalpage}{
+  \begin{frame}[finalpage]
+  \end{frame}
+}
+
+% Renew TOC command to indent it to the grey rectangle
+\let\oldTableOfContents\tableofcontents
+\renewcommand*{\tableofcontents}[1][]{%
+  \begin{minipage}{98.99mm}
+    \hfill
+  \end{minipage}
+  \begin{minipage}[c][137.74mm]{0.60\textwidth}
+    {
+    \hypersetup{hidelinks}
+    \oldTableOfContents[#1]
+    }
+  \end{minipage}
+}
+
+% Add section numbers to TOC
+\setbeamertemplate{section in toc}{\makebox[0.5em][c]{\inserttocsectionnumber}.~\inserttocsection}
+
+% Adjust TOC entry spacing
+\makeatletter
+\patchcmd{\beamer@sectionintoc}
+  {\vfill}
+  {\vskip 1em}
+  {}
+  {}
+
+\pretocmd{\beamer@subsectionintoc}
+  {\vskip 0.25em}
+  {}
+  {}
+
+% Agendaframe definition
+\makeatletter
+\define@key{beamerframe}{agenda}[true]{%
+  \setbeamertemplate{content_frame}{\usebeamertemplate{agenda_frame}}
+  \usebeamertemplate{content_frame}%
+  }
+\makeatother
+
+% Section slide definitions
+\makeatletter
+\define@key{beamerframe}{section polka}[true]{%
+  \setbeamertemplate{content_frame}{\usebeamertemplate{section page polka}}
+  \usebeamertemplate{content_frame}%
+  }
+\makeatother
+
+% Plain page definition
+\makeatletter
+\define@key{beamerframe}{plain}[true]{%
+  \setbeamertemplate{content_frame}{\usebeamertemplate{plain_background}}
+  \usebeamertemplate{content_frame}%
+  }
+\makeatother
+
+% This rule is executed, if footnotes are present.
+\renewcommand\footnoterule{
+  \moveleft 15.96 mm %21.30mm- 5.34mm
+  \vbox{
+    \textcolor{tuhhTeal}{
+      \rule{\dimexpr \textwidth+61.67mm-5.24mm-5.24mm-5.24mm-5.24mm-0.5mm}{1pt}
+    }
+  \vskip -0.9em
+  }
+}
+
+% The footline is the lowest element in a frame, we can therfore use it to "shift" footnote entries.
+\setbeamertemplate{footline}{
+    \vspace{2em}
+}
+
+% Some environments don't put their footnotes to the bottom of the page
+% This override removes the custom TUHH footnoterule 
+\AtBeginEnvironment {tcolorbox}{\renewcommand\footnoterule{}}
+\AtBeginEnvironment {beamerboxesrounded}{\renewcommand\footnoterule{}}
+
+\let\oldDate\date
+\makeatletter
+\renewcommand{\date}[2][]{\def\tempdate{#2}\futurelet\next\checkforcustomdate}% Save first argument, then call...
+\def\checkforcustomdate{\ifx\next\bgroup\expandafter\parsecustomdate\else\oldDate\tempdate\fi}% If we only have one argument, then pass it directly to \date, otherwise ...
+\def\parsecustomdate#1#2{\oldDate{\DTMdate{#2-#1-\tempdate}}}% try to read in three arguments and construct {dd}{mm}{yyyy} datetime input for \date
+\makeatother
+
+\newcommand\slideimg[1]{%
+  \begin{tikzpicture}[remember picture,overlay,shift={(current page.center)}]
+    \node[anchor=center,xshift=-16.1mm,yshift=-16mm]{\includegraphics[width=295.29mm,height=147.4mm,keepaspectratio]{#1}};
+  \end{tikzpicture}
+} 
+
+\newcommand\institutebranded[2]{%
+  \renewcommand{\titlepageformat}{branded_titlepage_frame}
+  \renewcommand{\titlepagetextformat}{branded_titlepage}
+  \renewcommand{\titlepageicon}{#1}
+  \renewcommand{\frameicon}{#2}
+} 
+
+\AtBeginSection[]
+{
+  \begin{frame}[section polka]
+  \end{frame}
+}
+
+\mode<all>

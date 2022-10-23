@@ -1,0 +1,20 @@
+\ProvidesFile{t1poppins.fd}
+    [2021/29/11 font definitions for T1/poppins.]
+    \DeclareFontFamily{T1}{poppins}{}
+    \DeclareFontShape{T1}{poppins}{m}{n}{<-> .poppins_font/poppinsmn8t }{}
+    \DeclareFontShape{T1}{poppins}{m}{it}{<-> .poppins_font/poppinsmit8t }{}
+    \DeclareFontShape{T1}{poppins}{m}{sc}{<-> ssub * poppins/m/n}{}
+    \DeclareFontShape{T1}{poppins}{m}{sl}{<-> ssub * poppins/m/it}{}
+    \DeclareFontShape{T1}{poppins}{b}{n}{<-> .poppins_font/poppinsbn8t }{}
+    \DeclareFontShape{T1}{poppins}{b}{it}{<-> .poppins_font/poppinsbit8t }{}
+    \DeclareFontShape{T1}{poppins}{b}{sc}{<-> ssub * poppins/b/n}{}
+    \DeclareFontShape{T1}{poppins}{b}{sl}{<-> ssub * poppins/b/it}{}
+    \DeclareFontShape{T1}{poppins}{sb}{n}{<-> ssub * poppins/b/n}{}
+    \DeclareFontShape{T1}{poppins}{sb}{it}{<-> ssub * poppins/b/it}{}
+    \DeclareFontShape{T1}{poppins}{sb}{sc}{<-> ssub * poppins/b/sc}{}
+    \DeclareFontShape{T1}{poppins}{sb}{sl}{<-> ssub * poppins/b/it}{}
+    \DeclareFontShape{T1}{poppins}{bx}{n}{<-> .poppins_font/poppinsbxn8t}{}
+    \DeclareFontShape{T1}{poppins}{bx}{it}{<-> .poppins_font/poppinsbxit8t} {}
+    \DeclareFontShape{T1}{poppins}{bx}{sc}{<-> ssub * poppins/bx/n} {}
+    \DeclareFontShape{T1}{poppins}{bx}{sl}{<-> ssub * poppins/bx/it} {}
+\endinput

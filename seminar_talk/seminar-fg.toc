@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Problem formulation}{3}{0}{1}
+\beamer@sectionintoc {2}{Transformer architecture}{15}{0}{2}
+\beamer@sectionintoc {3}{Miniature GPT model}{25}{0}{3}
+\beamer@sectionintoc {4}{Callback for generating text}{34}{0}{4}
+\beamer@sectionintoc {5}{Training of the network}{38}{0}{5}

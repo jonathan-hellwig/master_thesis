@@ -1,0 +1,77 @@
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{}[1][]
+{
+    % All elements which should take away space are realized using beamercolor, all other things are summarized in a tikzpicture
+    \begin{beamercolorbox}[wd=1mm,ht=16.24mm,#1]{title page header}
+        % Margin Placeholder
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=268.08mm,dp=20.30mm,#1]{title page header}
+        \usebeamerfont{frametitle}{\hypersetup{hidelinks}\insertframetitle}
+    \end{beamercolorbox}%
+}
+
+% Title page content title
+\defbeamertemplate*{titlepage}{}[1][]
+{
+  \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    % Title
+    \node[outer sep=0, inner sep=0, anchor=west] (title) at (0, \the\paperheight-48mm) {%
+      \parbox[c][40mm]{132.19mm}{%
+      \raggedright
+      \usebeamercolor{tuhh teal}\color{fg}%
+      \usebeamerfont{title}%
+      \inserttitle}%
+    };
+    % Date
+    \node[outer sep=0, inner sep=0, anchor=west] (title) at (91.33 mm, \the\paperheight-146.37mm-5.07mm) {%
+    \parbox[c][40mm]{132.19mm}{%
+    \usebeamercolor{tuhh teal}\color{fg}%
+    \usebeamerfont{date}%
+    \DTMsetdatestyle{ddmmyyyy}\insertdate}%
+      };
+    % Author
+    \node[outer sep=0, inner sep=0, anchor=west] (title) at (0mm, \the\paperheight-165.19 mm-6.725mm) {%
+    \parbox[c][40mm]{142.17mm}{%
+    \usebeamercolor{tuhh teal}\color{fg}%
+    \usebeamerfont{author}%
+    \insertauthor}%
+      };
+  \end{tikzpicture}
+}
+
+% Title page content title
+\defbeamertemplate*{branded_titlepage}{}[1][]
+{
+  \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    % Title
+    \node[outer sep=0, inner sep=0, anchor=west] (title) at (0, \the\paperheight-48mm) {%
+      \parbox[c][40mm]{132.19mm}{%
+      \raggedright
+      \usebeamercolor{tuhh teal}\color{fg}%
+      \usebeamerfont{title}%
+      \inserttitle}%
+    };
+    % Date
+    \node[outer sep=0, inner sep=0, anchor=west] (title) at (91.33mm+20mm, \the\paperheight-165.19 mm-6.725mm) {%
+    \parbox[c][40mm]{132.19mm}{%
+    \usebeamercolor{tuhh teal}\color{fg}%
+    \usebeamerfont{date}%
+    \DTMsetdatestyle{ddmmyyyy}\insertdate}%
+      };
+    % Author
+    \node[outer sep=0, inner sep=0, anchor=west] (title) at (0mm, \the\paperheight-165.19 mm-6.725mm) {%
+    \parbox[c][40mm]{94mm}{%
+    \usebeamercolor{tuhh teal}\color{fg}%
+    \usebeamerfont{author}%
+    \insertauthor}%
+      };
+  \end{tikzpicture}
+}
+
+
+\mode
+<all>
