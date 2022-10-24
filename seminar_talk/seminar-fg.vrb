@@ -1,7 +1,7 @@
-\frametitle{Brownian motion}
+\frametitle{Example: Weak approximation}
     \vspace{-1cm}
     \begin{figure}
       \centering
       \includegraphics[height=12cm]{plots/convergence_rate.pdf}
-      \caption{Quadratic and total variation of Brownian motion}
+      \caption{Log error with respect to the learning rate}
     \end{figure}

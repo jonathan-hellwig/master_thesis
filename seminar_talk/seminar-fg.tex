@@ -62,7 +62,7 @@ descent with stochastic differential equations}
   \frametitle{Gradient descent}
 
   \begin{block}{Definition}
-    Let $\Lo$ be a function and $\eta > 0$. Then, given an initial value $w_0 \in R^n$ the iterates of \textcolor{purple-pontifex}{\emph{gradient descent}} are given by
+    Let $\Lo$ be a function and $\eta > 0$. Then, given an initial value $w_0 \in R^n$ the iterates of \textcolor{purple-pontifex}{\emph{gradient descent}} (GD) are given by
   \begin{equation*}
     w_{k+1} = w_k - \eta \nabla \CL(w_k)
   \end{equation*}
@@ -144,7 +144,7 @@ descent with stochastic differential equations}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Continuous model}
+  \frametitle{Continuous-time model}
   Recall that the iterates of GD are given by
   \begin{equation*}
     w_{k+1} = w_k - \eta \nabla \CL(w_k).
@@ -169,10 +169,10 @@ descent with stochastic differential equations}
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Continuous model}
+  \frametitle{Example: Continuous-time model}
   Recall the loss function $\CL : \R^2 \rightarrow \R$, $\CL(w, b) = \sum_{i=1}^n (w x_i + b - y_i)^2$.
 
-  The gradients are given by 
+  The gradient is given by 
   \begin{align*}
     \nabla_w \CL(w,b) &= 2\left(\sum_{i=1}^n x_i^2 \right) w + 2\left(\sum_{i=1}^n x_i \right) b - 2 \sum_{i=1}^n x_i y_i \\
     \nabla_b \CL(w,b) &= 2\left(\sum_{i=1}^n x_i \right) w + 2 n b - 2 \sum_{i=1}^n y_i
@@ -224,8 +224,8 @@ descent with stochastic differential equations}
   %   w_{k+1} = w_k - \eta \nabla \CL(w_k).
   % \end{equation*}
   \begin{block}{Definition}
-    Let $(\Omega, \mathcal{F}, \mathcal{P})$ be a probability space and let $\Lo$ be a function of the form $\CL (w) = \sum_{i=1}^n \ell_i(w)$.
-    Then, the iterates of \emph{stochastic gradient descent} are given by
+    Let $(\Omega, \mathcal{F}, \mathcal{P})$ be a probability space and let $\Lo$ be a function of the form $\CL (w) = \frac{1}{n} \sum_{i=1}^n \ell_i(w)$.
+    Then, the iterates of \textcolor{purple-pontifex}{\emph{stochastic gradient descent}} (SGD) are given by
     \begin{equation*}
       W_{k+1} = W_k - \eta \nabla \ell_{\gamma_k} (W_k), W_0 = w_0 \in \mathbb{R}^n
     \end{equation*}
@@ -257,7 +257,7 @@ descent with stochastic differential equations}
 
 
 \begin{frame}[fragile]
-  \frametitle{Example: SGD}
+  \frametitle{Example: Linear model}
   Recall the loss function $\CL : \R^2 \rightarrow \R$ defined by
   \begin{equation*}
     \CL(w,b) = \sum_{i = 1}^{n} \left(w x_i + b - y_i\right)^2.
@@ -296,12 +296,12 @@ descent with stochastic differential equations}
     \end{figure}
 \end{frame}
 \begin{frame}[fragile]
-  \frametitle{Example: Weight distribution
+  \frametitle{Example: Weight distribution}
     \vspace{-1cm}
     \begin{figure}
       \centering
       \includegraphics[height=12cm,width=\textwidth]{plots/sgd_weight_histogram.pdf}
-      \caption{Weight histograms for different iterations}
+      \caption{Weight histogram for different iterations}
     \end{figure}
 \end{frame}
 \begin{frame}[fragile]
@@ -426,7 +426,7 @@ for $0 \leq n \leq N$ is called \emph{\textcolor{purple-pontifex}{Euler-Maruyama
   \frametitle{SDE model}
   From the previous slide we follow that \textcolor{purple-pontifex}{continuous-time} model for SGD is given by
   \begin{equation*}
-    W_t = W_0 - \int_0^t \nabla \CL(W_s) ds + \int_0^t \sqrt{\eta} \Sigma(W_s) dB_s.
+    W_t = W_0 + \int_0^t \nabla - \CL(W_s) ds + \int_0^t \sqrt{\eta} \Sigma(W_s) dB_s.
   \end{equation*}
 \end{frame}
 \begin{frame}
@@ -447,7 +447,7 @@ This process is called \emph{Ornstein-Uhlenbeck} process and has the analytical 
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Brownian motion}
+  \frametitle{Example: Loss value for SGD and SDE}
     \vspace{-1cm}
     \begin{figure}
       \hspace*{-4.7cm}
@@ -468,12 +468,12 @@ This process is called \emph{Ornstein-Uhlenbeck} process and has the analytical 
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Brownian motion}
+  \frametitle{Example: Weak approximation}
     \vspace{-1cm}
     \begin{figure}
       \centering
       \includegraphics[height=12cm]{plots/convergence_rate.pdf}
-      \caption{Quadratic and total variation of Brownian motion}
+      \caption{Log error with respect to the learning rate}
     \end{figure}
 \end{frame}
 
@@ -496,7 +496,11 @@ This process is called \emph{Ornstein-Uhlenbeck} process and has the analytical 
   \end{itemize}
   \end{frame}
 \begin{frame}
-  \frametitle{Sources}
+  \frametitle{Source code}
+  The source code to recreate all figures of this presentation can be found at \url{https://github.com/jonathan-hellwig/sgd_sde_model}.
+\end{frame}
+\begin{frame}
+  \frametitle{Bibliography}
 % TODO: Further resources
 % TODO: Link to notebooks
 \printbibliography

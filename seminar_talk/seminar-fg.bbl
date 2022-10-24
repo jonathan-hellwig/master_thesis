@@ -1,0 +1,212 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{durrettProbabilityTheoryExamples2019}{book}{}
+      \name{author}{1}{}{%
+        {{hash=175a15e34b656dab74bea645e2ed84d0}{%
+           family={Durrett},
+           familyi={D\bibinitperiod},
+           given={Rick},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{fullhash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{bibnamehash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{authorbibnamehash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{authornamehash}{175a15e34b656dab74bea645e2ed84d0}
+      \strng{authorfullhash}{175a15e34b656dab74bea645e2ed84d0}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This lively introduction to measure-theoretic probability theory covers laws of large numbers, central limit theorems, random walks, martingales, Markov chains, ergodic theorems, and Brownian motion. Concentrating on results that are the most useful for applications, this comprehensive treatment is a rigorous graduate text and reference. Operating under the philosophy that the best way to learn probability is to see it in action, the book contains extended examples that apply the theory to concrete applications. This fifth edition contains a new chapter on multidimensional Brownian motion and its relationship to partial differential equations (PDEs), an advanced topic that is finding new applications. Setting the foundation for this expansion, Chapter 7 now features a proof of Itô's formula. Key exercises that previously were simply proofs left to the reader have been directly inserted into the text as lemmas. The new edition re-instates discussion about the central limit theorem for martingales and stationary sequences.}
+      \field{day}{18}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-1-108-47368-2}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{pagetotal}{433}
+      \field{shorttitle}{Probability}
+      \field{title}{Probability: {{Theory}} and {{Examples}}}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb b22MDwAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/UKLZ9CJD/Durrett_2019_Probability.pdf
+      \endverb
+      \keyw{background}
+    \endentry
+    \entry{eAppliedStochasticAnalysis2021}{book}{}
+      \name{author}{3}{}{%
+        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
+           family={E},
+           familyi={E\bibinitperiod},
+           given={Weinan},
+           giveni={W\bibinitperiod}}}%
+        {{hash=c0cb1a20ae7697536af40c5d0af48095}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Tiejun},
+           giveni={T\bibinitperiod}}}%
+        {{hash=3e3d82a14a02cda960c2d71e77f5453c}{%
+           family={Vanden-Eijnden},
+           familyi={V\bibinithyphendelim E\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Soc.}%
+      }
+      \strng{namehash}{495826976eada715a888e7719521b72a}
+      \strng{fullhash}{495826976eada715a888e7719521b72a}
+      \strng{bibnamehash}{495826976eada715a888e7719521b72a}
+      \strng{authorbibnamehash}{495826976eada715a888e7719521b72a}
+      \strng{authornamehash}{495826976eada715a888e7719521b72a}
+      \strng{authorfullhash}{495826976eada715a888e7719521b72a}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This is a textbook for advanced undergraduate students and beginning graduate students in applied mathematics. It presents the basic mathematical foundations of stochastic analysis (probability theory and stochastic processes) as well as some important practical tools and applications (e.g., the connection with differential equations, numerical methods, path integrals, random fields, statistical physics, chemical kinetics, and rare events). The book strikes a nice balance between mathematical formalism and intuitive arguments, a style that is most suited for applied mathematicians. Readers can learn both the rigorous treatment of stochastic analysis as well as practical applications in modeling and simulation. Numerous exercises nicely supplement the main exposition.}
+      \field{day}{22}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-1-4704-6569-8}
+      \field{langid}{english}
+      \field{month}{9}
+      \field{pagetotal}{329}
+      \field{title}{Applied {{Stochastic Analysis}}}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb YVpQEAAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/G3DGXFTY/E et al. - 2021 - Applied Stochastic Analysis.pdf
+      \endverb
+      \keyw{background,thesis}
+    \endentry
+    \entry{kloedenNumericalSolutionStochastic2013}{book}{}
+      \name{author}{2}{}{%
+        {{hash=7b32249850edcace60b1c231a0f5fb51}{%
+           family={Kloeden},
+           familyi={K\bibinitperiod},
+           given={Peter\bibnamedelima E.},
+           giveni={P\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=a4fb5859192206ba44cf72178b85abb6}{%
+           family={Platen},
+           familyi={P\bibinitperiod},
+           given={Eckhard},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{fullhash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{bibnamehash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{authorbibnamehash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{authornamehash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{authorfullhash}{0183f9b6362d5aa8d2faeea78d274490}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The aim of this book is to provide an accessible introduction to stochastic differ ential equations and their applications together with a systematic presentation of methods available for their numerical solution. During the past decade there has been an accelerating interest in the de velopment of numerical methods for stochastic differential equations (SDEs). This activity has been as strong in the engineering and physical sciences as it has in mathematics, resulting inevitably in some duplication of effort due to an unfamiliarity with the developments in other disciplines. Much of the reported work has been motivated by the need to solve particular types of problems, for which, even more so than in the deterministic context, specific methods are required. The treatment has often been heuristic and ad hoc in character. Nevertheless, there are underlying principles present in many of the papers, an understanding of which will enable one to develop or apply appropriate numerical schemes for particular problems or classes of problems.}
+      \field{day}{17}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-3-662-12616-5}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{pagetotal}{666}
+      \field{title}{Numerical {{Solution}} of {{Stochastic Differential Equations}}}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb r9r6CAAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/GSQ3ATQC/sde_theory.djvu
+      \endverb
+      \keyw{background,thesis}
+    \endentry
+    \entry{liStochasticModifiedEquations2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=64fe62ce2b10a4bc8ffec9881ed87985}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Qianxiao},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=f6d5538a2db58ca22e371cdbeef3f83e}{%
+           family={Tai},
+           familyi={T\bibinitperiod},
+           given={Cheng},
+           giveni={C\bibinitperiod}}}%
+        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
+           family={E},
+           familyi={E\bibinitperiod},
+           given={Weinan},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{fullhash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{bibnamehash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{authorbibnamehash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{authornamehash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{authorfullhash}{0049f3b8b809d78786a56fc4874c7f65}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We develop the mathematical foundations of the stochastic modified equations (SME) framework for analyzing the dynamics of stochastic gradient algorithms, where the latter is approximated by a class of stochastic differential equations with small noise parameters. We prove that this approximation can be understood mathematically as an weak approximation, which leads to a number of precise and useful results on the approximations of stochastic gradient descent (SGD), momentum SGD and stochastic Nesterov's accelerated gradient method in the general setting of stochastic objectives. We also demonstrate through explicit calculations that this continuous-time approach can uncover important analytical insights into the stochastic gradient algorithms under consideration that may not be easy to obtain in a purely discrete-time setting.}
+      \field{issn}{1533-7928}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{number}{40}
+      \field{shorttitle}{Stochastic {{Modified Equations}} and {{Dynamics}} of {{Stochastic Gradient Algorithms I}}}
+      \field{title}{Stochastic {{Modified Equations}} and {{Dynamics}} of {{Stochastic Gradient Algorithms I Mathematical Foundations}}}
+      \field{urlday}{19}
+      \field{urlmonth}{8}
+      \field{urlyear}{2022}
+      \field{volume}{20}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 47}
+      \range{pages}{47}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/CBBRN2E7/Li et al. - 2019 - Stochastic Modified Equations and Dynamics of Stoc.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://jmlr.org/papers/v20/17-526.html
+      \endverb
+      \verb{url}
+      \verb http://jmlr.org/papers/v20/17-526.html
+      \endverb
+      \keyw{SDE,SGD,theory,thesis}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

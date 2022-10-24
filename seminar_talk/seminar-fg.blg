@@ -1,0 +1,15 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[1] Config.pm:310> INFO - Logfile is 'seminar-fg.blg'
+[216] biber:340> INFO - === Mon Oct 24, 2022, 14:41:51
+[266] Biber.pm:418> INFO - Reading 'seminar-fg.bcf'
+[450] Biber.pm:972> INFO - Found 4 citekeys in bib section 0
+[488] Biber.pm:4383> INFO - Processing section 0
+[518] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[552] bibtex.pm:1713> INFO - LaTeX decoding ...
+[896] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
+[1144] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1144] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1144] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[1144] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[1169] bbl.pm:654> INFO - Writing 'seminar-fg.bbl' with encoding 'UTF-8'
+[1180] bbl.pm:757> INFO - Output to seminar-fg.bbl
