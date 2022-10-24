@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.27)  24 OCT 2022 14:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.27)  24 OCT 2022 14:45
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/jonathan/uni/thesis/seminar_talk/seminar-fg.tex
-(/home/jonathan/uni/thesis/seminar_talk/seminar-fg.tex
+**/home/jonathan/uni/thesis/seminar_talk/seminar-jh.tex
+(/home/jonathan/uni/thesis/seminar_talk/seminar-jh.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-04-10> (./tuhh_presentation.cls
 Document Class: tuhh_presentation 
@@ -914,8 +914,8 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 LaTeX Warning: Unused global option(s):
     [17pt].
 
-(./seminar-fg.aux)
-\openout1 = `seminar-fg.aux'.
+(./seminar-jh.aux)
+\openout1 = `seminar-jh.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
@@ -1002,9 +1002,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 33.
 LaTeX Info: Redefining \pageref on input line 33.
 LaTeX Info: Redefining \nameref on input line 33.
- (./seminar-fg.out) (./seminar-fg.out)
+ (./seminar-jh.out) (./seminar-jh.out)
 \@outlinefile=\write6
-\openout6 = `seminar-fg.out'.
+\openout6 = `seminar-jh.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 33.
@@ -1084,11 +1084,11 @@ File: english.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout5 = `seminar-fg.bcf'.
+\openout5 = `seminar-jh.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'seminar-fg.bbl' found.
- (./seminar-fg.bbl
+Package biblatex Info: ... file 'seminar-jh.bbl' found.
+ (./seminar-jh.bbl
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <20> not available
 (Font)              size <20.74> substituted on input line 61.
@@ -1097,7 +1097,7 @@ LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <20> not available
 Package biblatex Info: Reference section=0 on input line 33.
 Package biblatex Info: Reference segment=0 on input line 33.
 \c@lstlisting=\count511
- (./seminar-fg.nav)
+ (./seminar-jh.nav)
 LaTeX Font Info:    Calculating math sizes for size <20> on input line 35.
 
 
@@ -1168,7 +1168,7 @@ Package pdftex.def Info: .theme_imgs/TUHH_building-a.pdf  used on input line 35.
  <./.theme_imgs/TUHH_logo-wortmarke_en_rgb.pdf> <./.theme_imgs/e10_logo_titlepage.pdf
 
 pdfTeX warning: pdflatex (file ./.theme_imgs/e10_logo_titlepage.pdf): PDF inclusion: multiple pdfs with page group included in a single page
-> <./.theme_imgs/TUHH_building-a.pdf>] (./seminar-fg.toc)
+> <./.theme_imgs/TUHH_building-a.pdf>] (./seminar-jh.toc)
 <.theme_imgs/TUHH_agenda_icon.pdf, id=64, 459.6372pt x 272.93971pt>
 File: .theme_imgs/TUHH_agenda_icon.pdf Graphic file (type pdf)
 <use .theme_imgs/TUHH_agenda_icon.pdf>
@@ -1203,9 +1203,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 59
  [5
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 72.
@@ -1213,9 +1213,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 72
  [6
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/sample_data.pdf, id=128, 462.52798pt x 346.89601pt>
 File: plots/sample_data.pdf Graphic file (type pdf)
 <use plots/sample_data.pdf>
@@ -1229,9 +1229,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 83
  [7
 
  <./plots/sample_data.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 96.
@@ -1239,9 +1239,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 96
  [8
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/quadratic_loss.pdf, id=158, 462.52798pt x 346.89601pt>
 File: plots/quadratic_loss.pdf Graphic file (type pdf)
 <use plots/quadratic_loss.pdf>
@@ -1255,9 +1255,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 10
  [9
 
  <./plots/quadratic_loss.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 114.
@@ -1265,9 +1265,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 11
  [10
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/linear_fit.pdf, id=196, 462.52798pt x 346.89601pt>
 File: plots/linear_fit.pdf Graphic file (type pdf)
 <use plots/linear_fit.pdf>
@@ -1281,9 +1281,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 12
  [11
 
  <./plots/linear_fit.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/learning_rates.pdf, id=229, 1084.05pt x 346.89601pt>
 File: plots/learning_rates.pdf Graphic file (type pdf)
 <use plots/learning_rates.pdf>
@@ -1300,9 +1300,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 13
 [12
 
  <./plots/learning_rates.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/large_learning_rate.pdf, id=265, 1084.05pt x 346.89601pt>
 File: plots/large_learning_rate.pdf Graphic file (type pdf)
 <use plots/large_learning_rate.pdf>
@@ -1319,9 +1319,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 14
 [13
 
  <./plots/large_learning_rate.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 159.
@@ -1329,9 +1329,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 15
  [14
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/scaled_weights_biases.pdf, id=305, 1084.05pt x 346.89601pt>
 File: plots/scaled_weights_biases.pdf Graphic file (type pdf)
 <use plots/scaled_weights_biases.pdf>
@@ -1348,9 +1348,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 16
 [15
 
  <./plots/scaled_weights_biases.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 212.
@@ -1365,9 +1365,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 21
  [17
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 235.
@@ -1375,9 +1375,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 23
  [18
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 256.
@@ -1385,9 +1385,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 25
  [19
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 270.
@@ -1395,9 +1395,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 27
  [20
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 279.
@@ -1405,9 +1405,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 27
  [21
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/sgd_linear_fit.pdf, id=373, 462.52798pt x 346.89601pt>
 File: plots/sgd_linear_fit.pdf Graphic file (type pdf)
 <use plots/sgd_linear_fit.pdf>
@@ -1421,9 +1421,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 28
  [22
 
  <./plots/sgd_linear_fit.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/sgd_weight_bias.pdf, id=397, 1084.05pt x 346.89601pt>
 File: plots/sgd_weight_bias.pdf Graphic file (type pdf)
 <use plots/sgd_weight_bias.pdf>
@@ -1440,9 +1440,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 29
 [23
 
  <./plots/sgd_weight_bias.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/sgd_weight_histogram.pdf, id=440, 1084.05pt x 346.89601pt>
 File: plots/sgd_weight_histogram.pdf Graphic file (type pdf)
 <use plots/sgd_weight_histogram.pdf>
@@ -1459,9 +1459,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 30
 [24
 
  <./plots/sgd_weight_histogram.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/sgd_weight_qq.pdf, id=476, 462.52798pt x 346.89601pt>
 File: plots/sgd_weight_qq.pdf Graphic file (type pdf)
 <use plots/sgd_weight_qq.pdf>
@@ -1475,9 +1475,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 31
  [25
 
  <./plots/sgd_weight_qq.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 332.
@@ -1499,9 +1499,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 34
  [28
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/brownian_motion.pdf, id=537, 433.62pt x 289.08pt>
 File: plots/brownian_motion.pdf Graphic file (type pdf)
 <use plots/brownian_motion.pdf>
@@ -1515,9 +1515,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 35
  [29
 
  <./plots/brownian_motion.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 363.
@@ -1525,9 +1525,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 36
  [30
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/brownian_motion_variation.pdf, id=572, 433.62pt x 289.08pt>
 File: plots/brownian_motion_variation.pdf Graphic file (type pdf)
 <use plots/brownian_motion_variation.pdf>
@@ -1541,9 +1541,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 37
  [31
 
  <./plots/brownian_motion_variation.pdf>]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb)
+ (./seminar-jh.vrb)
 File: .theme_imgs/e10_logo_content.pdf Graphic file (type pdf)
 <use .theme_imgs/e10_logo_content.pdf>
 Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 380.
@@ -1593,9 +1593,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 44
  [38
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/sde_sgd.pdf, id=655, 1084.05pt x 289.08pt>
 File: plots/sde_sgd.pdf Graphic file (type pdf)
 <use plots/sde_sgd.pdf>
@@ -1624,9 +1624,9 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 46
  [40
 
 ]
-\openout4 = `seminar-fg.vrb'.
+\openout4 = `seminar-jh.vrb'.
 
- (./seminar-fg.vrb
+ (./seminar-jh.vrb
 <plots/convergence_rate.pdf, id=701, 433.62pt x 289.08pt>
 File: plots/convergence_rate.pdf Graphic file (type pdf)
 <use plots/convergence_rate.pdf>
@@ -1680,23 +1680,23 @@ Package pdftex.def Info: .theme_imgs/e10_logo_content.pdf  used on input line 50
 
 ]
 \tf@nav=\write7
-\openout7 = `seminar-fg.nav'.
+\openout7 = `seminar-jh.nav'.
 
 \tf@toc=\write8
-\openout8 = `seminar-fg.toc'.
+\openout8 = `seminar-jh.toc'.
 
 \tf@snm=\write9
-\openout9 = `seminar-fg.snm'.
+\openout9 = `seminar-jh.snm'.
 
- (./seminar-fg.aux)
+ (./seminar-jh.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
 
-Package rerunfilecheck Info: File `seminar-fg.out' has not changed.
+Package rerunfilecheck Info: File `seminar-jh.out' has not changed.
 (rerunfilecheck)             Checksum: A6C375D3148CAC64CB208F04C8556BFE;973.
-Package logreq Info: Writing requests to 'seminar-fg.run.xml'.
-\openout1 = `seminar-fg.run.xml'.
+Package logreq Info: Writing requests to 'seminar-jh.run.xml'.
+\openout1 = `seminar-jh.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
@@ -1708,7 +1708,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  142i,16n,136p,1222b,2158s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf-dist/fonts/enc/ttf2pk/base/T1-WGL4.enc}<.poppins_font/Poppins-Italic.ttf><.poppins_font/Poppins-Regular.ttf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfsi1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt2488.pfb>
-Output written on seminar-fg.pdf (46 pages, 895738 bytes).
+Output written on seminar-jh.pdf (46 pages, 895738 bytes).
 PDF statistics:
  870 PDF objects out of 1000 (max. 8388607)
  458 compressed objects within 5 object streams

@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>seminar-fg.bcf</file>
+      <file>seminar-jh.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>seminar-fg.bbl</file>
+      <file>seminar-jh.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>seminar-fg</infile>
+      <infile>seminar-jh</infile>
     </cmdline>
     <input>
-      <file>seminar-fg.bcf</file>
+      <file>seminar-jh.bcf</file>
     </input>
     <output>
-      <file>seminar-fg.bbl</file>
+      <file>seminar-jh.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>seminar-fg.bbl</file>
+      <file>seminar-jh.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>seminar-fg.bcf</file>
+      <file>seminar-jh.bcf</file>
     </requires>
     <requires type="editable">
       <file>thesis.bib</file>
