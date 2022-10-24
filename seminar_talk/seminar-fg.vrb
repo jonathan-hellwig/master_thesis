@@ -1,28 +1,7 @@
-\frametitle{Training}
-\vspace{-1cm}
-  \emph{Generative pretraining}: predict the next token
-  \vspace{1cm}
-  \begin{python}
-  model.fit(text_ds, verbose=2, epochs=25, callbacks=[text_gen_callback])
-  \end{python}
-  \pause
-\vspace{1cm}
-\begin{itemize}
-  \item Target is generated in the preprocessing phase
-  \item consists of shifted vectorized inputs.
-\end{itemize}
-\vspace{1cm}
-  \begin{python}
-  def prepare_lm_inputs_labels(text):
-    """
-    Shift word sequences by 1 position so that the target for position (i) is
-    word at position (i+1). The model will use all words up till position (i)
-    to predict the next word.
-    """
-    text = tf.expand_dims(text, -1)
-    tokenized_sentences = vectorize_layer(text)
-    x = tokenized_sentences[:, :-1]
-    y = tokenized_sentences[:, 1:]
-    return x, y
-  \end{python}
-
+\frametitle{Brownian motion}
+    \vspace{-1cm}
+    \begin{figure}
+      \centering
+      \includegraphics[height=12cm]{plots/brownian_motion.pdf}
+      \caption{Brownian motion samples}
+    \end{figure}
