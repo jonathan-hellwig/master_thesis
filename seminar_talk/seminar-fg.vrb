@@ -2,6 +2,6 @@
     \vspace{-1cm}
     \begin{figure}
       \centering
-      \includegraphics[height=12cm]{plots/brownian_motion.pdf}
-      \caption{Brownian motion samples}
+      \includegraphics[height=12cm]{plots/convergence_rate.pdf}
+      \caption{Quadratic and total variation of Brownian motion}
     \end{figure}

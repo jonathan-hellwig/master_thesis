@@ -4,20 +4,18 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{tikz}
-\usepackage[backend=biber,style=ieee]{biblatex}
+
+\usepackage{biblatex}[backend=biber,style=authoryear,autocite=inline]
+\addbibresource{thesis.bib}
 \usepackage[nolinks]{qrcode}
 \usepackage{pythonhighlight}
 \def\UrlBreaks{\do\/\do-}
 
-\title{Stochastic gradient descent in a SDE framework}
-\date{24.10.2022} % or \date{dd}{mm}{yyyy} or \date{Text}
+\title{Modelling stochastic gradient
+descent with stochastic differential equations}
+\date{24.10.2022} 
 \author[Jonathan Hellwig]{Jonathan Hellwig}
 \email{jonathan.hellwig@tuhh.de}
-% %\institute{Corresponding Author's Institute} % Optional: Please refer to https://collaborating.tuhh.de/e-4/tuhh_latex_presentation/-/wikis/Slides-with-Institute-Logos .
-% \street{Am Schwarzenberg-Campus 3}
-% \city{21073 Hamburg}
-% \website{pntfx.com}
-% \telephonenumber{+49 40 42878-3469}
 
 \autofontdecrement % This commands will automatically reduce font size for itemize/enumerate environments
 \definecolor{purple-pontifex}{RGB}{93,47,134}
@@ -36,82 +34,6 @@
 
 \titlepage
 
-% \begin{frame}[agenda]
-%     \tableofcontents
-% \end{frame}
-
-% \begin{frame}
-%   \frametitle{Outline}
-% \vspace{-1cm}
-%   \pause
-
-%   \begin{block}{Scope}
-%   \begin{itemize}
-%     \item Make a prediction on past outputs
-%     \item "Sequence model" but not recurrent
-%     \item Alternative to RNNs for sequential data
-%     \item Alternative to GANs for generation tasks
-%   \end{itemize}
-% \end{block}
-
-% \pause 
-
-% \begin{block}{Applications (\textbf{G}enerative \textbf{P}retrained \textbf{T}ransformer-3 )}
-%   \begin{itemize}
-%     \item GitHub Copilot (Programmer)
-%     \item Project December (Chatbot)
-%     \item AI Writer (E-Mail Correspondence with historical persons)
-%     \item AI Dungeon (Text Adventure)
-%     \item Write With Transformer (Auto-complete)
-%   \end{itemize}
-% \end{block}
-
-
-% \end{frame}
-
-% \begin{frame}
-%   \frametitle{Our data and our goal}
-
-%   \pause
-
-%   \begin{itemize}
-%   \item \emph{train}: text from the \textbf{IMDB sentiment classification dataset}
-%   \item \emph{goal}: generate new movie reviews for a given prompt
-%   \end{itemize}
-
-%   \pause
-%   \vspace{0.5cm}
-
-%   \begin{block}{this movie is about...}
-%     ... the worst movie that i have ever seen and i 've ever seen this film , or even if i was going for the movie . the acting , and the plot was just plain . but the only thing i
-%   \end{block}
-
-%   \pause
-%   \vspace{0.5cm}
-%   Structure of the dataset:
-
-%   \begin{itemize}
-%     \item 50 000 reviews in text files ($\sim 5 * 10^6$ words)
-%     \item associated binary sentiment polarity labels (\texttt{pos} vs.\ \texttt{neg})
-%     \item one line UTF-8 with HTML-tags \texttt{<br /><br />} 
-%   \end{itemize}
-
-
-% \end{frame}
-
-% \begin{frame}
-%   \frametitle{Futz (1969)}
-
-%   \vspace{-1cm}
-
-%   \includegraphics[height=10cm]{futz.png}
-
-%   \vspace{0.5cm}
-
-%   Original: \url{https://www.imdb.com/review/rw0107136/}\\[0.5em]
-%   File: \,\qquad\texttt{./train/neg/0\_3.txt} 
-
-% \end{frame}
 
 \begin{frame}[agenda]
   \tableofcontents
@@ -121,27 +43,17 @@
 
 \begin{frame}
   \frametitle{Problem formulation}
-  \emph{Task}: Given a function $\L$, find $w^\star \in \R^n$ such that
+  \emph{Task}: Given a function $\CL : \R^n \rightarrow \R$, find $w^\star \in \R^n$ such that
   \begin{equation*}
     \CL(w^\star) = \min_{w \in \R^n} \CL(w).
   \end{equation*}
-  \begin{block}{Applications}
-  \begin{itemize}
-    \item Image classification
-    \item Text generation
-    \item Reinforcement learning
-  \end{itemize}
-  \end{block}
-\end{frame}
 
-\begin{frame}
-  \frametitle{Problem formulation}
   In machine learning settings, we commonly have functions of the form
   \begin{equation*}
     \CL(w) = \frac{1}{n} \sum_{i=1}^n \ell_i(w).
   \end{equation*}
-  Each individual function $\ell_i(w)$ measures the \emph{loss} with respect to a single data point $(x_i, y_i)$ for $i = 1,2, \dots, n$.
-  We refer to this as \emph{empirical risk minimization problem}.
+  Each individual function $\ell_i(w)$ measures the \textcolor{purple-pontifex}{\emph{loss}} with respect to a single data point $(x_i, y_i)$ for $i = 1,2, \dots, n$.
+  We refer to this as \textcolor{purple-pontifex}{\emph{empirical risk minimization problem}}.
 \end{frame}
 
 \section{Gradient descent}
@@ -150,10 +62,11 @@
   \frametitle{Gradient descent}
 
   \begin{block}{Definition}
-    Let $\Lo$ be a function and $\eta > 0$. Then, given an initial value $w_0 \in R^n$ the iterates of \emph{gradient descent} are given by
+    Let $\Lo$ be a function and $\eta > 0$. Then, given an initial value $w_0 \in R^n$ the iterates of \textcolor{purple-pontifex}{\emph{gradient descent}} are given by
   \begin{equation*}
-    w_{k+1} = w_k - \eta \nabla \CL(w_k).
+    w_{k+1} = w_k - \eta \nabla \CL(w_k)
   \end{equation*}
+  for $k = 1,2,\dots$.
   \end{block}
 
 \end{frame}
@@ -205,7 +118,7 @@
     \begin{figure}
       \centering
       \includegraphics[height=12cm]{plots/linear_fit.pdf}
-      \caption{Loss function}
+      \caption{Linear fit}
     \end{figure}
 \end{frame}
 \begin{frame}[fragile]
@@ -214,7 +127,7 @@
     \begin{figure}
       \centering
       \includegraphics[height=12cm,width=\textwidth]{plots/learning_rates.pdf}
-      \caption{Loss function}
+      \caption{Weight and bias}
     \end{figure}
 \end{frame}
 
@@ -329,15 +242,15 @@
     W_{k+1} &= W_k - \eta \nabla \ell_{\gamma_k} (W_k) \\
     &= W_k - \eta \nabla \CL(W_k) + \eta \left(\nabla \CL(W_k) - \nabla \ell_{\gamma_k} (W_k) \right).
   \end{align*}
-  We refer to $Z_k = \eta \left(\nabla \CL(W_k) - \nabla \ell_{\gamma_k} (W_k) \right)$ as the \emph{\textcolor{purple-pontifex}{gradient noise}}.
+  We refer to $N_k = \eta \left(\nabla \CL(W_k) - \nabla \ell_{\gamma_k} (W_k) \right)$ as the \emph{\textcolor{purple-pontifex}{gradient noise}}.
 
   Its expected value is given by
   \begin{equation*}
-    \E{Z_k|W_k} = 0
+    \E{N_k|W_k} = 0
   \end{equation*}
   and the \textcolor{purple-pontifex}{covariance matrix} is given by
   \begin{equation*}
-    \V{Z_k|W_k} = \eta^2 \; \E{\left(\nabla \ell_{\gamma_k}(W_k) - \nabla \CL(W_k)\right)\left(\nabla \ell_{\gamma_k}(W_k) - \nabla \CL(W_k)\right)^T}.
+    \V{N_k|W_k} = \eta^2 \; \E{\left(\nabla \ell_{\gamma_k}(W_k) - \nabla \CL(W_k)\right)\left(\nabla \ell_{\gamma_k}(W_k) - \nabla \CL(W_k)\right)^T}.
   \end{equation*}
   
 \end{frame}
@@ -361,7 +274,7 @@
     \begin{itemize}
       \item $\eta = 0.1$
       \item 1000 iterations 
-      \item 10000 runs
+      \item 10000 runs.
     \end{itemize}
 \end{frame}
 \begin{frame}[fragile]
@@ -383,12 +296,12 @@
     \end{figure}
 \end{frame}
 \begin{frame}[fragile]
-  \frametitle{Example: Evolution of weight and bias}
+  \frametitle{Example: Weight distribution
     \vspace{-1cm}
     \begin{figure}
       \centering
       \includegraphics[height=12cm,width=\textwidth]{plots/sgd_weight_histogram.pdf}
-      \caption{Weight and bias}
+      \caption{Weight histograms for different iterations}
     \end{figure}
 \end{frame}
 \begin{frame}[fragile]
@@ -405,22 +318,22 @@
   \frametitle{SGD: Gradient noise assumption}
   Recall the decomposition of the SGD iterates
   \begin{equation*}
-    W_{k+1} = W_k - \eta \nabla \CL(W_k) + Z_k,
+    W_{k+1} = W_k - \eta \nabla \CL(W_k) + N_k,
   \end{equation*}
-  where $Z_k = \eta \left(\nabla \CL(W_k) - \nabla \ell_{\gamma_k} (W_k) \right)$ for $k = 1,2,\dots$.
-  \begin{block}{Assumption}
+  where $N_k = \eta \left(\nabla \CL(W_k) - \nabla \ell_{\gamma_k} (W_k) \right)$ for $k = 1,2,\dots$.
+  \begin{block}{Assumption \autocite{liStochasticModifiedEquations2019}}
   For the previous example it is reasonable to assume that 
   \begin{equation*}
-    Z_k \sim \mathcal{N}(0, \Sigma(W_k)),
+    N_k \sim \mathcal{N}(0, \eta^2 \Sigma(W_k)),
   \end{equation*}
-    where $\Sigma(W_k) = \eta^2 \; \E{\left(\nabla \ell_{\gamma_k}(W_k) - \nabla \CL(W_k)\right)\left(\nabla \ell_{\gamma_k}(W_k) - \nabla \CL(W_k)\right)^T}$.
+    where $\Sigma(W_k) = \E{\left(\nabla \ell_{\gamma_k}(W_k) - \nabla \CL(W_k)\right)\left(\nabla \ell_{\gamma_k}(W_k) - \nabla \CL(W_k)\right)^T}$.
 \end{block}
 Question: Can we find an analog to the system of ODEs for the stochastic case?
 \end{frame}
 \section{Stochastic differential equations}
 \begin{frame}
   \frametitle{Brownian motion}
-  \begin{block}{Definition}
+  \begin{block}{Definition \autocite{durrettProbabilityTheoryExamples2019}}
     A stochastic process $\{B_t\}_{t \geq 0}$ is called \emph{\textcolor{purple-pontifex}{Brownian motion}} if it satisfies the following properties
   \begin{enumerate}
     \item For any $t \geq s > u \geq v \geq 0$, $B_{t+s} - B_t$ and $B_{v+u} - B_v$ are independent.
@@ -438,53 +351,134 @@ Question: Can we find an analog to the system of ODEs for the stochastic case?
       \caption{Brownian motion samples}
     \end{figure}
 \end{frame}
-
+\begin{frame}[fragile]
+  Let $t_0 = a < t_1 < \dots < t_n = b$ be a partition of the interval $[a,b]$. Then the \emph{\textcolor{purple-pontifex}{total variation}} of a process $X$ is defined as 
+  \begin{equation*}
+    V(X(\omega);[a,b]) = \sup_{t_0,t_1,\dots,t_n} \sum_{k=1}^n |X_{t_{k+1}} - X_{t_k}(\omega)|
+  \end{equation*}
+  and the \emph{\textcolor{purple-pontifex}{quadratic variation}} is defined as 
+  \begin{equation*}
+    Q(X(\omega);[a,b]) = \sup_{t_0,t_1,\dots,t_n} \sum_{k=1}^n |X_{t_{k+1}} - X_{t_k}(\omega)|^2.
+  \end{equation*}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Brownian motion}
+    \vspace{-1cm}
+    \begin{figure}
+      \centering
+      \includegraphics[height=12cm]{plots/brownian_motion_variation.pdf}
+      \caption{Quadratic and total variation of Brownian motion}
+    \end{figure}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Brownian motion}
+  It can be shown that 
+  \begin{itemize}
+    \item Brownain motion has infinite total variation almost surely on finite intervals
+    \item Brownain motion has finite quadratic variation and $Q(B(\omega);[0,T]) = T$ almost surely \autocite{eAppliedStochasticAnalysis2021}.
+  \end{itemize}
+\end{frame}
 \begin{frame}
   \frametitle{Itô integral}
   % TODO: Add rigor to this definition
   % TODO: Add examples
   % TODO: Verweise auf die Literatur
-  \begin{block}{Definition}
+
+  % Note: This is not the definition for the Ito integral!
+  \begin{block}{Definition \autocite{eAppliedStochasticAnalysis2021}}
+    Let $t_0 = 0 < t_1 < \dots < t_n = T$ be a parition of $[0,T]$.
     For a class of appropriate functions we define the \emph{\textcolor{purple-pontifex}{Itô integral}} as the following limit
 \begin{equation*}
-  \int_0^t f(W_s) dB_s = \lim\limits_{|\delta| \rightarrow 0} \sum_j f(W_j)(B_{t_{j+1}} - B_{t_j}),
+  \int_0^T f(W_s) dB_s := \lim\limits_{|\delta| \rightarrow 0} \sum_{j=1}^n f(W_{t_j})(B_{t_{j+1}} - B_{t_j}),
 \end{equation*}
-where $(B_t)_{t \geq 0}$ is a one-dimensional Brownian motion.
-  \end{block}
-  
+where $(B_t)_{t \geq 0}$ is a one-dimensional Brownian motion and\;$\delta = max_{j =1,\dots,n} |t_{j+1} - t_j|$.
+\end{block}
+
+\end{frame}
+\begin{frame}
+We define \emph{\textcolor{purple-pontifex}{stochastic differential equations}} as integral equations of the following form
+\begin{equation*}
+  W_t = W_0 + \int_0^t b(W_s,s) ds + \int_0^t \sigma(W_s, s) dB_s,
+\end{equation*}
+where $b : \R^n \times [0,T] \rightarrow \R^n$ is called \emph{\textcolor{purple-pontifex}{drift}} and $\sigma : \R^{n,n} \times [0,T] \rightarrow \R^n$ \emph{\textcolor{purple-pontifex}{diffusion}}.
 \end{frame}
 \section{SDE model for SGD}
 \begin{frame}
-  \begin{block}{Definition}
-    Let $0 \leq t_0 < t_1 < \dots < t_N = T$, $\Delta t_n = t_{n+1} - t_n$ and let $B_n \sim \mathcal{N}(0,\Delta t_n)$. Then, the time-discrete scheme $\{W_n\}_{n=0}^\infty$ given by
+  \frametitle{SDE model}
+  \begin{block}{Definition \autocite{kloedenNumericalSolutionStochastic2013}}
+    Let $0 \leq t_0 < t_1 < \dots < t_N = T$, $\Delta t_n = t_{n+1} - t_n$ and let $\Delta B_n \sim \mathcal{N}(0,\Delta t_n I_n)$. Then, the time-discrete scheme $\{W_n\}_{n=0}^\infty$ given by
 \begin{equation*}
   W_{n+1} = W_n + b(W_n, t_n)\Delta t + \sigma(W_n, t_n) \Delta B_n
 \end{equation*}
 for $0 \leq n \leq N$ is called \emph{\textcolor{purple-pontifex}{Euler-Maruyama scheme}}.
   \end{block}
-\end{frame}
-\begin{frame}
-\begin{block}{Definition}
-  A continuous-time process is an order $\alpha$ \emph{\textcolor{purple-pontifex}{weak approximation}} of a discrete-time processes if for every $g \in G^{\alpha + 1}$, there exists a positive constant such that
+  Recall the decomposition of the SGD iterates
   \begin{equation*}
-    \max_{k=0,\dots,N} |\E{g(w_k)} - \E{g(W_{k\eta})}] \leq C \eta^\alpha.
+    W_{k+1} = W_k - \eta \nabla \CL(W_k) + N_k,
   \end{equation*}
-\end{block}
+  where $N_k \sim \mathcal{N}(0, \eta^2\Sigma(W_k))$. By rewriting we obtain
+  \begin{equation*}
+    W_{k+1} = W_k - \nabla \CL(W_k) \eta + \sqrt{\eta}\Sigma(W_k) Z_k,
+  \end{equation*}
+  where $Z_k \sim \mathcal{N}(0, \eta I_n)$.
 \end{frame}
 \begin{frame}
-  \frametitle{Assumption}
-\begin{block}{Assumption}
-  The random variable satisfies 
-  \begin{enumerate}
-    \item $f_{\gamma}(w) \in \mathcal{L}^1(\Omega)$ for all $w \in \mathbb{R}^d$
-    \item $f_{\gamma}(w)$ is continuously differentiable in $w$ almost surely and for each $R > 0$, there exists a random variable $M_{R,\gamma}$ such that $\max_{\norm{x} \leq R} \norm{ \nabla f_{\gamma}(w) } \leq M_{R,\gamma}$ almost surely, with $\mathbb{E} |M_{R,\gamma}| < \infty$.
-    \item $\nabla f_{\gamma}(w) \in \mathcal{L}^2(\Omega)$ for all $w \in \mathbb{R}^d$.
-  \end{enumerate}
-\end{block}
+  \frametitle{SDE model}
+  From the previous slide we follow that \textcolor{purple-pontifex}{continuous-time} model for SGD is given by
+  \begin{equation*}
+    W_t = W_0 - \int_0^t \nabla \CL(W_s) ds + \int_0^t \sqrt{\eta} \Sigma(W_s) dB_s.
+  \end{equation*}
+\end{frame}
+\begin{frame}
+  \frametitle{Example \autocite{liStochasticModifiedEquations2019}}
+  Let $H \in \mathbb{R}^{d\times d}$ be a symmetric, positive matrix. Define the sample objective 
+\begin{equation*}
+  f_{\gamma}(w) = \frac{1}{2} (w - \gamma)^T H (w - \gamma) - \frac{1}{2} \text{Tr}(H)
+\end{equation*}
+for $\gamma \sim N(0,I)$. The total objective is $f(w) = \E{f_{\gamma}(w)} = \frac{1}{2} w^T H w$.
+The SDE model is given by
+\begin{equation*}
+  dW_t = -H W_t dt + \sqrt{\eta}H dB_t.
+\end{equation*}
+This process is called \emph{Ornstein-Uhlenbeck} process and has the analytical solution
+\begin{equation*}
+  W_t = e^{-t H}(W_0 + \sqrt{\eta}\int_0^te^{s H}H dB_s).
+\end{equation*}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Brownian motion}
+    \vspace{-1cm}
+    \begin{figure}
+      \hspace*{-4.7cm}
+      \includegraphics[height=12cm, width=1.4\textwidth]{plots/sde_sgd.pdf}
+      \caption{Loss value of SDE and SGD}
+    \end{figure}
 \end{frame}
 
 \begin{frame}
-\begin{block}
+  \frametitle{Weak approximation}
+\begin{block}{Definition}
+  A continuous-time process is an order $\alpha$ \emph{\textcolor{purple-pontifex}{weak approximation}} of a discrete-time processes if for every $g \in G^{\alpha + 1}$, there exists a positive constant such that
+  \begin{equation*}
+    \max_{k=0,\dots,N} |\E{g(w_k)} - \E{g(W_{k\eta})}] \leq C \eta^\alpha,
+  \end{equation*}
+  where $G^{\alpha+1}$ denotes the class of $(\alpha+1)$-times continuously differentiable functions with at most polynomial growth.
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Brownian motion}
+    \vspace{-1cm}
+    \begin{figure}
+      \centering
+      \includegraphics[height=12cm]{plots/convergence_rate.pdf}
+      \caption{Quadratic and total variation of Brownian motion}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Theorem \autocite{liStochasticModifiedEquations2019}}
   The continuous-time process $\{W_t\}$ is an order-1 weak approximation of SGD, i.e. for each $g \in G^2$, there exists a constant $C > 0$ independent of $\eta$ such that
   \begin{equation*}
     \max_{k=0,\dots,N} |\E{g(w_k)} - \E{g(W_{k\eta})}] \leq C \eta.
@@ -493,402 +487,19 @@ for $0 \leq n \leq N$ is called \emph{\textcolor{purple-pontifex}{Euler-Maruyama
 \end{frame}
 \section{Summary}
 \begin{frame}
-  % TODO: Summary
+  \frametitle{Summary}
+  \begin{itemize}
+    \item We looked at the behavior of GD
+    \item We formulated a system of ODEs that models the limiting behavior of GD
+    \item We investigated the behavior of SGD
+    \item We formulated a stochastic model for SGD
+  \end{itemize}
   \end{frame}
 \begin{frame}
+  \frametitle{Sources}
 % TODO: Further resources
 % TODO: Link to notebooks
+\printbibliography
 \end{frame}
-% \begin{frame}[fragile]
-%   \frametitle{Token and positional embedding}
-%   \begin{itemize}
-%     \item Vector of integers to a matrix of float vectors
-%   \end{itemize}
-
-%   \vspace{1cm}
-
-%   \begin{block}{\texttt{tf.keras.layers.Embedding}}
-%   \texttt{input\_dim}:  \;Size of the vocabulary (20 000)
-
-%   \texttt{output\_dim}:  Dimension of the embedding (256)
-
-%   \end{block}
-%   \pause
-
-%   \vspace{1cm}
-
-% \begin{python}
-% self.token_emb = layers.Embedding(input_dim=vocab_size, output_dim=embed_dim)
-% self.pos_emb   = layers.Embedding(input_dim=maxlen,     output_dim=embed_dim)
-% \end{python}
-
-% \vspace{1cm}
-
-%   \begin{itemize}
-%     \item Sum of token embedding and positional embedding
-%     \item Each token corresponds to a float vector
-%     \item \url{http://projector.tensorflow.org/}
-%   \end{itemize}
-% \end{frame}
-
-% \begin{frame}
-%   \frametitle{Projected Embedding}
-% \vspace{-1cm}
-%   \begin{columns}[c]
-%     \begin{column}{.35\textwidth}
-%     \begin{figure}
-%         \includegraphics[width=0.9\textwidth]{woman.png}
-%     \end{figure}      
-%     \end{column}
-%     \begin{column}{.35\textwidth}
-%     \begin{figure}
-%         \includegraphics[width=0.9\textwidth]{film.png}
-%     \end{figure}
-%     \end{column}
-% \end{columns}
-
-% \end{frame}
-
-% \section{Transformer architecture}
-
-% \begin{frame}
-%   \frametitle{Overall structure}
-%   \vspace{-1cm}
-%   \begin{columns}[c]
-%     \begin{column}{.4\textwidth}
-%     \begin{figure}
-%     \centering
-%     \includegraphics[height=12cm]{transformer.png}
-%     \caption{Radford et.\ al.}
-%   \end{figure}
-%     \end{column}
-%     \pause
-%     \begin{column}{.5\textwidth}
-%       \begin{itemize}
-%       \item Here: only 1 transformer layer
-%       \item \emph{Miniature} GPT
-%       \end{itemize}
-%     \end{column}
-% \end{columns}
-% \end{frame}
-
-% \begin{frame}[fragile]
-% \frametitle{Self-attention and masking}
-%   \vspace{-1.5cm}
-% \begin{columns}[c]
-% \begin{column}{0.6\textwidth}
-%   \begin{align*}
-%     \operatorname{Attention}(Q,K,V) = \operatorname{SoftMax}\left(M + \frac{Q K^T}{\sqrt{d_k}} \right) V \in \mathbb{R}^{s_q \times d_v}
-%   \end{align*}
-
-% \vspace{2cm}
-
-% Self-attention: $Q = K = V$ \\
-% ($Q$uery, $K$ey, $V$alue)
-% \end{column}
-% \begin{column}{0.4\textwidth}
-%     \begin{figure}
-%         \includegraphics[height=10cm]{attention.png}
-%         \caption{Vaswani et.\ al.}
-%     \end{figure}      
-% \end{column}
-% \end{columns}
-% \pause
-% \vspace{-0.5cm}
-% \emph{Causal attention mask}: \\
-% prevent flow of information from future tokens to current token
-
-% \vspace{1cm}
-
-%   \begin{python}
-%     attention_output = self.att(inputs, inputs, attention_mask=causal_mask)
-%   \end{python}
-% \end{frame}
-
-% \begin{frame}
-%   \frametitle{End-to-end multi-head attention}
-%   \vspace{-1cm}
-%     \begin{figure}
-%     \centering
-%     \includegraphics[height=12cm]{multihead.png}
-%     \caption{K. Doshi, towardsdatascience.com}
-%   \end{figure}
-% \end{frame}
-
-% \begin{frame}
-%   \frametitle{Overall structure}
-%   \vspace{-1cm}
-%     \begin{figure}
-%     \centering
-%     \includegraphics[height=12cm]{transformer.png}
-%     \caption{Radford et.\ al.}
-%   \end{figure}
-% \end{frame}
-
-% \begin{frame}[fragile]
-%   \frametitle{Dropout, norm, and shortcut}
-%   \vspace{-1cm}
-%   \begin{block}{Dropout}
-%     \begin{itemize}
-%       \item Prevent overfitting
-%       \item Set activation to zero based on rate $p \in [0,1]$
-%       \item rescale remaining entries
-%     \end{itemize} 
-%     \vspace{0.5cm}
-%     \begin{python}
-%     self.dropout1 = layers.Dropout(rate)
-%     ...
-%     attention_output = self.dropout1(attention_output)
-%     \end{python}
-%   \end{block}
-%   \pause
-%   \begin{block}{Norm}
-%     \begin{itemize}
-%       \item normalize activations
-%       \item rescale to mean $\beta$ and variance $\gamma$ (parameters)
-%       \item for each given example independently ($\neq$ batch normalization)
-%     \end{itemize}
-%     \vspace{0.5cm}
-%     \begin{python}
-%     self.layernorm1 = layers.LayerNormalization(epsilon=1e-6)
-%     ...
-%     out1 = self.layernorm1(inputs + attention_output)
-%     \end{python}
-%   \end{block}
-% \end{frame}
-
-% \begin{frame}[fragile]
-%   \frametitle{Full transformer block}
-% \begin{python}
-%   class TransformerBlock(layers.Layer):
-%     def __init__(self, embed_dim, num_heads, ff_dim, rate=0.1):
-%         super(TransformerBlock, self).__init__()
-%         self.att = layers.MultiHeadAttention(num_heads, embed_dim)
-%         self.ffn = keras.Sequential(
-%             [layers.Dense(ff_dim, activation="relu"), layers.Dense(embed_dim),]
-%         )
-%         self.layernorm1 = layers.LayerNormalization(epsilon=1e-6)
-%         self.layernorm2 = layers.LayerNormalization(epsilon=1e-6)
-%         self.dropout1 = layers.Dropout(rate)
-%         self.dropout2 = layers.Dropout(rate)
-
-%     def call(self, inputs):
-%         input_shape = tf.shape(inputs)
-%         batch_size = input_shape[0]
-%         seq_len = input_shape[1]
-%         causal_mask = causal_attention_mask(batch_size, seq_len, seq_len, tf.bool)
-%         attention_output = self.att(inputs, inputs, attention_mask=causal_mask)
-%         attention_output = self.dropout1(attention_output)
-%         out1 = self.layernorm1(inputs + attention_output)
-%         ffn_output = self.ffn(out1)
-%         ffn_output = self.dropout2(ffn_output)
-%         return self.layernorm2(out1 + ffn_output)
-% \end{python}
-% \end{frame}
-
-% \section{Miniature GPT model}
-
-% \begin{frame}[fragile]
-%   \frametitle{Miniature GPT model}
-%   \begin{itemize}
-%     \item Token and position embedding
-%     \item Transformer block
-%     \item Dense layer (\emph{logits layer})
-%   \end{itemize}
-% \vspace{1cm}
-%   \begin{python}
-%   def create_model():
-%     inputs = layers.Input(shape=(maxlen,), dtype=tf.int32)
-%     embedding_layer = TokenAndPositionEmbedding(maxlen, vocab_size, embed_dim)
-%     x = embedding_layer(inputs)
-%     transformer_block = TransformerBlock(embed_dim, num_heads, feed_forward_dim)
-%     x = transformer_block(x)
-%     outputs = layers.Dense(vocab_size)(x)
-%     model = keras.Model(inputs=inputs, outputs=[outputs, x])
-%     loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
-%     model.compile(
-%         "adam", loss=[loss_fn, None],
-%     )  
-%     return model
-%   \end{python}
-% \end{frame}
-
-% \begin{frame}[fragile]
-%   \frametitle{Model summary}
-% \begin{lstlisting}[basicstyle=\small]
-% Model: "model"
-% _________________________________________________________________
-% Layer (type)                 Output Shape              Param #   
-% =================================================================
-% input_1 (InputLayer)         [(None, 80)]              0         
-% _________________________________________________________________
-% token_and_position_embedding (None, 80, 256)           5140480   
-% _________________________________________________________________
-% transformer_block (Transform (None, 80, 256)           658688    
-% _________________________________________________________________
-% dense_2 (Dense)              (None, 80, 20000)         5140000   
-% =================================================================
-% Total params: 10,939,168
-% Trainable params: 10,939,168
-% Non-trainable params: 0
-% \end{lstlisting}
-
-% \end{frame}
-
-% \begin{frame}
-%   \frametitle{Loss function}
-%   \begin{block}{Entropy}
-%     Average level of \emph{surprise}
-%     \begin{align*}
-%       \operatorname{H}(X) = -\sum_{x \in \Omega} p(x) \log(p(x)) = \mathbb{E}[-\log p(X)]
-%     \end{align*}
-%     $-\log(p (X))$ denotes surprise.
-%   \end{block}
-%   \pause
-% \vspace{1cm}
-%   \begin{block}{Cross-Entropy}
-%     Two distributions $p$ and $q$ over the same event space.
-%     \begin{align*}
-%       \operatorname{H}(X,p,q) = -\sum_{x \in \Omega} p(x) \log(q(x)) 
-%     \end{align*}
-%   \end{block}
-
-% \end{frame}
-
-% \begin{frame}[fragile]
-
-%   \frametitle{Cross-entropy loss function}
-
-%   \begin{itemize}
-%   \item \texttt{tf.keras.losses.SparseCategoricalCrossentropy} \\
-%   expects probability distributions,
-%    but our model produces logits
-%   \end{itemize}
-% \vspace{1cm}
-%   \begin{python}
-%   loss_fn = tf.keras.losses.SparseCategoricalCrossentropy( from_logits = True )
-%   \end{python}
-%   \pause
-% \vspace{1cm}
-% Logic behind logits:
-% \begin{python}
-%   raw_predictions = neural_net(input_layer)
-%   predicted_class_index_by_raw = argmax(raw_predictions)
-%   probabilities = softmax(raw_predictions)
-%   predicted_class_index_by_prob = argmax(probabilities)
-% \end{python}
-% \pause
-% \begin{itemize}
-%   \item Maximum index of the first and third tensor coincide. 
-%   \item Probabilities not necessary for training...
-%   \pause
-%   \item ...but for text generation $\Rightarrow$
-% \end{itemize}
-
-% \end{frame}
-
-% \section{Callback for generating text}
-
-% \begin{frame}[fragile]
-%   \frametitle{Callback}
-%   \vspace{-1cm}
-%   \begin{itemize}
-%     \item Feed some starting prompt to the model
-%     \item Predict probability distribution and sample next token
-%   \end{itemize}
-
-%   \pause
-
-%   \begin{block}{Sampling tokens}
-%     \begin{python}
-%         def sample_from(self, logits):
-%         logits, indices = tf.math.top_k(logits, k=self.k, sorted=True)
-%         indices = np.asarray(indices).astype("int32")
-%         preds = keras.activations.softmax(tf.expand_dims(logits, 0))[0]
-%         preds = np.asarray(preds).astype("float32")
-%         return np.random.choice(indices, p=preds)
-%     \end{python}
-%   \end{block}
-
-%   \pause
-
-% \begin{block}{Text generation}
-%   \begin{python}
-%         x = start_tokens
-%         while num_tokens_generated <= self.max_tokens:
-%           #padding
-%           ...
-%             y, _ = self.model.predict(x)
-%             sample_token = self.sample_from(y[0][sample_index])
-%             tokens_generated.append(sample_token)
-%             start_tokens.append(sample_token)
-%             num_tokens_generated = len(tokens_generated)
-%         txt = " ".join( [self.detokenize(_) for _ in self.start_tokens + tokens_generated])
-%   \end{python}
-% \end{block}
-
-% \end{frame}
-% \section{Training of the network}
-% \begin{frame}[fragile]
-%   \frametitle{Training}
-% \vspace{-1cm}
-%   \emph{Generative pretraining}: predict the next token
-%   \vspace{1cm}
-%   \begin{python}
-%   model.fit(text_ds, verbose=2, epochs=25, callbacks=[text_gen_callback])
-%   \end{python}
-%   \pause
-% \vspace{1cm}
-% \begin{itemize}
-%   \item Target is generated in the preprocessing phase 
-%   \item consists of shifted vectorized inputs.
-% \end{itemize}
-% \vspace{1cm}
-%   \begin{python}
-%   def prepare_lm_inputs_labels(text):
-%     """
-%     Shift word sequences by 1 position so that the target for position (i) is
-%     word at position (i+1). The model will use all words up till position (i)
-%     to predict the next word.
-%     """
-%     text = tf.expand_dims(text, -1)
-%     tokenized_sentences = vectorize_layer(text)
-%     x = tokenized_sentences[:, :-1]
-%     y = tokenized_sentences[:, 1:]
-%     return x, y
-%   \end{python}
-
-% \end{frame}
-
-% \begin{frame}
-%   \frametitle{Take-home messages}
-%   \begin{itemize}
-%     \item Text processing involves different non-trivial preprocessing steps
-%     \item Power of transformer vs. RNN: parallelizable 
-%     \item Text generation is similar to classification task
-%     \item Logits encode probabilities 
-%   \end{itemize}
-% \end{frame}
-
-% \begin{frame}
-%   \frametitle{References}
-%   \begin{thebibliography}{10}
-% \bibitem{gpt}
-% \alert{Radford, A., Narasimhan, K., Salimans, T., and Sutskever, I.}
-% \newblock  {Improving Language Understanding by Generative Pre-Training}
-% \newblock {\em Preprint, 2018}.
-
-% \bibitem{attention}
-% \alert{Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., and Polosukhin, I.}
-% \newblock {Attention Is All You Need}
-% \newblock {\em arXiv preprint, arXiv:1706.03762 [cs.CL], 2018}.
-
-% \bibitem{ds}
-% \alert{Doshi, K.}
-% \newblock {Transformers Explained Visually (Part 3)}
-% \newblock {\em Blog, \url{https://towardsdatascience.com/transformers-explained-visually-part-3-multi-head-attention-deep-dive-1c1ff1024853}, (last acess 08/02/2022)}.
-
-% \end{thebibliography}
-% \end{frame}
 
 \end{document}

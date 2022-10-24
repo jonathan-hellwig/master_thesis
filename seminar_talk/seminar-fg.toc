@@ -1,6 +1,6 @@
 \beamer@sectionintoc {1}{Problem formulation}{3}{0}{1}
-\beamer@sectionintoc {2}{Gradient descent}{6}{0}{2}
-\beamer@sectionintoc {3}{Stochastic gradient descent}{18}{0}{3}
-\beamer@sectionintoc {4}{Stochastic differential equations}{28}{0}{4}
-\beamer@sectionintoc {5}{SDE model for SGD}{32}{0}{5}
-\beamer@sectionintoc {6}{Summary}{37}{0}{6}
+\beamer@sectionintoc {2}{Gradient descent}{5}{0}{2}
+\beamer@sectionintoc {3}{Stochastic gradient descent}{17}{0}{3}
+\beamer@sectionintoc {4}{Stochastic differential equations}{27}{0}{4}
+\beamer@sectionintoc {5}{SDE model for SGD}{35}{0}{5}
+\beamer@sectionintoc {6}{Summary}{43}{0}{6}
