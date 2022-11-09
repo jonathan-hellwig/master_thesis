@@ -40,7 +40,7 @@
 \newlabel{eq:minimizer}{{2.4}{9}{Local and global minimizer}{equation.2.4}{}}
 \newlabel{eq:StationaryPoint}{{2.5}{9}{Stationary point}{equation.2.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Iterative methods}{9}{subsection.2.3}\protected@file@percent }
-\newlabel{eq:gradient_descent}{{2.8}{10}{Iterative methods}{equation.2.8}{}}
+\newlabel{eq:gradient_descent}{{2.8}{10}{One-step method, gradient descent}{equation.2.8}{}}
 \newlabel{eq:stochastic_gradient_descent}{{2.9}{10}{Iterative methods}{equation.2.9}{}}
 \abx@aux@cite{0}{eAppliedStochasticAnalysis2021}
 \abx@aux@segm{0}{0}{eAppliedStochasticAnalysis2021}
@@ -112,23 +112,50 @@
 \newlabel{subsec:SdeNumericalMethods}{{3.4}{20}{SDE Numerical methods}{subsection.3.4}{}}
 \abx@aux@cite{0}{eAppliedStochasticAnalysis2021}
 \abx@aux@segm{0}{0}{eAppliedStochasticAnalysis2021}
+\newlabel{eq:euler_maruyama}{{3.18}{21}{Euler-Maruyama scheme}{equation.3.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}SDE model for SGD}{21}{section.4}\protected@file@percent }
+\newlabel{sec:sde_model}{{4}{21}{SDE model for SGD}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Gradient flow}{21}{subsection.4.1}\protected@file@percent }
+\newlabel{ex:linear_regression}{{4.1}{21}{Linear regression}{theorem.4.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Evolution of $w$ and $b$ for $\eta \in \{5e-4,1e-4,5e-5,1e-5\}$\relax }}{22}{figure.caption.5}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:learning_rates}{{1}{22}{Evolution of $w$ and $b$ for $\eta \in \{5e-4,1e-4,5e-5,1e-5\}$\relax }{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Loss function\relax }}{23}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:quadratic_loss_function}{{2}{23}{Loss function\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Gradient flow with noise}{23}{subsection.4.2}\protected@file@percent }
+\newlabel{eq:sgd_decomposition}{{4.5}{23}{Gradient flow with noise}{equation.4.5}{}}
+\abx@aux@cite{0}{liStochasticModifiedEquations2019}
+\abx@aux@segm{0}{0}{liStochasticModifiedEquations2019}
+\abx@aux@cite{0}{liStochasticModifiedEquations2019}
+\abx@aux@segm{0}{0}{liStochasticModifiedEquations2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of $w$ and $b$ scaled by the learning rate $\eta $\relax }}{24}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:scaled_weights_biases}{{3}{24}{Evolution of $w$ and $b$ scaled by the learning rate $\eta $\relax }{figure.caption.7}{}}
+\newlabel{as:normality}{{4.5}{24}{}{theorem.4.5}{}}
+\newlabel{eq:sgd_normal_decomposition}{{4.10}{24}{Gradient flow with noise}{equation.4.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Weak convergence}{24}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Linear regression fit with SGD\relax }}{25}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:sgd_linear_fit}{{4}{25}{Linear regression fit with SGD\relax }{figure.caption.8}{}}
+\newlabel{thm:order_2}{{4.7}{25}{\autocite {liStochasticModifiedEquations2019}}{theorem.4.7}{}}
 \abx@aux@cite{0}{liValidityModelingSGD2021}
 \abx@aux@segm{0}{0}{liValidityModelingSGD2021}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Modeling stochastic model with SDE}{21}{section.4}\protected@file@percent }
-\newlabel{sec:sde_model}{{4}{21}{Modeling stochastic model with SDE}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}SGD}{21}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Histogram of parameter $w$ for SGD sample trajectories\relax }}{26}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:sgd_weight_histogram}{{5}{26}{Histogram of parameter $w$ for SGD sample trajectories\relax }{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Will be removed soon}{26}{subsection.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Qunatile-qunatile plot for normal distribution and sampled values of $w$ at the last iteration\relax }}{27}{figure.caption.10}\protected@file@percent }
+\newlabel{fig:sgd_weight_qq}{{6}{27}{Qunatile-qunatile plot for normal distribution and sampled values of $w$ at the last iteration\relax }{figure.caption.10}{}}
 \abx@aux@cite{0}{uhlenbeckTheoryBrownianMotion1930}
 \abx@aux@segm{0}{0}{uhlenbeckTheoryBrownianMotion1930}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Generalization}{22}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Solving SDE Model}{22}{section.5}\protected@file@percent }
-\newlabel{sec:SolvingSDEModel}{{5}{22}{Solving SDE Model}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Assumptions for solving}{22}{subsection.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Experimental Verification}{22}{section.6}\protected@file@percent }
-\newlabel{sec:ExperimentalVerification}{{6}{22}{Experimental Verification}{section.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{22}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A}Inequalities}{24}{appendix.A}\protected@file@percent }
-\newlabel{lemma:inequality}{{A.1}{24}{}{theorem.A.1}{}}
-\abx@aux@read@bbl@mdfivesum{8E151F99ED3C92FFA626BBF4CC0BCA33}
+\@writefile{toc}{\contentsline {section}{\numberline {5}SDE model applications}{28}{section.5}\protected@file@percent }
+\newlabel{sec:sdeModelApplicatios}{{5}{28}{SDE model applications}{section.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Solving SDE Model}{28}{section.6}\protected@file@percent }
+\newlabel{sec:SolvingSDEModel}{{6}{28}{Solving SDE Model}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Assumptions for solving}{28}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Experimental Verification}{28}{section.7}\protected@file@percent }
+\newlabel{sec:ExperimentalVerification}{{7}{28}{Experimental Verification}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{28}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A}Inequalities}{30}{appendix.A}\protected@file@percent }
+\newlabel{lemma:inequality}{{A.1}{30}{}{theorem.A.1}{}}
+\abx@aux@read@bbl@mdfivesum{CC1D60D11754E6EE3915CDA7CC4D72DA}
 \abx@aux@defaultrefcontext{0}{bottouOptimizationMethodsLargeScale2018}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{boydConvexOptimization2004}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{brownLanguageModelsAre2020}{nty/global//global/global}
@@ -136,6 +163,7 @@
 \abx@aux@defaultrefcontext{0}{eAppliedStochasticAnalysis2021}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{gowerSGDGeneralAnalysis2019}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{jumperHighlyAccurateProtein2021}{nty/global//global/global}
+\abx@aux@defaultrefcontext{0}{liStochasticModifiedEquations2019}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{liValidityModelingSGD2021}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{nesterovLecturesConvexOptimization2018}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{nguyenSGDHogwildConvergence2018}{nty/global//global/global}
@@ -146,4 +174,4 @@
 \abx@aux@defaultrefcontext{0}{sebbouhAlmostSureConvergence2021}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{uhlenbeckTheoryBrownianMotion1930}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{zhouStochasticMirrorDescent2017}{nty/global//global/global}
-\gdef \@abspage@last{24}
+\gdef \@abspage@last{30}

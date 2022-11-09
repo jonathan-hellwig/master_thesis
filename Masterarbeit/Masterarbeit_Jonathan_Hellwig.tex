@@ -119,6 +119,7 @@
 \newcommand{\bfb}{\mathbf{b}}
 
 \newcommand{\ev}[1]{\mathbb{E}\left[{#1}\right]}
+\newcommand{\var}[1]{\mathbb{V}\left[{#1}\right]}
 \newcommand{\norm}[1]{\lVert{#1}\rVert_2}
 \usepackage{mathtools}
 \newcommand{\defeq}{\vcentcolon=}
@@ -266,20 +267,20 @@ For simple functions it is possible to determine the solution to (\ref*{eq:Stati
   \end{equation} 
 \end{definition}
 It is easy to show that given an initial value $w \in \mathbb{R}^d$ and a descent direction $g \in \mathbb{R}^d$ we have $f(w) > f(w + \eta g)$ for $\eta > 0$ sufficiently small. This motivates the definition of one-step iterative methods.
-\begin{definition}
+\begin{definition}[One-step method, gradient descent]
   For a given initial value $w^{(0)}\in \mathbb{R}^d$ a sequence defined by
 \begin{equation}
   w^{(k+1)} = w^{(k)} + \eta_k g(w^{(k)}),
 \end{equation}
-  where $\{\eta_k\}_{k=1}^\infty$ is called step size and $\{g(w^{(k)})\}_{k=1}^\infty$ is a sequence of descent directions is called \emph{one-step descent method}.
+  where $\{\eta_k\}_{k=1}^\infty$ is called step size and $\{g(w^{(k)})\}_{k=1}^\infty$ is a sequence of descent directions is called \emph{one-step descent method}. The special case with $g = \nabla f$ such that the sequence of iterates is given by
+  \begin{equation}
+    \label{eq:gradient_descent}
+    w^{(k+1)} = w^{(k)} - \eta_k \nabla f(w^{(k)}),
+  \end{equation}
+  is called \emph{gradient descent} (GD).
 \end{definition}
 
-The most quintessential descent method for $g^{(k)} = - \nabla f(w^{(k)})$ is given by
-\begin{equation}
-  \label{eq:gradient_descent}
-  w^{(k+1)} = w^{(k)} - \eta_k \nabla f(w^{(k)}).
-\end{equation}
-It is easy to see that we have ${g^{(k)}}^T \nabla f(w^{(k)}) = -\norm{ f(w^{(k)}) }^2 < 0$ as long as the iterates have not converged to a stationary point. This iterative scheme is called \emph{gradient descent method} (GD) and forms the basis for many of the iterative schemes used in deep learning practice. It is important to note that after defining such an iterative scheme it is unclear whether it actually converges to a minimizer. In the later sections of this chapter we will discuss the classes of functions for which convergence can be established and how they relate to deep learning practice. Before diving into the theoretical analysis of descent methods let us consider an extension to the gradient descent method.
+It is easy to see for the iterates of GD we have ${g^{(k)}}^T \nabla f(w^{(k)}) = -\norm{ f(w^{(k)}) }^2 < 0$ as long as the iterates have not converged to a stationary point. GD forms the basis for many of the iterative schemes used in deep learning practice. It is important to note that after defining such an iterative scheme it is unclear whether it actually converges to a minimizer. In the later sections of this chapter we will discuss the classes of functions for which convergence can be established and how they relate to deep learning practice. Before diving into the theoretical analysis of descent methods let us consider an extension to the gradient descent method.
 Notice that in (\ref{eq:gradient_descent}) the computation of each iterate requires the computation of the gradient $\nabla f$. For objective functions of the form $f(w) = \frac{1}{n} \sum_{i=1}^n f_i(w)$ this requires the computation of each $\nabla f_i(w)$ individually. Remember that in deep learning settings $f_i$ represents the loss $\ell(m_w(x_i), y_i)$ with respect to a single data point $(x_i, y_i)$. When the number of data points is large, computing the full gradient $\nabla f$ becomes prohibitively expensive. In fact, ImageNet (citation), a benchmark dataset for image classification, contains over 1.2 million images. If we treat each individual gradient $\nabla f_i(w)$ as a realization of a random variable $\nabla f_{\gamma}(w)$ with expected value $\ev{\nabla f_{\gamma}(w)} = \nabla f(w)$, we can estimate $\nabla f(w)$ by calculating the sample average. In particular, this leads to the definition of the following random process:
 \begin{equation}
   \label{eq:stochastic_gradient_descent}
@@ -316,10 +317,10 @@ In the next section, we will explore the convergence of the stochastic schemes i
 % \end{definition}
 % In this section, we will discuss convergence results for SGD found in literature that make strong assumption about smoothness and convexity of the target function $f : \R^n \rightarrow \R$.
 % In recent years, there has been a large body of work investigating the behavior of SGD. Of particular interest is the behavior of over-parametrized deep neural networks that exhibit behavior that is counter to common wisdom: over-parametrization leads to bad generalization. However, deep learning practice shows that a high training accuracy is accompanied by high test accuracy. This leads to the following questions: what is the mechanism of SGD results in good generalization? How do learning rate and batch size affect SGD dynamics?
-% First, we approach these questions by discussing convergence under strong smoothness and convexity assumptions. These analyses provide insight into how batch size, learning rate, smoothness and convexity influence the behavior of SGD iterates. Second, we relax the convexity assumption and present weaker results.
+% First, we approach these questions by discussing convergence under strong smoothness and convexity assumptions. These analyzes provide insight into how batch size, learning rate, smoothness and convexity influence the behavior of SGD iterates. Second, we relax the convexity assumption and present weaker results.
 % Finally, whether these results can be applied to modern deep learning architectures. 
 %  while others investigate SGD empirically.
-In this section, we discuss convergence results for SGD found in modern literature. First, we begin by introducing convergence notions for stochastic processes. Then, we proceed by considering two classes of well-behaved functions, namely convex and smooth functions. These two classes of functions are the foundation for convergence analyses of SGD. Next, we discuss the convergence of SGD under differing assumptions and have a detailed look at one particular analysis. Lastly, we examine how these convergence results can be applied to modern deep learning architectures.
+In this section, we discuss convergence results for SGD found in modern literature. First, we begin by introducing convergence notions for stochastic processes. Then, we proceed by considering two classes of well-behaved functions, namely convex and smooth functions. These two classes of functions are the foundation for convergence analyzes of SGD. Next, we discuss the convergence of SGD under differing assumptions and have a detailed look at one particular analysis. Lastly, we examine how these convergence results can be applied to modern deep learning architectures.
 
 There exists a broad body of literature discussing the convergence of gradient descent. (citations) In SGD, the basic assumption of approximating the full gradient $\nabla f$ by a sampled gradient $\nabla f_{\gamma}$ is that convergence properties of gradient descent persist in some sense. It is not obvious that by gradient sampling we can obtain minimizers of the objective function $f$. Further, it is clear, that we need different notions of convergence, since the iterates of SGD form a stochastic process. In particular, we define two notions of convergence for stochastic processes found in~\autocite{eAppliedStochasticAnalysis2021}.
 \begin{definition}[Almost sure convergence, convergence in distribution]
@@ -585,8 +586,8 @@ Theorem \ref{thm:almost_sure_convergence} implies the following corollary.
 % (citation)
 
 \subsection{Summary}
-In this section, we introduced iterative methods for solving a general risk minimization problem. We covered gradient descent, stochastic gradient descent and stochastic gradient descent with momentum. Further, we looked at theoretical analyses of SGD and discussed common assumptions for convergence analyses. In particular, we highlighted an almost sure analysis that give insight into the behavior of overparameterized models. 
-At this point, we note that all analyses in literature employ different techniques and assumptions. This leaves open whether we can find a framework that unifies the convergence analysis. In the next section, we introduce stochastic differential equations which serve as a theoretical framework for general class of one-step methods. In section \ref{sec:sde_model}, we see that SGD approximates a continuous-time stochastic process given by an SDE. Therefore, we can gain insight into the behavior of SGD by analyzing the behavior of a SDE.
+In this section, we introduced iterative methods for solving a general risk minimization problem. We covered gradient descent, stochastic gradient descent and stochastic gradient descent with momentum. Further, we looked at theoretical analyzes of SGD and discussed common assumptions for convergence analyzes. In particular, we highlighted an almost sure analysis that give insight into the behavior of overparameterized models. 
+At this point, we note that all analyzes in literature employ different techniques and assumptions. This leaves open whether we can find a framework that unifies the convergence analysis. In the next section, we introduce stochastic differential equations which serve as a theoretical framework for general class of one-step methods. In section \ref{sec:sde_model}, we see that SGD approximates a continuous-time stochastic process given by an SDE. Therefore, we can gain insight into the behavior of SGD by analyzing the behavior of a SDE.
 
 \section{Stochastic differential equations}
 \label{sec:BackgroundSDETheory}
@@ -742,18 +743,170 @@ There are two classes of numerical approximations for SDEs: Strong and weak appr
 \begin{definition}[Euler-Maruyama scheme]
   Let $0 \leq t_0 < t_1 < \dots < t_N = T$, $\Delta t_n = t_{n+1} - t_n$ and let $B_n \sim \CN(0,\Delta t_n)$. Then, the time-discrete scheme $\{X_n\}_{n=0}^\infty$ given by
 \begin{equation}
+  \label{eq:euler_maruyama}
   X_{n+1} = X_n + b(X_n, t_n)\Delta t + \sigma(X_n, t_n) \Delta B_n
 \end{equation}
 for $0 \leq n \leq N$ is called \emph{Euler-Maruyama scheme}.
 \end{definition}
 
 \begin{theorem}[Proposition 7.22. \protect{\cite{eAppliedStochasticAnalysis2021}}]
-  The Euler-Maruyama scheme is of stronge order~$1/2$.
+  The Euler-Maruyama scheme is of strong order~$1/2$.
 \end{theorem}
-\section{Modeling stochastic model with SDE}
+\section{SDE model for SGD}
 \label{sec:sde_model}
-\subsection{SGD}
+In this section, we introduce a continuous-time model for SGD. First, we consider the non-deterministic case of GD and derive an ODE system to model the limiting behavior of GD. Then, we establish a similar model for SGD building on the results of section \ref{sec:BackgroundSDETheory}. Lastly, we establish a rigorous framework to show the convergence of SGD and the continuous-time model in a weak sense.
+Note that in section \ref{sec:sdeModelApplicatios} we detail analyses of the continuous-time process and make a case for the usefulness of the SDE model.
 
+\subsection{Gradient flow}
+To motivate the continuous-time model for GD we consider the following example.
+\begin{example}[Linear regression]
+  \label{ex:linear_regression}
+  Let $\{x_i\}_{i=1}^n$ be a sequence of values with $x_i \in \R$ for $i = 1,2,\dots,n$. We define the sequence $\{y_i\}_{i=1}^n$ by
+  \begin{equation*}
+    y_i = wx_i + b + \epsilon_i,
+  \end{equation*}
+  where $w,b \in \R$ are fixed values and $\epsilon_i \sim \CN(0,1)$ for $i = 1, 2, \dots, n$.
+  Now, given a sample of $\{(x_i, y_i)\}_{i=1}^n$ for unknown parameters $w, b \in R$ we want to find $\hat{w}, \hat{b} \in \R$ that optimally represent the data. In order to characterize optimality we define a loss function $\CL : \R^2 \rightarrow \R$ with 
+  \begin{equation}
+    \CL (w, b) = \frac{1}{n} \sum_{i=1}^n(wx_i + b - y_i)^2.
+  \end{equation}
+  % In \hyperref[fig:quadratic_loss_function]{figure~\ref}
+  In \autoref{fig:quadratic_loss_function} we see the loss value depending on the choice of $w,b \in \R$. The gradient of $\CL$ is given by
+  \[
+    \nabla \CL (w,b) = \frac{1}{n}
+    \begin{pmatrix}
+      2\left(\displaystyle\sum_{i=1}^n x_i^2\right)w + 2 \left(\displaystyle\sum_{i=1}^n x_i\right)b - 2 \displaystyle\sum_{i=1}^n x_i y_i \\
+      2 \left(\displaystyle\sum_{i=1}^n x_i\right) w + 2nb - 2 \displaystyle\sum_{i=1}^n y_i
+    \end{pmatrix}.
+  \]
+  For a learning rate $\eta > 0$ and an initial values $w^{(0)},b^{(0)} \in \R$ the iterates of gradient descent are given by
+  \begin{equation}
+    \begin{pmatrix}
+      w^{(k+1)} \\
+      b^{(k+1)}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      w^{(k)} \\
+      b^{(k)}
+    \end{pmatrix}
+    - \frac{\eta}{n}
+    \begin{pmatrix}
+      2\left(\displaystyle\sum_{i=1}^n x_i^2\right)w + 2 \left(\displaystyle\sum_{i=1}^n x_i\right)b - 2 \displaystyle\sum_{i=1}^n x_i y_i \\
+      2 \left(\displaystyle\sum_{i=1}^n x_i\right) w + 2nb - 2 \displaystyle\sum_{i=1}^n y_i
+    \end{pmatrix}.
+  \end{equation}
+  In \autoref{fig:learning_rates} we show the behavior of the iterates for different values of $\eta >0$. We observe that a large learning rate leads to a faster convergence to the optimal value. This observation is in agreement with the results from \autoref{sec:Optimization}.
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{../seminar_talk/plots/learning_rates.pdf}
+    \caption{Evolution of $w$ and $b$ for $\eta \in \{5e-4,1e-4,5e-5,1e-5\}$}
+    \label{fig:learning_rates}
+  \end{figure}
+
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{../seminar_talk/plots/quadratic_loss.pdf}
+    \caption{Loss function}
+    \label{fig:quadratic_loss_function}
+  \end{figure}
+\end{example}
+Now, returning to the general setting we want to highlight the following observation: GD descent has the same structure as Euler's method for ordinary differential equations. If we interpret the learning rate $\eta$ as a time step, GD is a first order approximation to a system of ODEs.
+\begin{definition}[Gradient flow]
+  Let $f : \R^n \rightarrow \R$ be a continuously differentiable function. Then the system of ODEs
+  \begin{equation}
+  w'(t) = - \nabla f(w(t))
+  \end{equation}
+  with the initial condition $w(0) = w^{(0)}$ is called \emph{gradient flow}.
+\end{definition}
+
+\begin{example}[continued]
+  Now, we apply this view to the linear regression example. In \autoref{fig:scaled_weights_biases} we observe that for each curve scaled according to the learning rate $\eta$ follows the same trajectory. This follows directly from the fact that they all approximate the solution of the gradient flow equation. The gradient flow system is given by
+  \begin{equation*}
+    \begin{pmatrix}
+      w'(t)      \\
+      b'(t)     
+  \end{pmatrix}
+  = 
+  \begin{pmatrix}
+    -2  \displaystyle\sum_{i=1}^n x_i^2  &  -2  \displaystyle\sum_{i=1}^n x_i      \\
+      -2  \displaystyle\sum_{i=1}^n x_i  &  -2n      
+  \end{pmatrix}
+  \begin{pmatrix}
+    w(t)     \\
+    b(t)    
+  \end{pmatrix}
+  +
+  \begin{pmatrix}
+    2  \displaystyle\sum_{i=1}^n x_i y_i     \\
+    2  \displaystyle\sum_{i=1}^n y_i    
+  \end{pmatrix},
+  \end{equation*}
+  where $w(0) = w^{(0)}$ and $b(0) = b^{(0)}$. This system is linear in the parameters $w$ and $b$.
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{../seminar_talk/plots/scaled_weights_biases.pdf}
+    \caption{Evolution of $w$ and $b$ scaled by the learning rate $\eta$}
+    \label{fig:scaled_weights_biases}
+  \end{figure}
+\end{example}
+\subsection{Gradient flow with noise}
+Now, consider the case of SGD. Recall from \autoref{sec:Optimization} that the iterates are given by
+\begin{equation}
+  w^{(k+1)} = w^{(k)} - \eta \nabla f_{\gamma^k}(w^{(k)})
+\end{equation}
+for $k = 0,1,\dots$. We observe that the iterates can be decomposed as follows
+\begin{equation}
+  \label{eq:sgd_decomposition}
+  w^{(k+1)} = w^{(k)} - \eta \nabla f(w^{(k)}) + \eta (\nabla f(w^{(k)}) - \nabla f_{\gamma^k}(w^{(k)})).
+\end{equation}
+The first term in \autoref{eq:sgd_decomposition} is the full gradient update from GD. The second term is the \emph{gradient noise}. It is easy to see that 
+\begin{align}
+  &\ev{\eta (\nabla f(w^{(k)}) - \nabla f_{\gamma^k}(w^{(k)}))|w^{(k)}} = 0 \\
+  &\var{\eta (\nabla f(w^{(k)}) - \nabla f_{\gamma^k}(w^{(k)}))|w^{(k)}} = \\
+  & \eta^2 \ev{(\nabla f(w^{(k)}) - \nabla f_{\gamma^k}(w^{(k)}))(\nabla f(w^{(k)}) - \nabla f_{\gamma^k}(w^{(k)}))^T|w^{(k)}}.
+\end{align}
+\begin{example}[continued]
+  Now, we apply SGD to the linear regression problem from \autoref{ex:linear_regression}. In \autoref{fig:sgd_linear_fit} we observe different results for different sample trajectories of SGD.
+  Further, we visualize the distribution of the parameter $w$ during several iterations of SGD in \autoref{fig:sgd_weight_histogram}. For this particular example the weights seem to follow a normal distribution. To confirm normality empirically we construct a quantile-quantile plot of the sampled distribution and the normal distribution in \autoref{fig:sgd_weight_qq}.
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{../seminar_talk/plots/sgd_linear_fit.pdf}
+    \caption{Linear regression fit with SGD}
+    \label{fig:sgd_linear_fit}
+  \end{figure}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{../seminar_talk/plots/sgd_weight_histogram.pdf}
+    \caption{Histogram of parameter $w$ for SGD sample trajectories}
+    \label{fig:sgd_weight_histogram}
+  \end{figure}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{../seminar_talk/plots/sgd_weight_qq.pdf}
+    \caption{Qunatile-qunatile plot for normal distribution and sampled values of $w$ at the last iteration}
+    \label{fig:sgd_weight_qq}
+  \end{figure}
+\end{example}
+To derive the SDE model we make the following assumption.
+\begin{assumption}
+  \label{as:normality}
+  Let $f_{\gamma}, f : \R^n \rightarrow \R$ be a continuously differentiable functions for $\gamma \in \Gamma$. Then we assume 
+  \begin{equation}
+    \nabla f_{\gamma}(w) - \nabla f(w) \sim \CN(0, \Sigma(w)).
+  \end{equation}
+\end{assumption}
+From \autoref{as:normality} and \autoref{eq:sgd_decomposition} we have
+\begin{equation}
+  \label{eq:sgd_normal_decomposition}
+  w^{(k+1)} = w^{(k)} - \eta \nabla f(w^{(k)}) + (\eta \Sigma(w))^{\frac{1}{2}} Z_k,
+\end{equation}
+where $Z_k \sim \CN(0,I_n)$ and $k=0,1,\dots$. Comparing \autoref{eq:sgd_normal_decomposition} with the Euler-Maruyama scheme in \autoref{eq:euler_maruyama}, we see that SGD approximates the SDE
+\begin{equation}
+  dW_t = -\nabla f(W_t)dt + (\eta \Sigma(W_t))^{\frac{1}{2}}dB_t.
+\end{equation}
+\subsection{Weak convergence}
+Next, we introduce a framework by \autocite{liStochasticModifiedEquations2019} to establish weak convergence of the loss function to the solution of the SDE model.
 \begin{assumption}
   The random variable satisfies 
   \begin{enumerate}
@@ -762,6 +915,39 @@ for $0 \leq n \leq N$ is called \emph{Euler-Maruyama scheme}.
     \item $\nabla f_{\gamma}(w) \in \mathcal{L}^2(\Omega)$ for all $w \in \mathbb{R}^d$.
   \end{enumerate}
 \end{assumption}
+
+\begin{theorem}[\autocite{liStochasticModifiedEquations2019}]
+  \label{thm:order_2}
+  Let, $T > 0$, $\eta \in (0, \min\{1,T\})$ and set $N = \lceil T/N \rceil$. Let $\{w_k:k\geq 0\}$ be the iterations defined in \autoref{eq:stochastic_gradient_descent}. Suppose the following conditions are met:
+  \begin{enumerate}
+    \item $f \equiv \E f_{\gamma}$ is twice continuously differentiable, $\nabla |\nabla f |^2$ is Lipschitz, and $f \in G^4_w$.
+    \item $\nabla f_{\gamma}$ satisfies a Lipschitz condition:
+    \begin{equation*}
+      |\nabla f_{\gamma}(w) - f_{\gamma}(v) \leq L_{\gamma} |w - v| \quad \text{a.s.}
+    \end{equation*}
+    for all $w,v \in \R^d$, where $L_{\gamma}$ is a random variable which is positive a.s. and $\ev{L_{\gamma}^m} < \infty$ for each $m \geq 1$.
+  \end{enumerate}
+  Define $\{W_t:t\in [0,T] \}$ as the stochastic process statisfying the SDE
+  \begin{equation}
+    d W_t = -\nabla(f(W_t) + \frac{1}{4}\eta |\nabla f(W_t)|^2)dt + \sqrt{\eta}\Sigma(W_t)^{\frac{1}{2}}dB_t
+  \end{equation}
+  with $W_0 = w_0$. Then, $\{W_t:t\in [0,T] \}$ is an order-2 weak approximation of SGD, i.e. for each $g \in G^3$, there exists a constant $C > 0$ independent of $\eta$ such that
+  \begin{equation}
+    \max_{k=0,\dots,N} |\ev{g(w_k)} - \ev{g(W_{k\eta})}| \leq C \eta^2.
+  \end{equation}
+\end{theorem}
+\begin{corollary}
+  Assume the same conditions as in \autoref{thm:order_2}, except that we replace (i) with $f \equiv \E f_{\gamma}$ is continuously differentiable, and $f \in G^3_w$.
+  Define $\{W_t:t\in [0,T] \}$ as the stochastic process statisfying the SDE
+  \begin{equation}
+    d W_t = -\nabla f(W_t) dt + \sqrt{\eta}\Sigma(W_t)^{\frac{1}{2}}dB_t
+  \end{equation}
+  with $W_0 = w_0$. Then, $\{W_t:t\in [0,T] \}$ is an order-1 weak approximation of SGD, i.e. for each $g \in G^3$, there exists a constant $C > 0$ independent of $\eta$ such that
+  \begin{equation}
+    \max_{k=0,\dots,N} |\ev{g(w_k)} - \ev{g(W_{k\eta})}| \leq C \eta.
+  \end{equation}
+\end{corollary}
+\subsection{Will be removed soon}
 A class of loss function $f : \mathbb{R}^d \rightarrow \mathbb{R}$ relevant to machine learning applications is usually given in the form $f(x,y) = \sum_{i=1}^n f_i(x,y)$.
 \begin{equation}
   x^{(k+1)} = x^{(k)} - \psi^k \nabla f(x^{(k)}) h +  \psi(t)\sqrt{h/b^{(k)}} \sigma_{MB}(x^{(k)})Z^{(k)}
@@ -791,7 +977,8 @@ where $f^l$ is defined as
   f^l_{i,j}(x) = \frac{1+\sqrt{2l - 1}}{2}f_i(x) + \frac{1-\sqrt{2l - 1}}{2}f_j(x)
 \end{equation}
 for independently sampled $i,j$.
-\subsection{Generalization}
+\section{SDE model applications}
+\label{sec:sdeModelApplicatios}
 \section{Solving SDE Model}
 \label{sec:SolvingSDEModel}
 \subsection{Assumptions for solving}
