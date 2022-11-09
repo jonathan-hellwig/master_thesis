@@ -13,6 +13,7 @@
 % hilfreiche Pakete der AMS (American Mathematical Society) laden
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsbsy}
 
 % Sätze, Lemmata, ..
 \usepackage{amsthm}
@@ -123,6 +124,7 @@
 \newcommand{\norm}[1]{\lVert{#1}\rVert_2}
 \usepackage{mathtools}
 \newcommand{\defeq}{\vcentcolon=}
+\DeclareMathOperator{\Tr}{Tr}
 % Beginn des Dokumentes
 \begin{document}
 
@@ -592,6 +594,22 @@ At this point, we note that all analyzes in literature employ different techniqu
 \section{Stochastic differential equations}
 \label{sec:BackgroundSDETheory}
 In this section, we introduce the concept of stochastic differential equations (SDEs). First, we define a new notion of integration: Itô integration. Then, by reformulating an ordinary differential equation (ODE) as an integral equation, we generalize ODEs to stochastic processes by building on Itô integrals. Next, we discuss the existence and uniqueness of solution to SDEs. Finally, we introduce a framework for approximating solutions to SDEs numerically.
+\subsection{Ordinary differential equations}
+A system of ordinary differential equations are equations of the form
+\begin{equation}
+  w'(t) = b(w(t),t), \quad w(0) = w_0
+\end{equation}
+where $b : \R^d \rightarrow \R$ is a function. Equivalently, we can formulate the integral equation
+\begin{equation}
+  w(t) = w_0 + \int_0^t b(w(s),s)ds.
+\end{equation}
+\begin{definition}[Euler's method]
+  Let $0 \geq t_0 < t_1 < \dots < t_N = T, \Delta t_n = t_{n+1} - t_n$. Then, the time-discrete scheme $\{w_n\}_{n=1}^N$ given by
+  \begin{equation}
+    w_{n+1} = w_n + b(w_n, t_n) \Delta t_n
+  \end{equation}
+  for $n=0,1,\dots,N$ is called \emph{Euler's method}.
+\end{definition}
 \subsection{Itô Integral}
 \label{subsec:ItoIntegral}
 We briefly introduce the notion of Itô integral. Note that further details on the derivation can be found in \autocite{eAppliedStochasticAnalysis2021}. 
@@ -626,15 +644,35 @@ The rigorous construction of the Itô integral requires the definition on piece 
     \end{equation*}
   \end{enumerate}
 \end{definition}
-\begin{lemma}[\autocite{eAppliedStochasticAnalysis2021}]
+\begin{theorem}[\autocite{eAppliedStochasticAnalysis2021}]
+  \label{thm:ito_isometry}
   For $f \in \CV[S,T]$, the Itô integral satisfies
   \begin{equation}
     \E \left[ \int_S^T f(\omega,t)dB_t \right] = 0,
   \end{equation}
+  and \emph{Itô isometry}
   \begin{equation}
-    \E \left[ \int_S^T f(\omega,t)dB_t \right]^2 = \E \left[ \int_S^T f^2(\omega,t)dt \right]
+    \E \left[ \int_S^T f(\omega,t)dB_t \right]^2 = \E \left[ \int_S^T f^2(\omega,t)dt \right].
   \end{equation}
-\end{lemma}
+\end{theorem}
+Consider the case where $\{B_t\}_{t\geq0}$ is an $m$-dimensional Brownian motion and $\pmb{f},\pmb{g}  \in \R^{d \times m}$, we have
+\begin{equation}
+  \begin{split}
+    &\ev{\left(\int_S^T \pmb{f}(\omega, t)\cdot d\pmb{B}_t\right)^T\int_S^T \pmb{g}(\omega, t)\cdot d\pmb{B}_t}\\
+     &= \sum_{i=1}^d \ev{\sum_{j,k=1}^m \int_S^T f_{i,j}(\omega, t)dB_t^j\int_S^T g_{i,k}(\omega, t)dB_t^k}\\
+    &= \sum_{i=1}^d \sum_{j=1}^m \ev{\int_S^T f_{i,j}(\omega, t)dB_t^j\int_S^T g_{i,j}(\omega, t)dB_t^j} \\
+    &= \sum_{i=1}^d \sum_{j=1}^m \ev{\int_S^T f_{i,j}(\omega, t)g_{i,j}(\omega, t)dt}\\
+    &= \ev{\int_S^T \sum_{i=1}^d \sum_{j=1}^m f_{i,j}(\omega, t)g_{i,j}(\omega, t)dt}.
+  \end{split}
+\end{equation}
+When $d = m$ and $g_{i,j}(\omega,t) = g_{j,i}(\omega,t)$, we have
+\begin{equation}
+  \label{eq:multivariate_ito_isometry}
+  \begin{split}
+    &\ev{\left(\int_S^T \pmb{f}(\omega, t)\cdot d\pmb{B}_t\right)^T\int_S^T \pmb{g}(\omega, t)\cdot d\pmb{B}_t}\\
+    &= \ev{\int_S^T \Tr\left[\pmb{f}(\omega, t)\pmb{g}(\omega, t)\right]dt}.
+  \end{split}
+\end{equation}
 \begin{lemma}[Proposition 7.3 \protect{\cite{eAppliedStochasticAnalysis2021}}]
   Assume that $f,g \in CV[S,T]$ and $u \in [S,T]$. Then
   \begin{enumerate}
@@ -656,12 +694,13 @@ The rigorous construction of the Itô integral requires the definition on piece 
   \end{equation}
   where $\sigma \in \CV[0,T]$, b is $\CF_t$-adapted, and $\int_0^T |b(\omega,t)|dt < \infty$ almost surely.
 \end{definition}
-\begin{theorem}
-  Let $f : \R \rightarrow \R$ be a twice differentiable function, and let $Y_t = f(X_t)$ where $X_t$ is an Itô process defined in \eqref{eq:ito_process}. Then $Y_t$ is also an Itô process and
+\begin{theorem}[Itô's formula]
+  \label{thm:ito_formula}
+  Let $f : \R^d \rightarrow \R$ be a twice differentiable function, and let $Y_t = f(X_t)$ where $X_t$ is an Itô process defined in \eqref{eq:ito_process}. Then $Y_t$ is also an Itô process and
   \begin{equation}
     \begin{split}
-    Y_t = f(X_0) &+ \int_0^t b(\omega,s)f'(X_s) + \frac{1}{2}\sigma^2(\omega,s)f''(X_s)ds \\
-    &+ \int_0^t \sigma(\omega, s)f'(X_s)dW_s.
+    Y_t = f(X_0) &+ \int_0^t \langle b, \nabla f \rangle+ \frac{1}{2}Tr\left[\sigma \nabla^2 f \sigma^T\right]ds \\
+    &+ \int_0^t \nabla f^T \sigma dW_s.
     \end{split}
   \end{equation}
 \end{theorem}
@@ -703,7 +742,7 @@ and
   for $\gamma, \sigma > 0$ and $x \in \R^d$.
   It's solution is given by 
   \begin{equation}
-    X_t = e^{-\gamma t}x + \sigma \int_0^t e^{-\gamma (t - s) dW_s}.
+    X_t = e^{-\gamma t}x + \sigma \int_0^t e^{-\gamma (t - s) B_s}.
   \end{equation}
 \end{example}
 \subsection{SDE Numerical methods}
@@ -937,6 +976,7 @@ Next, we introduce a framework by \autocite{liStochasticModifiedEquations2019} t
   \end{equation}
 \end{theorem}
 \begin{corollary}
+  \label{cor:order_1}
   Assume the same conditions as in \autoref{thm:order_2}, except that we replace (i) with $f \equiv \E f_{\gamma}$ is continuously differentiable, and $f \in G^3_w$.
   Define $\{W_t:t\in [0,T] \}$ as the stochastic process statisfying the SDE
   \begin{equation}
@@ -947,6 +987,67 @@ Next, we introduce a framework by \autocite{liStochasticModifiedEquations2019} t
     \max_{k=0,\dots,N} |\ev{g(w_k)} - \ev{g(W_{k\eta})}| \leq C \eta.
   \end{equation}
 \end{corollary}
+Now, we want to consider an example where the analytical solution to the order-1 and order-2 is known.
+\begin{example}[\autocite{liStochasticModifiedEquations2019}]
+  Let $H \in \mathbb{R}^{d\times d}$ be a symmetric, positive matrix. Define the sample objective 
+\begin{equation}
+  f_{\gamma}(w) = \frac{1}{2} (w - \gamma)^T H (w - \gamma) - \frac{1}{2} \text{Tr}(H)
+\end{equation}
+for $\gamma ~ N(0,I)$. The total objective is 
+\begin{equation}
+  \label{eq:objective_function}
+  f(w) = \mathbb{E} f_{\gamma}(w) = \frac{1}{2} w^T H w.
+\end{equation}
+The stochastic differential equation becomes 
+\begin{equation}
+  dW_t = -H W_t dt + \sqrt{\eta}H \cdot d\pmb{B}_t.
+\end{equation}
+This process is called \emph{Ornstein-Uhlenbeck} \autocite{uhlenbeckTheoryBrownianMotion1930} process and posses the analytical solution
+\begin{equation}
+  \label{eq:ornstein_solution}
+  W_t = e^{-t H}\left(W_0 + \sqrt{\eta}\int_0^te^{s H}H d\pmb{B}_s\right).
+\end{equation}
+Substituting \autoref{eq:ornstein_solution} into \autoref{eq:objective_function} we obtain
+\begin{equation}
+  \begin{split}
+    f(W_t) &= \frac{1}{2} W_0^Te^{-tH}He^{-tH}W_0 +
+     \frac{1}{2} \sqrt{\eta}W_0e^{-tH}H\int_0^t e^{(s-t)H}H\cdot d\pmb{B}_s \\ 
+    &+ \frac{1}{2} \sqrt{\eta}\left(\int_0^t e^{(s-t)H}H\cdot d\pmb{B}_s\right)^T He^{-tH}W_0 \\
+    &+ \frac{1}{2} \eta \left(\int_0^t e^{(s-t)H}H\cdot d\pmb{B}_s\right)^T H\int_0^t e^{(s-t)H}H\cdot d\pmb{B}_s.
+  \end{split}
+\end{equation}
+By \autoref{thm:ito_isometry}, we have 
+\begin{equation}
+  \begin{split}
+  \ev{f(W_t)} &= \frac{1}{2}W_0^THe^{-2tH}W_0 \\
+  &+ \frac{1}{2} \eta \ev{ \left(\int_0^t e^{(s-t)H}H\cdot d\pmb{B}_s\right)^T H\int_0^t e^{(s-t)H}H\cdot d\pmb{B}_s}.
+  \end{split}
+\end{equation}
+Now, using \autoref{eq:multivariate_ito_isometry}, we follow
+\begin{equation}
+  \begin{split}
+    \label{eq:analytical_expected_value}
+    \ev{f(W_t)} &= \frac{1}{2}W_0^THe^{-2tH}W_0 + \frac{1}{2}\eta \int_0^t\Tr\left[H^3e^{2(s-t)H}\right]ds \\
+    &= \frac{1}{2}W_0^THe^{-2tH}W_0 + \frac{1}{2}\eta \sum_{i=1}^d \int_0^t\lambda_i(H)^3e^{2(s-t)\lambda_i(H)}ds \\
+    & = \frac{1}{2}W_0^THe^{-2tH}W_0 + \frac{1}{4}\eta \sum_{i=1}^d \lambda_i(H)^2\left(1 - e^{-2t\lambda_i(H)}\right).
+  \end{split}
+\end{equation}
+Using the analytical expression we have derived for the expected value of the objective function, we compare the average trajectories of 1000 SGD samples with the SDE solution. In \autoref{fig:sde_sgd} we can see that for decreasing learning rate $\eta$ the average SGD trajectory and the SDE solution approach each other.
+To confirm \autoref{cor:order_1} we look at the maximum absolute difference between the expected value and the average SGD trajectories in \autoref{fig:convergence_rate}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../seminar_talk/plots/sde_sgd.pdf}
+  \caption{Loss value of SDE and SGD}
+  \label{fig:sde_sgd}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{../seminar_talk/plots/convergence_rate.pdf}
+  \caption{Maximum of the absolute difference of analytical expected value and average SGD trajectories}
+  \label{fig:convergence_rate}
+\end{figure}
+\end{example}
 \subsection{Will be removed soon}
 A class of loss function $f : \mathbb{R}^d \rightarrow \mathbb{R}$ relevant to machine learning applications is usually given in the form $f(x,y) = \sum_{i=1}^n f_i(x,y)$.
 \begin{equation}
@@ -984,19 +1085,7 @@ for independently sampled $i,j$.
 \subsection{Assumptions for solving}
 \section{Experimental Verification} 
 \label{sec:ExperimentalVerification}
-Consider the following model: Let $H \in \mathbb{R}^{d\times d}$ be a symmetric, positive matrix. Define the sample objective 
-\begin{equation}
-  f_{\gamma}(w) = \frac{1}{2} (w - \gamma)^T H (w - \gamma) - \frac{1}{2} \text{Tr}(H)
-\end{equation}
-for $\gamma ~ N(0,I)$. The total objective is $f(w) = \mathbb{E} f_{\gamma}(w) = \frac{1}{2} w^T H w$.
-The stochastic differential equation becomes 
-\begin{equation}
-  dW_t = -H W_t dt + \sqrt{\eta}H dB_t.
-\end{equation}
-This process is called \emph{Ornstein-Uhlenbeck} \autocite{uhlenbeckTheoryBrownianMotion1930} process and posses the analytical solution
-\begin{equation}
-  W_t = e^{-t H}(W_0 + \sqrt{\eta}\int_0^te^{s H}H dB_s).
-\end{equation}
+
 \section{Conclusion}
 
 \nomenclature{\(\nabla f\)}{Gradient of a function $f$}

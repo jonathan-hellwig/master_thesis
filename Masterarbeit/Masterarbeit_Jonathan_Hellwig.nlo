@@ -1,2 +1,2 @@
-\nomenclatureentry{a\(\nabla f\)@[{\(\nabla f\)}]\begingroup Gradient of a function $f$\nomeqref {8.0}|nompageref}{28}
-\nomenclatureentry{a\(||\cdot||\)@[{\(||\cdot||\)}]\begingroup $||\cdot||_2 : \mathbb{R}^d \rightarrow \mathbb{R}, \quad ||x||_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$ for $x \in \mathbb{R}^d$\nomeqref {8.0}|nompageref}{28}
+\nomenclatureentry{a\(\nabla f\)@[{\(\nabla f\)}]\begingroup Gradient of a function $f$\nomeqref {8.0}|nompageref}{31}
+\nomenclatureentry{a\(||\cdot||\)@[{\(||\cdot||\)}]\begingroup $||\cdot||_2 : \mathbb{R}^d \rightarrow \mathbb{R}, \quad ||x||_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$ for $x \in \mathbb{R}^d$\nomeqref {8.0}|nompageref}{31}

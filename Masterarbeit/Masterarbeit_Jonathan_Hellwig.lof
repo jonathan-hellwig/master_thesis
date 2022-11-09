@@ -1,7 +1,9 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Evolution of $w$ and $b$ for $\eta \in \{5e-4,1e-4,5e-5,1e-5\}$\relax }}{22}{figure.caption.5}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Loss function\relax }}{23}{figure.caption.6}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of $w$ and $b$ scaled by the learning rate $\eta $\relax }}{24}{figure.caption.7}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Linear regression fit with SGD\relax }}{25}{figure.caption.8}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Histogram of parameter $w$ for SGD sample trajectories\relax }}{26}{figure.caption.9}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Qunatile-qunatile plot for normal distribution and sampled values of $w$ at the last iteration\relax }}{27}{figure.caption.10}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Evolution of $w$ and $b$ for $\eta \in \{5e-4,1e-4,5e-5,1e-5\}$\relax }}{23}{figure.caption.5}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Loss function\relax }}{24}{figure.caption.6}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of $w$ and $b$ scaled by the learning rate $\eta $\relax }}{25}{figure.caption.7}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Linear regression fit with SGD\relax }}{26}{figure.caption.8}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Histogram of parameter $w$ for SGD sample trajectories\relax }}{27}{figure.caption.9}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Qunatile-qunatile plot for normal distribution and sampled values of $w$ at the last iteration\relax }}{28}{figure.caption.10}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Loss value of SDE and SGD\relax }}{29}{figure.caption.11}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Maximum of the absolute difference of analytical expected value and average SGD trajectories\relax }}{30}{figure.caption.12}%

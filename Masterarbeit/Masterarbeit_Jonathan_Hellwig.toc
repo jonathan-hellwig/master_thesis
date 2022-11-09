@@ -9,18 +9,19 @@
 \contentsline {subsubsection}{\numberline {2.4.2}Convergence results}{14}{subsubsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.5}Summary}{17}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Stochastic differential equations}{17}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Itô Integral}{18}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}SDE Definition}{19}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}SDE Existence Uniqueness}{19}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}SDE Numerical methods}{20}{subsection.3.4}%
-\contentsline {section}{\numberline {4}SDE model for SGD}{21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Gradient flow}{21}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Gradient flow with noise}{23}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Weak convergence}{24}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Will be removed soon}{26}{subsection.4.4}%
-\contentsline {section}{\numberline {5}SDE model applications}{28}{section.5}%
-\contentsline {section}{\numberline {6}Solving SDE Model}{28}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Assumptions for solving}{28}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Experimental Verification}{28}{section.7}%
-\contentsline {section}{\numberline {8}Conclusion}{28}{section.8}%
-\contentsline {section}{\numberline {A}Inequalities}{30}{appendix.A}%
+\contentsline {subsection}{\numberline {3.1}Ordinary differential equations}{18}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Itô Integral}{18}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}SDE Definition}{20}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}SDE Existence Uniqueness}{20}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}SDE Numerical methods}{21}{subsection.3.5}%
+\contentsline {section}{\numberline {4}SDE model for SGD}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Gradient flow}{22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Gradient flow with noise}{24}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Weak convergence}{25}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Will be removed soon}{29}{subsection.4.4}%
+\contentsline {section}{\numberline {5}SDE model applications}{31}{section.5}%
+\contentsline {section}{\numberline {6}Solving SDE Model}{31}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Assumptions for solving}{31}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Experimental Verification}{31}{section.7}%
+\contentsline {section}{\numberline {8}Conclusion}{31}{section.8}%
+\contentsline {section}{\numberline {A}Inequalities}{33}{appendix.A}%
