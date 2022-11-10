@@ -2,26 +2,26 @@
 \contentsline {section}{\numberline {1}Motivation}{8}{section.1}%
 \contentsline {section}{\numberline {2}Background on Optimization}{8}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Formal problem definition}{8}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Characterization of minimizers}{8}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Iterative methods}{9}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Convergence analysis}{11}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Convergence assumptions}{12}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Convergence results}{14}{subsubsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.5}Summary}{17}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Stochastic differential equations}{17}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Ordinary differential equations}{18}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Itô Integral}{18}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}SDE Definition}{20}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}SDE Existence Uniqueness}{20}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}SDE Numerical methods}{21}{subsection.3.5}%
-\contentsline {section}{\numberline {4}SDE model for SGD}{22}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Gradient flow}{22}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Gradient flow with noise}{24}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Weak convergence}{25}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Will be removed soon}{29}{subsection.4.4}%
-\contentsline {section}{\numberline {5}SDE model applications}{31}{section.5}%
-\contentsline {section}{\numberline {6}Solving SDE Model}{31}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Assumptions for solving}{31}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Experimental Verification}{31}{section.7}%
-\contentsline {section}{\numberline {8}Conclusion}{31}{section.8}%
-\contentsline {section}{\numberline {A}Inequalities}{33}{appendix.A}%
+\contentsline {subsection}{\numberline {2.2}Characterization of minimizers}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Iterative methods}{10}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Convergence analysis}{12}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Convergence assumptions}{13}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Convergence results}{15}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}Summary}{18}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Stochastic differential equations}{18}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ordinary differential equations}{19}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Itô Integral}{19}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}SDE Definition}{21}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}SDE Existence Uniqueness}{21}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}SDE Numerical methods}{22}{subsection.3.5}%
+\contentsline {section}{\numberline {4}SDE model for SGD}{23}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Gradient flow}{23}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Gradient flow with noise}{25}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Weak convergence}{26}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Will be removed soon}{30}{subsection.4.4}%
+\contentsline {section}{\numberline {5}SDE model applications}{32}{section.5}%
+\contentsline {section}{\numberline {6}Solving SDE Model}{32}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Assumptions for solving}{32}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Experimental Verification}{32}{section.7}%
+\contentsline {section}{\numberline {8}Conclusion}{32}{section.8}%
+\contentsline {section}{\numberline {A}Inequalities}{34}{appendix.A}%

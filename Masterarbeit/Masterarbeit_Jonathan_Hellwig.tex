@@ -122,6 +122,7 @@
 \newcommand{\ev}[1]{\mathbb{E}\left[{#1}\right]}
 \newcommand{\var}[1]{\mathbb{V}\left[{#1}\right]}
 \newcommand{\norm}[1]{\lVert{#1}\rVert_2}
+\newcommand{\scp}[2]{\langle{#1}, {#2}\rangle_2}
 \usepackage{mathtools}
 \newcommand{\defeq}{\vcentcolon=}
 \DeclareMathOperator{\Tr}{Tr}
@@ -203,11 +204,12 @@ Hiermit versichere ich an Eides statt, dass ich die vorliegende Arbeit im Master
 % LTeX: enabled=true
 \section{Motivation}
 \label{sec:Motivation}
+In recent years, large-scale machine learning using deep neural networks has shown to be applicable across domains. Models like GPT-3 for text generation \autocite{brownLanguageModelsAre2020}, DALL-E2 for image generation \autocite{rameshHierarchicalTextConditionalImage2022}, MuZero for solving games \autocite{schrittwieserMasteringAtariGo2020} and AlphaFold for prediction of protein geometry \autocite{jumperHighlyAccurateProtein2021} are prominent examples.
+One challenging area of research remains in understanding why these models work as well as they do. Underlying the construction of these models is a class of optimization problems.
 \section{Background on Optimization}
 \label{sec:Optimization}
 % This chapter covers the background of optimization theory. It goes into the formal definition of optimization problems, the necessary and sufficient conditions for minimizers, and covers iterative methods for obtaining such minimizers.
-In recent years, large-scale machine learning using deep neural networks has shown to be applicable across domains. Models like GPT-3 for text generation \autocite{brownLanguageModelsAre2020}, DALL-E2 for image generation \autocite{rameshHierarchicalTextConditionalImage2022}, MuZero for solving games \autocite{schrittwieserMasteringAtariGo2020} and AlphaFold for prediction of protein geometry \autocite{jumperHighlyAccurateProtein2021} are prominent examples.
-One challenging area of research remains in understanding why these models work as well as they do. Underlying the construction of these models is a class of optimization problems. This chapter covers the mathematical basis for constructing and solving these optimization problems.
+ This section covers the mathematical basis for constructing and solving optimization problems in the context of neural networks.
 
 \subsection{Formal problem definition}
 % Risk minimization
@@ -241,14 +243,11 @@ For this problem we define two notions of minimizers.
 \end{definition}
 Notice that every global minimizer is also a local minimizer. It is difficult to obtain global minimizers in deep learning settings. One key aspect of neural networks is that they are differentiable. If we make some smoothness assumptions on the function $f$, we can obtain sufficient and necessary conditions that provide some insight on local minimizers.
 \begin{theorem}
-  If $w^\star \in \mathbb{R}^d$ is a local minimizer and $f:\mathbb{R}^d \rightarrow \mathbb{R}$ is continuously differentiable in an open neighborhood of $w^\star$, then $\nabla f(w^\star) = 0$.
+  If $w^\star \in \mathbb{R}^d$ is a local minimizer and $f:\mathbb{R}^d \rightarrow \mathbb{R}$ is continuously differentiable in an open neighborhood of $w^\star$, then $\nabla f(w^\star) = 0$. Further, if additionally $\nabla^2 f$ exists and is continuous in an open neighborhood of $w^\star$, then $\nabla^2f(w^\star)$ is positive semidefinite.
 \end{theorem}
 \begin{proof}
   The poof can be found in \autocite{nocedalNumericalOptimization2006}.
 \end{proof}
-\begin{theorem}
-  If $w^\star$ is a local minimizer of $f : \mathbb{R}^d \rightarrow \mathbb{R}$ and $\nabla^2 f$ exists and is continuous in an open neighborhood of $w^\star$, then $\nabla f(w^\star)$ and $\nabla^2f(w^\star)$ is positive semidefinite.
-\end{theorem}
 The first theorem builds the foundation for all commonly used optimization techniques in deep learning. The gradient can be  efficiently calculated with a procedure called backpropagation which makes use of the recursive structure of neural networks. Finding candidates for local minima boils down to finding $w^\star$ such that $\nabla f(w^\star) = 0$. This leads to the following definition.
 \begin{definition}[Stationary point]
   A solution $w^\star \in \mathbb{R}^d$ to the equation
@@ -269,6 +268,38 @@ For simple functions it is possible to determine the solution to (\ref*{eq:Stati
   \end{equation} 
 \end{definition}
 It is easy to show that given an initial value $w \in \mathbb{R}^d$ and a descent direction $g \in \mathbb{R}^d$ we have $f(w) > f(w + \eta g)$ for $\eta > 0$ sufficiently small. This motivates the definition of one-step iterative methods.
+\begin{lemma}
+  Let $f : \R^d \rightarrow \R$ be a continuously differentiable function. Then there exists an $\eta > 0$ such that
+  \begin{equation}
+    f(w) > f(w + \eta g)
+  \end{equation}
+  for all $w \in \R^d$ and a descent direction $g \in \R^d$ in $w$.
+\end{lemma}
+\begin{proof}
+  Using the mean-value theorem we know that there exists an $\alpha \in (0,1)$ such that 
+  \begin{equation}
+    f(w) - f(w + \eta g) = \nabla f(w+\alpha\eta g)^Tg.
+  \end{equation}
+  Now, assuming that $\nabla f (w) \neq 0$, for $0 < \epsilon <
+  \frac{\lvert\scp{\nabla f(w)}{g}\rvert}{\norm{g}}$ there exists a $\delta > 0$ such that 
+  \begin{equation}
+    \label{eq:continuity}
+    \norm{\nabla f(w + \delta g) - \nabla f(w)} < \epsilon
+  \end{equation}
+  by the continuity of the gradients.
+  Using \autoref{eq:continuity} we have
+  \begin{equation}
+    \begin{split}
+      \langle\nabla f(w + \delta g), g \rangle &= \langle \nabla f(w + \delta g)- \nabla f(w), g \rangle + \langle \nabla f(w), g \rangle \\
+      &\leq \norm{\nabla f(w + \delta g)- \nabla f(w)}\norm{g} + \langle f(w), g \rangle \\
+      &< \epsilon \norm{g} + \langle \nabla f(w), g \rangle < 0
+    \end{split}
+  \end{equation}
+  Choosing $\eta < \frac{\delta}{\alpha}$ we have
+  \begin{equation}
+    f(w) - f(w + \eta g) = \scp{\nabla f(w+\alpha\eta g)}{g} < 0.
+  \end{equation}
+\end{proof}
 \begin{definition}[One-step method, gradient descent]
   For a given initial value $w^{(0)}\in \mathbb{R}^d$ a sequence defined by
 \begin{equation}
@@ -284,10 +315,20 @@ It is easy to show that given an initial value $w \in \mathbb{R}^d$ and a descen
 
 It is easy to see for the iterates of GD we have ${g^{(k)}}^T \nabla f(w^{(k)}) = -\norm{ f(w^{(k)}) }^2 < 0$ as long as the iterates have not converged to a stationary point. GD forms the basis for many of the iterative schemes used in deep learning practice. It is important to note that after defining such an iterative scheme it is unclear whether it actually converges to a minimizer. In the later sections of this chapter we will discuss the classes of functions for which convergence can be established and how they relate to deep learning practice. Before diving into the theoretical analysis of descent methods let us consider an extension to the gradient descent method.
 Notice that in (\ref{eq:gradient_descent}) the computation of each iterate requires the computation of the gradient $\nabla f$. For objective functions of the form $f(w) = \frac{1}{n} \sum_{i=1}^n f_i(w)$ this requires the computation of each $\nabla f_i(w)$ individually. Remember that in deep learning settings $f_i$ represents the loss $\ell(m_w(x_i), y_i)$ with respect to a single data point $(x_i, y_i)$. When the number of data points is large, computing the full gradient $\nabla f$ becomes prohibitively expensive. In fact, ImageNet (citation), a benchmark dataset for image classification, contains over 1.2 million images. If we treat each individual gradient $\nabla f_i(w)$ as a realization of a random variable $\nabla f_{\gamma}(w)$ with expected value $\ev{\nabla f_{\gamma}(w)} = \nabla f(w)$, we can estimate $\nabla f(w)$ by calculating the sample average. In particular, this leads to the definition of the following random process:
-\begin{equation}
-  \label{eq:stochastic_gradient_descent}
-  w^{(k+1)} = w^{(k)} - \eta_k \nabla f_{\gamma^{(k)}}(w^{(k)}),
-\end{equation}
+\begin{definition}[Stochastic gradient descent]
+  For a given initial value $w^{(0)} \in \mathbb{R}^d$ and i.i.d. random variables $\gamma^{(k)}$ the stochastic process defined by
+  \begin{equation}
+    \label{eq:stochastic_gradient_descent}
+    w^{(k+1)} = w^{(k)} - \eta_k \nabla f_{\gamma^{(k)}}(w^{(k)}),
+  \end{equation}
+  is called \emph{stochastic gradient descent} (SGD).
+  The stochastic process defined by
+  \begin{align*}
+    w^{(k+1)} &= \mu v^{(k)} - \eta \nabla f_{\gamma^{(k)}}(w^{(k)}) \\
+    v^{(k+1)} &= w^{(k)} + v^{(k)},
+  \end{align*}
+  where $\mu \in (0,1)$ is called \emph{stochastic gradient descent with momentum}. 
+\end{definition}
 where $\gamma^{(k)}$ are independently distributed random variables with the same distribution as $\gamma$. This iteration method is called \emph{stochastic gradient descent} (SGD).
 In view of (\ref{eq:stochastic_gradient_descent}), let us define a class of one-step stochastic descent methods:
 \begin{definition}[Stochastic one-step method]
