@@ -415,6 +415,43 @@
       \endverb
       \keyw{background,thesis}
     \endentry
+    \entry{evansPartialDifferentialEquations2010}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0d72932a7775f85a51622d3af75ae26e}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={Lawrence\bibnamedelima C.},
+           giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Soc.}%
+      }
+      \strng{namehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{fullhash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{bibnamehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authorbibnamehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authornamehash}{0d72932a7775f85a51622d3af75ae26e}
+      \strng{authorfullhash}{0d72932a7775f85a51622d3af75ae26e}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This is the second edition of the now definitive text on partial differential equations (PDE). It offers a comprehensive survey of modern techniques in the theoretical study of PDE with particular emphasis on nonlinear equations. Its wide scope and clear exposition make it a great text for a graduate course in PDE. For this edition, the author has made numerous changes, including a new chapter on nonlinear wave equations, more than 80 new exercises, several new sections, a significantly expanded bibliography. About the First Edition: I have used this book for both regular PDE and topics courses. It has a wonderful combination of insight and technical detail...Evans' book is evidence of his mastering of the field and the clarity of presentation (Luis Caffarelli, University of Texas) It is fun to teach from Evans' book. It explains many of the essential ideas and techniques of partial differential equations ...Every graduate student in analysis should read it. (David Jerison, MIT) I use Partial Differential Equations to prepare my students for their Topic exam, which is a requirement before starting working on their dissertation. The book provides an excellent account of PDE's ...I am very happy with the preparation it provides my students. (Carlos Kenig, University of Chicago) Evans' book has already attained the status of a classic. It is a clear choice for students just learning the subject, as well as for experts who wish to broaden their knowledge ...An outstanding reference for many aspects of the field. (Rafe Mazzeo, Stanford University.}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-0-8218-4974-3}
+      \field{langid}{english}
+      \field{pagetotal}{778}
+      \field{title}{Partial {{Differential Equations}}}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb Xnu0o_EJrCQC
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/LLUR3PVZ/Evans_2010_Partial Differential Equations.pdf
+      \endverb
+      \keyw{book,pde}
+    \endentry
     \entry{gowerSGDGeneralAnalysis2019}{inproceedings}{}
       \name{author}{6}{}{%
         {{hash=b8950914a990e888e3eb856ff4edf20b}{%
@@ -966,6 +1003,89 @@
       \verb /home/jonathan/Zotero/storage/2TMCX6FC/Nocedal_Wright_2006_Numerical Optimization.pdf
       \endverb
     \endentry
+    \entry{oksendalStochasticDifferentialEquations2003}{book}{}
+      \name{author}{1}{}{%
+        {{hash=08c642070d573e8ec607ded1724116ab}{%
+           family={Øksendal},
+           familyi={Ø\bibinitperiod},
+           given={Bernt},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{08c642070d573e8ec607ded1724116ab}
+      \strng{fullhash}{08c642070d573e8ec607ded1724116ab}
+      \strng{bibnamehash}{08c642070d573e8ec607ded1724116ab}
+      \strng{authorbibnamehash}{08c642070d573e8ec607ded1724116ab}
+      \strng{authornamehash}{08c642070d573e8ec607ded1724116ab}
+      \strng{authorfullhash}{08c642070d573e8ec607ded1724116ab}
+      \field{sortinit}{Ø}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This edition contains detailed solutions of selected exercises. Many readers have requested this, because it makes the book more suitable for self-study. At the same time new exercises (without solutions) have beed added. They have all been placed in the end of each chapter, in order to facilitate the use of this edition together with previous ones. Several errors have been corrected and formulations have been improved. This has been made possible by the valuable comments from (in alphabetical order) Jon Bohlin, Mark Davis, Helge Holden, Patrick Jaillet, Chen Jing, Natalia Koroleva, MarioLefebvre, Alexander Matasov, Thilo Meyer-Brandis, Keigo Osawa, Bjørn Thunestvedt, Jan Ubøe and Yngve Williassen. I thank them all for helping to improve the book. My thanks also go to Dina Haraldsson, who once again has performed the typing and drawn the ?gures with great skill. Blindern, September 2002 Bernt Øksendal xv Preface to Corrected Printing, Fifth Edition The main corrections and improvements in this corrected printing are from Chapter 12. I have bene?tted from useful comments from a number of p- ple, including (in alphabetical order) Fredrik Dahl, Simone Deparis, Ulrich Haussmann, Yaozhong Hu, Marianne Huebner, Carl Peter Kirkebø, Ni- lay Kolev, Takashi Kumagai, Shlomo Levental, Geir Magnussen, Anders Øksendal, Jur ] gen Pottho?, Colin Rowat, Stig Sandnes, Lones Smith, S- suo Taniguchi and Bjørn Thunestvedt. I want to thank them all for helping me making the book better. I also want to thank Dina Haraldsson for pro?cient typing.}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-3-540-04758-2}
+      \field{langid}{english}
+      \field{pagetotal}{406}
+      \field{shorttitle}{Stochastic {{Differential Equations}}}
+      \field{title}{Stochastic {{Differential Equations}}: {{An Introduction}} with {{Applications}}}
+      \field{year}{2003}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb VgQDWyihxKYC
+      \endverb
+    \endentry
+    \entry{polyakMethodsSpeedingConvergence1964}{article}{}
+      \name{author}{1}{}{%
+        {{hash=86e8da8c20afcbab24c7fbcca00e3f0e}{%
+           family={Polyak},
+           familyi={P\bibinitperiod},
+           given={B.\bibnamedelimi T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{86e8da8c20afcbab24c7fbcca00e3f0e}
+      \strng{fullhash}{86e8da8c20afcbab24c7fbcca00e3f0e}
+      \strng{bibnamehash}{86e8da8c20afcbab24c7fbcca00e3f0e}
+      \strng{authorbibnamehash}{86e8da8c20afcbab24c7fbcca00e3f0e}
+      \strng{authornamehash}{86e8da8c20afcbab24c7fbcca00e3f0e}
+      \strng{authorfullhash}{86e8da8c20afcbab24c7fbcca00e3f0e}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{For the solution of the functional equation P (x) = 0 (1) (where P is an operator, usually linear, from B into B, and B is a Banach space) iteration methods are generally used. These consist of the construction of a series x0, …, xn, …, which converges to the solution (see, for example [1]). Continuous analogues of these methods are also known, in which a trajectory x(t), 0 ⩽ t ⩽ ∞ is constructed, which satisfies the ordinary differential equation in B and is such that x(t) approaches the solution of (1) as t → ∞ (see [2]). We shall call the method a k-step method if for the construction of each successive iteration xn+1 we use k previous iterations xn, …, xn−k+1. The same term will also be used for continuous methods if x(t) satisfies a differential equation of the k-th order or k-th degree. Iteration methods which are more widely used are one-step (e.g. methods of successive approximations). They are generally simple from the calculation point of view but often converge very slowly. This is confirmed both by the evaluation of the speed of convergence and by calculation in practice (for more details see below). Therefore the question of the rate of convergence is most important. Some multistep methods, which we shall consider further, which are only slightly more complicated than the corresponding one-step methods, make it possible to speed up the convergence substantially. Note that all the methods mentioned below are applicable also to the problem of minimizing the differentiable functional (x) in Hilbert space, so long as this problem reduces to the solution of the equation grad (x) = 0.}
+      \field{day}{1}
+      \field{issn}{0041-5553}
+      \field{journaltitle}{USSR Computational Mathematics and Mathematical Physics}
+      \field{langid}{english}
+      \field{month}{1}
+      \field{number}{5}
+      \field{shortjournal}{USSR Computational Mathematics and Mathematical Physics}
+      \field{title}{Some Methods of Speeding up the Convergence of Iteration Methods}
+      \field{urlday}{15}
+      \field{urlmonth}{11}
+      \field{urlyear}{2022}
+      \field{volume}{4}
+      \field{year}{1964}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 17}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1016/0041-5553(64)90137-5
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/CLB5BQTY/0041555364901375.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/0041555364901375
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/0041555364901375
+      \endverb
+    \endentry
     \entry{rameshHierarchicalTextConditionalImage2022}{misc}{}
       \name{author}{5}{}{%
         {{hash=82063a12702e7b2c026ae0ff03b8f102}{%
@@ -1376,7 +1496,6 @@
       \endverb
     \endentry
   \enddatalist
-  \missing{?}
 \endrefsection
 \endinput
 

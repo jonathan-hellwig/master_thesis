@@ -8,10 +8,12 @@ Scanning style file /usr/share/texmf-dist/makeindex/nomencl/nomencl.ist........
    -- Unknown specifier lethead_flag.
 ....done (12 attributes redefined, 3 ignored).
 Scanning input file Masterarbeit_Jonathan_Hellwig.nlo....
-!! Input index error (file = Masterarbeit_Jonathan_Hellwig.nlo, line = 2):
+!! Input index error (file = Masterarbeit_Jonathan_Hellwig.nlo, line = 3):
    -- Extra `|' at position 5 of first argument.
-done (1 entries accepted, 1 rejected).
-Sorting entries...done (0 comparisons).
-Generating output file Masterarbeit_Jonathan_Hellwig.nls....done (6 lines written, 0 warnings).
+!! Input index error (file = Masterarbeit_Jonathan_Hellwig.nlo, line = 4):
+   -- Extra `|' at position 5 of first argument.
+done (2 entries accepted, 2 rejected).
+Sorting entries....done (2 comparisons).
+Generating output file Masterarbeit_Jonathan_Hellwig.nls....done (7 lines written, 0 warnings).
 Output written in Masterarbeit_Jonathan_Hellwig.nls.
 Transcript written in Masterarbeit_Jonathan_Hellwig.ilg.

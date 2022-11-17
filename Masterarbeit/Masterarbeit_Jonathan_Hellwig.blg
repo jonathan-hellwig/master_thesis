@@ -1,17 +1,15 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[1] Config.pm:310> INFO - Logfile is 'Masterarbeit_Jonathan_Hellwig.blg'
-[213] biber:340> INFO - === Thu Nov 10, 2022, 16:38:38
-[258] Biber.pm:418> INFO - Reading 'Masterarbeit_Jonathan_Hellwig.bcf'
-[477] Biber.pm:972> INFO - Found 19 citekeys in bib section 0
-[516] Biber.pm:4383> INFO - Processing section 0
-[551] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[590] bibtex.pm:1713> INFO - LaTeX decoding ...
-[995] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
-[1720] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1720] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1720] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[1720] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[1788] bbl.pm:654> INFO - Writing 'Masterarbeit_Jonathan_Hellwig.bbl' with encoding 'UTF-8'
-[1901] bbl.pm:757> INFO - Output to Masterarbeit_Jonathan_Hellwig.bbl
-[1902] Biber.pm:130> WARN - I didn't find a database entry for '?' (section 0)
-[1902] Biber.pm:132> INFO - WARNINGS: 1
+[1] Config.pm:307> INFO - This is Biber 2.17
+[2] Config.pm:310> INFO - Logfile is 'Masterarbeit_Jonathan_Hellwig.blg'
+[291] biber:340> INFO - === Wed Nov 16, 2022, 21:22:44
+[353] Biber.pm:418> INFO - Reading 'Masterarbeit_Jonathan_Hellwig.bcf'
+[734] Biber.pm:972> INFO - Found 21 citekeys in bib section 0
+[805] Biber.pm:4383> INFO - Processing section 0
+[856] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[918] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1347] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
+[2233] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[2233] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[2233] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[2233] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[2315] bbl.pm:654> INFO - Writing 'Masterarbeit_Jonathan_Hellwig.bbl' with encoding 'UTF-8'
+[2436] bbl.pm:757> INFO - Output to Masterarbeit_Jonathan_Hellwig.bbl
