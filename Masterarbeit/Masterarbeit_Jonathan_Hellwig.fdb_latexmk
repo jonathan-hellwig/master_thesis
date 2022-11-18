@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber Masterarbeit_Jonathan_Hellwig"] 1668630161 "Masterarbeit_Jonathan_Hellwig.bcf" "Masterarbeit_Jonathan_Hellwig.bbl" "Masterarbeit_Jonathan_Hellwig" 1668677730
-  "Masterarbeit_Jonathan_Hellwig.bcf" 1668677730 113564 b64c0eb1fbc577b977885234815cf958 "pdflatex"
+["biber Masterarbeit_Jonathan_Hellwig"] 1668687599 "Masterarbeit_Jonathan_Hellwig.bcf" "Masterarbeit_Jonathan_Hellwig.bbl" "Masterarbeit_Jonathan_Hellwig" 1668689935
+  "Masterarbeit_Jonathan_Hellwig.bcf" 1668689935 114028 43b1070e166e3866d6e0cc29f7a28e43 "pdflatex"
   "thesis.bib" 1668598912 131624 1bb9f2f56c5eddc2cacc11e0e28cdfca ""
   (generated)
   "Masterarbeit_Jonathan_Hellwig.bbl"
   "Masterarbeit_Jonathan_Hellwig.blg"
-["pdflatex"] 1668677727 "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" "Masterarbeit_Jonathan_Hellwig.pdf" "Masterarbeit_Jonathan_Hellwig" 1668677730
+["pdflatex"] 1668689932 "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" "Masterarbeit_Jonathan_Hellwig.pdf" "Masterarbeit_Jonathan_Hellwig" 1668689935
   "../seminar_talk/plots/convergence_rate.pdf" 1666605687 9761 03cb01d83a3456dc32ccb085af627150 ""
   "../seminar_talk/plots/learning_rates.pdf" 1668450994 17999 8d641ef3393f9faace105828fcf8150b ""
   "../seminar_talk/plots/quadratic_loss.pdf" 1668450729 75849 dca16279b7ae3a18b3f53c17c457fccf ""
@@ -14,7 +14,7 @@
   "../seminar_talk/plots/sgd_linear_fit.pdf" 1668451380 20466 ec65156160c14288c94de1faa727236c ""
   "../seminar_talk/plots/sgd_weight_histogram.pdf" 1668451427 15093 9996022b38aabcf77da4ada649ded2f0 ""
   "../seminar_talk/plots/sgd_weight_qq.pdf" 1666613647 107097 04cc715caf6e29be74832a3e8f984971 ""
-  "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" 1668677726 87550 8c647a86d204fc6b6275b2d02f2441db ""
+  "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" 1668689932 94166 f1202c708b77954ca03c096247765693 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1650183167 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1650183167 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -224,14 +224,14 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1653635068 4278762 af3ac1370db81a450c1118eabf1fe718 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1653634990 2927658 5cffee422351a97f0451664921669602 ""
-  "Masterarbeit_Jonathan_Hellwig.aux" 1668677730 21687 668b6d82b0a5973285b2f5273349e0d9 "pdflatex"
-  "Masterarbeit_Jonathan_Hellwig.bbl" 1668630166 81935 a221ea2169916f1386e7fbbc8dd333b8 "biber Masterarbeit_Jonathan_Hellwig"
-  "Masterarbeit_Jonathan_Hellwig.lof" 1668677730 1099 af6a9534a05dd816ac0ac4974d070f3f "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.aux" 1668689935 22827 cff9c1db22bbb153b6cc1dde3d2a5e38 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.bbl" 1668687601 81935 a221ea2169916f1386e7fbbc8dd333b8 "biber Masterarbeit_Jonathan_Hellwig"
+  "Masterarbeit_Jonathan_Hellwig.lof" 1668689935 1099 3002f3686f372c23760b9ae91399fb01 "pdflatex"
   "Masterarbeit_Jonathan_Hellwig.nls" 1668508550 294 b365420cdf6e96957550ec0fc8b39e0c ""
-  "Masterarbeit_Jonathan_Hellwig.out" 1668677730 4630 067ee7d438a3eb2b9152017366af9cd5 "pdflatex"
-  "Masterarbeit_Jonathan_Hellwig.run.xml" 1668677730 2476 0dab376babdf36ec1718288de5ffab44 "pdflatex"
-  "Masterarbeit_Jonathan_Hellwig.tex" 1668677726 87550 8c647a86d204fc6b6275b2d02f2441db ""
-  "Masterarbeit_Jonathan_Hellwig.toc" 1668677730 2522 f5365c9d9d4531a89f63ff46121af3d1 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.out" 1668689935 4463 8a1e0a31e46942f19f5fda3b1f622dfe "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.run.xml" 1668689935 2476 0dab376babdf36ec1718288de5ffab44 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.tex" 1668689932 94166 f1202c708b77954ca03c096247765693 ""
+  "Masterarbeit_Jonathan_Hellwig.toc" 1668689935 2435 1d36589f5c7446d4949b6c1a4cdaad0e "pdflatex"
   "pics/MATH_de.pdf" 1645807082 6744 57ebaf7c9b80ce7db4d439bbd079bca9 ""
   "pics/TUHH_de.pdf" 1645807082 19737 6f23eb4d23aa9016bf6c44a2680eb9eb ""
   (generated)

@@ -1,4 +1,4 @@
-\nomenclatureentry{a\(\nabla f\)@[{\(\nabla f\)}]\begingroup Gradient of a function $f$\nomeqref {9.0}|nompageref}{37}
-\nomenclatureentry{a\(\Tr A\)@[{\(\Tr A\)}]\begingroup Trace of the matrix $A \in \R^{d \times d}$, $\Tr A = \sum_{i=1}^d a_{i,i}$\nomeqref {9.0}|nompageref}{37}
-\nomenclatureentry{a\(||\cdot||_2\)@[{\(||\cdot||_2\)}]\begingroup $||\cdot||_2 : \mathbb{R}^d \rightarrow \mathbb{R}, \quad ||x||_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$ for $x \in \mathbb{R}^d$\nomeqref {9.0}|nompageref}{37}
-\nomenclatureentry{a\(||\cdot||_F\)@[{\(||\cdot||_F\)}]\begingroup $||\cdot||_F : \mathbb{R}^{d \times d} \rightarrow \mathbb{R}, \quad ||A||_F = \sqrt{\sum_{i,j=1}^d |a_{i,j}|^2}$ for $A \in \mathbb{R}^{d \times d}$\nomeqref {9.0}|nompageref}{37}
+\nomenclatureentry{a\(\nabla f\)@[{\(\nabla f\)}]\begingroup Gradient of a function $f$\nomeqref {9.0}|nompageref}{39}
+\nomenclatureentry{a\(\Tr A\)@[{\(\Tr A\)}]\begingroup Trace of the matrix $A \in \R^{d \times d}$, $\Tr A = \sum_{i=1}^d a_{i,i}$\nomeqref {9.0}|nompageref}{39}
+\nomenclatureentry{a\(||\cdot||_2\)@[{\(||\cdot||_2\)}]\begingroup $||\cdot||_2 : \mathbb{R}^d \rightarrow \mathbb{R}, \quad ||x||_2 = \sqrt{\sum_{i=1}^d |x_i|^2}$ for $x \in \mathbb{R}^d$\nomeqref {9.0}|nompageref}{39}
+\nomenclatureentry{a\(||\cdot||_F\)@[{\(||\cdot||_F\)}]\begingroup $||\cdot||_F : \mathbb{R}^{d \times d} \rightarrow \mathbb{R}, \quad ||A||_F = \sqrt{\sum_{i,j=1}^d |a_{i,j}|^2}$ for $A \in \mathbb{R}^{d \times d}$\nomeqref {9.0}|nompageref}{39}
