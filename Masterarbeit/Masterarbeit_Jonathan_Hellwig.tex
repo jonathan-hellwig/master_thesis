@@ -159,6 +159,7 @@
 \newcommand{\defeq}{\vcentcolon=}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\vol}{Vol}
 
 % Beginn des Dokumentes
 \begin{document}
@@ -854,7 +855,7 @@ In this section, we cover the conditions for the existence and uniqueness of sol
 
 % \end{theorem}
 Let $T > 0$ and $Q$ be a subset of Euclidean space. For $(x,t,q) \in \R^d \times [0,T] \times Q$, let $B(x,t,q)$ be a $d$-dimensional random vector and $S(x,t,q)$ be a $d \times d$-dimensional random matrix. Then we assume: 
-\begin{assumption}[\protect{\cite{liStochasticModifiedEquations2019}[pp. 30]}]
+\begin{assumption}[\protect{\cite[pp. 30]{liStochasticModifiedEquations2019}}]
   \label{as:sde_existence}
   The random functions $B,S$ satisfy the following:
   \begin{enumerate}[label=(\roman*)]
@@ -1197,6 +1198,15 @@ To understand this technique we introduce two concepts: weak derivatives and mol
   \end{equation*}
   where $\CB(0,\epsilon)$ is the $d$-dimensional ball of radius $\epsilon$ centered at 0. 
 \end{definition}
+\begin{lemma}[\protect{\cite[pp. 630]{evansPartialDifferentialEquations2010}}]
+  \label{lemma:mollifiers}
+  Let $\psi \in \CL^1_{\text{loc}}(\R^d)$. Then we have
+  \begin{enumerate}[label=(\roman*)]
+    \item $\psi^{\epsilon} \in \CC^{\infty}(\R^d)$
+    \item $\psi^{\epsilon}(w) \rightarrow \psi(w)$ as $\epsilon \rightarrow 0$ for almost every $w \in \R^d$
+    \item If $\psi$ is continuous, then $\psi^{\epsilon}(w) \rightarrow \psi(w)$ as $\epsilon \rightarrow 0$ uniformly on compact subset of $\R^d$
+  \end{enumerate}
+\end{lemma}
 To proof the approximation result we need to make an assumption on the growth of the drift and diffusion term of \eqref{eq:general_sde}. 
 \begin{definition}[Polynomial growth]
   Let $G$ denote the set of continuous functions $g : \R^d \rightarrow \R$ of at most \emph{polynomial growth}, i.e. $g \in G$ if there exist positive integers $\kappa_1, \kappa_2 > 0$ such that
@@ -1206,16 +1216,14 @@ To proof the approximation result we need to make an assumption on the growth of
   for all $x \in \R^d$. Moreover, for each integer $\alpha \geq 1$ we denote by $G^{\alpha}$ the set of $\alpha$-times continuously differentiable functions $g : \R^d \rightarrow \R$ which, together with its partial derivatives up to and including order $\alpha$, belong to $G$. By $G^{\alpha}_w$ we denote the class of functions with polynomial growth and partial weak derivatives of up to order $\alpha$. 
 \end{definition}
 Next, let we introduce some notation for the one-step error of both SGD and the SDE:
-\begin{align*}
-  \Delta(w) &\defeq w_{1}^{w,0} - w \\
-  \widetilde{\Delta}(w) &\defeq \widetilde{W}^{w,0}_1 - w,
-\end{align*}
+\begin{equation*}
+  \Delta(w) \defeq w_{1}^{w,0} - w, \quad \widetilde{\Delta}(w) \defeq \widetilde{W}^{w,0}_1 - w,
+\end{equation*}
 where $\{w_k^{w,0}: k = 0,1,\dots, N\}$ denotes the iterates of SGD with $w_0 = w$ and $\{\widetilde{W}_k^{w,0}: k = 0,1,\dots, N\}$ the solution of the SDE with initial value $W_0 = w$ at the time steps corresponding to the SGD iterates: $\widetilde{W}_k^{w,0} = W_{k\eta}$.
 We introduce two lemmas to characterize the moments of the one-step error for both SGD and the SDE solution. These characterizations are required to verify the assumptions of \autoref{thm:approximation} which is the main ingredient to proof the approximation results \autoref{thm:second_order} and \autoref{cor:first_order}. We assume that the drift of and diffusion term of \eqref{eq:general_sde} have the form 
-\begin{align*}
-  b(w,\eta, \epsilon) &= b_0(w, \epsilon) + \eta b_1(w, \epsilon) \\
-  \sigma(w,\eta, \epsilon) &= \sigma_0(w, \epsilon).
-\end{align*}
+\begin{equation*}
+  b(w,\eta, \epsilon) = b_0(w, \epsilon) + \eta b_1(w, \epsilon), \quad \sigma(w,\eta, \epsilon) s= \sigma_0(w, \epsilon).
+\end{equation*}
 \begin{lemma}[\protect{\cite{liStochasticModifiedEquations2019}}]
   \label{lem:sgd_one_step}
   We define $\Delta(w) \defeq w_{1} - w$, where $w, w_{1} \in \R^d$ are the first two iterates of SGD defined in \autoref{def:sgd}. Suppose that for each $w \in \R^d$, $f \in G^1$. Then,
@@ -1367,6 +1375,19 @@ We introduce two lemmas to characterize the moments of the one-step error for bo
   \end{equation*}
   admits a unique solution for each $\epsilon \in (0,1)$.
   Next, we show that $b_0(\cdot, \epsilon),b_1(\cdot, \epsilon),\sigma_0(\cdot, \epsilon) \in G^3$ uniformly in $\epsilon$.
+  We note that we have $f \in G^4_w \subset \CL^1_{\text{loc}}(\R^d)$. Thus, we have $\nabla f, \nabla \norm{\nabla f}^2, \Sigma^{\frac{1}{2}} \in \CL^1_{\text{loc}}(\R^d)$. By \autoref{lemma:mollifiers} we obtain smoothness for $b_0, b_1$ and $\sigma_0$. Further, polynomial growth is satisfied since for $\psi \in G$ and a multiindex $J$ we have
+  \begin{align*}
+    \moll * D^J \psi (w) = \int_{\R^d}\moll(v-w) D^J \psi (v)dv = \nabla^J\moll(w-v)\psi (v) dv \\
+    &= \nabla^J(\moll * \psi)(w),
+  \end{align*}
+  for $w \in \R^d$.
+  Moreover, by linear growth and \autoref{lemma:inequality} we have
+  \begin{align*}
+    \lvert \psi^{\epsilon}(w) \rvert &\leq \int_{\CB(0, \epsilon)} \moll(v) \lvert \psi(w-v) \rvert dv \leq \int_{\CB(0, \epsilon)} \moll(v) C_1 (1 + \norm{x-y}^{C_2})dv\\
+    &\leq C_1\left(1 + 2^{C_2 - 1} \norm{w}^{C_2} + 2^{C_2 - 1}\frac{1}{\epsilon^d}\int_{\CB(0,\epsilon)}\norm{v}^{C_2}dv\right).
+  \end{align*}
+  Notice that $\int_{\CB(0,\epsilon)}\norm{v}^{C_2} \leq \int_{\CB(0,\epsilon)}dv = \vol(\CB(0,\epsilon)) = \frac{\pi^{d/2}}{\Gamma(\frac{d}{2}+1)}\epsilon^d$, where $\Gamma$ denotes the Gamma function. Therefore, $\psi^{\epsilon} \in G$ uniformly in $\epsilon$.
+  This immplies that $b_0(\cdot,\epsilon), b_1(\cdot,\epsilon), \sigma_0(\cdot, \epsilon) \in G^3$.
 \end{proof}
 \begin{corollary}
   \label{cor:first_order}
@@ -1518,15 +1539,28 @@ To confirm \autoref{cor:first_order} we look at the maximum absolute difference 
 \section{Inequalities}
 \begin{lemma}
   \label{lemma:inequality}
-  Let $a_1,a_2,\dots,a_n \geq 0$ be non-negative real values for $n \in \N$. Then we have
-  \begin{equation*}
-    (\sum_{i=1}^na_i)^2 \leq n \sum_{i=1}^n a_i^2.
-  \end{equation*}
+  Let $a,b \geq 0$ be non-negative real values. Then we have
+  \begin{equation}
+    \label{eq:inequality}
+    \left(a+b\right)^n \leq 2^{n-1} \left( a^n + b^n \right),
+  \end{equation}
+  for $n \in \N$.
 \end{lemma}
 \begin{proof}
-  Let $a_1,a_2, \dots, a_n \geq 0$ be given. Then by Cauchy-Schwartz inequality we have
+  Let $a \geq b \geq 0$ be given without loss of generality. Then for $n = 1$ the inequality holds trivially.
+  Assuming \eqref{eq:inequality} holds for $n = k-1 \geq 1$, we have
   \begin{equation*}
-    (\sum_{i=1}^n a_i)^2 \leq (\sum_{i=1}^n a_i^2)(\sum_{i=1}^n 1) = n(\sum_{i=1}^n a_i^2)
+    (a+b)^k = (a+b)^{k-1}(a+b) \leq 2^{k-2} (a^{k-1} + b^{k-1}) (a+b) = 2^{k-1}(a^k+b^k + ab^{k-1} + a^{k-1}b).
+  \end{equation*}
+  We see that
+  \begin{align*}
+    &a^k+b^k + ab^{k-1} + a^{k-1}b \leq 2 (a^k + b^k) \\
+    &\iff a^k + b^k -ab^{k-1} - a^{k-1}b \geq 0 \\
+    &\iff (a^{k-1} - b^{k-1}) (a-b) \geq 0,
+  \end{align*}
+  which holds by assumption. Thus, we have
+  \begin{equation*}
+    (a+b)^k \leq 2^{k-1}(a^k+b^k + ab^{k-1} + a^{k-1}b) \leq 2^{k-1} (a^k + b^k) \qedhere
   \end{equation*}
 \end{proof}
 \section{Convergence theorems}
