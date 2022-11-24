@@ -19,6 +19,49 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{ahmadTextbookOrdinaryDifferential2015}{book}{}
+      \name{author}{2}{}{%
+        {{hash=d22fd59c249c8217336450b9b9b7b209}{%
+           family={Ahmad},
+           familyi={A\bibinitperiod},
+           given={Shair},
+           giveni={S\bibinitperiod}}}%
+        {{hash=e70ebef8e2f3e0716a1fd5dc52aa218d}{%
+           family={Ambrosetti},
+           familyi={A\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{cd26d7f63a2b7eb6b2a023b7329073ee}
+      \strng{fullhash}{cd26d7f63a2b7eb6b2a023b7329073ee}
+      \strng{bibnamehash}{cd26d7f63a2b7eb6b2a023b7329073ee}
+      \strng{authorbibnamehash}{cd26d7f63a2b7eb6b2a023b7329073ee}
+      \strng{authornamehash}{cd26d7f63a2b7eb6b2a023b7329073ee}
+      \strng{authorfullhash}{cd26d7f63a2b7eb6b2a023b7329073ee}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This book offers readers a primer on the theory and applications of Ordinary Differential Equations. The style used is simple, yet thorough and rigorous. Each chapter ends with a broad set of exercises that range from the routine to the more challenging and thought-provoking. Solutions to selected exercises can be found at the end of the book. The book contains many interesting examples on topics such as electric circuits, the pendulum equation, the logistic equation, the Lotka-Volterra system, the Laplace Transform, etc., which introduce students to a number of interesting aspects of the theory and applications. The work is mainly intended for students of Mathematics, Physics, Engineering, Computer Science and other areas of the natural and social sciences that use ordinary differential equations, and who have a firm grasp of Calculus and a minimal understanding of the basic concepts used in Linear Algebra. It also studies a few more advanced topics, such as Stability Theory and Boundary Value Problems, which may be suitable for more advanced undergraduate or first-year graduate students. The second edition has been revised to correct minor errata, and features a number of carefully selected new exercises, together with more detailed explanations of some of the topics.A complete Solutions Manual, containing solutions to all the exercises published in the book, is available. Instructors who wish to adopt the book may request the manual by writing directly to one of the authors.}
+      \field{day}{5}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-3-319-16408-3}
+      \field{langid}{english}
+      \field{month}{6}
+      \field{pagetotal}{337}
+      \field{title}{A {{Textbook}} on {{Ordinary Differential Equations}}}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb 1vHLCQAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/FKUTC4WQ/Ahmad_Ambrosetti_2015_A Textbook on Ordinary Differential Equations.pdf
+      \endverb
+    \endentry
     \entry{bottouOptimizationMethodsLargeScale2018}{article}{}
       \name{author}{3}{}{%
         {{hash=ac762f2592005edf6bad58f566967c6c}{%
@@ -326,6 +369,67 @@
       \endverb
       \keyw{motivation,thesis}
     \endentry
+    \entry{dengImageNetLargescaleHierarchical2009}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=0ae7fdc13773f928525f673b05f37149}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Jia},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7d87c5957b07153c7f18918b92830bf8}{%
+           family={Dong},
+           familyi={D\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=d5670b2600fea169724521e252d9d09d}{%
+           family={Socher},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2afdae52015b97674d81efea449edce2}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Li-Jia},
+           giveni={L\bibinithyphendelim J\bibinitperiod}}}%
+        {{hash=4838f7fdd28d5cefb28f3b3c734976d4}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+        {{hash=cd00ce5bc45f687c432e52e0fa1a7aa6}{%
+           family={Fei-Fei},
+           familyi={F\bibinithyphendelim F\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{990420f755e01028377fcad1464c9706}
+      \strng{fullhash}{a16fdd05c52c264b99fe98f4a5e24c60}
+      \strng{bibnamehash}{990420f755e01028377fcad1464c9706}
+      \strng{authorbibnamehash}{990420f755e01028377fcad1464c9706}
+      \strng{authornamehash}{990420f755e01028377fcad1464c9706}
+      \strng{authorfullhash}{a16fdd05c52c264b99fe98f4a5e24c60}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The explosion of image data on the Internet has the potential to foster more sophisticated and robust models and algorithms to index, retrieve, organize and interact with images and multimedia data. But exactly how such data can be harnessed and organized remains a critical problem. We introduce here a new database called “ImageNet”, a large-scale ontology of images built upon the backbone of the WordNet structure. ImageNet aims to populate the majority of the 80,000 synsets of WordNet with an average of 500–1000 clean and full resolution images. This will result in tens of millions of annotated images organized by the semantic hierarchy of WordNet. This paper offers a detailed analysis of ImageNet in its current state: 12 subtrees with 5247 synsets and 3.2 million images in total. We show that ImageNet is much larger in scale and diversity and much more accurate than the current image datasets. Constructing such a large-scale database is a challenging task. We describe the data collection scheme with Amazon Mechanical Turk. Lastly, we illustrate the usefulness of ImageNet through three simple applications in object recognition, image classification and automatic object clustering. We hope that the scale, accuracy, diversity and hierarchical structure of ImageNet can offer unparalleled opportunities to researchers in the computer vision community and beyond.}
+      \field{booktitle}{2009 {{IEEE Conference}} on {{Computer Vision}} and {{Pattern Recognition}}}
+      \field{eventtitle}{2009 {{IEEE Conference}} on {{Computer Vision}} and {{Pattern Recognition}}}
+      \field{issn}{1063-6919}
+      \field{month}{6}
+      \field{shorttitle}{{{ImageNet}}}
+      \field{title}{{{ImageNet}}: {{A}} Large-Scale Hierarchical Image Database}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{pages}{248\bibrangedash 255}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/CVPR.2009.5206848
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/6JXMR36I/Deng et al_2009_ImageNet.pdf;/home/jonathan/Zotero/storage/C34WFZS9/5206848.html
+      \endverb
+    \endentry
     \entry{durrettProbabilityTheoryExamples2019}{book}{}
       \name{author}{1}{}{%
         {{hash=175a15e34b656dab74bea645e2ed84d0}{%
@@ -452,6 +556,57 @@
       \endverb
       \keyw{book,pde}
     \endentry
+    \entry{freidlinRandomPerturbationsDynamical1998}{book}{}
+      \name{author}{4}{}{%
+        {{hash=83fd6366b4bc2f77445fff5a26abccc3}{%
+           family={Freidlin},
+           familyi={F\bibinitperiod},
+           given={Mark\bibnamedelima I.},
+           giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=bec7e5d9fc4e1326faa89033ad297808}{%
+           family={Freĭdlin},
+           familyi={F\bibinitperiod},
+           given={Mark\bibnamedelima Iosifovich},
+           giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=3ade2f3d731eec89410504a5e861f74e}{%
+           family={Ventcelʹ},
+           familyi={V\bibinitperiod},
+           given={Aleksandr\bibnamedelima D.},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=9eb16a0050d91fcc10dfbb33924c3af2}{%
+           family={Wentzell},
+           familyi={W\bibinitperiod},
+           given={Alexander\bibnamedelima D.},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{56f92c027795b51f358d7828d250ede7}
+      \strng{fullhash}{e30be5b64574e41122666bb75ebb9b5e}
+      \strng{bibnamehash}{56f92c027795b51f358d7828d250ede7}
+      \strng{authorbibnamehash}{56f92c027795b51f358d7828d250ede7}
+      \strng{authornamehash}{56f92c027795b51f358d7828d250ede7}
+      \strng{authorfullhash}{e30be5b64574e41122666bb75ebb9b5e}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This text is a treatment of various kinds of limit theorems for stochastic processes defined as a result of random perturbations of dynamical systems. Apart from the long-time behaviour of the perturbed system, exit problems, metastable states, optimal stabilization, and asymptotics of stationary distributions are considered in detail. The author's main tools are the large deviation theory, the central limit theorem for stochastic processes, and the averaging principle. The results allow for explicit calculations of the asymptotics of many interesting characteristics of the perturbed system, and most of these results are closely conncected with PDE. This second edition contains expansions on the averaging principle, a new chapter on random perturbations of Hamiltonian systems, along with results on fast oscillating perturbations of systems with conservations laws. New sections on wave front propagation in semilinear PDE and on random perturbations of certain infinite-dimensional dynamical systems have been incorporated into the chapter on sharpenings and generalizations.}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-0-387-98362-2}
+      \field{langid}{english}
+      \field{pagetotal}{448}
+      \field{title}{Random {{Perturbations}} of {{Dynamical Systems}}}
+      \field{year}{1998}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb 0yE74YEXpWEC
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/4N5CI6SI/Freidlin et al_1998_Random Perturbations of Dynamical Systems.pdf
+      \endverb
+    \endentry
     \entry{gowerSGDGeneralAnalysis2019}{inproceedings}{}
       \name{author}{6}{}{%
         {{hash=b8950914a990e888e3eb856ff4edf20b}{%
@@ -525,6 +680,55 @@
       \verb https://proceedings.mlr.press/v97/qian19b.html
       \endverb
       \keyw{convergence,SGD,theory,thesis,toread}
+    \endentry
+    \entry{hairerGeometricNumericalIntegration2013}{book}{}
+      \name{author}{3}{}{%
+        {{hash=83e9309b497414bd7c7550110d37b3d7}{%
+           family={Hairer},
+           familyi={H\bibinitperiod},
+           given={Ernst},
+           giveni={E\bibinitperiod}}}%
+        {{hash=9a61cdcbc8a5b325ba3aa8e80f7d1900}{%
+           family={Lubich},
+           familyi={L\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=6715424cc951a02c09b3082a661642ab}{%
+           family={Wanner},
+           familyi={W\bibinitperiod},
+           given={Gerhard},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{6b65ffa33296e7c8499bc72738749672}
+      \strng{fullhash}{6b65ffa33296e7c8499bc72738749672}
+      \strng{bibnamehash}{6b65ffa33296e7c8499bc72738749672}
+      \strng{authorbibnamehash}{6b65ffa33296e7c8499bc72738749672}
+      \strng{authornamehash}{6b65ffa33296e7c8499bc72738749672}
+      \strng{authorfullhash}{6b65ffa33296e7c8499bc72738749672}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Numerical methods that preserve properties of Hamiltonian systems, reversible systems, differential equations on manifolds and problems with highly oscillatory solutions are the subject of this book. A complete self-contained theory of symplectic and symmetric methods, which include Runge-Kutta, composition, splitting, multistep and various specially designed integrators, is presented and their construction and practical merits are discussed. The long-time behaviour of the numerical solutions is studied using a backward error analysis (modified equations) combined with KAM theory. The book is illustrated by many figures, it treats applications from physics and astronomy and contains many numerical experiments and comparisons of different approaches.}
+      \field{day}{9}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-3-662-05018-7}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{pagetotal}{526}
+      \field{shorttitle}{Geometric {{Numerical Integration}}}
+      \field{title}{Geometric {{Numerical Integration}}: {{Structure-Preserving Algorithms}} for {{Ordinary Differential Equations}}}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb cPTxCAAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/U37UJ7I9/Hairer et al_2013_Geometric Numerical Integration.pdf
+      \endverb
     \endentry
     \entry{jumperHighlyAccurateProtein2021}{article}{}
       \name{author}{34}{}{%
@@ -742,6 +946,50 @@
       \verb https://www.nature.com/articles/s41586-021-03819-2
       \endverb
       \keyw{motivation,thesis}
+    \endentry
+    \entry{kloedenNumericalSolutionStochastic2013}{book}{}
+      \name{author}{2}{}{%
+        {{hash=7b32249850edcace60b1c231a0f5fb51}{%
+           family={Kloeden},
+           familyi={K\bibinitperiod},
+           given={Peter\bibnamedelima E.},
+           giveni={P\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=a4fb5859192206ba44cf72178b85abb6}{%
+           family={Platen},
+           familyi={P\bibinitperiod},
+           given={Eckhard},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{fullhash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{bibnamehash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{authorbibnamehash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{authornamehash}{0183f9b6362d5aa8d2faeea78d274490}
+      \strng{authorfullhash}{0183f9b6362d5aa8d2faeea78d274490}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The aim of this book is to provide an accessible introduction to stochastic differ ential equations and their applications together with a systematic presentation of methods available for their numerical solution. During the past decade there has been an accelerating interest in the de velopment of numerical methods for stochastic differential equations (SDEs). This activity has been as strong in the engineering and physical sciences as it has in mathematics, resulting inevitably in some duplication of effort due to an unfamiliarity with the developments in other disciplines. Much of the reported work has been motivated by the need to solve particular types of problems, for which, even more so than in the deterministic context, specific methods are required. The treatment has often been heuristic and ad hoc in character. Nevertheless, there are underlying principles present in many of the papers, an understanding of which will enable one to develop or apply appropriate numerical schemes for particular problems or classes of problems.}
+      \field{day}{17}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-3-662-12616-5}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{pagetotal}{666}
+      \field{title}{Numerical {{Solution}} of {{Stochastic Differential Equations}}}
+      \field{year}{2013}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb r9r6CAAAQBAJ
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/GSQ3ATQC/sde_theory.djvu
+      \endverb
+      \keyw{background,thesis}
     \endentry
     \entry{liStochasticModifiedEquations2019}{article}{}
       \name{author}{3}{}{%
@@ -1210,6 +1458,57 @@
       \verb{url}
       \verb https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full
       \endverb
+    \endentry
+    \entry{santambrogioEuclideanMetricWasserstein2017}{article}{}
+      \name{author}{1}{}{%
+        {{hash=deb5f5e08d40c7c61a19403771acf3c3}{%
+           family={Santambrogio},
+           familyi={S\bibinitperiod},
+           given={Filippo},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{deb5f5e08d40c7c61a19403771acf3c3}
+      \strng{fullhash}{deb5f5e08d40c7c61a19403771acf3c3}
+      \strng{bibnamehash}{deb5f5e08d40c7c61a19403771acf3c3}
+      \strng{authorbibnamehash}{deb5f5e08d40c7c61a19403771acf3c3}
+      \strng{authornamehash}{deb5f5e08d40c7c61a19403771acf3c3}
+      \strng{authorfullhash}{deb5f5e08d40c7c61a19403771acf3c3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{This is an expository paper on the theory of gradient flows, and in particular of those PDEs which can be interpreted as gradient flows for the Wasserstein metric on the space of probability measures (a distance induced by optimal transport). The starting point is the Euclidean theory, and then its generalization to metric spaces, according to the work of Ambrosio, Gigli and Savaré. Then comes an independent exposition of the Wasserstein theory, with a short introduction to the optimal transport tools that are needed and to the notion of geodesic convexity, followed by a precise description of the Jordan–Kinderlehrer–Otto scheme and a sketch of proof to obtain its convergence in the easiest cases. A discussion of which equations are gradient flows PDEs and of numerical methods based on these ideas is also provided. The paper ends with a new, theoretical, development, due to Ambrosio, Gigli, Savaré, Kuwada and Ohta: the study of the heat flow in metric measure spaces.}
+      \field{day}{1}
+      \field{issn}{1664-3615}
+      \field{journaltitle}{Bulletin of Mathematical Sciences}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{number}{1}
+      \field{shortjournal}{Bull. Math. Sci.}
+      \field{shorttitle}{\{\vphantom\}{{Euclidean}}, Metric, and {{Wasserstein}}\vphantom\{\} Gradient Flows}
+      \field{title}{\{\vphantom\}{{Euclidean}}, Metric, and {{Wasserstein}}\vphantom\{\} Gradient Flows: An Overview}
+      \field{urlday}{23}
+      \field{urlmonth}{11}
+      \field{urlyear}{2022}
+      \field{volume}{7}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{87\bibrangedash 154}
+      \range{pages}{68}
+      \verb{doi}
+      \verb 10.1007/s13373-017-0101-1
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/BX46TE3W/Santambrogio_2017_ Euclidean, metric, and Wasserstein gradient flows.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s13373-017-0101-1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s13373-017-0101-1
+      \endverb
+      \keyw{gradient flow,theory}
     \endentry
     \entry{schrittwieserMasteringAtariGo2020}{article}{}
       \name{author}{12}{}{%

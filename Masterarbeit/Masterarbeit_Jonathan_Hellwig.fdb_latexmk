@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber Masterarbeit_Jonathan_Hellwig"] 1669058354 "Masterarbeit_Jonathan_Hellwig.bcf" "Masterarbeit_Jonathan_Hellwig.bbl" "Masterarbeit_Jonathan_Hellwig" 1669058419
-  "Masterarbeit_Jonathan_Hellwig.bcf" 1669058418 114108 d0b936f74d3baf798ff89089ea253c0a "pdflatex"
-  "thesis.bib" 1668598912 131624 1bb9f2f56c5eddc2cacc11e0e28cdfca ""
+["biber Masterarbeit_Jonathan_Hellwig"] 1669310342 "Masterarbeit_Jonathan_Hellwig.bcf" "Masterarbeit_Jonathan_Hellwig.bbl" "Masterarbeit_Jonathan_Hellwig" 1669310473
+  "Masterarbeit_Jonathan_Hellwig.bcf" 1669310472 116467 71279cfe3783ae4cdc38ae2fa9ad6165 "pdflatex"
+  "thesis.bib" 1669293973 141796 83978368a289d31b9a31ffc8ff2268ab ""
   (generated)
   "Masterarbeit_Jonathan_Hellwig.bbl"
   "Masterarbeit_Jonathan_Hellwig.blg"
-["pdflatex"] 1669058416 "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" "Masterarbeit_Jonathan_Hellwig.pdf" "Masterarbeit_Jonathan_Hellwig" 1669058419
+["pdflatex"] 1669310464 "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" "Masterarbeit_Jonathan_Hellwig.pdf" "Masterarbeit_Jonathan_Hellwig" 1669310473
   "../seminar_talk/plots/convergence_rate.pdf" 1666605687 9761 03cb01d83a3456dc32ccb085af627150 ""
   "../seminar_talk/plots/learning_rates.pdf" 1668450994 17999 8d641ef3393f9faace105828fcf8150b ""
   "../seminar_talk/plots/quadratic_loss.pdf" 1668450729 75849 dca16279b7ae3a18b3f53c17c457fccf ""
@@ -14,7 +14,7 @@
   "../seminar_talk/plots/sgd_linear_fit.pdf" 1668451380 20466 ec65156160c14288c94de1faa727236c ""
   "../seminar_talk/plots/sgd_weight_histogram.pdf" 1668451427 15093 9996022b38aabcf77da4ada649ded2f0 ""
   "../seminar_talk/plots/sgd_weight_qq.pdf" 1666613647 107097 04cc715caf6e29be74832a3e8f984971 ""
-  "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" 1669058413 96550 ac1a8a9e760e4c6355baa2342ebb0a15 ""
+  "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" 1669310463 118288 334fe5eb37acf898925791ab8b37118b ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1650183167 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1650183167 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -58,6 +58,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1650183167 36118 fad905eba93cff5bce1e185fe980a177 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb" 1650183167 35660 fb24af7afbadb71801619f1415838111 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1650183167 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb" 1650183167 30273 87a352d78b6810ae5cfdc68d2fb827b2 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1650183167 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1650183167 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1650183167 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -150,6 +151,7 @@
   "/usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty" 1650183167 3034 3bfb87122e6fa8758225c0dd3cbaceba ""
   "/usr/share/texmf-dist/tex/latex/base/atveryend-ltx.sty" 1650183167 2462 754d6b31b2ab5a09bb72c348ace2ec75 ""
   "/usr/share/texmf-dist/tex/latex/base/ifthen.sty" 1650183167 5157 f308c7c04889e16c588e78aa42599fae ""
+  "/usr/share/texmf-dist/tex/latex/base/omscmr.fd" 1650183167 2469 ed49302eacbaebdd899d39dedcd25393 ""
   "/usr/share/texmf-dist/tex/latex/base/size12.clo" 1650183167 8449 bc7344e882df4d7e51c046514dee83e4 ""
   "/usr/share/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx" 1650185741 1818 9ed166ac0a9204a8ebe450ca09db5dde ""
   "/usr/share/texmf-dist/tex/latex/biblatex/bbx/standard.bbx" 1650185741 25680 409c3f3d570418bc545e8065bebd0688 ""
@@ -225,14 +227,14 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1653635068 4278762 af3ac1370db81a450c1118eabf1fe718 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1653634990 2927658 5cffee422351a97f0451664921669602 ""
-  "Masterarbeit_Jonathan_Hellwig.aux" 1669058418 23117 38e56a04851891cbb6fe08c1239e9366 "pdflatex"
-  "Masterarbeit_Jonathan_Hellwig.bbl" 1669058355 81935 a221ea2169916f1386e7fbbc8dd333b8 "biber Masterarbeit_Jonathan_Hellwig"
-  "Masterarbeit_Jonathan_Hellwig.lof" 1669058418 1099 3002f3686f372c23760b9ae91399fb01 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.aux" 1669310472 26947 9b03966a634b8e4d0b8ba6e30df9380b "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.bbl" 1669310346 100583 be6118473ac82a792cef3959cbf4364e "biber Masterarbeit_Jonathan_Hellwig"
+  "Masterarbeit_Jonathan_Hellwig.lof" 1669310472 1099 2fd3551540f772771d2aeccda9660262 "pdflatex"
   "Masterarbeit_Jonathan_Hellwig.nls" 1668508550 294 b365420cdf6e96957550ec0fc8b39e0c ""
-  "Masterarbeit_Jonathan_Hellwig.out" 1669058418 4463 8a1e0a31e46942f19f5fda3b1f622dfe "pdflatex"
-  "Masterarbeit_Jonathan_Hellwig.run.xml" 1669058418 2476 0dab376babdf36ec1718288de5ffab44 "pdflatex"
-  "Masterarbeit_Jonathan_Hellwig.tex" 1669058413 96550 ac1a8a9e760e4c6355baa2342ebb0a15 ""
-  "Masterarbeit_Jonathan_Hellwig.toc" 1669058418 2435 008df1602854400777c86e134aee2221 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.out" 1669310472 4059 ca60ba5e612c7c598e1caebc1022e609 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.run.xml" 1669310472 2476 0dab376babdf36ec1718288de5ffab44 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.tex" 1669310463 118288 334fe5eb37acf898925791ab8b37118b ""
+  "Masterarbeit_Jonathan_Hellwig.toc" 1669310472 2145 1ca3dc836019abc29460471a36e940de "pdflatex"
   "pics/MATH_de.pdf" 1645807082 6744 57ebaf7c9b80ce7db4d439bbd079bca9 ""
   "pics/TUHH_de.pdf" 1645807082 19737 6f23eb4d23aa9016bf6c44a2680eb9eb ""
   (generated)
