@@ -136,6 +136,7 @@
 \newcommand{\CC}{\mathcal{C}}
 \newcommand{\CB}{\mathcal{B}}
 \newcommand{\CO}{\mathcal{O}}
+\newcommand{\CH}{\mathcal{H}}
 % ein paar dick gedruckte Buchstaben
 \newcommand{\bfA}{\mathbf{A}}
 \newcommand{\bfB}{\mathbf{B}}
@@ -241,11 +242,26 @@ Hiermit versichere ich an Eides statt, dass ich die vorliegende Arbeit im Master
 % LTeX: enabled=true
 \section{Motivation}
 \label{sec:Motivation}
-In recent years, large-scale machine learning using deep neural networks has shown to be applicable across domains. Models like GPT-3 for text generation \autocite{brownLanguageModelsAre2020}, DALL-E2 for image generation \autocite{rameshHierarchicalTextConditionalImage2022}, MuZero for solving games \autocite{schrittwieserMasteringAtariGo2020} and AlphaFold for prediction of protein geometry \autocite{jumperHighlyAccurateProtein2021} are prominent examples.
-One challenging area of research remains in understanding why these models work as well as they do. What allows these models to perform well on unseen data? 
-Researchers approach this question by studying these models emperically and by creating mathematical frameworks to understand which model properties lead to good generalizations. The training process of smooth and convex models has been strutinized extensively and we cover some basic convergence analyses in \autoref{sec:Optimization} of this thesis. However, state of the art models are neither smooth nor convex and classic literature does not answer questions about how the dynamics of a given optimization algorithm influences the training process. In this thesis, we want to study the dynamics of gradient descent and its stochastic version by approximating the discrete optimization process by a continuous process. First, we study the gradient flow equation and see that this equation belongs to a more general class of equations called modified equations. These equations allow us to model the dynamics of gradient descent more closely. By analyzing higher order modified equations we see the regularizing effect of finite learning rate gradient descent. Next, generalize to the case of stochastic gradient descent which requires stochastic calculus to formulate a continuous time model. By assuming a certain noise structure we construct a continuous model that captures the dynamics of stochastic gradient descent in a distributional sense.
+In recent years, large-scale machine learning using deep neural networks has shown to be applicable across domains. Models like GPT-3 for text generation \autocite{brownLanguageModelsAre2020}, DALL-E2 for image generation \autocite{rameshHierarchicalTextConditionalImage2022}, MuZero for solving games \autocite{schrittwieserMasteringAtariGo2020} and AlphaFold for predicting protein geometry \autocite{jumperHighlyAccurateProtein2021} are prominent examples.
+
+% One challenging area of research remains in understanding why these models work as well as they do. What allows these models to perform well on unseen data? 
+% Researchers approach this question by studying these models emperically and by creating mathematical frameworks to understand which model properties lead to good generalizations. 
+While the practical usefulness of deep neural networks is beyond dispute, theoretical results that explain how and why these models work have been lacking. Researchers want to understand the following question: how does the performance of a model depend on the choice of initialization, training algorithm and hyperparameters. Empirical studies can provide insights into initialization that ensure fast convergence \cite{glorotUnderstandingDifficultyTraining2010, heDelvingDeepRectifiers2015a}. Further, adaptive variants of stochastic gradient descent, namely Ada-Grad \cite{duchiAdaptiveSubgradientMethods2011}, RMSProp \cite{geoffreyhintonnitishsrivastavaandkevinswer-NeuralNetworksMachine2012} and Adam \cite{kingmaAdamMethodStochastic2017} have been well studied for different datasets and model classes \cite{wilsonMarginalValueAdaptive2017}. Goyal et al. \cite{goyalAccurateLargeMinibatch2018} observe that by linearly scaling learning rate and batch size training dynamics can be preserved. 
+However, the underlying mechanisms for the empirical observations are not well understood. Ideally, for an initialization $w_0 \in \R^D$, a set of hyperparameters $\CH$ and an update rule $g : \R^d \times \CH \rightarrow \R^D$ we want to have a closed form solution of the difference equation
+\begin{equation*}
+  w_{k+1} = g(w_k, \CH),
+\end{equation*}
+for $k = 1,\dots, N$. By studying the solution $w_N = h(w_0, g, \CH)$, we can understand how initialization, training algorithm and hyperparameters influence the final model. Clearly, for large non-linear models explicit solutions to this difference equation are intractable. 
+% Nonetheless, we might infer some properties of the its dynamics by studying
+% Some theoretical research focuses on dense models in the infinite width limit \cite{leeWideNeuralNetworks2019, leeDeepNeuralNetworks2022, matthewsGaussianProcessBehaviour2022}. These works show that the trained model can be understood as a Gaussian process and investiagte properties of the trained model. 
+% At this point authors make the assumption that the parameters follow an ordinary differential equation of the form
+% \begin{equation*}
+%   w'(t) = b(w(t),t).
+% \end{equation*}
+
+For smooth and convex models the training process has been scrutinized extensively and we cover some basic convergence analyses in \autoref{sec:Optimization} of this thesis. However, state-of-the-art models are neither smooth nor convex and classic literature does not answer questions about how the dynamics of a given optimization algorithm influences the training process. In this thesis, we want to study the dynamics of gradient descent and its stochastic version by approximating the discrete optimization process by a continuous process. First, we study the gradient flow equation and see that this equation belongs to a more general class of equations called modified equations. These equations allow us to model the dynamics of gradient descent more closely. By analyzing higher order modified equations we see the regularizing effect of finite learning rate gradient descent. Next, generalize to the case of stochastic gradient descent which requires stochastic calculus to formulate a continuous time model. By assuming a certain noise structure we construct a continuous model that captures the dynamics of stochastic gradient descent in a distributional sense.
 However, the theorems that provide these approximation results are asymptotic and it is not clear if they hold in practice. Further, we need to make strong assumptions on the regularity of the gradients. In \autoref{sec:smdedl}, we investigate how closely the solution of the continuous process matches the discrete process. Moreover, we discuss how the assumption of the noise class influences the validity of the continuous model.
-Finally, in \autoref{sec:applications} we study some of the insights we can gain from the dynamics of the continuous model.
+Finally, in \autoref{sec:applications} we highlight some insights we can gain from the dynamics of the continuous model.
 % Underlying the construction of these models is a class of optimization problems.
 % Conventionally, models with more parameters than data points were avoided because they lead to overfitting.
 
@@ -274,9 +290,9 @@ Let $\CC^k(\R^d, \R)$ space of functions $f: \R^d \rightarrow \R$ with continuou
 For a multiindex $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_n)$ by $|\alpha| = \alpha_1 + \dots + \alpha_n$ we denote the order of $\alpha$.
 For a multiindex $\alpha$ we write 
 \begin{equation*}
-  D^{\alpha} \phi = \frac{\partial^{\alpha^1}}{\partial x_1^{\alpha_1}}\dots\frac{\partial^{\alpha^n}}{\partial x_n^{\alpha_n}} \phi
+  \nabla^{\alpha} \phi = \frac{\partial^{\alpha^1}}{\partial x_1^{\alpha_1}}\dots\frac{\partial^{\alpha^n}}{\partial x_n^{\alpha_n}} \phi
 \end{equation*}
-for the partial derivative.
+for the strong partial derivative. We use $D^{\alpha}\phi$ to denote weak partial derivatives for the multiindex $\alpha$.
 For a probability space $(\Omega, \CF, \BP)$ we define the Lebesgue space $\CL^p(\Omega, \CF, \BP)$ for $p \in (1,\infty)$, and use $\CL^p(\Omega)$ if the $\sigma$-algebra $\CF$ and probability measure $\BP$ are clear. If we have $f \in\CL^p(\Omega, \CF, \BP)$, then
 \begin{enumerate}[label=(\roman*)]
   \item $f$ is $\CF$-measurable,
@@ -289,13 +305,58 @@ and
   \end{equation*}
   is finite.
 \end{enumerate}
-Further, the space $\CL(0,T;\CL^2(\Omega))$ consists of all measureable functions $W_{\cdot} : [0,T] \rightarrow \CL^2(\Omega)$ with $\lVert W_{\cdot} \rVert_{\CL(0,T;\CL^2(\Omega))} \defeq \int_0^T \lVert W_t \rVert_{\CL^2(\Omega)}dt = \int_0^T \ev{\norm{W_t}^2}dt < \infty$.
+Further, the space $\CL(0,T;\CL^2(\Omega))$ consists of all measurable functions $W_{\cdot} : [0,T] \rightarrow \CL^2(\Omega)$ with $\lVert W_{\cdot} \rVert_{\CL(0,T;\CL^2(\Omega))} \defeq \int_0^T \lVert W_t \rVert_{\CL^2(\Omega)}dt = \int_0^T \ev{\norm{W_t}^2}dt < \infty$.
+
 For a symmetric matrix $A \in \R^{d \times d}$ we write $\lambda_i(A)$ to denote the $i$-th eigenvalue for $i=1,\dots,d$, where $\lambda_1(A) \leq \lambda_2(A) \leq \dots \leq \lambda_d(A)$.
-\section{Background on Optimization}
+\section{Stochastic optimization}
 \label{sec:Optimization}
 % This chapter covers the background of optimization theory. It goes into the formal definition of optimization problems, the necessary and sufficient conditions for minimizers, and covers iterative methods for obtaining such minimizers.
  This section covers the mathematical basis for constructing and solving optimization problems in the context of neural networks.
-
+ \subsection{Stochastic processes}
+ Before we introduce the formal problem definition, we cover the fundamental concepts for stochastic processes and refer to E. et al \cite{eAppliedStochasticAnalysis2021} for further details. We define three concepts that are fundamental to the construction of stochastic processes: sample spaces, $\sigma$-algebras and probability measures.
+ \begin{definition}[Sample space,  \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
+   The \emph{sample space} $\Omega$ is the set of all possible outcomes. Each element $\omega \in \Omega$ is called a \emph{sample point}.
+ \end{definition}
+ \begin{definition}[$\sigma$-algebra, $\sigma(\Omega)$, \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
+   A $\sigma$-algebra $\CF$ is a collection of subsets of $\Omega$ that satisfies the following conditions:
+   \begin{enumerate}[label=(\roman*)]
+     \item $\Omega \in \CF$
+     \item if $A \in \CF$, then $A^C \in \CF$, where $A^C = \Omega \setminus A$ is the complement of $A$ in $\Omega$
+     \item if $A_n \in \CF$ for $n \in \N$, then $\bigcup_{n=1}^{\infty} A_n \in \CF$.
+   \end{enumerate}
+   We write $\sigma(\Omega)$ to denote the smallest $\sigma$-algebra on $\Omega$.
+ \end{definition}
+ \begin{definition}[Probability measure, \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
+   The mapping $\BP : \CF \rightarrow [0,1]$ is called \emph{probability measure} if it statisfies
+   \begin{enumerate}[label=(\roman*)]
+     \item $\BP(\Omega) = 1$
+     \item if $A_n \in \CF$ are pairwise disjoint for $n\in\N$, i.e. $A_i \cap A_j = \emptyset$ for $i \neq j$, then
+     \begin{equation*}
+       \BP(\bigcup_{n=1}^{\infty}A_n) = \sum_{n=1}^{\infty}\BP(A_n)
+     \end{equation*}
+   \end{enumerate}
+ \end{definition}
+ \begin{definition}[Probability space, \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
+   The triplet $(\Omega, \CF, \BP)$ of sample space, $\sigma$-algebra and probability measure is called \emph{probability space}.
+ \end{definition}
+ \begin{definition}[Random variable, stochastic independence, \protect{\cite[pp.~12]{eAppliedStochasticAnalysis2021}}]
+  For a probability space $(\Omega, \CF, \BP)$ a mapping $X : \Omega \rightarrow \R^d$ is called \emph{random variable}, if it is measurable, i.e. for each $A \in \sigma(\R^d)$ we have $X^{-1}(A) \in \CF$.
+  Two random variable $X, Y$ are called \emph{independent} if for all $A,B \in \CF$ we have
+  \begin{equation*}
+    \BP(\{X \in A\} \cap \{Y \in B\}) = \BP(\{X \in A\})\BP(\{Y \in B\}).
+  \end{equation*}
+ \end{definition}
+ \begin{example}[\protect{\cite[pp.~11]{eAppliedStochasticAnalysis2021}}]
+  For a probability space $(\Omega, \CF, \BP)$ a random variable $W : \Omega \rightarrow \R$ is \emph{normally distributed} if its probability measure is given by
+  \begin{equation*}
+    \BP(X \in A) = \frac{1}{\sqrt{2 \pi}} \int_A e^{-\frac{1}{2}x^2}dx
+  \end{equation*}
+  for all $A \in \sigma(\R)$.
+ \end{example}
+ \begin{definition}(Filtration, $\CF_t$-adapted, \protect{\cite[pp.~104]{eAppliedStochasticAnalysis2021}})
+   Given the probability space $(\Omega, \CF, \BP)$, the \emph{filtration} is a nondecreasing family of $\sigma$-algebras $\{\CF_t\}_{t\geq 0}$ such that $\CF_s \subset \CF_t \subset \CF$ for any $0 \leq s < t$. Fruther, a $\R^d$-valued stochastic process $\{X_t\}_{t \geq 0}$ on the probability space  $(\Omega, \CF, \BP)$ is called $\CF_t$-\emph{adapted} if $X_t$ is $\CF_t$-measureable, i.e. $X_t^{-1}(B) \in \CF_t$ for any $t \geq 0$ and $B \in \sigma(\R^d)$.
+ \end{definition}
+ 
 \subsection{Formal problem definition}
 % Risk minimization
 % Formal definition of data distribution
@@ -455,7 +516,7 @@ In the next section, we will explore the convergence of the stochastic schemes i
 % First, we approach these questions by discussing convergence under strong smoothness and convexity assumptions. These analyzes provide insight into how batch size, learning rate, smoothness and convexity influence the behavior of SGD iterates. Second, we relax the convexity assumption and present weaker results.
 % Finally, whether these results can be applied to modern deep learning architectures. 
 %  while others investigate SGD empirically.
-In this section, we discuss convergence results for SGD found in modern literature. First, we begin by introducing convergence notions for stochastic processes. Then, we proceed by considering two classes of well-behaved functions, namely convex and smooth functions. These two classes of functions are the foundation for convergence analyzes of SGD. Next, we discuss the convergence of SGD under differing assumptions and have a detailed look at one particular analysis. Lastly, we examine how these convergence results can be applied to modern deep learning architectures.
+In this section, we discuss convergence results for SGD found in modern literature. First, we begin by introducing convergence notions for stochastic processes. Then, we proceed by considering two classes of well-behaved functions, namely convex and smooth functions. These two classes of functions are the foundation for convergence analyses of SGD. Next, we discuss the convergence of SGD under differing assumptions and have a detailed look at one particular analysis. Lastly, we examine how these convergence results can be applied to modern deep learning architectures.
 
 There exists a broad body of literature discussing the convergence of gradient descent. (citations) In SGD, the basic assumption of approximating the full gradient $\nabla f$ by a sampled gradient $\nabla f_{\gamma}$ is that convergence properties of gradient descent persist in some sense. It is not obvious that by gradient sampling we can obtain minimizers of the objective function $f$. Further, it is clear, that we need different notions of convergence, since the iterates of SGD form a stochastic process. In particular, we define two notions of convergence for stochastic processes found in~\autocite{eAppliedStochasticAnalysis2021}.
 \begin{definition}[Almost sure convergence, convergence in distribution, \protect{\cite[pp.~16]{eAppliedStochasticAnalysis2021}}]
@@ -471,17 +532,28 @@ We say the sequence  $\{W_k\}_{k=0}^{\infty}$ converges to $W$ \emph{in distribu
 \end{definition}
 % convergence in expectation ist nicht definiert 
 % Beweis: Erkläre die einzelnen Schritte 
-Note that almost sure convergence implies convergence in distribution. Let $f \in C_b(\R^n, \R)$ and let $\Omega_{\text{conv}} = \{\omega \in \Omega : \lim_{n \rightarrow \infty}W_n(\omega) = W(\omega)\}$ Then, by the dominated convergence theorem we have 
-\begin{align*}
-  \lim_{k \rightarrow \infty} \ev{f(W_k) - f(W)} &= \lim_{k \rightarrow \infty}\int_{\Omega} f(W_k) - f(W) d\BP \\
-  &= \int_{\Omega} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP \\
-  &= \int_{\Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP
-   + \int_{\Omega \setminus \Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP \\
-  &= \int_{\Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP = 0.
-\end{align*}
+Note that almost sure convergence implies convergence in distribution. Let $f \in C_b(\R^d, \R)$ and let $\Omega_{\text{conv}} = \{\omega \in \Omega : \lim_{n \rightarrow \infty}W_n(\omega) = W(\omega)\}$ Then, by the dominated convergence theorem we have 
+\begin{equation*}
+  \lim_{k \rightarrow \infty} \ev{f(W_k) - f(W)} = \int_{\Omega} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP.
+\end{equation*}
+Now, by splitting $\Omega = \Omega_{\text{conv}} \cup (\Omega \setminus \Omega_{\text{conv}})$ we have
+\begin{multline*}
+  \int_{\Omega} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP 
+  =\int_{\Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP \\
+   + \int_{\Omega \setminus \Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP = \int_{\Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP = 0.
+\end{multline*}
 
 \begin{example}
-  Example for almost sure convergence and convergence in distribution.
+  We consider an example of a sequence random variables $\{W_k\}_{k=1}^\infty$ that convergences to a limit $W$ in distribution but not almost surely.
+  Let $W,Z$ be two stochastically independent random variables following a normal distribution. We define the sequence $W_k = Z$ for $k=1,2,\dots$. Then, for $f \in \CC_b(\R^d, \R)$ we have
+  \begin{equation*}
+    \lim_{k \rightarrow \infty} \ev{f(W_k)} = \ev{f(Z)} = \ev{f(W)}.
+  \end{equation*}
+  However, by stochastic independence we observe
+  \begin{equation*}
+    \BP(\lim_{k \rightarrow \infty} W_k = W) = \BP(Z = W) = \frac{1}{2\pi}\int_{-\infty}^\infty e^{-x^2} dx = \frac{1}{2\sqrt{\pi}}.
+  \end{equation*}
+  Therefore, we do not have almost sure convergence.
 \end{example}
 \subsubsection{Convergence assumptions}
 
@@ -737,8 +809,8 @@ Theorem \autoref{thm:almost_sure_convergence} implies the following corollary.
 % (citation)
 
 \subsection{Summary}
-In this section, we introduced iterative methods for solving a general risk minimization problem. We covered gradient descent, stochastic gradient descent and stochastic gradient descent with momentum. Further, we looked at theoretical analyzes of SGD and discussed common assumptions for convergence analyzes. In particular, we highlighted an almost sure analysis that give insight into the behavior of overparameterized models. 
-At this point, we note that all analyzes in literature employ different techniques and assumptions. This leaves open whether we can find a framework that unifies the convergence analysis. In the next section, we introduce stochastic differential equations which serve as a theoretical framework for general class of one-step methods. In section \autoref{sec:sde_model}, we see that SGD approximates a continuous-time stochastic process given by an SDE. Therefore, we can gain insight into the behavior of SGD by analyzing the behavior of a SDE.
+In this section, we introduced iterative methods for solving a general risk minimization problem. We covered gradient descent, stochastic gradient descent and stochastic gradient descent with momentum. Further, we looked at theoretical analyses of SGD and discussed common assumptions. In particular, we highlighted an almost sure analysis that give insight into the behavior of overparameterized models. 
+At this point, we note that all analyses in literature employ different techniques and assumptions. This leaves open whether we can find a framework that unifies the convergence analysis. In the next section, we introduce stochastic differential equations which serve as a theoretical framework for general class of one-step methods. In section \autoref{sec:sde_model}, we see that SGD approximates a continuous-time stochastic process given by an SDE. Therefore, we can gain insight into the behavior of SGD by analyzing the behavior of a SDE.
 
 \section{Stochastic differential equations}
 \label{sec:BackgroundSDETheory}
@@ -778,36 +850,6 @@ where $b : \R^d \times [0,T] \rightarrow \R^d$ is a continuous function. Equival
 \begin{proof}
   The proof can be obtained as a special case of Theorem 8.3.2 in \cite[pp.~294]{kloedenNumericalSolutionStochastic2013}.
 \end{proof}
-\subsection{Stochastic processes}
-In this section we introduce fundamental concepts for stochastic processes and reference literature for further details. This introduction follows E. et al \cite{eAppliedStochasticAnalysis2021}. We define three concept that the fundamental construct of stochastic processes: the probability space.
-\begin{definition}[Sample space,  \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
-  The \emph{sample space} $\Omega$ is the set of all possible outcomes. Each element $\omega \in \Omega$ is called a \emph{sample point}.
-\end{definition}
-\begin{definition}[$\sigma$-algebra, $\sigma(\Omega)$, \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
-  A $\sigma$-algebra $\CF$ is a collection of subsets of $\Omega$ that satisfies the following conditions:
-  \begin{enumerate}[label=(\roman*)]
-    \item $\Omega \in \CF$
-    \item if $A \in \CF$, then $A^C \in \CF$, where $A^C = \Omega \setminus A$ is the complement of $A$ in $\Omega$
-    \item if $A_n \in \CF$ for $n \in \N$, then $\bigcup_{n=1}^{\infty} A_n \in \CF$.
-  \end{enumerate}
-  We write $\sigma(\Omega)$ to denote the smallest $\sigma$-algebra on $\Omega$.
-\end{definition}
-\begin{definition}[Probability measure, \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
-  The mapping $\BP : \CF \rightarrow [0,1]$ is called \emph{probability measure} if it statisfies
-  \begin{enumerate}[label=(\roman*)]
-    \item $\BP(\Omega) = 1$
-    \item if $A_n \in \CF$ are pairwise disjoint for $n\in\N$, i.e. $A_i \cap A_j = \emptyset$ for $i \neq j$, then
-    \begin{equation*}
-      \BP(\bigcup_{n=1}^{\infty}A_n) = \sum_{n=1}^{\infty}\BP(A_n)
-    \end{equation*}
-  \end{enumerate}
-\end{definition}
-\begin{definition}[Probability space, \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
-  The triplet $(\Omega, \CF, \BP)$ of sample space, $\sigma$-algebra and probability measure is called \emph{probability space}.
-\end{definition}
-\begin{definition}(Filtration, $\CF_t$-adapted, \protect{\cite[pp.~104]{eAppliedStochasticAnalysis2021}})
-  Given the probability space $(\Omega, \CF, \BP)$, the \emph{filtration} is a nondecreasing family of $\sigma$-algebras $\{\CF_t\}_{t\geq 0}$ such that $\CF_s \subset \CF_t \subset \CF$ for any $0 \leq s < t$. Fruther, a $\R^d$-valued stochastic process $\{X_t\}_{t \geq 0}$ on the probability space  $(\Omega, \CF, \BP)$ is called $\CF_t$-\emph{adapted} if $X_t$ is $\CF_t$-measureable, i.e. $X_t^{-1}(B) \in \CF_t$ for any $t \geq 0$ and $B \in \sigma(\R^d)$.
-\end{definition}
 \subsection{Itô Integral}
 \label{subsec:ItoIntegral}
 We briefly introduce the notion of Itô integral. Note that further details on the derivation can be found in \autocite{eAppliedStochasticAnalysis2021}. 

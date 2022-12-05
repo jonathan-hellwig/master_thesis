@@ -430,6 +430,58 @@
       \verb /home/jonathan/Zotero/storage/6JXMR36I/Deng et al_2009_ImageNet.pdf;/home/jonathan/Zotero/storage/C34WFZS9/5206848.html
       \endverb
     \endentry
+    \entry{duchiAdaptiveSubgradientMethods2011}{article}{}
+      \name{author}{3}{}{%
+        {{hash=b8fbef1897da5bf46822ced31bc865c6}{%
+           family={Duchi},
+           familyi={D\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=0b3d32703edd2b7248e8e8f33c5893db}{%
+           family={Hazan},
+           familyi={H\bibinitperiod},
+           given={Elad},
+           giveni={E\bibinitperiod}}}%
+        {{hash=300d4990e626d975e0c28630444f63c3}{%
+           family={Singer},
+           familyi={S\bibinitperiod},
+           given={Yoram},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{21039f1d6e97f13dbd40c187a8131cf0}
+      \strng{fullhash}{21039f1d6e97f13dbd40c187a8131cf0}
+      \strng{bibnamehash}{21039f1d6e97f13dbd40c187a8131cf0}
+      \strng{authorbibnamehash}{21039f1d6e97f13dbd40c187a8131cf0}
+      \strng{authornamehash}{21039f1d6e97f13dbd40c187a8131cf0}
+      \strng{authorfullhash}{21039f1d6e97f13dbd40c187a8131cf0}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present a new family of subgradient methods that dynamically incorporate knowledge of the geometry of the data observed in earlier iterations to perform more informative gradient-based learning. Metaphorically, the adaptation allows us to find needles in haystacks in the form of very predictive but rarely seen features. Our paradigm stems from recent advances in stochastic optimization and online learning which employ proximal functions to control the gradient steps of the algorithm. We describe and analyze an apparatus for adaptively modifying the proximal function, which significantly simplifies setting a learning rate and results in regret guarantees that are provably as good as the best proximal function that can be chosen in hindsight. We give several efficient algorithms for empirical risk minimization problems with common and important regularization functions and domain constraints. We experimentally study our theoretical analysis and show that adaptive subgradient methods outperform state-of-the-art, yet non-adaptive, subgradient algorithms.}
+      \field{issn}{1533-7928}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{number}{61}
+      \field{title}{Adaptive {{Subgradient Methods}} for {{Online Learning}} and {{Stochastic Optimization}}}
+      \field{urlday}{4}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{volume}{12}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{2121\bibrangedash 2159}
+      \range{pages}{39}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/E9ZRV7U6/Duchi et al_2011_Adaptive Subgradient Methods for Online Learning and Stochastic Optimization.pdf
+      \endverb
+      \verb{urlraw}
+      \verb http://jmlr.org/papers/v12/duchi11a.html
+      \endverb
+      \verb{url}
+      \verb http://jmlr.org/papers/v12/duchi11a.html
+      \endverb
+    \endentry
     \entry{durrettProbabilityTheoryExamples2019}{book}{}
       \name{author}{1}{}{%
         {{hash=175a15e34b656dab74bea645e2ed84d0}{%
@@ -607,6 +659,81 @@
       \verb /home/jonathan/Zotero/storage/4N5CI6SI/Freidlin et al_1998_Random Perturbations of Dynamical Systems.pdf
       \endverb
     \endentry
+    \entry{geoffreyhintonnitishsrivastavaandkevinswer-NeuralNetworksMachine2012}{unpublished}{}
+      \name{author}{2}{}{%
+        {{hash=a395cf3624916c366143a927e03a72ee}{%
+           family={{Geoffrey Hinton, Nitish Srivastava, and Kevin Swer-}},
+           familyi={G\bibinitperiod}}}%
+        {{hash=900bc885d7553375aec470198a9514f3}{%
+           family={{sky}},
+           familyi={s\bibinitperiod}}}%
+      }
+      \strng{namehash}{0f207c68000b1a16c2173e07947ab6c7}
+      \strng{fullhash}{0f207c68000b1a16c2173e07947ab6c7}
+      \strng{bibnamehash}{0f207c68000b1a16c2173e07947ab6c7}
+      \strng{authorbibnamehash}{0f207c68000b1a16c2173e07947ab6c7}
+      \strng{authornamehash}{0f207c68000b1a16c2173e07947ab6c7}
+      \strng{authorfullhash}{0f207c68000b1a16c2173e07947ab6c7}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Neural Networks for Machine Learning Lecture 6a Overview of Mini-Batch Gradient Descent}
+      \field{year}{2012}
+      \field{dateera}{ce}
+    \endentry
+    \entry{glorotUnderstandingDifficultyTraining2010}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=0b3943c3bfdbb5867b3760f7c7d488c2}{%
+           family={Glorot},
+           familyi={G\bibinitperiod},
+           given={Xavier},
+           giveni={X\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {JMLR Workshop and Conference Proceedings}%
+      }
+      \strng{namehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{fullhash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{bibnamehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authorbibnamehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authornamehash}{02af15243279c938a0a5ca766835bcd4}
+      \strng{authorfullhash}{02af15243279c938a0a5ca766835bcd4}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Whereas before 2006 it appears that deep multi-layer neural networks were not successfully trained, since then several algorithms have been shown to successfully train them, with experimental results showing the superiority of deeper vs less deep architectures. All these experimental results were obtained with new initialization or training mechanisms. Our objective here is to understand better why standard gradient descent from random initialization is doing so poorly with deep neural networks, to better understand these recent relative successes and help design better algorithms in the future. We first observe the influence of the non-linear activations functions. We find that the logistic sigmoid activation is unsuited for deep networks with random initialization because of its mean value, which can drive especially the top hidden layer into saturation. Surprisingly, we find that saturated units can move out of saturation by themselves, albeit slowly, and explaining the plateaus sometimes seen when training neural networks. We find that a new non-linearity that saturates less can often be beneficial. Finally, we study how activations and gradients vary across layers and during training, with the idea that training may be more difficult when the singular values of the Jacobian associated with each layer are far from 1. Based on these considerations, we propose a new initialization scheme that brings substantially faster convergence.}
+      \field{booktitle}{Proceedings of the {{Thirteenth International Conference}} on {{Artificial Intelligence}} and {{Statistics}}}
+      \field{day}{31}
+      \field{eventtitle}{Proceedings of the {{Thirteenth International Conference}} on {{Artificial Intelligence}} and {{Statistics}}}
+      \field{issn}{1938-7228}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{title}{Understanding the Difficulty of Training Deep Feedforward Neural Networks}
+      \field{urlday}{4}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{249\bibrangedash 256}
+      \range{pages}{8}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/587IPNDT/Glorot_Bengio_2010_Understanding the difficulty of training deep feedforward neural networks.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v9/glorot10a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v9/glorot10a.html
+      \endverb
+    \endentry
     \entry{gowerSGDGeneralAnalysis2019}{inproceedings}{}
       \name{author}{6}{}{%
         {{hash=b8950914a990e888e3eb856ff4edf20b}{%
@@ -681,6 +808,97 @@
       \endverb
       \keyw{convergence,SGD,theory,thesis,toread}
     \endentry
+    \entry{goyalAccurateLargeMinibatch2018}{misc}{}
+      \name{author}{9}{}{%
+        {{hash=d87be7c19fa16049347907c9820816c6}{%
+           family={Goyal},
+           familyi={G\bibinitperiod},
+           given={Priya},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ecd149fdcb3e0503881d49e545744c3d}{%
+           family={Dollár},
+           familyi={D\bibinitperiod},
+           given={Piotr},
+           giveni={P\bibinitperiod}}}%
+        {{hash=bd5dadbe57bedc5957c19a3154c4d424}{%
+           family={Girshick},
+           familyi={G\bibinitperiod},
+           given={Ross},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c3ca2ee41cf25a9ed55b70a29aca9c9a}{%
+           family={Noordhuis},
+           familyi={N\bibinitperiod},
+           given={Pieter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=fe2c91d7f7f1eb9fba5b4b2349a02fbb}{%
+           family={Wesolowski},
+           familyi={W\bibinitperiod},
+           given={Lukasz},
+           giveni={L\bibinitperiod}}}%
+        {{hash=fb0c5ef5bd0623316e6c5b00f3202e24}{%
+           family={Kyrola},
+           familyi={K\bibinitperiod},
+           given={Aapo},
+           giveni={A\bibinitperiod}}}%
+        {{hash=ead37c072da8d4bf054810a1c3011177}{%
+           family={Tulloch},
+           familyi={T\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9fce03efe6b3331a1b93ed2e7c0da9d5}{%
+           family={Jia},
+           familyi={J\bibinitperiod},
+           given={Yangqing},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kaiming},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{cf278d9271bb4e6539a9e3cdc5225acb}
+      \strng{fullhash}{ffe8205ee34aca8734032bf6b02a24f1}
+      \strng{bibnamehash}{cf278d9271bb4e6539a9e3cdc5225acb}
+      \strng{authorbibnamehash}{cf278d9271bb4e6539a9e3cdc5225acb}
+      \strng{authornamehash}{cf278d9271bb4e6539a9e3cdc5225acb}
+      \strng{authorfullhash}{ffe8205ee34aca8734032bf6b02a24f1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Deep learning thrives with large neural networks and large datasets. However, larger networks and larger datasets result in longer training times that impede research and development progress. Distributed synchronous SGD offers a potential solution to this problem by dividing SGD minibatches over a pool of parallel workers. Yet to make this scheme efficient, the per-worker workload must be large, which implies nontrivial growth in the SGD minibatch size. In this paper, we empirically show that on the ImageNet dataset large minibatches cause optimization difficulties, but when these are addressed the trained networks exhibit good generalization. Specifically, we show no loss of accuracy when training with large minibatch sizes up to 8192 images. To achieve this result, we adopt a hyper-parameter-free linear scaling rule for adjusting learning rates as a function of minibatch size and develop a new warmup scheme that overcomes optimization challenges early in training. With these simple techniques, our Caffe2-based system trains ResNet-50 with a minibatch size of 8192 on 256 GPUs in one hour, while matching small minibatch accuracy. Using commodity hardware, our implementation achieves \textasciitilde 90\% scaling efficiency when moving from 8 to 256 GPUs. Our findings enable training visual recognition models on internet-scale data with high efficiency.}
+      \field{day}{30}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arxiv}
+      \field{month}{4}
+      \field{number}{arXiv:1706.02677}
+      \field{shorttitle}{Accurate, {{Large Minibatch SGD}}}
+      \field{title}{Accurate, {{Large Minibatch SGD}}: {{Training ImageNet}} in 1 {{Hour}}}
+      \field{urlday}{4}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1706.02677
+      \endverb
+      \verb{eprint}
+      \verb 1706.02677
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/777HVGS6/Goyal et al_2018_Accurate, Large Minibatch SGD.pdf;/home/jonathan/Zotero/storage/RMACCGNI/1706.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1706.02677
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1706.02677
+      \endverb
+    \endentry
     \entry{hairerGeometricNumericalIntegration2013}{book}{}
       \name{author}{3}{}{%
         {{hash=83e9309b497414bd7c7550110d37b3d7}{%
@@ -728,6 +946,57 @@
       \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/U37UJ7I9/Hairer et al_2013_Geometric Numerical Integration.pdf
+      \endverb
+    \endentry
+    \entry{heDelvingDeepRectifiers2015a}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kaiming},
+           giveni={K\bibinitperiod}}}%
+        {{hash=5e72bc22dbcf0984c6d113d280e36990}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiangyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=bb295293acacd54387339079ebbe4ead}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Shaoqing},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f85751488058842b5777c7b4074077b5}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{fullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \strng{bibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authorbibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authornamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authorfullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Rectified activation units (rectifiers) are essential for state-of-the-art neural networks. In this work, we study rectifier neural networks for image classification from two aspects. First, we propose a Parametric Rectified Linear Unit (PReLU) that generalizes the traditional rectified unit. PReLU improves model fitting with nearly zero extra computational cost and little overfitting risk. Second, we derive a robust initialization method that particularly considers the rectifier nonlinearities. This method enables us to train extremely deep rectified models directly from scratch and to investigate deeper or wider network architectures. Based on the learnable activation and advanced initialization, we achieve 4.94\% top-5 test error on the ImageNet 2012 classification dataset. This is a 26\% relative improvement over the ILSVRC 2014 winner (GoogLeNet, 6.66\% [33]). To our knowledge, our result is the first to surpass the reported human-level performance (5.1\%, [26]) on this dataset.}
+      \field{booktitle}{2015 {{IEEE International Conference}} on {{Computer Vision}} ({{ICCV}})}
+      \field{eventtitle}{2015 {{IEEE International Conference}} on {{Computer Vision}} ({{ICCV}})}
+      \field{issn}{2380-7504}
+      \field{month}{12}
+      \field{shorttitle}{Delving {{Deep}} into {{Rectifiers}}}
+      \field{title}{Delving {{Deep}} into {{Rectifiers}}: {{Surpassing Human-Level Performance}} on {{ImageNet Classification}}}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{pages}{1026\bibrangedash 1034}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/ICCV.2015.123
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/XUUPBNZ2/He et al_2015_Delving Deep into Rectifiers.pdf;/home/jonathan/Zotero/storage/QM8P6TCZ/7410480.html
       \endverb
     \endentry
     \entry{jumperHighlyAccurateProtein2021}{article}{}
@@ -946,6 +1215,62 @@
       \verb https://www.nature.com/articles/s41586-021-03819-2
       \endverb
       \keyw{motivation,thesis}
+    \endentry
+    \entry{kingmaAdamMethodStochastic2017}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=b6fbd171848aad4edf3925543f1f1522}{%
+           family={Kingma},
+           familyi={K\bibinitperiod},
+           given={Diederik\bibnamedelima P.},
+           giveni={D\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=8aa66e8231cc2fdbe67aa4f18ca970c6}{%
+           family={Ba},
+           familyi={B\bibinitperiod},
+           given={Jimmy},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{fullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{bibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorbibnamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authornamehash}{a09df9f123146b8e2c7f1134c9496932}
+      \strng{authorfullhash}{a09df9f123146b8e2c7f1134c9496932}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We introduce Adam, an algorithm for first-order gradient-based optimization of stochastic objective functions, based on adaptive estimates of lower-order moments. The method is straightforward to implement, is computationally efficient, has little memory requirements, is invariant to diagonal rescaling of the gradients, and is well suited for problems that are large in terms of data and/or parameters. The method is also appropriate for non-stationary objectives and problems with very noisy and/or sparse gradients. The hyper-parameters have intuitive interpretations and typically require little tuning. Some connections to related algorithms, on which Adam was inspired, are discussed. We also analyze the theoretical convergence properties of the algorithm and provide a regret bound on the convergence rate that is comparable to the best known results under the online convex optimization framework. Empirical results demonstrate that Adam works well in practice and compares favorably to other stochastic optimization methods. Finally, we discuss AdaMax, a variant of Adam based on the infinity norm.}
+      \field{day}{29}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arxiv}
+      \field{month}{1}
+      \field{number}{arXiv:1412.6980}
+      \field{shorttitle}{Adam}
+      \field{title}{Adam: {{A Method}} for {{Stochastic Optimization}}}
+      \field{urlday}{4}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1412.6980
+      \endverb
+      \verb{eprint}
+      \verb 1412.6980
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/BVHXFACA/Kingma_Ba_2017_Adam.pdf;/home/jonathan/Zotero/storage/H89Y849R/1412.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1412.6980
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1412.6980
+      \endverb
     \endentry
     \entry{kloedenNumericalSolutionStochastic2013}{book}{}
       \name{author}{2}{}{%
@@ -1732,6 +2057,67 @@
       \verb https://link.aps.org/doi/10.1103/PhysRev.36.823
       \endverb
       \keyw{SDE,thesis}
+    \endentry
+    \entry{wilsonMarginalValueAdaptive2017}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=f1a3315701af5f6e61157202fd95a376}{%
+           family={Wilson},
+           familyi={W\bibinitperiod},
+           given={Ashia\bibnamedelima C},
+           giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=a38e53f2691eb44e52e78c8e72de65a7}{%
+           family={Roelofs},
+           familyi={R\bibinitperiod},
+           given={Rebecca},
+           giveni={R\bibinitperiod}}}%
+        {{hash=8b00e95c184f76a063851ed2b67c9301}{%
+           family={Stern},
+           familyi={S\bibinitperiod},
+           given={Mitchell},
+           giveni={M\bibinitperiod}}}%
+        {{hash=34451c97b5a5bad6fcb6513573d1f94d}{%
+           family={Srebro},
+           familyi={S\bibinitperiod},
+           given={Nati},
+           giveni={N\bibinitperiod}}}%
+        {{hash=3503059e1c0c778913607c87d8c5173a}{%
+           family={Recht},
+           familyi={R\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{8131958b5024bf37b7a3923ce6364896}
+      \strng{fullhash}{559a2cb8b9ec7cdcb30bc73d2041feb9}
+      \strng{bibnamehash}{8131958b5024bf37b7a3923ce6364896}
+      \strng{authorbibnamehash}{8131958b5024bf37b7a3923ce6364896}
+      \strng{authornamehash}{8131958b5024bf37b7a3923ce6364896}
+      \strng{authorfullhash}{559a2cb8b9ec7cdcb30bc73d2041feb9}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Adaptive optimization methods, which perform local optimization with a metric constructed from the history of iterates, are becoming increasingly popular for training deep neural networks. Examples include AdaGrad, RMSProp, and Adam. We show that for simple overparameterized problems, adaptive methods often find drastically different solutions than gradient descent (GD) or stochastic gradient descent (SGD). We construct an illustrative binary classification problem where the data is linearly separable, GD and SGD achieve zero test error, and AdaGrad, Adam, and RMSProp attain test errors arbitrarily close to half. We additionally study the empirical generalization capability of adaptive methods on several state-of-the-art deep learning models. We observe that the solutions found by adaptive methods generalize worse (often significantly worse) than SGD, even when these solutions have better training performance. These results suggest that practitioners should reconsider the use of adaptive methods to train neural networks.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{title}{The {{Marginal Value}} of {{Adaptive Gradient Methods}} in {{Machine Learning}}}
+      \field{urlday}{4}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/KD3I6N73/Wilson et al_2017_The Marginal Value of Adaptive Gradient Methods in Machine Learning.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://papers.nips.cc/paper/2017/hash/81b3833e2504647f9d794f7d7b9bf341-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://papers.nips.cc/paper/2017/hash/81b3833e2504647f9d794f7d7b9bf341-Abstract.html
+      \endverb
     \endentry
     \entry{zhouStochasticMirrorDescent2017}{inproceedings}{}
       \name{author}{5}{}{%
