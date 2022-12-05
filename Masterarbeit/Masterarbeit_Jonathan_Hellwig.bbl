@@ -62,6 +62,51 @@
       \verb /home/jonathan/Zotero/storage/FKUTC4WQ/Ahmad_Ambrosetti_2015_A Textbook on Ordinary Differential Equations.pdf
       \endverb
     \endentry
+    \entry{barrettImplicitGradientRegularization2021}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=a1b1f461686916d4b7095bdc0b046916}{%
+           family={Barrett},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1a44295013e733b94c180644a828598a}{%
+           family={Dherin},
+           familyi={D\bibinitperiod},
+           given={Benoit},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{590819a5e4a1c315c2a94348927691f1}
+      \strng{fullhash}{590819a5e4a1c315c2a94348927691f1}
+      \strng{bibnamehash}{590819a5e4a1c315c2a94348927691f1}
+      \strng{authorbibnamehash}{590819a5e4a1c315c2a94348927691f1}
+      \strng{authornamehash}{590819a5e4a1c315c2a94348927691f1}
+      \strng{authorfullhash}{590819a5e4a1c315c2a94348927691f1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Gradient descent can be surprisingly good at optimizing deep neural networks without overfitting and without explicit regularization. We find that the discrete steps of gradient descent implicitly regularize models by penalizing gradient descent trajectories that have large loss gradients. We call this Implicit Gradient Regularization (IGR) and we use backward error analysis to calculate the size of this regularization. We confirm empirically that implicit gradient regularization biases gradient descent toward flat minima, where test errors are small and solutions are robust to noisy parameter perturbations. Furthermore, we demonstrate that the implicit gradient regularization term can be used as an explicit regularizer, allowing us to control this gradient regularization directly. More broadly, our work indicates that backward error analysis is a useful theoretical approach to the perennial question of how learning rate, model size, and parameter regularization interact to determine the properties of overparameterized models optimized with gradient descent.}
+      \field{day}{11}
+      \field{eventtitle}{International {{Conference}} on {{Learning Representations}}}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{title}{Implicit {{Gradient Regularization}}}
+      \field{urlday}{5}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/6KI7QFEE/Barrett_Dherin_2021_Implicit Gradient Regularization.pdf;/home/jonathan/Zotero/storage/FR4HFHZ5/forum.html
+      \endverb
+      \verb{urlraw}
+      \verb https://openreview.net/forum?id=3q5IqUrkcF
+      \endverb
+      \verb{url}
+      \verb https://openreview.net/forum?id=3q5IqUrkcF
+      \endverb
+    \endentry
     \entry{bottouOptimizationMethodsLargeScale2018}{article}{}
       \name{author}{3}{}{%
         {{hash=ac762f2592005edf6bad58f566967c6c}{%

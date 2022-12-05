@@ -1256,7 +1256,7 @@ Solving for $b_0$ and $b_1$ yields $b_0(w) = -\nabla f(w), \; b_1 = - \frac{1}{2
   \label{eq:second_order_ode}
   w'(t) = -\nabla(f(w) + \frac{\eta}{4}\norm{\nabla f(w)}^2),\quad w(0) = w_0.
 \end{equation}
-We see that GD with a fixed finite learning rate leads to a gradient flow for the loss function $\widetilde{f}(w) = f(w) + \norm{\nabla f(w)}^2$. The second term induces an implicit regularization to the gradients of $f$ (REFORMULATE, CITATION).
+We see that GD with a fixed finite learning rate leads to a gradient flow for the loss function $\widetilde{f}(w) = f(w) + \frac{\eta}{4}\norm{\nabla f(w)}^2$. Barret et al. characterize the norm term As an implicit regularization to the gradients of the loss function \cite{barrettImplicitGradientRegularization2021}.
 \begin{definition}[Positive definite, negative definite]
   Let $A \in \R^{d \times d}$ be a symmetric matrix. Then, we call the matrix $A$ \emph{positive definite} if
   \begin{equation*}
