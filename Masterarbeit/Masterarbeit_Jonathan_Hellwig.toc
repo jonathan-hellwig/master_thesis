@@ -9,18 +9,18 @@
 \contentsline {subsection}{\numberline {3.5}Convergence analysis}{15}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}Convergence assumptions}{16}{subsubsection.3.5.1}%
 \contentsline {subsubsection}{\numberline {3.5.2}Convergence results}{18}{subsubsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.6}Summary}{21}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Stochastic differential equations}{21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Ordinary differential equations}{21}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Itô Integral}{22}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Existence and uniqueness}{24}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Numerical approxmations}{25}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Stochastic modified differential equations}{26}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Gradient descent}{27}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Stochastic gradient descent}{32}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Stochastic modified equations in deep learning}{45}{section.6}%
-\contentsline {section}{\numberline {7}Applications}{45}{section.7}%
-\contentsline {section}{\numberline {8}Conclusion}{45}{section.8}%
-\contentsline {section}{\numberline {A}Inequalities}{48}{appendix.A}%
-\contentsline {section}{\numberline {B}Convergence theorems}{49}{appendix.B}%
-\contentsline {section}{\numberline {C}Auxiliary results}{49}{appendix.C}%
+\contentsline {subsection}{\numberline {3.6}Summary}{22}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Stochastic differential equations}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Ordinary differential equations}{22}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Itô Integral}{23}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Existence and uniqueness}{25}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Numerical approxmations}{26}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Stochastic modified differential equations}{27}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Gradient descent}{28}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Stochastic gradient descent}{34}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Stochastic modified equations in deep learning}{47}{section.6}%
+\contentsline {section}{\numberline {7}Applications}{47}{section.7}%
+\contentsline {section}{\numberline {8}Conclusion}{47}{section.8}%
+\contentsline {section}{\numberline {A}Inequalities}{50}{appendix.A}%
+\contentsline {section}{\numberline {B}Convergence theorems}{51}{appendix.B}%
+\contentsline {section}{\numberline {C}Auxiliary results}{51}{appendix.C}%

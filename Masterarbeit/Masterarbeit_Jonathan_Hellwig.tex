@@ -305,7 +305,7 @@ and
   \end{equation*}
   is finite.
 \end{enumerate}
-Further, the space $\CL(0,T;\CL^2(\Omega))$ consists of all measurable functions $W_{\cdot} : [0,T] \rightarrow \CL^2(\Omega)$ with $\lVert W_{\cdot} \rVert_{\CL(0,T;\CL^2(\Omega))} \defeq \int_0^T \lVert W_t \rVert_{\CL^2(\Omega)}dt = \int_0^T \ev{\norm{W_t}^2}dt < \infty$.
+Further, the space $\CL(0,T;\CL^2(\Omega))$ consists of all measurable functions $W_{\cdot} : [0,T] \rightarrow \CL^2(\Omega)$ with $\lVert W_{\cdot} \rVert_{\CL(0,T;\CL^2(\Omega))} \defeq \int_0^T \lVert W_t \rVert_{\CL^2(\Omega)}dt = \int_0^T \ev{\norm{W_t}^2}dt < \infty$. We use $I_d \in \R^{d \times d}$ to denote the $d$-dimensional identity matrix.
 
 For a symmetric matrix $A \in \R^{d \times d}$ we write $\lambda_i(A)$ to denote the $i$-th eigenvalue for $i=1,\dots,d$, where $\lambda_1(A) \leq \lambda_2(A) \leq \dots \leq \lambda_d(A)$.
 \section{Stochastic optimization}
@@ -574,7 +574,28 @@ Next, we introduce a strong smoothness condition.
   \end{equation}
   for $w,v \in \mathbb{R}^d$.
 \end{definition}
-From the above definition we have the following lemma.
+\begin{example}
+  In this example we consider a few functions that are $L$-smooth. 
+  Let $A \in \R^{d \times d},\; b \in \R^d,\; c \in \R$, then the quadratic function
+  \begin{equation*}
+    f(x) = x^\T A x + b^\T x + c
+  \end{equation*}
+  is $L$-smooth. The gradient is given by $\nabla f(x)  = Ax + b$ and thus
+  \begin{equation*}
+    \norm{\nabla f(x) - \nabla f(y)} = \norm{A(x-y)} \leq \norm{A} \norm{x-y}.
+  \end{equation*}
+  The function $f(x) = x^3$ is not $L$-smooth. Let $x = n \in \N$ and $y = 0$, then we have
+  \begin{equation*}
+    \frac{\lvert f'(x) - f'(y) \rvert}{\lvert x - y \rvert} = \frac{\lvert3x^2 - 3 y^2 \rvert}{\lvert x-y \rvert} = 3n \rightarrow \infty
+  \end{equation*}
+  for $n \rightarrow \infty$.
+  Lastly, the function $f(x) = \log(x)$ is not $L$-smooth. Let $x = 1$ and $y = \frac{1}{n}$, then we have
+  \begin{equation*}
+    \frac{\lvert f'(x) - f'(y) \rvert}{\lvert x - y \rvert} = \frac{\lvert \frac{1}{x}- \frac{1}{y} \rvert}{\lvert x-y \rvert} = n \rightarrow \infty
+  \end{equation*}
+  for $n \rightarrow \infty$. This function is relevant for the construction of the cross-entropy loss which is not $L$-smooth. This is relevant for convergence theorems in \autoref{sec:convergence_results} and the existence of solutions to stochastic modified equations.
+\end{example}
+We present a characterization of $L$-smoothness that is needed for the following convergence theorems.
 \begin{lemma}[\protect{\cite{bottouOptimizationMethodsLargeScale2018}}]
   Let $f : \mathbb{R}^d \rightarrow \mathbb{R}$ be a $L$-smooth function. Then, we have 
   \begin{equation}
@@ -665,6 +686,7 @@ Now, (reformulate) we present a notion of convexity that is used in the converge
   \end{enumerate}
 \end{assumption}
 \subsubsection{Convergence results}
+\label{sec:convergence_results}
 In recent years, there have been developments that build on the initial converge results from Robbins et al.\ \autocite{robbinsStochasticApproximationMethod1951}. There are results for almost sure convergence of the iterates \autocite{zhouStochasticMirrorDescent2017, nguyenSGDHogwildConvergence2018, sebbouhAlmostSureConvergence2021}, convergence of the function values and convergence of the gradients in expectation \autocite{bottouOptimizationMethodsLargeScale2018}.  
 In Bottou et al.\ \autocite{bottouOptimizationMethodsLargeScale2018}, the authors present convergence for $L$-smooth objectives that satisfy \autoref{as:sgd_convergence} \ref{eq:variance_linear_growth}. They show convergence in expectation of the function values for strongly convex objectives and convergence of gradients to a stationary point for non-convex objectives. It is important to note that in the non-convex case, the authors only show the convergence of a subsequence to a stationary point. In Gower et al.\ \autocite{gowerSGDGeneralAnalysis2019}, the notion of expected notion of expected smoothness is introduced. Expected smoothness combines $L$-smoothness with a bound on the variance in a novel way. In combination with strong quasi-convexity the authors show convergence of the iterates in expectation for decreasing step sizes.
 In the following we have a detailed look at an analysis by Sebbouh et al.\ \autocite{sebbouhAlmostSureConvergence2021} that gives insight into the assumptions and techniques required for a convergence proof.
@@ -1282,45 +1304,89 @@ We see that GD with a fixed finite learning rate leads to a gradient flow for th
   \end{equation*}
   Clearly, this implies $\lambda > 0$.
 \end{proof}
+
+\begin{theorem}
+  \label{thm:ode_system}
+  Let  $A \in \R^{d \times d}$ be a nonsingular matrix and $b \in \R^d$ a vector. Then, the linear system of ordinary differential equations
+  \begin{equation*}
+    w'(t) = Aw(t) + b, \quad w(0) = w_0 \in R^d
+  \end{equation*}
+  has the solution
+  \begin{equation*}
+    w(t) = e^{At}(w_0 - A^{-1}b) + A^{-1}b,
+  \end{equation*}
+  where $e^A \defeq \sum_{k=0}^\infty \frac{A^k}{k!}$ is the matrix exponential.
+\end{theorem}
+\begin{proof}
+  First, we observe that
+  \begin{equation*}
+    w(0) = (w_0 - A^{-1}b) + A^{-1}b = w_0.
+  \end{equation*}
+  Second, by differentiation we obtain
+  \begin{equation*}
+    w'(t) = A e^{At}(w_0+A^{-1}b) = A (e^{At}(w_0+A^{-1}b) - A^{-1}b) + A^{-1}b = Aw(t) + b. \qedhere
+  \end{equation*}
+\end{proof}
 \begin{example}[\protect{\autoref{ex:linear_regression}} continued]
-  Let us extend the linear regresssion example to the $d$-dimensional case, i.e. $f(w)=\frac{1}{2n} \norm{Xw - y}$, where $X \defeq [x_1\;x_2\;\dots\;x_n]^\T \in \R^{d \times n}$ and $y \defeq [y_1\;y_2\;\dots\;y_n]^\T$. 
+  Let us extend the linear regression example to the $d$-dimensional case, i.e. $f(w)=\frac{1}{2n} \norm{Xw - y}$, where $X \defeq [x_1\;x_2\;\dots\;x_n]^\T \in \R^{d \times n}$ and $y \defeq [y_1\;y_2\;\dots\;y_n]^\T$. 
   The gradient is given by $\nabla f(w) = \frac{1}{n}\left(X^\T Xw - X^\T y\right)$. 
   Notice that the stationary points of $f$ are given by the equation
   \begin{equation*}
     X^\T Xw^\star = X^\T y.
   \end{equation*}
-  If we assume $d < n$ and $x_i \neq x_j$ for $i \neq j$, then the matrix $X^\T X$ has full rank and is positive definite. Thus, we have the unqiue minimizer $w^\star = (X^\T X)^{-1}X^\T y$.
+  If we assume $d < n$ and $x_i \neq x_j$ for $i \neq j$, then the matrix $X^\T X$ has full rank and is positive definite. Thus, we have the unique minimizer $w^\star = (X^\T X)^{-1}X^\T y$.
   Now, we analyze the dynamics of gradient descent using the first and second order modified equations. First, we consider the gradient flow equation.
-  For an intial value $w_0 \in \R^n$ we have 
+  For an initial value $w_0 \in \R^n$ we have 
   \begin{equation}
     \label{eq:linear_regression_gradient_flow}
-    w'(t) = -\frac{1}{n}\left(X^\T Xw - X^\T y\right), \quad w(0) = w_0.
+    w'(t) = -\frac{1}{n}\left(X^\T Xw(t) - X^\T y\right), \quad w(0) = w_0.
   \end{equation}
-  Equation \eqref{eq:linear_regression_gradient_flow} is a system of inhomogenous linear equations. Under our assumptions on $X$ it has the solution
+  Equation \eqref{eq:linear_regression_gradient_flow} is a system of inhomogeneous linear equations. Under our assumptions on $X$ it has the solution
   \begin{equation*}
     w(t) = e^{-\frac{1}{n}X^\T Xt}(w_0 - (X^\T X)^{-1}X^\T y) + (X^\T X)^{-1}X^\T y = e^{-X^\T Xt}(w_0 - w^\star) + w^\star.
   \end{equation*}
-  We see that since $X^\T X$ is positive definite, we have $\lambda_i(-X^\T X) < 0$, $i = 1, \dots, d$ for all eigenvalues of $-X^\T X$. Thus, the solution to the gradient flow equation converges to the minimizer:
+  We see that since $X^\T X$ is positive definite, we have $\lambda_i(-\frac{1}{n}X^\T X) < 0$, $i = 1, \dots, d$ for all eigenvalues of $-X^\T X$. Thus, the solution to the gradient flow equation converges to the minimizer:
   \begin{equation*}
-    \lim_{t \rightarrow \infty} w(t) = \lim_{t \rightarrow \infty} e^{-X^\T Xt}(w_0 - w^\star) + w^\star = w^\star.
+    \lim_{t \rightarrow \infty} w(t) = \lim_{t \rightarrow \infty} e^{-\frac{1}{n}X^\T Xt}(w_0 - w^\star) + w^\star = w^\star.
   \end{equation*}
-  The rate of convergence is determined by smallest eigenvalue $\min\limits_{i=1,\dots,d}\lambda_i$. Next, we derive the second order modified equation and compare the solution with the first order solution. In the case of linear regression the second order modified equation defined in \eqref{eq:second_order_ode} is given by
+  The rate of convergence is determined by smallest square singular value $\frac{1}{n}\min\limits_{i=1,\dots,d}\sigma_i^2$. Next, we derive the second order modified equation and compare the solution with the first order solution. In the case of linear regression the second order modified equation defined in \eqref{eq:second_order_ode} is given by
   \begin{equation*}
     \widetilde{w}'(t) = -\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)\widetilde{w}(t) + \frac{1}{n}\left(I_d + \frac{\eta}{2n} X^\T X\right)X^\T y, \quad \widetilde{w}(0) = w_0.
   \end{equation*}
-  Once again this is a linear system of inhomogenous equations. We note that the matrix $-\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)$ has full rank since the sum of two negative definite matrices is negative definite by \autoref{lem:sum_positive_definite}. Thus, we have the solution
+  Once again this is a linear system of inhomogenous equations. We note that the matrix $-\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)$ has full rank since the sum of two negative definite matrices is negative definite by \autoref{lem:sum_positive_definite}. 
+  Thus, by \autoref{thm:ode_system} we have the solution
+  \begin{equation}
+    \label{eq:linear_regression_second_order}
+    \widetilde{w}(t) = e^{-\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)t}(w_0 - w^\star) + w^\star.
+  \end{equation}
+  We can see this by using the singular value decomposition of $X = U \Sigma V^\T$, where $U \in \R^{n \times n},V \in \R^{d \times d}$ are orthonormal matrices and $\Sigma \in R^{n \times d}$ is a rectangular diagonal matrix. We have $X^\T X = V \Sigma^2 V^\T$ and for $A^{-1}b$ in \autoref{thm:ode_system} we follow
   \begin{align*}
-    \widetilde{w}(t) &= e^{-\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)}\Bigl(w_0 - \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}(X^\T X)^{-1}X^\T y\Bigr) \\
-    &+ \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}(X^\T X)^{-1}X^\T y \\
-    &=e^{-\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)}\Bigl(w_0 - \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}w^\star\Bigr) + \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}w^\star.
+    \left(-\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)\right)^{-1}\left(\frac{1}{n}\left(I_d + \frac{\eta}{2n} X^\T X\right)X^\T y\right) \\
+    =- V\left(I_d + \frac{\eta}{2n}\Sigma^\T \Sigma\right)^{-1}(\Sigma^\T \Sigma)^{-1}\left(I_d + \frac{\eta}{2n}\Sigma^\T \Sigma\right)V^\T X^\T y \\
+    = -V (\Sigma^\T \Sigma)^{-1} V^\T X^\T y = (X^\T X)^{-1} X^\T y = w^\star.
   \end{align*}
-  Now, consider the eigenvalue decomposition $X^\T X = Q^\T \Lambda Q$, where $Q^\T Q = I_d$ and $\Lambda = \diag(\lambda_1, \dots, \lambda_d)$. If we denote the limiting value of $\widetilde{w}$ as $\widetilde{w}^\star \defeq \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}w^\star$, we have
-  \begin{align*}
-    \norm{\widetilde{w}^\star}^2 &= {w^\star}^\T (I_d + \frac{\eta}{2 n}X^\T X)^{-2} w^\star = {Qw^\star}^\T (I_d + \frac{\eta}{2 n}\Lambda)^{-2} Qw^\star \\
-    &= \sum_{j=1}^d \frac{1}{(1 + \frac{\eta}{2 n}\lambda_i)^2} (Qw^\star)_i^2 \leq \sum_{j=1}^d (Qw^\star)_i^2 = \norm{Qw^\star}^2 = \norm{w^\star}.
-  \end{align*}
-  This result agrees with the intuition that gradient descent for finite learning rates regularizes the loss function. Indeed, the gap between the stationary first and second order solution is driven by $\frac{\eta}{2 n} \min_{i=1,\dots,d}\lambda_i(X^\T X)$. This means that the strength of the regularization is proportional to the learning rate and smallest eigenvalue of $X^\T X$ and inversely proportional to the sample size $n$. 
-  We conclude that for sufficiently small learning rates gradient flow captures the dynamics of GD. However, for larger learning rates gradient flow fails to model regularization phenomena induced by the discretization.
+
+  % Thus, we have the solution
+  % \begin{align*}
+  %   \widetilde{w}(t) &= e^{-\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)}\Bigl(w_0 - \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}(X^\T X)^{-1}X^\T y\Bigr) \\
+  %   &+ \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}(X^\T X)^{-1}X^\T y \\
+  %   &=e^{-\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)}\Bigl(w_0 - \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}w^\star\Bigr) + \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}w^\star.
+  % \end{align*}
+  % Now, consider the eigenvalue decomposition $X^\T X = Q^\T \Lambda Q$, where $Q^\T Q = I_d$ and $\Lambda = \diag(\lambda_1, \dots, \lambda_d)$. If we denote the limiting value of $\widetilde{w}$ as $\widetilde{w}^\star \defeq \Bigl(I_d +\frac{\eta}{2n}X^\T X \Bigr)^{-1}w^\star$, we have
+  % \begin{align*}
+  %   \norm{\widetilde{w}^\star}^2 &= {w^\star}^\T (I_d + \frac{\eta}{2 n}X^\T X)^{-2} w^\star = {Qw^\star}^\T (I_d + \frac{\eta}{2 n}\Lambda)^{-2} Qw^\star \\
+  %   &= \sum_{j=1}^d \frac{1}{(1 + \frac{\eta}{2 n}\lambda_i)^2} (Qw^\star)_i^2 \leq \sum_{j=1}^d (Qw^\star)_i^2 = \norm{Qw^\star}^2 = \norm{w^\star}.
+  % \end{align*}
+  % This result agrees with the intuition that gradient descent for finite learning rates regularizes the loss function. Indeed, the gap between the stationary first and second order solution is driven by $\frac{\eta}{2 n} \min_{i=1,\dots,d}\lambda_i(X^\T X)$. This means that the strength of the regularization is proportional to the learning rate and smallest eigenvalue of $X^\T X$ and inversely proportional to the sample size $n$. 
+  While the limiting behavior of the second order modified equation is the same as the first order equation, we can see different dynamics in \eqref{eq:linear_regression_second_order}. The dynamics of the second order equation are driven by $\min\limits_{i=1,\dots,d}\frac{1}{n}\sigma_i^2 + \frac{\eta}{2n^2}\sigma_i^4$. In the first order equation we do not observe the improved convergence speed for larger learning rates.
+  We conclude that for sufficiently small learning rates gradient flow captures the dynamics of GD. However, for larger learning rates gradient flow fails to model dynamics induced by the discretization. In \autoref{fig:linear_regression_error}, we present experimental verfication for the linear regression case. We can see that indeed the maximal error for the first order model decreases linearly, while the second order model decreases quadratically.
+
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{../seminar_talk/plots/linear_regression_error.pdf}
+    \caption{Approximation error for first and second order modified equations}
+    \label{fig:linear_regression_error}
+  \end{figure}
 \end{example}
 \subsection{Stochastic gradient descent}
 Now, similar to the modified equations for GD we derive stochastic modified equations for SGD. 
