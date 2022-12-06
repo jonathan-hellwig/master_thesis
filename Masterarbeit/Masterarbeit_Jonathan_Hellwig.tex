@@ -163,6 +163,7 @@
 \DeclareMathOperator{\sign}{sign}
 \DeclareMathOperator{\vol}{Vol}
 \DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\ReLU}{ReLU}
 
 % Beginn des Dokumentes
 \begin{document}
@@ -242,16 +243,16 @@ Hiermit versichere ich an Eides statt, dass ich die vorliegende Arbeit im Master
 % LTeX: enabled=true
 \section{Motivation}
 \label{sec:Motivation}
-In recent years, large-scale machine learning using deep neural networks has shown to be applicable across domains. Models like GPT-3 for text generation \autocite{brownLanguageModelsAre2020}, DALL-E2 for image generation \autocite{rameshHierarchicalTextConditionalImage2022}, MuZero for solving games \autocite{schrittwieserMasteringAtariGo2020} and AlphaFold for predicting protein geometry \autocite{jumperHighlyAccurateProtein2021} are prominent examples.
+In recent years, large-scale machine learning using deep neural networks has been shown to be applicable across domains. Models like GPT-3 for text generation \autocite{brownLanguageModelsAre2020}, DALL-E2 for image generation \autocite{rameshHierarchicalTextConditionalImage2022}, MuZero for solving games \autocite{schrittwieserMasteringAtariGo2020} and AlphaFold for predicting protein geometry \autocite{jumperHighlyAccurateProtein2021} are prominent examples.
 
 % One challenging area of research remains in understanding why these models work as well as they do. What allows these models to perform well on unseen data? 
 % Researchers approach this question by studying these models emperically and by creating mathematical frameworks to understand which model properties lead to good generalizations. 
-While the practical usefulness of deep neural networks is beyond dispute, theoretical results that explain how and why these models work have been lacking. Researchers want to understand the following question: how does the performance of a model depend on the choice of initialization, training algorithm and hyperparameters. Empirical studies can provide insights into initialization that ensure fast convergence \cite{glorotUnderstandingDifficultyTraining2010, heDelvingDeepRectifiers2015a}. Further, adaptive variants of stochastic gradient descent, namely Ada-Grad \cite{duchiAdaptiveSubgradientMethods2011}, RMSProp \cite{geoffreyhintonnitishsrivastavaandkevinswer-NeuralNetworksMachine2012} and Adam \cite{kingmaAdamMethodStochastic2017} have been well studied for different datasets and model classes \cite{wilsonMarginalValueAdaptive2017}. Goyal et al. \cite{goyalAccurateLargeMinibatch2018} observe that by linearly scaling learning rate and batch size training dynamics can be preserved. 
-However, the underlying mechanisms for the empirical observations are not well understood. Ideally, for an initialization $w_0 \in \R^D$, a set of hyperparameters $\CH$ and an update rule $g : \R^d \times \CH \rightarrow \R^D$ we want to have a closed form solution of the difference equation
+While the practical usefulness of deep neural networks is beyond dispute, theoretical results that explain how and why these models work have been lacking. Researchers want to understand the following question: how does the performance of a model depend on the choice of initialization, training algorithm and hyperparameters. Empirical studies can provide insights into initialization that ensure fast convergence \cite{glorotUnderstandingDifficultyTraining2010, heDelvingDeepRectifiers2015a}. Further, adaptive variants of stochastic gradient descent, namely Ada-Grad \cite{duchiAdaptiveSubgradientMethods2011}, RMSProp \cite{geoffreyhintonnitishsrivastavaandkevinswer-NeuralNetworksMachine2012} and Adam \cite{kingmaAdamMethodStochastic2017} have been well studied for different datasets and model classes \cite{wilsonMarginalValueAdaptive2017}. Goyal et al. \cite{goyalAccurateLargeMinibatch2018} observe that by linearly scaling learning rate and batch size training dynamics can be preserved for stochastic gradient descent. 
+However, the underlying mechanisms for these empirical observations are not well understood. Ideally, for an initialization $w_0 \in \R^D$, a set of hyperparameters $\CH$ and an update rule $g : \R^d \times \CH \rightarrow \R^D$ we want to have a closed form solution of the difference equation
 \begin{equation*}
-  w_{k+1} = g(w_k, \CH),
-\end{equation*}
-for $k = 1,\dots, N$. By studying the solution $w_N = h(w_0, g, \CH)$, we can understand how initialization, training algorithm and hyperparameters influence the final model. Clearly, for large non-linear models explicit solutions to this difference equation are intractable. 
+  w_{k+1} = g(w_k, \CH), \quad k=1,\dots, N.
+\end{equation*} 
+By studying the solution $w_N = h(w_0, g, \CH)$, we can understand how initialization, training algorithm and hyperparameters influence the final model. Clearly, for large non-linear models explicit solutions to this difference equation are intractable. 
 % Nonetheless, we might infer some properties of the its dynamics by studying
 % Some theoretical research focuses on dense models in the infinite width limit \cite{leeWideNeuralNetworks2019, leeDeepNeuralNetworks2022, matthewsGaussianProcessBehaviour2022}. These works show that the trained model can be understood as a Gaussian process and investiagte properties of the trained model. 
 % At this point authors make the assumption that the parameters follow an ordinary differential equation of the form
@@ -259,7 +260,7 @@ for $k = 1,\dots, N$. By studying the solution $w_N = h(w_0, g, \CH)$, we can un
 %   w'(t) = b(w(t),t).
 % \end{equation*}
 
-For smooth and convex models the training process has been scrutinized extensively and we cover some basic convergence analyses in \autoref{sec:Optimization} of this thesis. However, state-of-the-art models are neither smooth nor convex and classic literature does not answer questions about how the dynamics of a given optimization algorithm influences the training process. In this thesis, we want to study the dynamics of gradient descent and its stochastic version by approximating the discrete optimization process by a continuous process. First, we study the gradient flow equation and see that this equation belongs to a more general class of equations called modified equations. These equations allow us to model the dynamics of gradient descent more closely. By analyzing higher order modified equations we see the regularizing effect of finite learning rate gradient descent. Next, generalize to the case of stochastic gradient descent which requires stochastic calculus to formulate a continuous time model. By assuming a certain noise structure we construct a continuous model that captures the dynamics of stochastic gradient descent in a distributional sense.
+For smooth and convex models the training process has been scrutinized extensively and we cover some basic convergence analyses in \autoref{sec:Optimization} of this thesis. However, state-of-the-art models are neither smooth nor convex and classic literature does not answer questions about how the dynamics of a given optimization algorithm influence the training process. In this thesis, we want to study the dynamics of gradient descent and its stochastic version by approximating the discrete optimization process by a continuous process. First, we study the gradient flow equation and see that this equation belongs to a more general class of equations called modified equations. These equations allow us to model the dynamics of gradient descent more closely. By analyzing higher order modified equations we see the regularizing effect of finite learning rate gradient descent. Next, we generalize to the case of stochastic gradient descent which requires stochastic calculus to formulate a continuous time model. By assuming a certain noise structure we construct a continuous model that captures the dynamics of stochastic gradient descent in a distributional sense.
 However, the theorems that provide these approximation results are asymptotic and it is not clear if they hold in practice. Further, we need to make strong assumptions on the regularity of the gradients. In \autoref{sec:smdedl}, we investigate how closely the solution of the continuous process matches the discrete process. Moreover, we discuss how the assumption of the noise class influences the validity of the continuous model.
 Finally, in \autoref{sec:applications} we highlight some insights we can gain from the dynamics of the continuous model.
 % Underlying the construction of these models is a class of optimization problems.
@@ -286,7 +287,7 @@ Finally, in \autoref{sec:applications} we highlight some insights we can gain fr
 % - we discuss that the assumption of the approximation theorems are not fulfilled by modern neural network architecture and that the SDE approximation is heuristic
 
 \section{Notation}
-Let $\CC^k(\R^d, \R)$ space of functions $f: \R^d \rightarrow \R$ with continuous derivatives of order $k \in \N$. Further, by $\CC_c^k(\R^d, \R)$ and $\CC_b^k(\R^d, \R)$ we denote the subset of functions of $\CC^k(\R^d, \R)$ which are compactly supported and bounded respectively.
+Let $\CC^k(\R^d, \R)$ be the space of functions $f: \R^d \rightarrow \R$ with continuous derivatives of up to order $k \in \N$. Further, by $\CC_c^k(\R^d, \R)$ and $\CC_b^k(\R^d, \R)$ we denote the subset of functions of $\CC^k(\R^d, \R)$ which are compactly supported and bounded respectively.
 For a multiindex $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_n)$ by $|\alpha| = \alpha_1 + \dots + \alpha_n$ we denote the order of $\alpha$.
 For a multiindex $\alpha$ we write 
 \begin{equation*}
@@ -313,7 +314,7 @@ For a symmetric matrix $A \in \R^{d \times d}$ we write $\lambda_i(A)$ to denote
 % This chapter covers the background of optimization theory. It goes into the formal definition of optimization problems, the necessary and sufficient conditions for minimizers, and covers iterative methods for obtaining such minimizers.
  This section covers the mathematical basis for constructing and solving optimization problems in the context of neural networks.
  \subsection{Stochastic processes}
- Before we introduce the formal problem definition, we cover the fundamental concepts for stochastic processes and refer to E. et al \cite{eAppliedStochasticAnalysis2021} for further details. We define three concepts that are fundamental to the construction of stochastic processes: sample spaces, $\sigma$-algebras and probability measures.
+ Before we introduce the formal problem definition, we cover some fundamental concepts for stochastic processes and refer to E. et al \cite{eAppliedStochasticAnalysis2021} for further details. We define three concepts that are fundamental to the construction of stochastic processes: sample spaces, $\sigma$-algebras and probability measures.
  \begin{definition}[Sample space,  \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
    The \emph{sample space} $\Omega$ is the set of all possible outcomes. Each element $\omega \in \Omega$ is called a \emph{sample point}.
  \end{definition}
@@ -354,26 +355,26 @@ For a symmetric matrix $A \in \R^{d \times d}$ we write $\lambda_i(A)$ to denote
   for all $A \in \sigma(\R)$.
  \end{example}
  \begin{definition}(Filtration, $\CF_t$-adapted, \protect{\cite[pp.~104]{eAppliedStochasticAnalysis2021}})
-   Given the probability space $(\Omega, \CF, \BP)$, the \emph{filtration} is a nondecreasing family of $\sigma$-algebras $\{\CF_t\}_{t\geq 0}$ such that $\CF_s \subset \CF_t \subset \CF$ for any $0 \leq s < t$. Fruther, a $\R^d$-valued stochastic process $\{X_t\}_{t \geq 0}$ on the probability space  $(\Omega, \CF, \BP)$ is called $\CF_t$-\emph{adapted} if $X_t$ is $\CF_t$-measureable, i.e. $X_t^{-1}(B) \in \CF_t$ for any $t \geq 0$ and $B \in \sigma(\R^d)$.
+   Given the probability space $(\Omega, \CF, \BP)$, a \emph{filtration} is a nondecreasing family of $\sigma$-algebras $\{\CF_t\}_{t\geq 0}$ such that $\CF_s \subset \CF_t \subset \CF$ for any $0 \leq s < t$. Fruther, a $\R^d$-valued stochastic process $\{X_t\}_{t \geq 0}$ on the probability space  $(\Omega, \CF, \BP)$ is called $\CF_t$-\emph{adapted} if $X_t$ is $\CF_t$-measureable, i.e. $X_t^{-1}(B) \in \CF_t$ for any $t \geq 0$ and $B \in \sigma(\R^d)$.
  \end{definition}
  
 \subsection{Formal problem definition}
 % Risk minimization
 % Formal definition of data distribution
-In this section, we introduce a general optimization problem that is approximated in practice. The goal is to construct a model that represents a set of data in an optimal way. Further, a model should generalize well, i.e.\ deliver good performance on unseen data. More formally, a model is a mapping $m_w$ that depends on some set of parameters $w \in \mathbb{R}^d$ and maps input features $x \in X$ to output features $y \in Y$. The data points $(x,y) \in X \times Y$ follow a joint probability distribution $p(x,y)$. The mapping $\ell$ quantifies the distance between a prediction $m_{w}$ and is called loss function. Finding a model that generalizes well can be understood as minimizing the \emph{expected risk}
+In this section, we introduce a general optimization problem that is approximated in practice. The goal is to construct a model that represents a set of data in an optimal way. Further, a model should generalize well, i.e.\ deliver good performance on unseen data. More formally, a model is a mapping $f$ that depends on some set of parameters $w \in \mathbb{R}^d$ and maps input features $x \in X$ to output features $y \in Y$. The data points $(x,y) \in X \times Y$ follow a joint probability distribution $p(x,y)$. The mapping $\ell$ quantifies the distance between a prediction $f_{w}$ and is called loss function. We folllow \cite{bottouOptimizationMethodsLargeScale2018} and say a model generalizes well if it minimizes the \emph{expected risk}
 \begin{equation}
-  \min_{w \in \mathbb{R}^d} R(w) = \ev{\ell(m_{w}(x),y)}.
+  \min_{w \in \mathbb{R}^d} R(w) = \ev{\ell(f(x;w),y)}.
 \end{equation}
 In practice, the distribution $p(x,y)$ is unknown and the computation of the expected risk is not possible. Defining the minimization problem in terms of the sample average also known as the \emph{empirical risk} allow the problem to be solved. For a sample of $n \in \mathbb{N}$ data points $\{(x_i, y_i)\}_{i=1}^n$ the empirical risk is defined as 
 \begin{equation}
   \label{eq:emperical_risk}
-  \min_{w \in \mathbb{R}^d}  R_n(w) = \frac{1}{n}\sum_{i=1}^n\ell(m_{w}(x_i),y_i).
+  \min_{w \in \mathbb{R}^d}  R_n(w) = \frac{1}{n}\sum_{i=1}^n\ell(f(x_i;w),y_i).
 \end{equation}
-A model $m_{w}$ generalizes well if $|R - R_n|$ is small. This notion will become relevant in the following section in the discussion of iterative methods for solving \eqref{eq:emperical_risk}. Whether a model generalizes well both depends on the model architecture and the procedure to obtain the parameters $w$. 
+A model $f$ generalizes well if $|R - R_n|$ is small. This notion will become relevant in the following section in the discussion of iterative methods for solving \eqref{eq:emperical_risk}. Whether a model generalizes well both depends on the model architecture and the procedure to obtain the parameters $w \in \R^d$. 
 The selection of the loss function is contingent on the kind of data. For regression problems the \emph{mean square loss} is used, for multi-class classification problems the \emph{cross entropy loss} is used.
 
 \subsection{Characterization of minimizers}
-First, we introduce the concept of a minimizer to understand how the empirical risk minimization problem can be solved. In the following we consider a more general formulation of the above problem that can be found in optimization textbooks. Consider the unconstrained minimization problem
+First, we introduce the concept of a minimizer to understand how the empirical risk minimization problem can be solved. In the following, we consider a more general formulation of the above problem that can be found in optimization textbooks. Consider the unconstrained minimization problem
 \begin{equation}
   \min_{w \in \mathbb{R}^d} f(w),
 \end{equation}
@@ -387,7 +388,7 @@ For this problem we define two notions of minimizers.
   \end{equation} 
   for all $w \in \mathbb{R}^d$. A value $w^\star \in \mathbb{R}^d$ is called \emph{local minimizer} if there exists an $\epsilon > 0$ such that \eqref{eq:minimizer} holds for all $w \in \mathbb{R}^d, \norm{w-w^\star} < \epsilon$.
 \end{definition}
-Notice that every global minimizer is also a local minimizer. It is difficult to obtain global minimizers in deep learning settings. One key aspect of neural networks is that they are differentiable. If we make some smoothness assumptions on the function $f$, we can obtain sufficient and necessary conditions that provide some insight on local minimizers.
+Notice that every global minimizer is also a local minimizer. It is difficult to obtain global minimizers in deep learning settings. One key aspect of neural networks is that we can efficiently calculate the gradient with respect to their parameters. If we make some assumptions on the smoothness of the function $f$, we can obtain sufficient and necessary conditions that provide some insight on local minimizers.
 \begin{theorem}[\protect{\cite[pp.~15]{nocedalNumericalOptimization2006}}]
   If $w^\star \in \mathbb{R}^d$ is a local minimizer and $f:\mathbb{R}^d \rightarrow \mathbb{R}$ is continuously differentiable in an open neighborhood of $w^\star$, then $\nabla f(w^\star) = 0$. Further, if additionally $\nabla^2 f$ exists and is continuous in an open neighborhood of $w^\star$, then $\nabla^2f(w^\star)$ is positive semidefinite.
 \end{theorem}
@@ -409,10 +410,11 @@ The first theorem builds the foundation for all commonly used optimization techn
 \begin{proof}
   The proof can be found in \cite[pp.~16]{nocedalNumericalOptimization2006}.
 \end{proof}
+
 It is unclear how to obtain stationary points for neural networks, since $\nabla f$ is usually highly nonlinear. The next section will cover iterative methods to obtain approximate solutions to the stationary point problem.
 
 \subsection{Iterative methods}
-For simple functions it is possible to determine the solution to (\eqref{eq:StationaryPoint}) in analytical form. However, state of the art neural networks contain trillions of parameters and in general finding a solution analytically is infeasible. Iterative methods provide a way to start with an initial guess and improve upon that guess gradually. In particular, iterative methods considered in this thesis make use of gradient information for updating the parameters $w \in \mathbb{R}^d$. Before defining iterative descent methods, we introduce the concept of descent directions. 
+For simple functions it is possible to determine the solution to \eqref{eq:StationaryPoint} in analytical form. However, state of the art neural networks contain trillions of parameters and in general finding a solution analytically is infeasible. Iterative methods provide a way to start with an initial guess and improve upon that guess gradually. In particular, iterative methods considered in this thesis make use of gradient information for updating the parameters $w \in \mathbb{R}^d$. Before defining iterative descent methods, we introduce the concept of descent directions. 
 \begin{definition}[Descent direction, \protect{\cite[pp.~30]{nocedalNumericalOptimization2006}}]
   Let $f: \mathbb{R}^d \rightarrow \mathbb{R}$ be a continuously differentiable function. Then a vector $g \in \mathbb{R}^d$ is called \emph{descent direction} at $w \in \mathbb{R}^d$ if it satisfies 
   \begin{equation}
@@ -777,7 +779,7 @@ We now present a non-asymptotic bound for the convex and $L$-smooth case.
   \end{equation*}
 \end{proof}
 
-Theorem \autoref{thm:SGD_bound} shows the relation between learning rate and gradient noise for the optimality gap. Note that for a fixed learning rate $\eta \in \R$ we have
+\autoref{thm:SGD_bound} shows the relation between learning rate and gradient noise for the optimality gap. Note that for a fixed learning rate $\eta \in \R$ we have
 \begin{equation*}
   \E [f(\widetilde{w_{k}}) - f(w^\star)] \leq \frac{\norm{w_{0} - w^\star}^2}{\eta k} + 2 \sigma^2 \eta.
 \end{equation*}
@@ -801,7 +803,7 @@ While the first term converges to zero as $k \rightarrow \infty$, the second ter
 \begin{proof}
   The proof can be found in \autocite{sebbouhAlmostSureConvergence2021}.
 \end{proof}
-Theorem \autoref{thm:almost_sure_convergence} implies the following corollary.
+\autoref{thm:almost_sure_convergence} implies the following corollary.
 \begin{corollary}[\protect{\cite{sebbouhAlmostSureConvergence2021}}]
   Let $f_{\gamma}: \R^d \rightarrow \R$ be a $L$-smooth and convex function. Further, $0 < \eta \leq \frac{1}{4\CL}$ and $\epsilon > 0 $. Then, we have
   \begin{enumerate}
@@ -1869,6 +1871,30 @@ To confirm \autoref{cor:first_order} we look at the maximum absolute difference 
 \end{theorem}
 \section{Stochastic modified equations in deep learning}
 \label{sec:smdedl}
+In this section, we apply stochastic modified equations in the context of deep learning model. First, we define dense neural networks and detail the components of more advanced models like ResNet. Secondly, we discuss simulating the solution of the SDE model and introduce an efficient algorithm. Lastly, we investiagte whether the SDE model holds empirically.
+\subsection{Dense neural networks}
+\begin{definition}[Dense neural network, weight matrix, bias, activation function, \protect[pp.~19]{\cite{aggarwalNeuralNetworksDeep2018}}]
+  A \emph{dense neural network} is a concatenation of affine function interlayced with a nonlinear functions. We call the matrices $W_k \in \R^{m_{k+1} \times m_k}$ \emph{weights} and the vectors $b_k \in \R^{m_{k+1} \times m_k}$ \emph{biases}, and the nonlinear functions $\sigma_k : \R \rightarrow \R$ \emph{activation functions} for $k = 1, \dots, L-1$. The mapping $f : \R^{m_1} \rightarrow \R^{m_L}$ defined by
+  \begin{equation*}
+      f(x;W_1,\dots,W_L,b_1,\dots,b_L) = \sigma_L(z_L),
+  \end{equation*}
+  where 
+  \begin{equation*}
+    z_{k+1} = \sigma_k(W_k z_k + b_k), \quad z_1 = x
+  \end{equation*}
+  for $k = 1, \dots L-1$ is called \emph{dense neural network}.
+\end{definition}
+To simply notation we write $w \in \R^d$ to denote the vectorization and concatenation of all parameters $W_1, \dots, W_L, b_1, \dots, b_L$, where $d = \sum_{k=1}^{L-1} m_{k+1}m_k + m_k$.
+Note that a neural network can be interpreted as both a function of the input $x \in X$ and the network parameters $w \in \R^d$. In the following discussion, we focus on the optimization of the parameters $w \in \R^d$ and view the input data as fixed. Therefore, we drop $x$ from $f(x;w)$ and simply write $f(w)$.
+\subsection{Activation functions}
+The activation functions play an important role in the expressivity of neural networks. We highlight some of the commonly used variants:
+\begin{enumerate}
+  \item \emph{Hyperbolic activation}: $\tanh : \R \rightarrow (-1,1), \quad \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$
+  \item \emph{Sigmoid activation}: $\sigma : \R \rightarrow (0,1), \quad \sigma(x) = \frac{1}{1+e^{-x}}$
+  \item \emph{Rectified linear unit}: $\ReLU : \R \rightarrow [0,\infty), \quad \ReLU(x) = \max\{x,0\}$
+\end{enumerate}
+% Dense neural network 
+Notice that while 
 \section{Applications}
 \label{sec:applications}
 \section{Conclusion}

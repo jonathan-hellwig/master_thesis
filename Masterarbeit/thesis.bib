@@ -1,3 +1,17 @@
+@book{aggarwalNeuralNetworksDeep2018,
+  title = {Neural {{Networks}} and {{Deep Learning}}: {{A Textbook}}},
+  shorttitle = {Neural {{Networks}} and {{Deep Learning}}},
+  author = {Aggarwal, Charu C.},
+  date = {2018-08-25},
+  eprint = {achqDwAAQBAJ},
+  eprinttype = {googlebooks},
+  publisher = {{Springer}},
+  abstract = {This book covers both classical and modern models in deep learning. The primary focus is on the theory and algorithms of deep learning. The theory and algorithms of neural networks are particularly important for understanding important concepts, so that one can understand the important design concepts of neural architectures in different applications. Why do neural networks work? When do they work better than off-the-shelf machine-learning models? When is depth useful? Why is training neural networks so hard? What are the pitfalls? The book is also rich in discussing different applications in order to give the practitioner a flavor of how neural architectures are designed for different types of problems. Applications associated with many different areas like recommender systems, machine translation, image captioning, image classification, reinforcement-learning based gaming, and text analytics are covered. The chapters of this book span three categories: The basics of neural networks:  Many traditional machine learning models can be understood as special cases of neural networks. An emphasis is placed in the first two chapters on understanding the relationship between traditional machine learning and neural networks. Support vector machines, linear/logistic regression, singular value decomposition, matrix factorization, and recommender systems are shown to be special cases of neural networks. These methods are studied together with recent feature engineering methods like word2vec. Fundamentals of neural networks: A detailed discussion of training and regularization is provided in Chapters 3 and 4. Chapters 5 and 6 present radial-basis function (RBF) networks and restricted Boltzmann machines. Advanced topics in neural networks: Chapters 7 and 8 discuss recurrent neural networks and convolutional neural networks. Several advanced topics like deep reinforcement learning, neural Turing machines, Kohonen self-organizing maps, and generative adversarial networks are introduced in Chapters 9 and 10. The book is written for graduate students, researchers, and practitioners. Numerous exercises are available along with a solution manual to aid in classroom teaching. Where possible, an application-centric view is highlighted in order to provide an understanding of the practical uses of each class of techniques.},
+  isbn = {978-3-319-94463-0},
+  langid = {english},
+  pagetotal = {512}
+}
+
 @book{ahmadTextbookOrdinaryDifferential2015,
   title = {A {{Textbook}} on {{Ordinary Differential Equations}}},
   author = {Ahmad, Shair and Ambrosetti, Antonio},
@@ -363,6 +377,24 @@
   abstract = {Deep learning thrives with large neural networks and large datasets. However, larger networks and larger datasets result in longer training times that impede research and development progress. Distributed synchronous SGD offers a potential solution to this problem by dividing SGD minibatches over a pool of parallel workers. Yet to make this scheme efficient, the per-worker workload must be large, which implies nontrivial growth in the SGD minibatch size. In this paper, we empirically show that on the ImageNet dataset large minibatches cause optimization difficulties, but when these are addressed the trained networks exhibit good generalization. Specifically, we show no loss of accuracy when training with large minibatch sizes up to 8192 images. To achieve this result, we adopt a hyper-parameter-free linear scaling rule for adjusting learning rates as a function of minibatch size and develop a new warmup scheme that overcomes optimization challenges early in training. With these simple techniques, our Caffe2-based system trains ResNet-50 with a minibatch size of 8192 on 256 GPUs in one hour, while matching small minibatch accuracy. Using commodity hardware, our implementation achieves \textasciitilde 90\% scaling efficiency when moving from 8 to 256 GPUs. Our findings enable training visual recognition models on internet-scale data with high efficiency.},
   archiveprefix = {arXiv},
   file = {/home/jonathan/Zotero/storage/777HVGS6/Goyal et al_2018_Accurate, Large Minibatch SGD.pdf;/home/jonathan/Zotero/storage/RMACCGNI/1706.html}
+}
+
+@misc{granziolLearningRatesFunction2021,
+  title = {Learning {{Rates}} as a {{Function}} of {{Batch Size}}: {{A Random Matrix Theory Approach}} to {{Neural Network Training}}},
+  shorttitle = {Learning {{Rates}} as a {{Function}} of {{Batch Size}}},
+  author = {Granziol, Diego and Zohren, Stefan and Roberts, Stephen},
+  date = {2021-11-05},
+  number = {arXiv:2006.09092},
+  eprint = {2006.09092},
+  eprinttype = {arxiv},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2006.09092},
+  url = {http://arxiv.org/abs/2006.09092},
+  urldate = {2022-12-06},
+  abstract = {We study the effect of mini-batching on the loss landscape of deep neural networks using spiked, field-dependent random matrix theory. We demonstrate that the magnitude of the extremal values of the batch Hessian are larger than those of the empirical Hessian. We also derive similar results for the Generalised Gauss-Newton matrix approximation of the Hessian. As a consequence of our theorems we derive an analytical expressions for the maximal learning rates as a function of batch size, informing practical training regimens for both stochastic gradient descent (linear scaling) and adaptive algorithms, such as Adam (square root scaling), for smooth, non-convex deep neural networks. Whilst the linear scaling for stochastic gradient descent has been derived under more restrictive conditions, which we generalise, the square root scaling rule for adaptive optimisers is, to our knowledge, completely novel. \%For stochastic second-order methods and adaptive methods, we derive that the minimal damping coefficient is proportional to the ratio of the learning rate to batch size. We validate our claims on the VGG/WideResNet architectures on the CIFAR-\$100\$ and ImageNet datasets. Based on our investigations of the sub-sampled Hessian we develop a stochastic Lanczos quadrature based on the fly learning rate and momentum learner, which avoids the need for expensive multiple evaluations for these key hyper-parameters and shows good preliminary results on the Pre-Residual Architecure for CIFAR-\$100\$.},
+  archiveprefix = {arXiv},
+  file = {/home/jonathan/Zotero/storage/NS7NR52P/Granziol et al_2021_Learning Rates as a Function of Batch Size.pdf;/home/jonathan/Zotero/storage/KYXFYS4H/2006.html}
 }
 
 @inproceedings{gurbuzbalabanHeavyTailPhenomenonSGD2021,
@@ -785,6 +817,23 @@
   archiveprefix = {arXiv},
   keywords = {SDE,SGD,thesis,toread},
   file = {/home/jonathan/Zotero/storage/NRWKRCPX/Li et al_2022_What Happens after SGD Reaches Zero Loss.pdf;/home/jonathan/Zotero/storage/PNPHABKM/2110.html}
+}
+
+@misc{malladiSDEsScalingRules2022a,
+  title = {On the {{SDEs}} and {{Scaling Rules}} for {{Adaptive Gradient Algorithms}}},
+  author = {Malladi, Sadhika and Lyu, Kaifeng and Panigrahi, Abhishek and Arora, Sanjeev},
+  date = {2022-05-20},
+  number = {arXiv:2205.10287},
+  eprint = {2205.10287},
+  eprinttype = {arxiv},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2205.10287},
+  url = {http://arxiv.org/abs/2205.10287},
+  urldate = {2022-12-06},
+  abstract = {Approximating Stochastic Gradient Descent (SGD) as a Stochastic Differential Equation (SDE) has allowed researchers to enjoy the benefits of studying a continuous optimization trajectory while carefully preserving the stochasticity of SGD. Analogous study of adaptive gradient methods, such as RMSprop and Adam, has been challenging because there were no rigorously proven SDE approximations for these methods. This paper derives the SDE approximations for RMSprop and Adam, giving theoretical guarantees of their correctness as well as experimental validation of their applicability to common large-scaling vision and language settings. A key practical result is the derivation of a \$\textbackslash textit\{square root scaling rule\}\$ to adjust the optimization hyperparameters of RMSprop and Adam when changing batch size, and its empirical validation in deep learning settings.},
+  archiveprefix = {arXiv},
+  file = {/home/jonathan/Zotero/storage/GCXJGM5T/Malladi et al_2022_On the SDEs and Scaling Rules for Adaptive Gradient Algorithms.pdf;/home/jonathan/Zotero/storage/GYB85S2E/2205.html}
 }
 
 @inproceedings{maPowerInterpolationUnderstanding2018,
