@@ -98,6 +98,63 @@
       \verb /home/jonathan/Zotero/storage/FKUTC4WQ/Ahmad_Ambrosetti_2015_A Textbook on Ordinary Differential Equations.pdf
       \endverb
     \endentry
+    \entry{allen-zhuConvergenceTheoryDeep2019}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=eaa5cc98b7f19b4ce07c832213a13b9d}{%
+           family={Allen-Zhu},
+           familyi={A\bibinithyphendelim Z\bibinitperiod},
+           given={Zeyuan},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=0d2c91b24f885b22d373a892a768abc8}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yuanzhi},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=04d07d54d268f89c0e192345e9b152ba}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Zhao},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{eb6758eac7d47595942aa1d38316f28e}
+      \strng{fullhash}{eb6758eac7d47595942aa1d38316f28e}
+      \strng{bibnamehash}{eb6758eac7d47595942aa1d38316f28e}
+      \strng{authorbibnamehash}{eb6758eac7d47595942aa1d38316f28e}
+      \strng{authornamehash}{eb6758eac7d47595942aa1d38316f28e}
+      \strng{authorfullhash}{eb6758eac7d47595942aa1d38316f28e}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Deep neural networks (DNNs) have demonstrated dominating performance in many fields; since AlexNet, networks used in practice are going wider and deeper. On the theoretical side, a long line of works have been focusing on why we can train neural networks when there is only one hidden layer. The theory of multi-layer networks remains unsettled. In this work, we prove simple algorithms such as stochastic gradient descent (SGD) can find Global Minima on the training objective of DNNs in Polynomial Time. We only make two assumptions: the inputs do not degenerate and the network is over-parameterized. The latter means the number of hidden neurons is sufficiently large: polynomial in L, the number of DNN layers and in n, the number of training samples. As concrete examples, starting from randomly initialized weights, we show that SGD attains 100\% training accuracy in classification tasks, or minimizes regression loss in linear convergence speed eps ~ e\^\{-T\}, with running time polynomial in n and L. Our theory applies to the widely-used but non-smooth ReLU activation, and to any smooth and possibly non-convex loss functions. In terms of network architectures, our theory at least applies to fully-connected neural networks, convolutional neural networks (CNN), and residual neural networks (ResNet).}
+      \field{booktitle}{Proceedings of the 36th {{International Conference}} on {{Machine Learning}}}
+      \field{day}{24}
+      \field{eventtitle}{International {{Conference}} on {{Machine Learning}}}
+      \field{issn}{2640-3498}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{title}{A {{Convergence Theory}} for {{Deep Learning}} via {{Over-Parameterization}}}
+      \field{urlday}{21}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{242\bibrangedash 252}
+      \range{pages}{11}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/D3Y8I392/Allen-Zhu et al_2019_A Convergence Theory for Deep Learning via Over-Parameterization.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v97/allen-zhu19a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v97/allen-zhu19a.html
+      \endverb
+    \endentry
     \entry{barrettImplicitGradientRegularization2021}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=a1b1f461686916d4b7095bdc0b046916}{%
@@ -1451,6 +1508,59 @@
       \endverb
       \keyw{SDE,SGD,theory,thesis}
     \endentry
+    \entry{liConvergenceStochasticGradient2019}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=fbefb123f0fb2b74e98ede7afb2aa058}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Xiaoyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=35db660c992251cc50db3cedca6172f1}{%
+           family={Orabona},
+           familyi={O\bibinitperiod},
+           given={Francesco},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{5c6dafc7ca515d5a0141e7dc01b89612}
+      \strng{fullhash}{5c6dafc7ca515d5a0141e7dc01b89612}
+      \strng{bibnamehash}{5c6dafc7ca515d5a0141e7dc01b89612}
+      \strng{authorbibnamehash}{5c6dafc7ca515d5a0141e7dc01b89612}
+      \strng{authornamehash}{5c6dafc7ca515d5a0141e7dc01b89612}
+      \strng{authorfullhash}{5c6dafc7ca515d5a0141e7dc01b89612}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Stochastic gradient descent is the method of choice for large scale optimization of machine learning objective functions. Yet, its performance is greatly variable and heavily depends on the choice of the stepsizes. This has motivated a large body of research on adaptive stepsizes. However, there is currently a gap in our theoretical understanding of these methods, especially in the non-convex setting. In this paper, we start closing this gap: we theoretically analyze in the convex and non-convex settings a generalized version of the AdaGrad stepsizes. We show sufficient conditions for these stepsizes to achieve almost sure asymptotic convergence of the gradients to zero, proving the first guarantee for generalized AdaGrad stepsizes in the non-convex setting. Moreover, we show that these stepsizes allow to automatically adapt to the level of noise of the stochastic gradients in both the convex and non-convex settings, interpolating between O(1/T) and O(1/sqrt(T)), up to logarithmic terms.}
+      \field{booktitle}{Proceedings of the {{Twenty-Second International Conference}} on {{Artificial Intelligence}} and {{Statistics}}}
+      \field{day}{11}
+      \field{eventtitle}{The 22nd {{International Conference}} on {{Artificial Intelligence}} and {{Statistics}}}
+      \field{issn}{2640-3498}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{title}{On the {{Convergence}} of {{Stochastic Gradient Descent}} with {{Adaptive Stepsizes}}}
+      \field{urlday}{5}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{983\bibrangedash 992}
+      \range{pages}{10}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/PH74N3RG/Li and Orabona - 2019 - On the Convergence of Stochastic Gradient Descent .pdf;/home/jonathan/Zotero/storage/S7U8TV3J/Li_Orabona_2019_On the Convergence of Stochastic Gradient Descent with Adaptive Stepsizes.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v89/li19c.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v89/li19c.html
+      \endverb
+      \keyw{convergence,SGD,stepsize,thesis,toread}
+    \endentry
     \entry{liValidityModelingSGD2021}{misc}{}
       \name{author}{3}{}{%
         {{hash=35069ab0f2565b95f02723d645a36cbd}{%
@@ -1506,6 +1616,108 @@
       \verb http://arxiv.org/abs/2102.12470
       \endverb
       \keyw{paper,SDE,SGD,SVAG,thesis}
+    \endentry
+    \entry{mertikopoulosAlmostSureConvergence2020}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=e1238114e077a96e6a9a2849535aa0ac}{%
+           family={Mertikopoulos},
+           familyi={M\bibinitperiod},
+           given={Panayotis},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5596360646d9659db48105fb318012e6}{%
+           family={Hallak},
+           familyi={H\bibinitperiod},
+           given={Nadav},
+           giveni={N\bibinitperiod}}}%
+        {{hash=d88f6ad57059179a65fecb043cddedb1}{%
+           family={Kavis},
+           familyi={K\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3d62c5b86f1c1fd385a81d7f751ae855}{%
+           family={Cevher},
+           familyi={C\bibinitperiod},
+           given={Volkan},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Red Hook, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates Inc.}%
+      }
+      \strng{namehash}{a6e81a715ed6c7a9f502405739a6d2d1}
+      \strng{fullhash}{a9399229b9df36ec42bbc057739d0b81}
+      \strng{bibnamehash}{a6e81a715ed6c7a9f502405739a6d2d1}
+      \strng{authorbibnamehash}{a6e81a715ed6c7a9f502405739a6d2d1}
+      \strng{authornamehash}{a6e81a715ed6c7a9f502405739a6d2d1}
+      \strng{authorfullhash}{a9399229b9df36ec42bbc057739d0b81}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper analyzes the trajectories of stochastic gradient descent (SGD) to help understand the algorithm's convergence properties in non-convex problems. We first show that the sequence of iterates generated by SGD remains bounded and converges with probability 1 under a very broad range of step-size schedules. Subsequently, going beyond existing positive probability guarantees, we show that SGD avoids strict saddle points/manifolds with probability 1 for the entire spectrum of step-size policies considered. Finally, we prove that the algorithm's rate of convergence to local minimizers with a positive-definite Hessian is O(1/np) if the method is employed with a Θ(1/np) step-size. This provides an important guideline for tuning the algorithm's step-size as it suggests that a cool-down phase with a vanishing step-size could lead to faster convergence; we demonstrate this heuristic using ResNet architectures on CIFAR.}
+      \field{booktitle}{Proceedings of the 34th {{International Conference}} on {{Neural Information Processing Systems}}}
+      \field{day}{6}
+      \field{isbn}{978-1-71382-954-6}
+      \field{month}{12}
+      \field{series}{{{NIPS}}'20}
+      \field{title}{On the Almost Sure Convergence of Stochastic Gradient Descent in Non-Convex Problems}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{pages}{1117\bibrangedash 1128}
+      \range{pages}{12}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/AYGGK6N8/Mertikopoulos et al_2020_On the almost sure convergence of stochastic gradient descent in non-convex.pdf
+      \endverb
+      \keyw{SGD,theory toread}
+    \endentry
+    \entry{moulinesNonAsymptoticAnalysisStochastic2011}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=32b961a3e53c735ea5488bf0af14a6da}{%
+           family={Moulines},
+           familyi={M\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+        {{hash=93da2819ab01d8a5e7bae39ce6f17c1f}{%
+           family={Bach},
+           familyi={B\bibinitperiod},
+           given={Francis},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{dfeaf744671e3d194e882f09b3f03467}
+      \strng{fullhash}{dfeaf744671e3d194e882f09b3f03467}
+      \strng{bibnamehash}{dfeaf744671e3d194e882f09b3f03467}
+      \strng{authorbibnamehash}{dfeaf744671e3d194e882f09b3f03467}
+      \strng{authornamehash}{dfeaf744671e3d194e882f09b3f03467}
+      \strng{authorfullhash}{dfeaf744671e3d194e882f09b3f03467}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We consider the minimization of a convex objective function defined on a Hilbert space, which is only available through unbiased estimates of its gradients. This problem includes standard machine learning algorithms such as kernel logistic regression and least-squares regression, and is commonly referred to as a stochastic approximation problem in the operations research community. We provide a non-asymptotic analysis of the convergence of two well-known algorithms, stochastic gradient descent (a.k.a.\textasciitilde Robbins-Monro algorithm) as well as a simple modification where iterates are averaged (a.k.a.\textasciitilde Polyak-Ruppert averaging). Our analysis suggests that a learning rate proportional to the inverse of the number of iterations, while leading to the optimal convergence rate in the strongly convex case, is not robust to the lack of strong convexity or the setting of the proportionality constant. This situation is remedied when using slower decays together with averaging, robustly leading to the optimal rate of convergence. We illustrate our theoretical results with simulations on synthetic and standard datasets.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{title}{Non-{{Asymptotic Analysis}} of {{Stochastic Approximation Algorithms}} for {{Machine Learning}}}
+      \field{urlday}{28}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{24}
+      \field{year}{2011}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/DYU79DLD/Moulines_Bach_2011_Non-Asymptotic Analysis of Stochastic Approximation Algorithms for Machine.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://papers.nips.cc/paper/2011/hash/40008b9a5380fcacce3976bf7c08af5b-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://papers.nips.cc/paper/2011/hash/40008b9a5380fcacce3976bf7c08af5b-Abstract.html
+      \endverb
+      \keyw{convergence,theory}
     \endentry
     \entry{nesterovLecturesConvexOptimization2018}{book}{}
       \name{author}{1}{}{%
@@ -2138,6 +2350,64 @@
       \verb https://link.aps.org/doi/10.1103/PhysRev.36.823
       \endverb
       \keyw{SDE,thesis}
+    \endentry
+    \entry{vaswaniFastFasterConvergence2019}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=646217040d4cc6dff6965ac1b2b22ccf}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Sharan},
+           giveni={S\bibinitperiod}}}%
+        {{hash=93da2819ab01d8a5e7bae39ce6f17c1f}{%
+           family={Bach},
+           familyi={B\bibinitperiod},
+           given={Francis},
+           giveni={F\bibinitperiod}}}%
+        {{hash=6ec4971d3a33801f19547675e0e66e5e}{%
+           family={Schmidt},
+           familyi={S\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{a482dbb7c8a6ea24bd95fac7340d44d2}
+      \strng{fullhash}{a482dbb7c8a6ea24bd95fac7340d44d2}
+      \strng{bibnamehash}{a482dbb7c8a6ea24bd95fac7340d44d2}
+      \strng{authorbibnamehash}{a482dbb7c8a6ea24bd95fac7340d44d2}
+      \strng{authornamehash}{a482dbb7c8a6ea24bd95fac7340d44d2}
+      \strng{authorfullhash}{a482dbb7c8a6ea24bd95fac7340d44d2}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Modern machine learning focuses on highly expressive models that are able to fit or interpolate the data completely, resulting in zero training loss. For such models, we show that the stochastic gradients of common loss functions satisfy a strong growth condition. Under this condition, we prove that constant step-size stochastic gradient descent (SGD) with Nesterov acceleration matches the convergence rate of the deterministic accelerated method for both convex and strongly-convex functions. We also show that this condition implies that SGD can find a first-order stationary point as efficiently as full gradient descent in non-convex settings. Under interpolation, we further show that all smooth loss functions with a finite-sum structure satisfy a weaker growth condition. Given this weaker condition, we prove that SGD with a constant step-size attains the deterministic convergence rate in both the strongly-convex and convex settings. Under additional assumptions, the above results enable us to prove an O(1/k2)O(1/k2)O(1/k\^2) mistake bound for kkk iterations of a stochastic perceptron algorithm using the squared-hinge loss. Finally, we validate our theoretical findings with experiments on synthetic and real datasets.}
+      \field{booktitle}{Proceedings of the {{Twenty-Second International Conference}} on {{Artificial Intelligence}} and {{Statistics}}}
+      \field{day}{11}
+      \field{eventtitle}{The 22nd {{International Conference}} on {{Artificial Intelligence}} and {{Statistics}}}
+      \field{issn}{2640-3498}
+      \field{langid}{english}
+      \field{month}{4}
+      \field{title}{Fast and {{Faster Convergence}} of {{SGD}} for {{Over-Parameterized Models}} and an {{Accelerated Perceptron}}}
+      \field{urlday}{7}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1195\bibrangedash 1204}
+      \range{pages}{10}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/A3MP9FRI/Vaswani et al_2019_Fast and Faster Convergence of SGD for Over-Parameterized Models and an.pdf;/home/jonathan/Zotero/storage/TAFFELXT/Vaswani et al. - 2019 - Fast and Faster Convergence of SGD for Over-Parame.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v89/vaswani19a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v89/vaswani19a.html
+      \endverb
+      \keyw{SGD,thesis,toread}
     \endentry
     \entry{wilsonMarginalValueAdaptive2017}{inproceedings}{}
       \name{author}{5}{}{%

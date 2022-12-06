@@ -8,21 +8,21 @@
 \contentsline {subsection}{\numberline {3.4}Iterative methods}{12}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Convergence analysis}{15}{subsection.3.5}%
 \contentsline {subsubsection}{\numberline {3.5.1}Convergence assumptions}{16}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Convergence results}{18}{subsubsection.3.5.2}%
+\contentsline {subsubsection}{\numberline {3.5.2}Convergence results}{19}{subsubsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.6}Summary}{22}{subsection.3.6}%
 \contentsline {section}{\numberline {4}Stochastic differential equations}{22}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Ordinary differential equations}{22}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Itô Integral}{23}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Existence and uniqueness}{25}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Numerical approxmations}{26}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Stochastic modified differential equations}{27}{section.5}%
+\contentsline {subsection}{\numberline {4.4}Numerical approxmations}{27}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Stochastic modified differential equations}{28}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Gradient descent}{28}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Stochastic gradient descent}{34}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}Stochastic gradient descent}{35}{subsection.5.2}%
 \contentsline {section}{\numberline {6}Stochastic modified equations in deep learning}{47}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Dense neural networks}{47}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Activation functions}{48}{subsection.6.2}%
 \contentsline {section}{\numberline {7}Applications}{48}{section.7}%
 \contentsline {section}{\numberline {8}Conclusion}{48}{section.8}%
-\contentsline {section}{\numberline {A}Inequalities}{51}{appendix.A}%
-\contentsline {section}{\numberline {B}Convergence theorems}{52}{appendix.B}%
-\contentsline {section}{\numberline {C}Auxiliary results}{52}{appendix.C}%
+\contentsline {section}{\numberline {A}Inequalities}{52}{appendix.A}%
+\contentsline {section}{\numberline {B}Convergence theorems}{53}{appendix.B}%
+\contentsline {section}{\numberline {C}Auxiliary results}{53}{appendix.C}%
