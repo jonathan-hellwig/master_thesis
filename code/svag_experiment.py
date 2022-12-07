@@ -81,7 +81,7 @@ def svag_update(x, H, gamma, learning_rate, scaling_factor):
     gradient = jax.grad(sampled_loss)
     first_gradient = gradient(x, gamma[0], H)
     second_gradient = gradient(x, gamma[1], H)
-    updated_x = x - learning_rate / scaling_factor * \
+    updated_x = x - learning_rate * \
         ((1 + jnp.sqrt(2*scaling_factor - 1))/2 * first_gradient +
          (1 - jnp.sqrt(2*scaling_factor - 1))/2 * second_gradient)
     value = 0.5 * updated_x.T @ H @ updated_x
@@ -97,8 +97,9 @@ if __name__ == "__main__":
     config.initial_value_noise_scaling = 5.0
     config.final_time = 2.0
     config.number_of_samples = 100000
-    config.learning_rate = 0.01
-    config.scaling_factors = 2.0 ** jnp.arange(1, 8, 1)
+    config.learning_rate = 0.1
+    config.scaling_factors = 2.0 ** jnp.arange(0, 7, 1)
+    effective_learning_rates = config.learning_rate / config.scaling_factors
 
     key = random.PRNGKey(config.seed)
     H = jnp.identity(config.dimension)
@@ -106,8 +107,8 @@ if __name__ == "__main__":
     x_0 = config.initial_value_noise_scaling * random.normal(subkey,
                                                              (config.dimension,))
     sampled_values = [[] for _ in range(len(config.scaling_factors))]
-    for index, scaling_factor in enumerate(config.scaling_factors):
-        max_iterations = int(config.final_time / config.learning_rate)
+    for index, (effective_learning_rate, scaling_factor) in enumerate(zip(effective_learning_rates, config.scaling_factors)):
+        max_iterations = int(config.final_time / effective_learning_rate)
         x = jnp.tile(x_0, (config.number_of_samples, 1))
         for _ in tqdm(range(max_iterations)):
             key, subkey = random.split(key)
@@ -115,25 +116,25 @@ if __name__ == "__main__":
                 subkey, (config.number_of_samples, 2, config.dimension))
 
             value, x = svag_update(
-                x, H, normal_noise, config.learning_rate, scaling_factor)
+                x, H, normal_noise, effective_learning_rate, scaling_factor)
             sampled_values[index].append(jnp.average(value))
     sampled_values = [jnp.array(sampled_value)
                       for sampled_value in sampled_values]
-    first_order_error = calculate_scaling_factor_error(
-        config.learning_rate, sampled_values, expected_first_order_loss, x_0, H, config.final_time)
-    second_order_error = calculate_scaling_factor_error(
-        config.learning_rate, sampled_values, expected_second_order_loss, x_0, H, config.final_time)
+    first_order_error = calculate_error(
+        effective_learning_rates, sampled_values, expected_first_order_loss, x_0, H, config.final_time)
+    second_order_error = calculate_error(
+        effective_learning_rates, sampled_values, expected_second_order_loss, x_0, H, config.final_time)
 
     plt.figure(0)
-    for i, _ in enumerate(config.scaling_factors):
+    for i, effective_learning_rate in enumerate(effective_learning_rates):
         values = jnp.insert(sampled_values[i], 0, 0.5 * x_0.T @ H @ x_0)
-        plt.plot(values, label=f"scaling={config.scaling_factors[i]}")
-        time = jnp.arange(0.0, config.final_time + config.learning_rate,
-                          config.learning_rate)
+        plt.plot(values, "*", label=f"scaling={config.scaling_factors[i]}")
+        time = jnp.arange(0.0, config.final_time + effective_learning_rate,
+                          effective_learning_rate)
         expected_first_order_loss_value = expected_first_order_loss(
-            time, x_0, H, config.learning_rate)
-    plt.plot(expected_first_order_loss_value,
-             label=f"expected")
+            time, x_0, H, effective_learning_rate)
+        plt.plot(expected_first_order_loss_value,
+                 label=f"expected")
     plt.xlabel('time')
     plt.ylabel('loss value')
     plt.legend()
@@ -159,10 +160,7 @@ if __name__ == "__main__":
     plt.plot(t, y, '-', label='first order')
     y = jnp.exp(second_order_coefficients[1]) * t**second_order_coefficients[0]
     plt.plot(t, y, '-', label='second order')
-    plt.gca().invert_xaxis()
-    plt.yscale('log')
-    plt.xscale('log')
-    plt.xlabel('learning rate')
+    plt.xlabel('scaling factor')
     plt.ylabel('max error')
     plt.legend()
     plt.show()
