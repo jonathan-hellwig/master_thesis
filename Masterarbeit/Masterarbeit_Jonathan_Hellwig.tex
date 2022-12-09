@@ -13,6 +13,7 @@
 % hilfreiche Pakete der AMS (American Mathematical Society) laden
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{bbm}
 \usepackage{amsbsy}
 \usepackage{aliascnt}
 % Sätze, Lemmata, ..
@@ -1299,7 +1300,7 @@ By comparing the coefficients of the first and second powers of the iterative sc
 Solving for $b_0$ and $b_1$ yields $b_0(w) = -\nabla f(w), \; b_1 = - \frac{1}{2}\nabla^2f(w)\nabla f(w) = -\frac{1}{4}\nabla\norm{\nabla f(w)}^2$. Therefore, the second order modified differential equation for gradient flow is given by
 \begin{equation}
   \label{eq:second_order_ode}
-  w'(t) = -\nabla(f(w) + \frac{\eta}{4}\norm{\nabla f(w)}^2),\quad w(0) = w_0.
+  w'(t) = -\nabla\left(f(w) + \frac{\eta}{4}\norm{\nabla f(w)}^2\right),\quad w(0) = w_0.
 \end{equation}
 We see that GD with a fixed finite learning rate leads to a gradient flow for the loss function $\widetilde{f}(w) = f(w) + \frac{\eta}{4}\norm{\nabla f(w)}^2$. Barret et al. characterize the norm term As an implicit regularization to the gradients of the loss function \cite{barrettImplicitGradientRegularization2021}.
 \begin{definition}[Positive definite, negative definite]
@@ -1412,6 +1413,7 @@ We see that GD with a fixed finite learning rate leads to a gradient flow for th
   \end{figure}
 \end{example}
 \subsection{Stochastic gradient descent}
+\label{sec:smde_sgd}
 Now, similar to the modified equations for GD we derive stochastic modified equations for SGD. 
 Recall from \autoref{sec:Optimization} that the iterates are given by
 \begin{equation*}
@@ -1669,6 +1671,7 @@ We introduce two lemmas to characterize the moments of the one-step error for bo
   \end{equation}
   with $W_0 = w_0$. Then, $\{W_t:t\in [0,T] \}$ is an order-2 weak approximation of SGD, i.e. for each $g \in G^3$, there exists a constant $C > 0$ independent of $\eta$ such that
   \begin{equation}
+    \label{eq:second_order_convergence}
     \max_{k=0,\dots,N} \norm{\ev{g(w_k)} - \ev{g(W_{k\eta})}} \leq C \eta^2.
   \end{equation}
 \end{theorem}
@@ -1772,11 +1775,13 @@ We introduce two lemmas to characterize the moments of the one-step error for bo
   \end{equation}
   with $W_0 = w_0$. Then, $\{W_t:t\in [0,T] \}$ is an order-1 weak approximation of SGD, i.e. for each $g \in G^3$, there exists a constant $C > 0$ independent of $\eta$ such that
   \begin{equation}
+    \label{eq:first_order_convergence}
     \max_{k=0,\dots,N} |\ev{g(w_k)} - \ev{g(W_{k\eta})}| \leq C \eta.
   \end{equation}
 \end{corollary}
 Now, we want to consider an example where the analytical solution to the order-1 and order-2 is known.
 \begin{example}[\autocite{liStochasticModifiedEquations2019}]
+  \label{ex:quadratic_smde}
   Let $H \in \mathbb{R}^{d\times d}$ be a symmetric, positive matrix. Define the sample objective 
 \begin{equation*}
   f_{\gamma}(w) = \frac{1}{2} (w - \gamma)^T H (w - \gamma) - \frac{1}{2} \text{Tr}(H)
@@ -1866,30 +1871,7 @@ To confirm \autoref{cor:first_order} we look at the maximum absolute difference 
 %   f^l_{i,j}(x) = \frac{1+\sqrt{2l - 1}}{2}f_i(x) + \frac{1-\sqrt{2l - 1}}{2}f_j(x)
 % \end{equation}
 % for independently sampled $i,j$.
-\begin{definition}[Stochastic variance amplified gradient, \cite{liValidityModelingSGD2021}]
-  Let $f, f_{\gamma} : \R^d \rightarrow \R$ be a continuously differentiable functions with $\ev{f_{\gamma}} \equiv f$. Further, let $\{(\gamma_{k,1}, \gamma_{k,2})\}_{k=1}^N$ be a sequence of i.i.d. random variables and define the function $f^l_{\bar{\gamma}} : \R^d \rightarrow \R$ with
-  \begin{equation*}
-    f^l_{\bar{\gamma}}(w) =  \frac{1+\sqrt{2l - 1}}{2}f_{\gamma_{k,1}}(w) + \frac{1-\sqrt{2l - 1}}{2}f_{\gamma_{k,2}}(w)
-  \end{equation*}
-  for $w \in \R^d$.
-    For a given $w_{0} \in \R^d$ the iterates defined by the recursive relation
-  \begin{equation*}
-    w_{k+1} = w_{k} - \eta f_{\bar{\gamma}}(w_{k})
-  \end{equation*}
-  are called \emph{stochastic variance amplified gradient} (SVAG) iterates.
-\end{definition}
-\begin{theorem}[\cite{liValidityModelingSGD2021}]
-  Suppose the following conditions are met:
-  \begin{enumerate}[label=(\roman*)]
-    \item $f \equiv \ev{f_{\gamma}}$ is $C^{\infty}$-smooth, and $f \in G^4$.
-    \item $\norm{\nabla f_{\gamma}(x) - \nabla f_{\gamma}(y)} \leq L_{\gamma} \norm{x - y}$, for all $x, y \in \R^d$, where $L_{\gamma}$ is a random variable with finite moments, i.e. $\ev{L_{\gamma}^k}$ is bounded for $k \in \N$.
-    \item $\Sigma^{\frac{1}{2}}(x)$ is $C^{\infty}$-smooth.
-  \end{enumerate}
-  Let $T > 0$ be a constant and $l$ be the SVAG hyperparameter. Define $\{W_t : t \in [0,T] \}$ as the stochastic process satisfying equation \eqref{eq:first_order_sde} and $\{w_k^{\eta/l}: 1 \leq k \leq \left\lfloor Tl/\eta \right\rfloor \}$ as the trajectory of SVAG where $w_0 = W_0$. Then SVAG $\{w_k^{\eta/l}\}$ is an order-1 approximation of the SDE solution $\{W_t\}_{t \in [0,T]}$, i.e. for each $g \in G^4$, there exists a constant $C > 0$ independent of $l$ such that
-  \begin{equation*}
-    \max_{k=0,\dots, \lfloor \frac{lT}{\eta} \rfloor} \left\lvert \ev{g(w^{\eta/l}_k)} - \ev{g(W_{\frac{k\eta}{l}})} \right\rvert \leq C l^{-1}.
-  \end{equation*}
-\end{theorem}
+
 \section{Stochastic modified equations in deep learning}
 \label{sec:smdedl}
 In this section, we apply stochastic modified equations in the context of deep learning model. First, we define dense neural networks and detail the components of more advanced models like ResNet. Secondly, we discuss simulating the solution of the SDE model and introduce an efficient algorithm. Lastly, we investiagte whether the SDE model holds empirically.
@@ -1915,9 +1897,83 @@ The activation functions play an important role in the expressivity of neural ne
   \item \emph{Rectified linear unit}: $\ReLU : \R \rightarrow [0,\infty), \quad \ReLU(x) = \max\{x,0\}$
 \end{enumerate}
 % Dense neural network 
-Notice that while 
+
+\subsection{Simulating stochsatic modified equations}
+In \autoref{sec:sde_model}, we showed theoretical results that provide approximation results for SGD by SMDE. 
+In \autoref{ex:quadratic_smde}, we saw that for a quadratic loss function we can derive an analytical solution to the SMDE and validated the order of convergence predicted by the theory.
+However, both \autoref{thm:second_order} and \autoref{cor:first_order} require $L$-smoothness. As we have seen in the discussion in the previous section, deep learning models do not fulfill the conditions imposed by the theory. Further, the constants in the approximation equations \eqref{eq:first_order_convergence} and \eqref{eq:second_order_convergence} are not known and might be large in practice. 
+Still, we want to investiage whether SMDE are a good model for deep learning objectives. To verify this we need an efficient algorithm to simulate the solutions to 
+\begin{equation}
+  d W_t = -\nabla f(W_t) dt + \sqrt{\eta}\Sigma(W_t)^{\frac{1}{2}}dB_t, \quad W_0 = w_0.
+\end{equation}
+The iterates of Euler-Maruyama scheme for this equation are given by 
+\begin{equation}
+  W_{k+1} = W_k + -\eta\nabla f(W_k) + \eta\Sigma(W_k)^{\frac{1}{2}} Z_k, \quad W_0 = w_0,
+\end{equation}
+where $Z_k \sim \CN(0, I_d)$.
+
+At this point, we make two observations. Deep learning objectives are of the form
+\begin{equation*}
+  f(w) = \sum_{i=1}^n f_i(w), \quad w \in \R^d
+\end{equation*}
+where $n \in \N$ is large. Therefore, calculating $\nabla f$ is computationally expensive. Further, the matrix
+\begin{equation*}
+  \Sigma(w)= \ev{(\nabla f_{\gamma}(w) - \nabla f(w))(\nabla f_{\gamma}(w) - \nabla f(w))^\T}
+\end{equation*}
+has $d^2$ entries. For large models computing the square root matrix $\Sigma(w)^{\frac{1}{2}}$ via a singular value decomposition at each iteration has a cost of $\CO(d^3)$ \cite{golubMatrixComputations1996}.
+Wu et al. \cite{wuNoisyGradientDescent2020a} address this problem by introducing multiplicative SGD which decoupeles the loss calculation from the sampling algorithm. This allows sampling $Z \sim \CN(0, \Sigma(w))$ without explicitly calculating $\Sigma(w)^{\frac{1}{2}}$.
+
+In the following we explain the procedure to generate these samples.
+Let $\pmb{f}(w) = (f_1(w), \dots, f_n(w))$ be a vector of the individual losses and let $\mathbbm{1} = (1, \dots, 1)^\T \in R^n$ denote a vector of ones. Further, let $\widetilde{S} : \Omega \rightarrow \R^n$ be a random variable  with $\widetilde{S} \sim \CN(0, \frac{1}{bn}(I_d - \frac{1}{n}\mathbbm{1}\mathbbm{1}^\T )(I_d - \frac{1}{n}\mathbbm{1}\mathbbm{1}^\T))^\T$. Then for $S = \frac{1}{n} = \mathbbm{1} + \widetilde{S}$ we have $Z = \nabla \pmb{f}(w)S \sim \CN(0, \Sigma(w))$.
+Note that the sampling of $S$ does not require knowledge of the covariance matrix $\Sigma(w)$ and its square root.
+
+Mulitiplicative SGD does not address the fact that at each iteration the full gradient has to be computed. Li et al. \cite{liValidityModelingSGD2021} propose an algorithm that amplifies the gradient noise for each iteration and converges to the SMDE equation. The key point is that each iteration only requires the gradient for two idependently sampled batches. 
+\begin{definition}[Stochastic variance amplified gradient, \cite{liValidityModelingSGD2021}]
+  Let $f, f_{\gamma} : \R^d \rightarrow \R$ be a continuously differentiable functions with $\ev{f_{\gamma}} \equiv f$. Further, let $\bar{\gamma}_k : \Omega \rightarrow \{1,\dots,n\}^2 $ with $\bar{\gamma}_k =(\gamma_{k,1}, \gamma_{k,2})$, $k=1,\dots,N$ be a sequence of i.i.d. random variables defined on a probability space $(\Omega, \CF, \BP)$. We call the function $f^l_{\bar{\gamma}} : \R^d \rightarrow \R$ with
+  \begin{equation*}
+    f^l_{\bar{\gamma}}(w) =  \frac{1+\sqrt{2l - 1}}{2}f_{\gamma_{1}}(w) + \frac{1-\sqrt{2l - 1}}{2}f_{\gamma_{2}}(w), \quad w \in \R^d
+  \end{equation*}
+  \emph{stochastic variance amplified gradient function}.
+    For a given $w_{0} \in \R^d$ the iterates defined by the recursive relation
+  \begin{equation*}
+    w_{k+1} = w_{k} - \eta f_{\bar{\gamma_k}}(w_{k})
+  \end{equation*}
+  are called \emph{stochastic variance amplified gradient} (SVAG) iterates.
+\end{definition}
+We see that for $w \in \R^d$ we have
+\begin{align*}
+  \ev{\nabla f^l_{\bar{\gamma}}(w)} &= \frac{1+\sqrt{2l - 1}}{2}\ev{\nabla f_{\gamma_{k,1}}(w)} + \frac{1-\sqrt{2l - 1}}{2}\ev{\nabla f_{\gamma_{k,2}}(w)} \\
+  &= \frac{1+\sqrt{2l - 1}}{2}\nabla f(w) + \frac{1-\sqrt{2l - 1}}{2} \nabla f(w) = \nabla f(w)
+\end{align*}
+and
+\begin{equation*}
+  \ev{\left(\nabla f^l_{\bar{\gamma}}(w) - \nabla f(w)\right)\left(\nabla f^l_{\bar{\gamma}}(w) - \nabla f(w)\right)^\T} = l\ev{\nabla f_{\gamma}(w)\nabla f_{\gamma}(w)^\T} - l \nabla f(w) \nabla f(w)^\T = l \Sigma(w).
+\end{equation*}
+We see that the gradients of the amplified function has the same expectation as a SGD iterate, but has a covarince matrix scaled by $l$.
+The following theorem builds on the theory introduced in \autoref{sec:sde_model} and shows that the SVAG iterates approximate the SMDE solution.
+\begin{theorem}[\cite{liValidityModelingSGD2021}]
+  \label{thm:svag}
+  Suppose the following conditions are met:
+  \begin{enumerate}[label=(\roman*)]
+    \item $f \equiv \ev{f_{\gamma}}$ is $C^{\infty}$-smooth, and $f \in G^4$.
+    \item $\norm{\nabla f_{\gamma}(x) - \nabla f_{\gamma}(y)} \leq L_{\gamma} \norm{x - y}$, for all $x, y \in \R^d$, where $L_{\gamma}$ is a random variable with finite moments, i.e. $\ev{L_{\gamma}^k}$ is bounded for $k \in \N$.
+    \item $\Sigma^{\frac{1}{2}}(x)$ is $C^{\infty}$-smooth.
+  \end{enumerate}
+  Let $T > 0$ be a constant and $l$ be the SVAG hyperparameter. Define $\{W_t : t \in [0,T] \}$ as the stochastic process satisfying equation \eqref{eq:first_order_sde} and $\{w_k^{\eta/l}: 1 \leq k \leq \left\lfloor Tl/\eta \right\rfloor \}$ as the trajectory of SVAG where $w_0 = W_0$. Then SVAG $\{w_k^{\eta/l}\}$ is an order-1 approximation of the SDE solution $\{W_t\}_{t \in [0,T]}$, i.e. for each $g \in G^4$, there exists a constant $C > 0$ independent of $l$ such that
+  \begin{equation*}
+    \max_{k=0,\dots, \lfloor \frac{lT}{\eta} \rfloor} \left\lvert \ev{g(w^{\eta/l}_k)} - \ev{g(W_{\frac{k\eta}{l}})} \right\rvert \leq C l^{-1}.
+  \end{equation*}
+\end{theorem}
+\begin{proof}
+  The proof can be found in \cite{liValidityModelingSGD2021}.
+\end{proof}
+% Notice that the conditions of \autoref{thm:svag} are 
+\subsection{Limitations}
+\subsection{Experiments}
 \section{Applications}
 \label{sec:applications}
+
+
 \section{Conclusion}
 
 \nomenclature{\(\nabla f\)}{Gradient of a function $f$}

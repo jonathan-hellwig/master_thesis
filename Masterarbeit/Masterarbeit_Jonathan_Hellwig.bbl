@@ -872,6 +872,54 @@
       \verb https://proceedings.mlr.press/v9/glorot10a.html
       \endverb
     \endentry
+    \entry{golubMatrixComputations1996}{book}{}
+      \name{author}{4}{}{%
+        {{hash=8b856da92ad549d323acc679ecf7f474}{%
+           family={Golub},
+           familyi={G\bibinitperiod},
+           given={Gene\bibnamedelima H.},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=995bdd2b0481ec3adaa65f41e5c1c178}{%
+           family={Loan},
+           familyi={L\bibinitperiod},
+           given={Charles\bibnamedelimb F.\bibnamedelimi Van},
+           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=995bdd2b0481ec3adaa65f41e5c1c178}{%
+           family={Loan},
+           familyi={L\bibinitperiod},
+           given={Charles\bibnamedelimb F.\bibnamedelimi Van},
+           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=b86215348f670f7f3d20f9fd6201a6ef}{%
+           family={Golub},
+           familyi={G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {JHU Press}%
+      }
+      \strng{namehash}{247df6f2fb744ac1cb1581328797793d}
+      \strng{fullhash}{b0c90f16eec28046c4f71362a101fda9}
+      \strng{bibnamehash}{247df6f2fb744ac1cb1581328797793d}
+      \strng{authorbibnamehash}{247df6f2fb744ac1cb1581328797793d}
+      \strng{authornamehash}{247df6f2fb744ac1cb1581328797793d}
+      \strng{authorfullhash}{b0c90f16eec28046c4f71362a101fda9}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Revised and updated, the third edition of Golub and Van Loan's classic text in computer science provides essential information about the mathematical background and algorithmic skills required for the production of numerical software. This new edition includes thoroughly revised chapters on matrix multiplication problems and parallel matrix computations, expanded treatment of CS decomposition, an updated overview of floating point arithmetic, a more accurate rendition of the modified Gram-Schmidt process, and new material devoted to GMRES, QMR, and other methods designed to handle the sparse unsymmetric linear system problem.}
+      \field{day}{15}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-0-8018-5414-9}
+      \field{langid}{english}
+      \field{month}{10}
+      \field{pagetotal}{734}
+      \field{title}{Matrix {{Computations}}}
+      \field{year}{1996}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb mlOa7wPX6OYC
+      \endverb
+    \endentry
     \entry{gowerSGDGeneralAnalysis2019}{inproceedings}{}
       \name{author}{6}{}{%
         {{hash=b8950914a990e888e3eb856ff4edf20b}{%
@@ -2469,6 +2517,79 @@
       \verb{url}
       \verb https://papers.nips.cc/paper/2017/hash/81b3833e2504647f9d794f7d7b9bf341-Abstract.html
       \endverb
+    \endentry
+    \entry{wuNoisyGradientDescent2020a}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=6166115bb8f4a183b188233842f6f847}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Jingfeng},
+           giveni={J\bibinitperiod}}}%
+        {{hash=24fccdb9bacd2b852020221a826749dd}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Wenqing},
+           giveni={W\bibinitperiod}}}%
+        {{hash=2b71d189d83f45e52c8033c76eb73944}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Haoyi},
+           giveni={H\bibinitperiod}}}%
+        {{hash=fd9aad5dcf51df34952ee1b6522d78bb}{%
+           family={Huan},
+           familyi={H\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a6f2250f89f06102073dc35893d23303}{%
+           family={Braverman},
+           familyi={B\bibinitperiod},
+           given={Vladimir},
+           giveni={V\bibinitperiod}}}%
+        {{hash=7ca1785e29d89d5e12c4af422138f7c9}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Zhanxing},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{e78b8cb5b7c0aae61aa3e7955c5cbf69}
+      \strng{fullhash}{74dfc9da59f52bdf10e526085712f78e}
+      \strng{bibnamehash}{e78b8cb5b7c0aae61aa3e7955c5cbf69}
+      \strng{authorbibnamehash}{e78b8cb5b7c0aae61aa3e7955c5cbf69}
+      \strng{authornamehash}{e78b8cb5b7c0aae61aa3e7955c5cbf69}
+      \strng{authorfullhash}{74dfc9da59f52bdf10e526085712f78e}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The gradient noise of SGD is considered to play a central role in the observed strong generalization abilities of deep learning. While past studies confirm that the magnitude and the covariance structure of gradient noise are critical for regularization, it remains unclear whether or not the class of noise distributions is important. In this work we provide negative results by showing that noises in classes different from the SGD noise can also effectively regularize gradient descent. Our finding is based on a novel observation on the structure of the SGD noise: it is the multiplication of the gradient matrix and a sampling noise that arises from the mini-batch sampling procedure. Moreover, the sampling noises unify two kinds of gradient regularizing noises that belong to the Gaussian class: the one using (scaled) Fisher as covariance and the one using the gradient covariance of SGD as covariance. Finally, thanks to the flexibility of choosing noise class, an algorithm is proposed to perform noisy gradient descent that generalizes well, the variant of which even benefits large batch SGD training without hurting generalization.}
+      \field{booktitle}{Proceedings of the 37th {{International Conference}} on {{Machine Learning}}}
+      \field{day}{21}
+      \field{eventtitle}{International {{Conference}} on {{Machine Learning}}}
+      \field{issn}{2640-3498}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{title}{On the {{Noisy Gradient Descent}} That {{Generalizes}} as {{SGD}}}
+      \field{urlday}{8}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{10367\bibrangedash 10376}
+      \range{pages}{10}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/7CY9GY27/Wu et al. - 2020 - On the Noisy Gradient Descent that Generalizes as .pdf;/home/jonathan/Zotero/storage/Y48DCEGJ/Wu et al. - 2020 - On the Noisy Gradient Descent that Generalizes as .pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v119/wu20c.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v119/wu20c.html
+      \endverb
+      \keyw{noise,sgd}
     \endentry
     \entry{zhouStochasticMirrorDescent2017}{inproceedings}{}
       \name{author}{5}{}{%

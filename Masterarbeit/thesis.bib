@@ -337,6 +337,36 @@
   file = {/home/jonathan/Zotero/storage/587IPNDT/Glorot_Bengio_2010_Understanding the difficulty of training deep feedforward neural networks.pdf}
 }
 
+@book{golubMatrixComputations1996,
+  title = {Matrix {{Computations}}},
+  author = {Golub, Gene H. and Loan, Charles F. Van and Loan, Charles F. Van and Golub},
+  date = {1996-10-15},
+  eprint = {mlOa7wPX6OYC},
+  eprinttype = {googlebooks},
+  publisher = {{JHU Press}},
+  abstract = {Revised and updated, the third edition of Golub and Van Loan's classic text in computer science provides essential information about the mathematical background and algorithmic skills required for the production of numerical software. This new edition includes thoroughly revised chapters on matrix multiplication problems and parallel matrix computations, expanded treatment of CS decomposition, an updated overview of floating point arithmetic, a more accurate rendition of the modified Gram-Schmidt process, and new material devoted to GMRES, QMR, and other methods designed to handle the sparse unsymmetric linear system problem.},
+  isbn = {978-0-8018-5414-9},
+  langid = {english},
+  pagetotal = {734}
+}
+
+@misc{goukRegularisationNeuralNetworks2020,
+  title = {Regularisation of {{Neural Networks}} by {{Enforcing Lipschitz Continuity}}},
+  author = {Gouk, Henry and Frank, Eibe and Pfahringer, Bernhard and Cree, Michael J.},
+  date = {2020-08-09},
+  number = {arXiv:1804.04368},
+  eprint = {1804.04368},
+  eprinttype = {arxiv},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1804.04368},
+  url = {http://arxiv.org/abs/1804.04368},
+  urldate = {2022-12-08},
+  abstract = {We investigate the effect of explicitly enforcing the Lipschitz continuity of neural networks with respect to their inputs. To this end, we provide a simple technique for computing an upper bound to the Lipschitz constant---for multiple \$p\$-norms---of a feed forward neural network composed of commonly used layer types. Our technique is then used to formulate training a neural network with a bounded Lipschitz constant as a constrained optimisation problem that can be solved using projected stochastic gradient methods. Our evaluation study shows that the performance of the resulting models exceeds that of models trained with other common regularisers. We also provide evidence that the hyperparameters are intuitive to tune, demonstrate how the choice of norm for computing the Lipschitz constant impacts the resulting model, and show that the performance gains provided by our method are particularly noticeable when only a small amount of training data is available.},
+  archiveprefix = {arXiv},
+  file = {/home/jonathan/Zotero/storage/KHNXHGPL/Gouk et al_2020_Regularisation of Neural Networks by Enforcing Lipschitz Continuity.pdf;/home/jonathan/Zotero/storage/WCLWMRSD/1804.html}
+}
+
 @article{gowerConvergenceTheoremsGradient,
   title = {Convergence {{Theorems}} for {{Gradient Descent}}},
   author = {Gower, Robert M.},
@@ -836,6 +866,24 @@
   file = {/home/jonathan/Zotero/storage/GCXJGM5T/Malladi et al_2022_On the SDEs and Scaling Rules for Adaptive Gradient Algorithms.pdf;/home/jonathan/Zotero/storage/GYB85S2E/2205.html}
 }
 
+@misc{malladiSDEsScalingRules2022b,
+  title = {On the {{SDEs}} and {{Scaling Rules}} for {{Adaptive Gradient Algorithms}}},
+  author = {Malladi, Sadhika and Lyu, Kaifeng and Panigrahi, Abhishek and Arora, Sanjeev},
+  date = {2022-05-20},
+  number = {arXiv:2205.10287},
+  eprint = {2205.10287},
+  eprinttype = {arxiv},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2205.10287},
+  url = {http://arxiv.org/abs/2205.10287},
+  urldate = {2022-12-08},
+  abstract = {Approximating Stochastic Gradient Descent (SGD) as a Stochastic Differential Equation (SDE) has allowed researchers to enjoy the benefits of studying a continuous optimization trajectory while carefully preserving the stochasticity of SGD. Analogous study of adaptive gradient methods, such as RMSprop and Adam, has been challenging because there were no rigorously proven SDE approximations for these methods. This paper derives the SDE approximations for RMSprop and Adam, giving theoretical guarantees of their correctness as well as experimental validation of their applicability to common large-scaling vision and language settings. A key practical result is the derivation of a \$\textbackslash textit\{square root scaling rule\}\$ to adjust the optimization hyperparameters of RMSprop and Adam when changing batch size, and its empirical validation in deep learning settings.},
+  archiveprefix = {arXiv},
+  keywords = {application},
+  file = {/home/jonathan/Zotero/storage/5SURDANW/Malladi et al_2022_On the SDEs and Scaling Rules for Adaptive Gradient Algorithms.pdf;/home/jonathan/Zotero/storage/59MIGC23/2205.html}
+}
+
 @inproceedings{maPowerInterpolationUnderstanding2018,
   title = {The {{Power}} of {{Interpolation}}: {{Understanding}} the {{Effectiveness}} of {{SGD}} in {{Modern Over-parametrized Learning}}},
   shorttitle = {The {{Power}} of {{Interpolation}}},
@@ -852,6 +900,23 @@
   langid = {english},
   keywords = {SGD,thesis,toread},
   file = {/home/jonathan/Zotero/storage/P7GFI2LM/Ma et al_2018_The Power of Interpolation.pdf}
+}
+
+@inproceedings{maQualitativeStudyDynamic2022a,
+  title = {A {{Qualitative Study}} of the {{Dynamic Behavior}} for {{Adaptive Gradient Algorithms}}},
+  booktitle = {Proceedings of the 2nd {{Mathematical}} and {{Scientific Machine Learning Conference}}},
+  author = {Ma, Chao and Wu, Lei and E, Weinan},
+  date = {2022-04-30},
+  pages = {671--692},
+  publisher = {{PMLR}},
+  issn = {2640-3498},
+  url = {https://proceedings.mlr.press/v145/ma22a.html},
+  urldate = {2022-12-08},
+  abstract = {The dynamic behavior of RMSprop and Adam algorithms is studied through a combination of careful numerical experiments and theoretical explanations. Three types of qualitative features are observed in the training loss curve: fast initial convergence, oscillations, and large spikes in the late phase. The sign gradient descent (signGD) flow, which is the limit of Adam when taking the learning rate to 0 while keeping the momentum parameters fixed, is used to explain the fast initial convergence. For the late phase of Adam, three different types of qualitative patterns are observed depending on the choice of the hyper-parameters: oscillations, spikes, and divergence. In particular, Adam converges much smoother and even faster when the values of the two momentum factors are close to each other. This observation is particularly important for scientific computing tasks, for which the training process usually proceeds into the high precision regime.},
+  eventtitle = {Mathematical and {{Scientific Machine Learning}}},
+  langid = {english},
+  keywords = {application},
+  file = {/home/jonathan/Zotero/storage/CCXD2M3Z/Ma et al_2022_A Qualitative Study of the Dynamic Behavior for Adaptive Gradient Algorithms.pdf}
 }
 
 @inproceedings{matthewsGaussianProcessBehaviour2022,
@@ -1355,6 +1420,23 @@
   file = {/home/jonathan/Zotero/storage/5ATMKEPS/Wu et al. - 2020 - On the Noisy Gradient Descent that Generalizes as .pdf;/home/jonathan/Zotero/storage/G9K3M5XG/1906.html}
 }
 
+@inproceedings{wuNoisyGradientDescent2020a,
+  title = {On the {{Noisy Gradient Descent}} That {{Generalizes}} as {{SGD}}},
+  booktitle = {Proceedings of the 37th {{International Conference}} on {{Machine Learning}}},
+  author = {Wu, Jingfeng and Hu, Wenqing and Xiong, Haoyi and Huan, Jun and Braverman, Vladimir and Zhu, Zhanxing},
+  date = {2020-11-21},
+  pages = {10367--10376},
+  publisher = {{PMLR}},
+  issn = {2640-3498},
+  url = {https://proceedings.mlr.press/v119/wu20c.html},
+  urldate = {2022-12-08},
+  abstract = {The gradient noise of SGD is considered to play a central role in the observed strong generalization abilities of deep learning. While past studies confirm that the magnitude and the covariance structure of gradient noise are critical for regularization, it remains unclear whether or not the class of noise distributions is important. In this work we provide negative results by showing that noises in classes different from the SGD noise can also effectively regularize gradient descent. Our finding is based on a novel observation on the structure of the SGD noise: it is the multiplication of the gradient matrix and a sampling noise that arises from the mini-batch sampling procedure. Moreover, the sampling noises unify two kinds of gradient regularizing noises that belong to the Gaussian class: the one using (scaled) Fisher as covariance and the one using the gradient covariance of SGD as covariance. Finally, thanks to the flexibility of choosing noise class, an algorithm is proposed to perform noisy gradient descent that generalizes well, the variant of which even benefits large batch SGD training without hurting generalization.},
+  eventtitle = {International {{Conference}} on {{Machine Learning}}},
+  langid = {english},
+  keywords = {noise,sgd},
+  file = {/home/jonathan/Zotero/storage/7CY9GY27/Wu et al. - 2020 - On the Noisy Gradient Descent that Generalizes as .pdf;/home/jonathan/Zotero/storage/Y48DCEGJ/Wu et al. - 2020 - On the Noisy Gradient Descent that Generalizes as .pdf}
+}
+
 @misc{xieDiffusionTheoryDeep2021,
   title = {A {{Diffusion Theory For Deep Learning Dynamics}}: {{Stochastic Gradient Descent Exponentially Favors Flat Minima}}},
   shorttitle = {A {{Diffusion Theory For Deep Learning Dynamics}}},
@@ -1456,6 +1538,23 @@
   urldate = {2022-09-29},
   abstract = {In this paper, we examine a class of non-convex stochastic optimization problems which we call variationally coherent, and which properly includes pseudo-/quasiconvex and star-convex optimization problems. To solve such problems, we focus on the widely used stochastic mirror descent (SMD) family of algorithms (which contains stochastic gradient descent as a special case), and we show that the last iterate of SMD converges to the problem’s solution set with probability 1. This result contributes to the landscape of non-convex stochastic optimization by clarifying that neither pseudo-/quasi-convexity nor star-convexity is essential for (almost sure) global convergence; rather, variational coherence, a much weaker requirement, suffices. Characterization of convergence rates for the subclass of strongly variationally coherent optimization problems as well as simulation results are also presented.},
   file = {/home/jonathan/Zotero/storage/6CE883YF/Zhou et al_2017_Stochastic Mirror Descent in Variationally Coherent Optimization Problems.pdf}
+}
+
+@misc{zhouStochasticModifiedEquations2020,
+  title = {Stochastic {{Modified Equations}} for {{Continuous Limit}} of {{Stochastic ADMM}}},
+  author = {Zhou, Xiang and Yuan, Huizhuo and Li, Chris Junchi and Sun, Qingyun},
+  date = {2020-03-07},
+  number = {arXiv:2003.03532},
+  eprint = {2003.03532},
+  eprinttype = {arxiv},
+  primaryclass = {cs, math, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2003.03532},
+  url = {http://arxiv.org/abs/2003.03532},
+  urldate = {2022-12-08},
+  abstract = {Stochastic version of alternating direction method of multiplier (ADMM) and its variants (linearized ADMM, gradient-based ADMM) plays a key role for modern large scale machine learning problems. One example is the regularized empirical risk minimization problem. In this work, we put different variants of stochastic ADMM into a unified form, which includes standard, linearized and gradient-based ADMM with relaxation, and study their dynamics via a continuous-time model approach. We adapt the mathematical framework of stochastic modified equation (SME), and show that the dynamics of stochastic ADMM is approximated by a class of stochastic differential equations with small noise parameters in the sense of weak approximation. The continuous-time analysis would uncover important analytical insights into the behaviors of the discrete-time algorithm, which are non-trivial to gain otherwise. For example, we could characterize the fluctuation of the solution paths precisely, and decide optimal stopping time to minimize the variance of solution paths.},
+  archiveprefix = {arXiv},
+  file = {/home/jonathan/Zotero/storage/D9CT5QQ6/Zhou et al_2020_Stochastic Modified Equations for Continuous Limit of Stochastic ADMM.pdf;/home/jonathan/Zotero/storage/4WLEGQWK/2003.html}
 }
 
 @inproceedings{zhouTheoreticallyUnderstandingWhy2020,
