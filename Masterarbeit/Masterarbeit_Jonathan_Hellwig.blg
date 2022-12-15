@@ -1,15 +1,15 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'Masterarbeit_Jonathan_Hellwig.blg'
-[72] biber:340> INFO - === Fri Dec  9, 2022, 09:32:42
-[89] Biber.pm:418> INFO - Reading 'Masterarbeit_Jonathan_Hellwig.bcf'
-[179] Biber.pm:972> INFO - Found 43 citekeys in bib section 0
-[200] Biber.pm:4383> INFO - Processing section 0
-[212] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[231] bibtex.pm:1713> INFO - LaTeX decoding ...
-[447] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
-[980] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[980] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[980] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[980] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[1042] bbl.pm:654> INFO - Writing 'Masterarbeit_Jonathan_Hellwig.bbl' with encoding 'UTF-8'
-[1107] bbl.pm:757> INFO - Output to Masterarbeit_Jonathan_Hellwig.bbl
+[76] biber:340> INFO - === Fri Dec 16, 2022, 00:14:10
+[94] Biber.pm:418> INFO - Reading 'Masterarbeit_Jonathan_Hellwig.bcf'
+[199] Biber.pm:972> INFO - Found 53 citekeys in bib section 0
+[213] Biber.pm:4383> INFO - Processing section 0
+[225] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[246] bibtex.pm:1713> INFO - LaTeX decoding ...
+[445] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
+[957] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[957] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[957] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[957] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[1029] bbl.pm:654> INFO - Writing 'Masterarbeit_Jonathan_Hellwig.bbl' with encoding 'UTF-8'
+[1101] bbl.pm:757> INFO - Output to Masterarbeit_Jonathan_Hellwig.bbl

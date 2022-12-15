@@ -155,6 +155,38 @@
       \verb https://proceedings.mlr.press/v97/allen-zhu19a.html
       \endverb
     \endentry
+    \entry{baldiEquazioniDifferenzialiStocastiche2000}{book}{}
+      \name{author}{1}{}{%
+        {{hash=08959c59fed7c190b61be2ae8ceae42b}{%
+           family={Baldi},
+           familyi={B\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Pitagora}%
+      }
+      \strng{namehash}{08959c59fed7c190b61be2ae8ceae42b}
+      \strng{fullhash}{08959c59fed7c190b61be2ae8ceae42b}
+      \strng{bibnamehash}{08959c59fed7c190b61be2ae8ceae42b}
+      \strng{authorbibnamehash}{08959c59fed7c190b61be2ae8ceae42b}
+      \strng{authornamehash}{08959c59fed7c190b61be2ae8ceae42b}
+      \strng{authorfullhash}{08959c59fed7c190b61be2ae8ceae42b}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-88-371-1211-0}
+      \field{langid}{italian}
+      \field{pagetotal}{367}
+      \field{title}{Equazioni differenziali stocastiche e applicazioni}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb qkHMPQAACAAJ
+      \endverb
+    \endentry
     \entry{barrettImplicitGradientRegularization2021}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=a1b1f461686916d4b7095bdc0b046916}{%
@@ -507,6 +539,51 @@
       \endverb
       \keyw{motivation,thesis}
     \endentry
+    \entry{capassoIntroductionContinuousTimeStochastic2012}{book}{}
+      \name{author}{2}{}{%
+        {{hash=15740e5f3be20e560693ac922df86362}{%
+           family={Capasso},
+           familyi={C\bibinitperiod},
+           given={Vincenzo},
+           giveni={V\bibinitperiod}}}%
+        {{hash=3c41acbf0e43eb98cbde4903235fa1df}{%
+           family={Bakstein},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Science \& Business Media}%
+      }
+      \strng{namehash}{8d876c229334b25f6abeedd05c1f1d5a}
+      \strng{fullhash}{8d876c229334b25f6abeedd05c1f1d5a}
+      \strng{bibnamehash}{8d876c229334b25f6abeedd05c1f1d5a}
+      \strng{authorbibnamehash}{8d876c229334b25f6abeedd05c1f1d5a}
+      \strng{authornamehash}{8d876c229334b25f6abeedd05c1f1d5a}
+      \strng{authorfullhash}{8d876c229334b25f6abeedd05c1f1d5a}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Expanding on the first edition of An Introduction to Continuous-Time Stochastic Processes, this concisely written book is a rigorous and self-contained introduction to the theory of continuous-time stochastic processes. A balance of theory and applications, the work features concrete examples of modeling real-world problems from biology, medicine, industrial applications, finance, and insurance using stochastic methods. No previous knowledge of stochastic processes is required.}
+      \field{day}{27}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-0-8176-8346-7}
+      \field{langid}{english}
+      \field{month}{7}
+      \field{pagetotal}{438}
+      \field{shorttitle}{An {{Introduction}} to {{Continuous-Time Stochastic Processes}}}
+      \field{title}{An {{Introduction}} to {{Continuous-Time Stochastic Processes}}: {{Theory}}, {{Models}}, and {{Applications}} to {{Finance}}, {{Biology}}, and {{Medicine}}}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb h83lVwvgJnoC
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/UI9X2DBV/Capasso_Bakstein_2012_An Introduction to Continuous-Time Stochastic Processes.pdf
+      \endverb
+      \keyw{background,SDE,theory,thesis}
+    \endentry
     \entry{dengImageNetLargescaleHierarchical2009}{inproceedings}{}
       \name{author}{6}{}{%
         {{hash=0ae7fdc13773f928525f673b05f37149}{%
@@ -746,56 +823,63 @@
       \endverb
       \keyw{book,pde}
     \endentry
-    \entry{freidlinRandomPerturbationsDynamical1998}{book}{}
-      \name{author}{4}{}{%
-        {{hash=83fd6366b4bc2f77445fff5a26abccc3}{%
-           family={Freidlin},
+    \entry{fontaineConvergenceRatesApproximation2021}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=2b32bc5e6eb3d17e309b188a249f7fd4}{%
+           family={Fontaine},
            familyi={F\bibinitperiod},
-           given={Mark\bibnamedelima I.},
-           giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
-        {{hash=bec7e5d9fc4e1326faa89033ad297808}{%
-           family={Freĭdlin},
-           familyi={F\bibinitperiod},
-           given={Mark\bibnamedelima Iosifovich},
-           giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
-        {{hash=3ade2f3d731eec89410504a5e861f74e}{%
-           family={Ventcelʹ},
-           familyi={V\bibinitperiod},
-           given={Aleksandr\bibnamedelima D.},
-           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=9eb16a0050d91fcc10dfbb33924c3af2}{%
-           family={Wentzell},
-           familyi={W\bibinitperiod},
-           given={Alexander\bibnamedelima D.},
-           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+           given={Xavier},
+           giveni={X\bibinitperiod}}}%
+        {{hash=849c942939c560f3908712332c5500cb}{%
+           family={Bortoli},
+           familyi={B\bibinitperiod},
+           given={Valentin\bibnamedelima De},
+           giveni={V\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=cf6c3a0d5ef5f5fc80ebd433b2da6662}{%
+           family={Durmus},
+           familyi={D\bibinitperiod},
+           given={Alain},
+           giveni={A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {Springer Science \& Business Media}%
+        {PMLR}%
       }
-      \strng{namehash}{56f92c027795b51f358d7828d250ede7}
-      \strng{fullhash}{e30be5b64574e41122666bb75ebb9b5e}
-      \strng{bibnamehash}{56f92c027795b51f358d7828d250ede7}
-      \strng{authorbibnamehash}{56f92c027795b51f358d7828d250ede7}
-      \strng{authornamehash}{56f92c027795b51f358d7828d250ede7}
-      \strng{authorfullhash}{e30be5b64574e41122666bb75ebb9b5e}
+      \strng{namehash}{9cc195c74487c3ac29091b148ef52c4f}
+      \strng{fullhash}{9cc195c74487c3ac29091b148ef52c4f}
+      \strng{bibnamehash}{9cc195c74487c3ac29091b148ef52c4f}
+      \strng{authorbibnamehash}{9cc195c74487c3ac29091b148ef52c4f}
+      \strng{authornamehash}{9cc195c74487c3ac29091b148ef52c4f}
+      \strng{authorfullhash}{9cc195c74487c3ac29091b148ef52c4f}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This text is a treatment of various kinds of limit theorems for stochastic processes defined as a result of random perturbations of dynamical systems. Apart from the long-time behaviour of the perturbed system, exit problems, metastable states, optimal stabilization, and asymptotics of stationary distributions are considered in detail. The author's main tools are the large deviation theory, the central limit theorem for stochastic processes, and the averaging principle. The results allow for explicit calculations of the asymptotics of many interesting characteristics of the perturbed system, and most of these results are closely conncected with PDE. This second edition contains expansions on the averaging principle, a new chapter on random perturbations of Hamiltonian systems, along with results on fast oscillating perturbations of systems with conservations laws. New sections on wave front propagation in semilinear PDE and on random perturbations of certain infinite-dimensional dynamical systems have been incorporated into the chapter on sharpenings and generalizations.}
-      \field{eprinttype}{googlebooks}
-      \field{isbn}{978-0-387-98362-2}
+      \field{abstract}{This paper proposes a thorough theoretical analysis of Stochastic Gradient Descent (SGD) with non-increasing step sizes. First, we show that the recursion defining SGD can be provably approximated by solutions of a time inhomogeneous Stochastic Differential Equation (SDE) using an appropriate coupling. In the specific case of a batch noise we refine our results using recent advances in Stein’s method. Then, motivated by recent analyses of deterministic and stochastic optimization methods by their continuous counterpart, we study the long-time behavior of the continuous processes at hand and establish non-asymptotic bounds. To that purpose, we develop new comparison techniques which are of independent interest. Adapting these techniques to the discrete setting, we show that the same results hold for the corresponding SGD sequences. In our analysis, we notably improve non-asymptotic bounds in the convex setting for SGD under weaker assumptions than the ones considered in previous works. Finally, we also establish finite-time convergence results under various conditions, including relaxations of the famous Ł\{ojasciewicz\} inequality, which can be applied to a class of non-convex functions.}
+      \field{booktitle}{Proceedings of {{Thirty Fourth Conference}} on {{Learning Theory}}}
+      \field{day}{21}
+      \field{eventtitle}{Conference on {{Learning Theory}}}
+      \field{issn}{2640-3498}
       \field{langid}{english}
-      \field{pagetotal}{448}
-      \field{title}{Random {{Perturbations}} of {{Dynamical Systems}}}
-      \field{year}{1998}
+      \field{month}{7}
+      \field{title}{Convergence Rates and Approximation Results for {{SGD}} and Its Continuous-Time Counterpart}
+      \field{urlday}{5}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{year}{2021}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb 0yE74YEXpWEC
-      \endverb
+      \field{urldateera}{ce}
+      \field{pages}{1965\bibrangedash 2058}
+      \range{pages}{94}
       \verb{file}
-      \verb /home/jonathan/Zotero/storage/4N5CI6SI/Freidlin et al_1998_Random Perturbations of Dynamical Systems.pdf
+      \verb /home/jonathan/Zotero/storage/F5NSEG8L/Fontaine et al_2021_Convergence rates and approximation results for SGD and its continuous-time.pdf
       \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v134/fontaine21a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v134/fontaine21a.html
+      \endverb
+      \keyw{convergence,SGD,theory,thesis,toread}
     \endentry
     \entry{geoffreyhintonnitishsrivastavaandkevinswer-NeuralNetworksMachine2012}{unpublished}{}
       \name{author}{2}{}{%
@@ -1502,6 +1586,200 @@
       \endverb
       \keyw{background,thesis}
     \endentry
+    \entry{knuthBigOmicronBig1976}{article}{}
+      \name{author}{1}{}{%
+        {{hash=ec08e6f01da5f3814f28a70c89c64656}{%
+           family={Knuth},
+           familyi={K\bibinitperiod},
+           given={Donald\bibnamedelima E.},
+           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{fullhash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{bibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorbibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authornamehash}{ec08e6f01da5f3814f28a70c89c64656}
+      \strng{authorfullhash}{ec08e6f01da5f3814f28a70c89c64656}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{1}
+      \field{issn}{0163-5700}
+      \field{journaltitle}{ACM SIGACT News}
+      \field{month}{4}
+      \field{number}{2}
+      \field{shortjournal}{SIGACT News}
+      \field{title}{Big {{Omicron}} and Big {{Omega}} and Big {{Theta}}}
+      \field{urlday}{13}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{volume}{8}
+      \field{year}{1976}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{18\bibrangedash 24}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1145/1008328.1008329
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/K4YE9XPT/Knuth_1976_Big Omicron and big Omega and big Theta.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/1008328.1008329
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/1008328.1008329
+      \endverb
+    \endentry
+    \entry{koenigsbergerAnalysis2006}{book}{}
+      \name{author}{1}{}{%
+        {{hash=6ccc562a716d5970a27b749bf96cf4f5}{%
+           family={Königsberger},
+           familyi={K\bibinitperiod},
+           given={Konrad},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{6ccc562a716d5970a27b749bf96cf4f5}
+      \strng{fullhash}{6ccc562a716d5970a27b749bf96cf4f5}
+      \strng{bibnamehash}{6ccc562a716d5970a27b749bf96cf4f5}
+      \strng{authorbibnamehash}{6ccc562a716d5970a27b749bf96cf4f5}
+      \strng{authornamehash}{6ccc562a716d5970a27b749bf96cf4f5}
+      \strng{authorfullhash}{6ccc562a716d5970a27b749bf96cf4f5}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Dieser zweite Band Analysis, der nunmehr in fünfter, korrigierter Auflage vorliegt, behandelt die Differential- und Integralrechnung im Rn sowie Differentialgleichungen und Elemente der Funktionentheorie. Zu seinen Besonderheiten gehören eine neue, einfache Einführung des Lebesgueintegrals und eine Version des Gaußschen Integralsatzes, die Integrationsbereiche in großer Allgemeinheit zugrunde legt. Ein umfangreiches Kapitel ist dem Kalkül der Differentialformen samt Satz von Stokes gewidmet und als Einstieg in die Theorie der differenzierbaren Mannigfaltigkeiten konzipiert. Historische und biographische Anmerkungen bereichern den Text. Zahlreiche Abbildungen und Beispiele unterstützen das Verständnis. Zu jedem Kapitel wird eine Reihe von Aufgaben bereitgestellt. Insgesamt ein Lehrbuch, das sich als Begleittext zu einer Vorlesung wie auch zum Selbststudium hervorragend eignet.}
+      \field{day}{16}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-3-540-35077-4}
+      \field{langid}{ngerman}
+      \field{month}{7}
+      \field{pagetotal}{471}
+      \field{title}{Analysis 2}
+      \field{year}{2006}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb x9qbBgAAQBAJ
+      \endverb
+    \endentry
+    \entry{krizhevskyOneWeirdTrick2014}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=c5e3a676e2ac1164b3afcd539c131fc9}{%
+           family={Krizhevsky},
+           familyi={K\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{fullhash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{bibnamehash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{authorbibnamehash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{authornamehash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{authorfullhash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{I present a new way to parallelize the training of convolutional neural networks across multiple GPUs. The method scales significantly better than all alternatives when applied to modern convolutional neural networks.}
+      \field{day}{26}
+      \field{eprintclass}{cs}
+      \field{eprinttype}{arxiv}
+      \field{month}{4}
+      \field{number}{arXiv:1404.5997}
+      \field{title}{One Weird Trick for Parallelizing Convolutional Neural Networks}
+      \field{urlday}{9}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1404.5997
+      \endverb
+      \verb{eprint}
+      \verb 1404.5997
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/XQNNZ76T/Krizhevsky_2014_One weird trick for parallelizing convolutional neural networks.pdf;/home/jonathan/Zotero/storage/P8P7IRW7/1404.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1404.5997
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1404.5997
+      \endverb
+    \endentry
+    \entry{liStochasticModifiedEquations2017}{misc}{}
+      \name{author}{3}{}{%
+        {{hash=64fe62ce2b10a4bc8ffec9881ed87985}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Qianxiao},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=f6d5538a2db58ca22e371cdbeef3f83e}{%
+           family={Tai},
+           familyi={T\bibinitperiod},
+           given={Cheng},
+           giveni={C\bibinitperiod}}}%
+        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
+           family={E},
+           familyi={E\bibinitperiod},
+           given={Weinan},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{fullhash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{bibnamehash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{authorbibnamehash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{authornamehash}{0049f3b8b809d78786a56fc4874c7f65}
+      \strng{authorfullhash}{0049f3b8b809d78786a56fc4874c7f65}
+      \field{extraname}{1}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We develop the method of stochastic modified equations (SME), in which stochastic gradient algorithms are approximated in the weak sense by continuous-time stochastic differential equations. We exploit the continuous formulation together with optimal control theory to derive novel adaptive hyper-parameter adjustment policies. Our algorithms have competitive performance with the added benefit of being robust to varying models and datasets. This provides a general methodology for the analysis and design of stochastic gradient algorithms.}
+      \field{day}{20}
+      \field{eprintclass}{cs, stat}
+      \field{eprinttype}{arxiv}
+      \field{month}{6}
+      \field{number}{arXiv:1511.06251}
+      \field{title}{Stochastic Modified Equations and Adaptive Stochastic Gradient Algorithms}
+      \field{urlday}{19}
+      \field{urlmonth}{8}
+      \field{urlyear}{2022}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1511.06251
+      \endverb
+      \verb{eprint}
+      \verb 1511.06251
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/4Q6EBRI6/Li et al. - 2017 - Stochastic modified equations and adaptive stochas.pdf;/home/jonathan/Zotero/storage/WVBZ3XYB/1511.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1511.06251
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1511.06251
+      \endverb
+      \keyw{background,SDE,SGD,thesis,toread}
+    \endentry
     \entry{liStochasticModifiedEquations2019}{article}{}
       \name{author}{3}{}{%
         {{hash=64fe62ce2b10a4bc8ffec9881ed87985}{%
@@ -1526,6 +1804,7 @@
       \strng{authorbibnamehash}{0049f3b8b809d78786a56fc4874c7f65}
       \strng{authornamehash}{0049f3b8b809d78786a56fc4874c7f65}
       \strng{authorfullhash}{0049f3b8b809d78786a56fc4874c7f65}
+      \field{extraname}{2}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{labelnamesource}{author}
@@ -1664,6 +1943,41 @@
       \verb http://arxiv.org/abs/2102.12470
       \endverb
       \keyw{paper,SDE,SGD,SVAG,thesis}
+    \endentry
+    \entry{lycheNumericalLinearAlgebra2020}{book}{}
+      \name{author}{1}{}{%
+        {{hash=404a1412a4085ae225f5d4e1ebbdd8f6}{%
+           family={Lyche},
+           familyi={L\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{404a1412a4085ae225f5d4e1ebbdd8f6}
+      \strng{fullhash}{404a1412a4085ae225f5d4e1ebbdd8f6}
+      \strng{bibnamehash}{404a1412a4085ae225f5d4e1ebbdd8f6}
+      \strng{authorbibnamehash}{404a1412a4085ae225f5d4e1ebbdd8f6}
+      \strng{authornamehash}{404a1412a4085ae225f5d4e1ebbdd8f6}
+      \strng{authorfullhash}{404a1412a4085ae225f5d4e1ebbdd8f6}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{After reading this book, students should be able to analyze computational problems in linear algebra such as linear systems, least squares- and eigenvalue problems, and to develop their own algorithms for solving them. Since these problems can be large and difficult to handle, much can be gained by understanding and taking advantage of special structures. This in turn requires a good grasp of basic numerical linear algebra and matrix factorizations. Factoring a matrix into a product of simpler matrices is a crucial tool in numerical linear algebra, because it allows us to tackle complex problems by solving a sequence of easier ones. The main characteristics of this book are as follows: It is self-contained, only assuming that readers have completed first-year calculus and an introductory course on linear algebra, and that they have some experience with solving mathematical problems on a computer. The book provides detailed proofs of virtually all results. Further, its respective parts can be used independently, making it suitable for self-study. The book consists of 15 chapters, divided into five thematically oriented parts. The chapters are designed for a one-week-per-chapter, one-semester course. To facilitate self-study, an introductory chapter includes a brief review of linear algebra.}
+      \field{day}{3}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-3-030-36467-0}
+      \field{langid}{english}
+      \field{month}{3}
+      \field{pagetotal}{371}
+      \field{title}{Numerical {{Linear Algebra}} and {{Matrix Factorizations}}}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb e9tKywEACAAJ
+      \endverb
     \endentry
     \entry{mertikopoulosAlmostSureConvergence2020}{inproceedings}{}
       \name{author}{4}{}{%
@@ -1950,6 +2264,53 @@
       \verb{eprint}
       \verb VgQDWyihxKYC
       \endverb
+    \endentry
+    \entry{orvietoContinuoustimeModelsStochastic2019a}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=2f21353bc83b17d4a8d8a69c17d06fe2}{%
+           family={Orvieto},
+           familyi={O\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6cfede2c7c222aae3aea34dc2eda42b2}{%
+           family={Lucchi},
+           familyi={L\bibinitperiod},
+           given={Aurelien},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{b1a8ba720d079e2179ab72590e30dfd3}
+      \strng{fullhash}{b1a8ba720d079e2179ab72590e30dfd3}
+      \strng{bibnamehash}{b1a8ba720d079e2179ab72590e30dfd3}
+      \strng{authorbibnamehash}{b1a8ba720d079e2179ab72590e30dfd3}
+      \strng{authornamehash}{b1a8ba720d079e2179ab72590e30dfd3}
+      \strng{authorfullhash}{b1a8ba720d079e2179ab72590e30dfd3}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We propose new continuous-time formulations for first-order stochastic optimization algorithms such as mini-batch gradient descent and variance-reduced methods. We exploit these continuous-time models, together with simple Lyapunov analysis as well as tools from stochastic calculus, in order to derive convergence bounds for various types of non-convex functions. Guided by such analysis, we show that the same Lyapunov arguments hold in discrete-time, leading to matching rates. In addition, we use these models and Ito calculus to infer novel insights on the dynamics of SGD, proving that a decreasing learning rate acts as time warping or, equivalently, as landscape stretching.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{title}{Continuous-Time {{Models}} for {{Stochastic Optimization Algorithms}}}
+      \field{urlday}{5}
+      \field{urlmonth}{9}
+      \field{urlyear}{2022}
+      \field{volume}{32}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/MUPV8J9P/NeurIPS2019_SDEs_app.pdf;/home/jonathan/Zotero/storage/ZWXNPMF9/Orvieto_Lucchi_2019_Continuous-time Models for Stochastic Optimization Algorithms.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper/2019/hash/9cd78264cf2cd821ba651485c111a29a-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper/2019/hash/9cd78264cf2cd821ba651485c111a29a-Abstract.html
+      \endverb
+      \keyw{SDE,SGD,thesis,toread}
     \endentry
     \entry{polyakMethodsSpeedingConvergence1964}{article}{}
       \name{author}{1}{}{%
@@ -2343,6 +2704,72 @@
       \endverb
       \keyw{convergence,SGD,theory,thesis,toread}
     \endentry
+    \entry{smithOriginImplicitRegularization2021}{misc}{}
+      \name{author}{4}{}{%
+        {{hash=3449a804ca9f4fb32b4fe7117113c206}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Samuel\bibnamedelima L.},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=1a44295013e733b94c180644a828598a}{%
+           family={Dherin},
+           familyi={D\bibinitperiod},
+           given={Benoit},
+           giveni={B\bibinitperiod}}}%
+        {{hash=8a3d000c7c7b837203007400341a4af4}{%
+           family={Barrett},
+           familyi={B\bibinitperiod},
+           given={David\bibnamedelimb G.\bibnamedelimi T.},
+           giveni={D\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=ecaba94719fcf1d4a72c36c926bb26c4}{%
+           family={De},
+           familyi={D\bibinitperiod},
+           given={Soham},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{96a30a3cae5bcbfe8452b157ba58eaf0}
+      \strng{fullhash}{8eeb20c2d39c2d7096c30a77c98dd93f}
+      \strng{bibnamehash}{96a30a3cae5bcbfe8452b157ba58eaf0}
+      \strng{authorbibnamehash}{96a30a3cae5bcbfe8452b157ba58eaf0}
+      \strng{authornamehash}{96a30a3cae5bcbfe8452b157ba58eaf0}
+      \strng{authorfullhash}{8eeb20c2d39c2d7096c30a77c98dd93f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{For infinitesimal learning rates, stochastic gradient descent (SGD) follows the path of gradient flow on the full batch loss function. However moderately large learning rates can achieve higher test accuracies, and this generalization benefit is not explained by convergence bounds, since the learning rate which maximizes test accuracy is often larger than the learning rate which minimizes training loss. To interpret this phenomenon we prove that for SGD with random shuffling, the mean SGD iterate also stays close to the path of gradient flow if the learning rate is small and finite, but on a modified loss. This modified loss is composed of the original loss function and an implicit regularizer, which penalizes the norms of the minibatch gradients. Under mild assumptions, when the batch size is small the scale of the implicit regularization term is proportional to the ratio of the learning rate to the batch size. We verify empirically that explicitly including the implicit regularizer in the loss can enhance the test accuracy when the learning rate is small.}
+      \field{day}{28}
+      \field{eprintclass}{cs, stat}
+      \field{eprinttype}{arxiv}
+      \field{month}{1}
+      \field{number}{arXiv:2101.12176}
+      \field{title}{On the {{Origin}} of {{Implicit Regularization}} in {{Stochastic Gradient Descent}}}
+      \field{urlday}{8}
+      \field{urlmonth}{11}
+      \field{urlyear}{2022}
+      \field{year}{2021}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2101.12176
+      \endverb
+      \verb{eprint}
+      \verb 2101.12176
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/UNH3BFXY/Smith et al_2021_On the Origin of Implicit Regularization in Stochastic Gradient Descent.pdf;/home/jonathan/Zotero/storage/2XTWBQR6/2101.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2101.12176
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2101.12176
+      \endverb
+      \keyw{important}
+    \endentry
     \entry{uhlenbeckTheoryBrownianMotion1930}{article}{}
       \name{author}{2}{}{%
         {{hash=3cb5f635974bd39fd8858d930a97e4c8}{%
@@ -2591,6 +3018,76 @@
       \endverb
       \keyw{noise,sgd}
     \endentry
+    \entry{zhouTheoreticallyUnderstandingWhy2020}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=40506594b8236a27837c19c503917ea4}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Pan},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ee4de6563d3aa74999c7a69f8f345e56}{%
+           family={Feng},
+           familyi={F\bibinitperiod},
+           given={Jiashi},
+           giveni={J\bibinitperiod}}}%
+        {{hash=26f3b8f065f337f327a99920fa1e63cc}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Chao},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1fa4dfdd5ecf049d39575fe7ba1ec9f3}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Caiming},
+           giveni={C\bibinitperiod}}}%
+        {{hash=787b0cbfd733b36b144fd4318ce59105}{%
+           family={Hoi},
+           familyi={H\bibinitperiod},
+           given={Steven\bibnamedelimb Chu\bibnamedelima Hong},
+           giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
+           family={E},
+           familyi={E\bibinitperiod},
+           given={Weinan},
+           giveni={W\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{baf0c9f6b18fef3f6d695d19c29db5c3}
+      \strng{fullhash}{e154d32c5321119681841edf2241ee06}
+      \strng{bibnamehash}{baf0c9f6b18fef3f6d695d19c29db5c3}
+      \strng{authorbibnamehash}{baf0c9f6b18fef3f6d695d19c29db5c3}
+      \strng{authornamehash}{baf0c9f6b18fef3f6d695d19c29db5c3}
+      \strng{authorfullhash}{e154d32c5321119681841edf2241ee06}
+      \field{extraname}{1}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{It is not clear yet why ADAM-alike adaptive gradient algorithms suffer from worse generalization performance than SGD despite their faster training speed. This work aims to provide understandings on this generalization gap by analyzing their local convergence behaviors. Specifically, we observe the heavy tails of gradient noise in these algorithms. This motivates us to analyze these algorithms through their Levy-driven stochastic differential equations (SDEs) because of the similar convergence behaviors of an algorithm and its SDE. Then we establish the escaping time of these SDEs from a local basin. The result shows that (1) the escaping time of both SGD and ADAM\textasciitilde depends on the Radon measure of the basin positively and the heaviness of gradient noise negatively; (2) for the same basin, SGD enjoys smaller escaping time than ADAM, mainly because (a) the geometry adaptation in ADAM\textasciitilde via adaptively scaling each gradient coordinate well diminishes the anisotropic structure in gradient noise and results in larger Radon measure of a basin; (b) the exponential gradient average in ADAM\textasciitilde smooths its gradient and leads to lighter gradient noise tails than SGD. So SGD is more locally unstable than ADAM\textasciitilde at sharp minima defined as the minima whose local basins have small Radon measure, and can better escape from them to flatter ones with larger Radon measure. As flat minima here which often refer to the minima at flat or asymmetric basins/valleys often generalize better than sharp ones\textasciitilde\textbackslash cite\{keskar2016large,he2019asymmetric\}, our result explains the better generalization performance of SGD over ADAM. Finally, experimental results confirm our heavy-tailed gradient noise assumption and theoretical affirmation.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{title}{Towards {{Theoretically Understanding Why Sgd Generalizes Better Than Adam}} in {{Deep Learning}}}
+      \field{urlday}{2}
+      \field{urlmonth}{11}
+      \field{urlyear}{2022}
+      \field{volume}{33}
+      \field{year}{2020}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{21285\bibrangedash 21296}
+      \range{pages}{12}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/726L9F95/Zhou et al_2020_Towards Theoretically Understanding Why Sgd Generalizes Better Than Adam in.pdf;/home/jonathan/Zotero/storage/F799XL4W/Zhou et al. - 2020 - Towards Theoretically Understanding Why Sgd Genera.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper/2020/hash/f3f27a324736617f20abbf2ffd806f6d-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper/2020/hash/f3f27a324736617f20abbf2ffd806f6d-Abstract.html
+      \endverb
+      \keyw{levy,sde,sgd}
+    \endentry
     \entry{zhouStochasticMirrorDescent2017}{inproceedings}{}
       \name{author}{5}{}{%
         {{hash=92bcf64f6a434d65d69d4718e65a964b}{%
@@ -2628,6 +3125,7 @@
       \strng{authorbibnamehash}{7eb30bec1cd2d4a9f43e2d14aeb3d8b7}
       \strng{authornamehash}{7eb30bec1cd2d4a9f43e2d14aeb3d8b7}
       \strng{authorfullhash}{a8c723d01dd69bdbb0e063d3430725db}
+      \field{extraname}{2}
       \field{sortinit}{Z}
       \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{labelnamesource}{author}
