@@ -1332,43 +1332,45 @@ Let $T > 0$ and $Q$ be a subset of Euclidean space. For $(x,t,q) \in \R^d \times
 \end{example}
 \subsection{Numerical approximations}
 \label{subsec:SdeNumericalMethods}
-There are two classes of numerical approximations for SDEs: Strong and weak approximations. 
+% There are two classes of numerical approximations for SDEs: Strong and weak approximations. 
+Numerical methods for stochastic differential equations extend the methods for ordinary differential equations. In this subsection, we briefly introduce two notations of convergence and an extension of Euler's method to SDEs following the textbook by Kloeden et al. \cite{kloedenNumericalSolutionStochastic2013}. We note that there are numerical schemes generally considered more efficient than Euler's method for simulating SDEs, but for the SDEs considered in \autoref{sec:smdedl} each evaluation of the drift and diffusion term is computionally expensive. Therefore, we omit the discussion of the Milstein and other Runge-Kutta methods.
+% In addition to the deterministic part given by the drift term
 \begin{definition}[Time discrete approximation;]
-  A time discrete approximation $\widehat{X}_h$ with step size $h$ is a right continuous process with left-hand limits. The approximation $\widehat{X}_{n,h} = \widehat{X}_h(t_n)$ is $\mathcal{F}_{t_n}$ measurable w.r.t. a time discretization $\mathcal{T}^M_h$ and recursively defined by a function $\psi$ such that for $n=0,1,\dots,M-1$ holds
+  A time discrete approximation $\{w_k\}_{k=1}^N$ with step size $h$ is a right continuous process with left-hand limits. The approximation $w_{n,h} = w_h(t_n)$ is $\mathcal{F}_{t_n}$ measurable w.r.t. a time discretization $\mathcal{T}^M_h$ and recursively defined by a function $\psi$ such that for $n=0,1,\dots,N-1$ holds
   \begin{equation}
-    \widehat{X}_{n+1, h} = \Phi(\widehat{X}_{0,h}, \dots, \widehat{X}_{n,h}, t_0, \dots, t_n, Z^1_n,\dots, Z_n^k)
+    w_{n+1, h} = \Phi(w_{0,h}, \dots, w_{n,h}, t_0, \dots, t_n, Z^1_n,\dots, Z_n^k)
   \end{equation}
   for some finite number $k$ of $\mathcal{F}_{t_{n+1}}$ measurable random variables $Z^j_n, 1 \leq j \leq k$.
 \end{definition}
 \begin{definition}
-  A time discrete approximation $\widehat{X}$ with maximum step size $h$ \emph{converges strongly} to $X$ at time $T$ as $h \rightarrow 0$ if 
+  A time discrete approximation $w$ with maximum step size $h$ \emph{converges strongly} to $W$ at time $T$ as $h \rightarrow 0$ if 
   \begin{equation}
-    \lim_{h \rightarrow 0} \mathbb{E}(\norm{X_T - \widehat{X}(T)}) = 0.
+    \lim_{h \rightarrow 0} \mathbb{E}(\norm{W_{T} - \widehat{W}(T)}) = 0.
   \end{equation}
-  The time discrete approximation $\widehat{X}$ converges strongly with order $p>0$ to $X$ at time $T$ as $h \rightarrow 0$ if there exists a constant $K > 0$, which does not depend on $h$, and a $\delta_0 > 0$ such that 
+  The time discrete approximation $\{w_k\}_{k=1}^N$ converges strongly with order $p>0$ to the time-continuous process $\{W_t\}_{t \geq 0}$ at time $T$ as $h \rightarrow 0$ if there exists a constant $K > 0$, which does not depend on $h$, and a $\delta_0 > 0$ such that 
   \begin{equation}
-    \mathbb{E}(\norm{X_T - \widehat{X}(T)}) \leq K h^p
+    \mathbb{E}(\norm{W_T - \widehat{W}(T)}) \leq K h^p
   \end{equation}
   holds for each $h \in ]0, \delta_0[$.
 \end{definition}
 
 \begin{definition}
-  A time discrete approximation $\widehat{X}$ converges weakly to $X$ at time $T$ as $h \rightarrow 0$ with respect to a class $\mathcal{C}$ of test functions $f: \R^n \rightarrow \R$ if 
+  A time discrete approximation $\widehat{W}$ converges weakly to $W$ at time $T$ as $h \rightarrow 0$ with respect to a class $\mathcal{C}$ of test functions $f: \R^n \rightarrow \R$ if 
   \begin{equation}
-    \lim_{h \rightarrow 0} |\mathbb{E}(f(X_T)) - \mathbb{E}(f(\widehat{X}(T)))| = 0
+    \lim_{h \rightarrow 0} |\mathbb{E}(f(W_T)) - \mathbb{E}(f(\widehat{W}(T)))| = 0
   \end{equation}
   holds for all $f \in \mathcal{C}$.
-  A time discrete approximation $\widehat{X}$ converges weakly with order $p$ to $X$ at time $T$ as $h \rightarrow 0$ if for each $f \in C^{2(p+1)}(\R^n, \R)$ there exists a constant $K_f$ and a finite $\delta_0$ such that 
+  A time discrete approximation $\widehat{W}$ converges weakly with order $p$ to $W$ at time $T$ as $h \rightarrow 0$ if for each $f \in \CC^{2(p+1)}(\R^n, \R)$ there exists a constant $K_f$ and a finite $\delta_0$ such that 
   \begin{equation}
-     |\mathbb{E}(f(X_T)) - \mathbb{E}(f(\widehat{X}(T)))| = K_f h^p
+     |\mathbb{E}(f(W_T)) - \mathbb{E}(f(\widehat{W}(T)))| = K_f h^p
   \end{equation}
   for each $h \in ]0, \delta_0[$.
 \end{definition}
 \begin{definition}[Euler-Maruyama scheme, \protect{\cite[pp.~305]{kloedenNumericalSolutionStochastic2013}}]
-  Let $0 \leq t_0 < t_1 < \dots < t_N = T$, $\Delta t_k = t_{k+1} - t_k$ and let $\Delta B_k \sim \CN(0,\Delta t_k)$. Then, the time-discrete scheme $\{W_k\}_{k=0}^N$ given by
+  Let $0 \leq t_0 < t_1 < \dots < t_N = T$, $\Delta t_k = t_{k+1} - t_k$ and let $Z_k \sim \CN(0,\Delta t_k)$. Then, the time-discrete scheme $\{W_k\}_{k=0}^N$ given by
 \begin{equation}
   \label{eq:euler_maruyama}
-  W_{k+1} = W_k + \mathbf{a}(W_k, t_k)\Delta t + \mathbf{b}(W_k, t_k) \Delta B_k
+  W_{k+1} = W_k + \mathbf{a}(W_k, t_k)\Delta t_k + \mathbf{b}(W_k, t_k) Z_k
 \end{equation}
 for $0 \leq k \leq N$ is called \emph{Euler-Maruyama scheme}.
 \end{definition}
@@ -2259,7 +2261,7 @@ In the following we explain the procedure to generate these samples.
 Let $\pmb{f}(w) = (f_1(w), \dots, f_n(w))$ be a vector of the individual losses and let $\mathbbm{1} = (1, \dots, 1)^\T \in R^n$ denote a vector of ones. Further, let $\widetilde{S} : \Omega \rightarrow \R^n$ be a random variable  with $\widetilde{S} \sim \CN(0, \frac{1}{bn}(I_d - \frac{1}{n}\mathbbm{1}\mathbbm{1}^\T )(I_d - \frac{1}{n}\mathbbm{1}\mathbbm{1}^\T))^\T$. Then for $S = \frac{1}{n} = \mathbbm{1} + \widetilde{S}$ we have $Z = \nabla \pmb{f}(w)S \sim \CN(0, \Sigma(w))$.
 Note that the sampling of $S$ does not require knowledge of the covariance matrix $\Sigma(w)$ and its square root.
 
-Multiplicative SGD does not address the fact that at each iteration the full gradient has to be computed. Li et al. \cite{liValidityModelingSGD2021} propose an algorithm that amplifies the gradient noise for each iteration and converges to the SMDE equation. The key point is that each iteration only requires the gradient for two independently sampled batches. 
+Multiplicative SGD does not address the fact that at each iteration the full gradient has to be computed. Li et al.\ \cite{liValidityModelingSGD2021} propose an algorithm that amplifies the gradient noise for each iteration and converges to the SMDE equation. The key point is that each iteration only requires the gradient for two independently sampled batches. 
 \begin{definition}[Stochastic variance amplified gradient, \cite{liValidityModelingSGD2021}]
   Let $f, f_{\gamma} : \R^d \rightarrow \R$ be a continuously differentiable functions with $\ev{f_{\gamma}} \equiv f$. Further, let $\bar{\gamma}_k : \Omega \rightarrow \{1,\dots,n\}^2 $ with $\bar{\gamma}_k =(\gamma_{k,1}, \gamma_{k,2})$, $k=1,\dots,N$ be a sequence of i.i.d. random variables defined on a probability space $(\Omega, \CF, \BP)$. We call the function $f^l_{\bar{\gamma}} : \R^d \rightarrow \R$ with
   \begin{equation*}
@@ -2278,9 +2280,10 @@ We see that for $w \in \R^d$ we have
   &= \frac{1+\sqrt{2l - 1}}{2}\nabla f(w) + \frac{1-\sqrt{2l - 1}}{2} \nabla f(w) = \nabla f(w)
 \end{align*}
 and
-\begin{equation*}
-  \ev{\left(\nabla f^l_{\bar{\gamma}}(w) - \nabla f(w)\right)\left(\nabla f^l_{\bar{\gamma}}(w) - \nabla f(w)\right)^\T} = l\ev{\nabla f_{\gamma}(w)\nabla f_{\gamma}(w)^\T} - l \nabla f(w) \nabla f(w)^\T = l \Sigma(w).
-\end{equation*}
+\begin{align*}
+  \Cov\left[\nabla f^l_{\bar{\gamma}}(w)\right] &= \ev{\left(\nabla f^l_{\bar{\gamma}}(w) - \nabla f(w)\right)\left(\nabla f^l_{\bar{\gamma}}(w) - \nabla f(w)\right)^\T} \\
+  &= l\ev{\nabla f_{\gamma}(w)\nabla f_{\gamma}(w)^\T} - l \nabla f(w) \nabla f(w)^\T = l \Sigma(w).
+\end{align*}
 We see that the gradients of the amplified function has the same expectation as a SGD iterate, but has a covariance matrix scaled by $l$.
 The following theorem builds on the theory introduced in \autoref{sec:sde_model} and shows that the SVAG iterates approximate the SMDE solution.
 \begin{theorem}[\cite{liValidityModelingSGD2021}]
