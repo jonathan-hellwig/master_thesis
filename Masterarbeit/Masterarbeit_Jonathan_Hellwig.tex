@@ -353,7 +353,6 @@ and
   \end{equation*}
   is finite.
 \end{enumerate}
-Further, the space $\CL(0,T;\CL^2(\Omega))$ consists of all measurable functions $W_{\cdot} : [0,T] \rightarrow \CL^2(\Omega)$ with $\lVert W_{\cdot} \rVert_{\CL(0,T;\CL^2(\Omega))} \defeq \int_0^T \lVert W_t \rVert_{\CL^2(\Omega)}dt = \int_0^T \ev{\norm{W_t}^2}dt < \infty$.
 \subsection{Matrices}
 We use $I_d \in \R^{d \times d}$ to denote the $d$-dimensional identity matrix and for a matrix $A \in \R^{m \times n}$ we use $A^\T$ to denote its \emph{transpose}.
 For a symmetric matrix $A \in \R^{d \times d}$ we write $\lambda_i(A)$ to denote the $i$-th eigenvalue for $i=1,\dots,d$, where $\lambda_1(A) \leq \lambda_2(A) \leq \dots \leq \lambda_d(A)$. Further, for $A \in \R^{n \times m}$ we write its \emph{singular value decomposition} (see e.g. \cite{lycheNumericalLinearAlgebra2020}) as $A = V^\T D U$, where $V \in \R^{m \times m}$, $U \in \R^{n \times n}$ are orthonormal matrices, i.e., $V^\T V = I_n$ and $U^\T U = I_m$. The matrix $D \in \R^{m \times n}$ is a diagonal matrix with non-negative entries $\sigma_1(A) \leq \dots \leq \sigma_{\min\{m,n\}}(A)$ called \emph{singular values}. We use $\Tr A \defeq \sum_{i=1}^d a_{i,i}$ to denote the trace of a matrix $A \in \R^{d \times d}$
@@ -1043,15 +1042,15 @@ In this section, we introduce the concept of stochastic differential equations (
 A system of ordinary differential equations are equations of the form
 \begin{equation}
   \label{eq:initial_value_problem}
-  w'(t) = a(w(t),t), \quad w(0) = w_0
+  w'(t) = \mathbf{a}(w(t),t), \quad w(0) = w_0
 \end{equation}
-where $b : \R^d \times [0,T] \rightarrow \R^d$ is a continuous function. Equivalently, we can formulate the integral equation
+where $\mathbf{a} : \R^d \times [0,T] \rightarrow \R^d$ is a continuous function. Equivalently, we can formulate the integral equation
 \begin{equation}
-  w(t) = w_0 + \int_0^t a(w(s),s)ds.
+  w(t) = w_0 + \int_0^t \mathbf{a}(w(s),s)ds.
 \end{equation}
 The existence and uniqueness of ODE solutions is given by the following theorem:
 \begin{theorem}[\protect{\cite[pp.~73]{ahmadTextbookOrdinaryDifferential2015}}]
-  Let $b : \R^d \times [0,T] \rightarrow \R$ be a continuous function that fulfills a Lipschitz condition in $w$, i.e.,
+  Let $a : \R^d \times [0,T] \rightarrow \R$ be a continuous function that fulfills a Lipschitz condition in $w$, i.e.,
   \begin{equation*}
     \lvert a(w,t) - a(v,t) \rvert \leq L \norm{w - v}
   \end{equation*}
@@ -1065,14 +1064,14 @@ One of the simplest methods to approximate the solution of an ODE numerically is
   Let $0 \leq t_0 < t_1 < \dots < t_N = T, \Delta t_n = t_{n+1} - t_n$. Then, the time-discrete scheme $\{w_n\}_{n=1}^N$ given by
   \begin{equation}
     \label{eq:ode_euler}
-    w_{n+1} = w_n + a(w_n, t_n) \Delta t_n
+    w_{n+1} = w_n + \mathbf{a}(w_n, t_n) \Delta t_n
   \end{equation}
   for $n=0,1,\dots,N$ is called \emph{Euler's method}.
 \end{definition}
-Under a regularity assumption on $b$ Euler's method converges to the true solution linearly.
+Under a regularity assumption on $\mathbf{a}$ Euler's method converges to the true solution linearly.
 \begin{theorem}
   \label{thm:euler_convergence}
-  Let $b : \R^d \times [0,T] \rightarrow \R^d$ be a continuous function satisfying a Lipschitz condition and let $w:[0,T] \rightarrow \R^d$ be the unique solution to \eqref{eq:initial_value_problem}. Further, let $0 \leq t_0 < t_1 < \dots < t_N = T$ be a partition of $[0,T]$ and $\{w_k\}_{k=1}^N$ be the iterates of Euler's method defined in \eqref{eq:ode_euler}. Then, for $h = \max\limits_{k=0,\dots,N-1} t_{k+1} - t_k$ there exists a constant $C > 0$ such that
+  Let $\mathbf{a} : \R^d \times [0,T] \rightarrow \R^d$ be a continuous function satisfying a Lipschitz condition and let $w:[0,T] \rightarrow \R^d$ be the unique solution to \eqref{eq:initial_value_problem}. Further, let $0 \leq t_0 < t_1 < \dots < t_N = T$ be a partition of $[0,T]$ and $\{w_k\}_{k=1}^N$ be the iterates of Euler's method defined in \eqref{eq:ode_euler}. Then, for $h = \max\limits_{k=0,\dots,N-1} t_{k+1} - t_k$ there exists a constant $C > 0$ such that
   \begin{equation*}
     \norm{w(t_k) - w_k} \leq C h.
   \end{equation*}
@@ -1366,10 +1365,10 @@ There are two classes of numerical approximations for SDEs: Strong and weak appr
   for each $h \in ]0, \delta_0[$.
 \end{definition}
 \begin{definition}[Euler-Maruyama scheme, \protect{\cite[pp.~305]{kloedenNumericalSolutionStochastic2013}}]
-  Let $0 \leq t_0 < t_1 < \dots < t_N = T$, $\Delta t_k = t_{k+1} - t_k$ and let $B_k \sim \CN(0,\Delta t_k)$. Then, the time-discrete scheme $\{W_k\}_{k=0}^N$ given by
+  Let $0 \leq t_0 < t_1 < \dots < t_N = T$, $\Delta t_k = t_{k+1} - t_k$ and let $\Delta B_k \sim \CN(0,\Delta t_k)$. Then, the time-discrete scheme $\{W_k\}_{k=0}^N$ given by
 \begin{equation}
   \label{eq:euler_maruyama}
-  W_{k+1} = W_k + a(W_k, t_k)\Delta t + \sigma(W_k, t_k) \Delta B_k
+  W_{k+1} = W_k + \mathbf{a}(W_k, t_k)\Delta t + \mathbf{b}(W_k, t_k) \Delta B_k
 \end{equation}
 for $0 \leq k \leq N$ is called \emph{Euler-Maruyama scheme}.
 \end{definition}
@@ -1576,7 +1575,7 @@ We reiterate some standard results that we use to solve this special case of gra
 \end{example}
 We saw that gradient descent is a first order approximation to the gradient flow equation. We can analyze the asymptotic behavior of gradient descent by studying the gradient flow equation. However, gradient flow does not capture the phenomena induced by discretization. 
 A technique to study the asymptotic behavior of numerical schemes is backward analysis. The idea is to construct a modified equation that more closely matches the behavior of the iterative scheme by adding terms in powers of the step size $h$.
-Next, we introduce a framework taken from \cite{hairerGeometricNumericalIntegration2013} and slightly modify it such that it matches the notation used for stochastic modified equations in \autoref{sec:smde_sgd} and impose some additional conditions. To be in line with the notation of the next sections we note that in this section  $b : \R^d \rightarrow \R^d$ denotes a function and not a scalar like in \autoref{ex:linear_regression}.
+Next, we introduce a framework taken from \cite{hairerGeometricNumericalIntegration2013} and slightly modify it such that it matches the notation used for stochastic modified equations in \autoref{sec:smde_sgd} and impose some additional conditions.
 \begin{definition}[Big $\CO$ notation]
   Let $f,g,h: \R^d \rightarrow \R^d$ be given. If there exists a constant $C > 0$ such that
   \begin{equation*}
@@ -1585,9 +1584,9 @@ Next, we introduce a framework taken from \cite{hairerGeometricNumericalIntegrat
   we write $f(w) = h(w) + \CO(g(w))$ for $w \in \R^d$.
 \end{definition}
 \begin{definition}[Modified equation, \protect{\cite[pp.~337]{hairerGeometricNumericalIntegration2013}}]
-  Let $b: \R^d \rightarrow \R^d$ be a function with continuous derivatives of up to order $r \in \N$. Let the $w:[0,T] \rightarrow \R^d$ be the solution of the differential equation
+  Let $\mathbf{a}: \R^d \rightarrow \R^d$ be a function with continuous derivatives of up to order $r \in \N$. Let the $w:[0,T] \rightarrow \R^d$ be the solution of the differential equation
   \begin{equation*}
-    w'(t) = b(w(t)), \quad w(0) = w_0
+    w'(t) = \mathbf{a}(w(t)), \quad w(0) = w_0
   \end{equation*}
   and let $\{w_k\}_{k=0}^N$ be the iterates of the iterative scheme $\Phi^h : \R^d \rightarrow \R^d$ given by
   \begin{equation*}
@@ -1595,10 +1594,10 @@ Next, we introduce a framework taken from \cite{hairerGeometricNumericalIntegrat
   \end{equation*}
   Then, the \emph{$r$-order modified differential equation} is given by
   \begin{equation*}
-    \widetilde{w}'(t) = b^h(\widetilde{w}(t)), \quad \widetilde{w}(0) = w_0
+    \widetilde{w}'(t) = \mathbf{a}^h(\widetilde{w}(t)), \quad \widetilde{w}(0) = w_0
   \end{equation*}
-  where $b^h(\widetilde{w}) \defeq b_0(\widetilde{w}) + hb_1(\widetilde{w}) + h^2b_2(\widetilde{w})+\cdots + h^rb_r(\widetilde{w})$
-  for some $b_0, b_1, \dots, b_r : \R^d \rightarrow \R^d$ such that 
+  where $\mathbf{a}^h(\widetilde{w}) \defeq \mathbf{a}_0(\widetilde{w}) + hb_1(\widetilde{w}) + h^2\mathbf{a}_2(\widetilde{w})+\cdots + h^r\mathbf{a}_r(\widetilde{w})$
+  for some $\mathbf{a}_0, \mathbf{a}_1, \dots, \mathbf{a}_r : \R^d \rightarrow \R^d$ such that 
   \begin{equation*}
     \widetilde{w}(t+h) = \Phi^h(\widetilde{w}(t)) + \CO(h^{r+1}),
   \end{equation*}
@@ -1608,7 +1607,7 @@ Next, we introduce a framework taken from \cite{hairerGeometricNumericalIntegrat
 Applying Euler's method to the gradient flow equation \eqref{eq:gradient_flow}, we have 
 \begin{equation}
   \label{eq:gradient_descent_function}
-  \Phi^h(w) = w + h b(w) = w - h \nabla f(w).
+  \Phi^h(w) = w + h \mathbf{a}(w) = w - h \nabla f(w).
 \end{equation}
  Let $\widetilde{w}$ denote the solution of the modified differential equation. Then, using Taylor's theorem \autoref{thm:taylor} we have
   \begin{equation*}
@@ -1616,21 +1615,21 @@ Applying Euler's method to the gradient flow equation \eqref{eq:gradient_flow}, 
   \end{equation*}
   Next, we use the gradient flow equation \eqref{eq:gradient_flow} to obtain
 \begin{align*}
-  \widetilde{w}(t+h) &= \widetilde{w}(t) + b^h(\widetilde{w}(t))h + \frac{1}{2}b^h(\widetilde{w}(t))^\T \nabla b^h(\widetilde{w}(t))h^2 + \CO(h^3) \\
-  &= \widetilde{w}(t) + (b_0(\widetilde{w}(t)) + b_1(\widetilde{w}(t))h + \cdots)h \\
-  &+ \frac{1}{2}(b_0(\widetilde{w}(t)) + b_1(\widetilde{w}(t))h + \cdots)^\T (\nabla b_0(\widetilde{w}(t)) + \nabla b_1(\widetilde{w}(t))h + \cdots)h^2 + \CO(h^3).
+  \widetilde{w}(t+h) &= \widetilde{w}(t) + \mathbf{a}^h(\widetilde{w}(t))h + \frac{1}{2}\mathbf{a}^h(\widetilde{w}(t))^\T \nabla \mathbf{a}^h(\widetilde{w}(t))h^2 + \CO(h^3) \\
+  &= \widetilde{w}(t) + (\mathbf{a}_0(\widetilde{w}(t)) + \mathbf{a}_1(\widetilde{w}(t))h + \cdots)h \\
+  &+ \frac{1}{2}(\mathbf{a}_0(\widetilde{w}(t)) + \mathbf{a}_1(\widetilde{w}(t))h + \cdots)^\T (\nabla \mathbf{a}_0(\widetilde{w}(t)) + \nabla \mathbf{a}_1(\widetilde{w}(t))h + \cdots)h^2 + \CO(h^3).
 \end{align*}
 Rearranging by the powers of $h$ yields
 \begin{equation}
   \label{eq:modified_equation_powers}
-  \widetilde{w}(t+h) = \widetilde{w}(t) + b_0(\widetilde{w}(t))h + \left( \frac{1}{2}b_0(\widetilde{w}(t))^\T \nabla b_0(\widetilde{w}(t)) + b_1(\widetilde{w}(t))\right)h^2 + \CO(h^3). 
+  \widetilde{w}(t+h) = \widetilde{w}(t) + \mathbf{a}_0(\widetilde{w}(t))h + \left( \frac{1}{2}\mathbf{a}_0(\widetilde{w}(t))^\T \nabla \mathbf{a}_0(\widetilde{w}(t)) + b_1(\widetilde{w}(t))\right)h^2 + \CO(h^3). 
 \end{equation}
 By comparing the coefficients of the first and second powers of the iterative scheme $\Phi_h$ \eqref{eq:gradient_descent_function} and the modified solution $\widetilde{w}$ \eqref{eq:modified_equation_powers} we obtain the system
 \begin{equation*}
-    b_0(\widetilde{w}(t)) = - \nabla f(w(t)), \quad
-    \frac{1}{2}b_0(\widetilde{w}(t))^\T \nabla b_0(\widetilde{w}(t)) + b_1(\widetilde{w}(t)) = 0.
+    \mathbf{a}_0(\widetilde{w}(t)) = - \nabla f(w(t)), \quad
+    \frac{1}{2}\mathbf{a}_0(\widetilde{w}(t))^\T \nabla \mathbf{a}_0(\widetilde{w}(t)) + \mathbf{a}_1(\widetilde{w}(t)) = 0.
 \end{equation*}
-Solving for $b_0$ and $b_1$ yields $b_0(w) = -\nabla f(w), \; b_1(w) = - \frac{1}{2} H_f(w)\nabla f(w) = -\frac{1}{4}\nabla\norm{\nabla f(w)}^2$, where $H_f(w)$ deontes the Hessian matrix. Therefore, the second order modified differential equation for gradient flow is given by
+Solving for $\mathbf{a}_0$ and $\mathbf{a}_1$ yields $\mathbf{a}_0(w) = -\nabla f(w), \; b_1(w) = - \frac{1}{2} H_f(w)\nabla f(w) = -\frac{1}{4}\nabla\norm{\nabla f(w)}^2$, where $H_f(w)$ deontes the Hessian matrix. Therefore, the second order modified differential equation for gradient flow is given by
 \begin{equation}
   \label{eq:second_order_ode}
   w'(t) = -\nabla\left(f(w) + \frac{\eta}{4}\norm{\nabla f(w)}^2\right),\quad w(0) = w_0.
@@ -1768,7 +1767,7 @@ where $Z_k \sim \CN(0,I_n)$ and $k=0,1,\dots$. Comparing \eqref{eq:sgd_normal_de
 \begin{definition}[Stochatic modified differential equation]
   The stochastic differential equation
   \begin{equation*}
-    dW_t = -\nabla f(W_t)dt + (\eta \Sigma(W_t))^{\frac{1}{2}}dB_t
+    dW_t = -\nabla f(W_t)dt + (\eta \Sigma(W_t))^{\frac{1}{2}}d\mathbf{B}_t
   \end{equation*}
   modelling the continuous-time behavior of SGD is called \emph{stochastic modified differential equation} (SMDE).
 \end{definition}
@@ -1776,7 +1775,7 @@ Next, we introduce a framework by \autocite{liStochasticModifiedEquations2019} t
 We consider the general class of equation of the form
 \begin{equation}
   \label{eq:general_sde}
-  dW^{\eta, \epsilon}_t = b(W^{\eta, \epsilon}_t, \eta, \epsilon)dt + \sqrt{\eta}\sigma(W^{\eta, \epsilon}_t, \eta, \epsilon)dB_t, \quad W_0 = w_0, \quad t \in [0,T],
+  dW^{\eta, \epsilon}_t = \mathbf{a}(W^{\eta, \epsilon}_t, \eta, \epsilon)dt + \sqrt{\eta}\mathbf{b}(W^{\eta, \epsilon}_t, \eta, \epsilon)d\mathbf{B}_t, \quad W_0 = w_0, \quad t \in [0,T],
 \end{equation}
 where $\epsilon \in (0,1)$ is a mollification parameter. This is a technique introduced Li et al. \cite{liStochasticModifiedEquations2019} to relax the smoothness assumption on the target function $f$. In particular, both the first and second order convergence theorems introduced in this section only require the smoothness that is necessary for defining the modified equations.
 To understand this technique we introduce two concepts: weak derivatives and mollifiers. Weak derivatives generalize differentiation to locally integrable functions. Mollifiers are useful for creating a sequence of smooth functions that approximate a particular nonsmooth function. We briefly introduce both concepts in the following and refer to \cite{evansPartialDifferentialEquations2010} for a more detailed introduction.
@@ -1863,7 +1862,7 @@ Next, let we introduce some notation for the one-step error of both SGD and the 
 where $\{w_k^{w,0}: k = 0,1,\dots, N\}$ denotes the iterates of SGD with $w_0 = w$ and $\{\widetilde{W}_k^{w,0}: k = 0,1,\dots, N\}$ the solution of the SDE with initial value $W_0 = w$ at the time steps corresponding to the SGD iterates: $\widetilde{W}_k^{w,0} = W_{k\eta}$.
 We introduce two lemmas to characterize the moments of the one-step error for both SGD and the SDE solution. These characterizations are required to verify the assumptions of \autoref{thm:approximation} which is the main ingredient to proof the approximation results \autoref{thm:second_order} and \autoref{cor:first_order}. We assume that the drift of and diffusion term of \eqref{eq:general_sde} have the form 
 \begin{equation*}
-  b(w,\eta, \epsilon) = b_0(w, \epsilon) + \eta b_1(w, \epsilon), \quad \sigma(w,\eta, \epsilon) s= \sigma_0(w, \epsilon).
+  \mathbf{a}(w,\eta, \epsilon) = \mathbf{a}_0(w, \epsilon) + \eta \mathbf{a}_1(w, \epsilon), \quad \mathbf{b}(w,\eta, \epsilon) s= \mathbf{b}_0(w, \epsilon).
 \end{equation*}
 \begin{lemma}[\protect{\cite{liStochasticModifiedEquations2019}}]
   \label{lem:sgd_one_step}
@@ -1897,10 +1896,10 @@ We introduce two lemmas to characterize the moments of the one-step error for bo
 \end{proof}
 \begin{lemma}[\protect{\cite{liStochasticModifiedEquations2019}}]
   \label{lem:sde_one_step}
-  We define $ \widetilde{\Delta}(w) \defeq \widetilde{W}^{w,0}_1 - w$. Suppose that $b_0, b_1, \sigma \in G^3$. Then we have
+  We define $ \widetilde{\Delta}(w) \defeq \widetilde{W}^{w,0}_1 - w$. Suppose that $\mathbf{a}_0, \mathbf{a}_1, \mathbf{b} \in G^3$. Then we have
   \begin{enumerate}[label=(\roman*)]
-    \item  $\ev{\widetilde{\Delta}_{(i)}(w)} = b_0(w,\epsilon)_{(i)}\eta + \left[\frac{1}{2}b_0(w,\epsilon)_{(j)}\partial_{(j)}b_0(w,\epsilon)_{(i)} + b_1(w,\epsilon)_{(i)}\right] \eta^2 + \mathcal{O}(\eta^3)$, $i,j= 1,\dots,d$,
-    \item $\ev{\widetilde{\Delta}_{(i)}(w)\widetilde{\Delta}_{(j)}(w)} = \left[b_0(w, \epsilon)_{(i)}b_0(w,\epsilon)_{(j)} + \sigma_0(w, \epsilon)_{(i,k)}\sigma_0(w,\epsilon)_{(j,k)}\right]\eta^2 + \mathcal{O}(\eta^3)$,
+    \item  $\ev{\widetilde{\Delta}_{(i)}(w)} = a_{0}(w,\epsilon)_{(i)}\eta + \left[\frac{1}{2}\sum_{j=1}^d a_{0}(w,\epsilon)_{(j)}\partial_{(j)}a_0(w,\epsilon)_{(i)} + a_1(w,\epsilon)_{(i)}\right] \eta^2 + \mathcal{O}(\eta^3)$, $i,j= 1,\dots,d$,
+    \item $\ev{\widetilde{\Delta}_{(i)}(w)\widetilde{\Delta}_{(j)}(w)} = \left[a_0(w, \epsilon)_{(i)}a_0(w,\epsilon)_{(j)} + \sum_{k=1}^db_0(w, \epsilon)_{(i,k)}b_0(w,\epsilon)_{(j,k)}\right]\eta^2 + \mathcal{O}(\eta^3)$,
     \item $\ev{\prod_{j=1}^3\left\lvert\widetilde{\Delta}_{(i_j)}(w)\right\rvert} = \mathcal{O}(\eta^3)$.
   \end{enumerate}
 \end{lemma}
@@ -2013,22 +2012,22 @@ We introduce two lemmas to characterize the moments of the one-step error for bo
 
   Further, let $\epsilon \in (0,1)$. We define the mollified functions
   \begin{equation*}
-    b_0(w, \epsilon) = - \moll * \nabla f(w), \quad b_1(w, \epsilon) = -\frac{1}{4}\moll * (\nabla\norm{\nabla f(w)}^2), \quad \sigma_0(w, \epsilon) = \moll * \Sigma(w)^{\frac{1}{2}}.
+    \mathbf{a}_0(w, \epsilon) = - \moll * \nabla f(w), \quad \mathbf{a}_1(w, \epsilon) = -\frac{1}{4}\moll * (\nabla\norm{\nabla f(w)}^2), \quad\mathbf{b}_0(w, \epsilon) = \moll * \Sigma(w)^{\frac{1}{2}}.
   \end{equation*}
-  Next, we show that $b_0 + \eta b_1$, $\sigma_0$ satisfy a Lipschitz condition in $w \in \R^d$ uniformly in $\eta, \epsilon$.
+  Next, we show that $\mathbf{a}_0 + \eta \mathbf{a}_1$, $\sigma_0$ satisfy a Lipschitz condition in $w \in \R^d$ uniformly in $\eta, \epsilon$.
   For that we note that a Lipschitz continuous function $\psi \R^d \rightarrow \R$ preserves Lipschitz continuity through mollificaiton. Let $w, v \in \R^d$. Then, by Jensen's inequality we have
   \begin{equation*}
     \lvert\moll*\psi(w) - \moll*\psi(v) \rvert \leq \int_{\CB(0,\epsilon)}\moll(z)\lvert\psi(w-z) - \psi(v-z)\rvert dz \leq L \norm{w-v}.
   \end{equation*}
-  Thus, we have that $b_0 + \eta b_1$, $\sigma_0$ are uniformly Lipschitz. 
+  Thus, we have that $\mathbf{a}_0 + \eta \mathbf{a}_1$, $\sigma_0$ are uniformly Lipschitz. 
   % Proof linear growth condition here
   By \autoref{thm:sde_existence} the family of stochastic processes $\{W_t^{\epsilon}: \epsilon \in (0,1)\}$ satisfying 
   \begin{equation*}
-    dW_t^{\epsilon} = b_0(W_t^{\epsilon}, \epsilon) + \eta b_1(W_t^{\epsilon}, \epsilon)dt + \sqrt{\eta} \sigma_0(W_t^{\epsilon}, \epsilon)dB_t, \quad W_0^{\epsilon} = w,
+    dW_t^{\epsilon} = \mathbf{a}_0(W_t^{\epsilon}, \epsilon) + \eta \mathbf{a}_1(W_t^{\epsilon}, \epsilon)dt + \sqrt{\eta}\mathbf{b}_0(W_t^{\epsilon}, \epsilon)dB_t, \quad W_0^{\epsilon} = w,
   \end{equation*}
   admits a unique solution for each $\epsilon \in (0,1)$.
-  Next, we show that $b_0(\cdot, \epsilon),b_1(\cdot, \epsilon),\sigma_0(\cdot, \epsilon) \in G^3$ uniformly in $\epsilon$.
-  We note that we have $f \in G^4_w \subset \CL^1_{\text{loc}}(\R^d)$. Thus, we have $\nabla f, \nabla \norm{\nabla f}^2, \Sigma^{\frac{1}{2}} \in \CL^1_{\text{loc}}(\R^d)$. By \autoref{lemma:mollifiers} we obtain smoothness for $b_0, b_1$ and $\sigma_0$. Further, polynomial growth is satisfied since for $\psi \in G$ and a multiindex $J$ we have
+  Next, we show that $\mathbf{a}_0(\cdot, \epsilon),\mathbf{a}_1(\cdot, \epsilon),\mathbf{b}_0(\cdot, \epsilon) \in G^3$ uniformly in $\epsilon$.
+  We note that we have $f \in G^4_w \subset \CL^1_{\text{loc}}(\R^d)$. Thus, we have $\nabla f, \nabla \norm{\nabla f}^2, \Sigma^{\frac{1}{2}} \in \CL^1_{\text{loc}}(\R^d)$. By \autoref{lemma:mollifiers} we obtain smoothness for $\mathbf{a}_0, \mathbf{a}_1$ and $\mathbf{b}_0$. Further, polynomial growth is satisfied since for $\psi \in G$ and a multiindex $J$ we have
   \begin{align*}
     \moll * D^J \psi (w) &= \int_{\R^d}\moll(v-w) D^J \psi (v)dv = \nabla^J\moll(w-v)\psi (v) dv \\
     &= \nabla^J(\moll * \psi)(w),
@@ -2040,12 +2039,12 @@ We introduce two lemmas to characterize the moments of the one-step error for bo
     &\leq C_1\left(1 + 2^{C_2 - 1} \norm{w}^{C_2} + 2^{C_2 - 1}\frac{1}{\epsilon^d}\int_{\CB(0,\epsilon)}\norm{v}^{C_2}dv\right).
   \end{align*}
   Notice that $\int_{\CB(0,\epsilon)}\norm{v}^{C_2} \leq \int_{\CB(0,\epsilon)}dv = \vol(\CB(0,\epsilon)) = \frac{\pi^{d/2}}{\Gamma(\frac{d}{2}+1)}\epsilon^d$, where $\Gamma$ denotes the Gamma function. Therefore, $\psi^{\epsilon} \in G$ uniformly in $\epsilon$.
-  This implies that $b_0(\cdot,\epsilon), b_1(\cdot,\epsilon), \sigma_0(\cdot, \epsilon) \in G^3$.
+  This implies that $\mathbf{a}_0(\cdot,\epsilon), \mathbf{a}_1(\cdot,\epsilon),\mathbf{b}_0(\cdot, \epsilon) \in G^3$.
   Then, by \autoref{lemma:mollifier_bound}, \autoref{lemma:moment_bound}, \autoref{lem:sde_one_step} and \autoref{lem:sgd_one_step} we have all conditions of \autoref{thm:approximation} and conclude for each $g \in G^3$
   \begin{equation*}
     \max_{k=0,\dots,N}\norm{\ev{g(w_k)} - \ev{g(W^{\epsilon}_{k\eta})}} \leq C(\eta^2 + \rho(\epsilon)),
   \end{equation*}
-  where $C$ is independent of $\eta$ and $\epsilon$ and $\rho(\epsilon) \rightarrow 0$ as $\epsilon \rightarrow 0$. Moreover, since $b_0(w, \epsilon) \rightarrow b_0(w, 0)$ uniformly on compact sets, we apply Theorem 20 from \cite{liStochasticModifiedEquations2019} to conclude that
+  where $C$ is independent of $\eta$ and $\epsilon$ and $\rho(\epsilon) \rightarrow 0$ as $\epsilon \rightarrow 0$. Moreover, since $\mathbf{a}_0(w, \epsilon) \rightarrow \mathbf{a}_0(w, 0)$ uniformly on compact sets, we apply Theorem 20 from \cite{liStochasticModifiedEquations2019} to conclude that
   \begin{equation*}
     \sup_{t \in [0,T]}\ev{\norm{W^{\epsilon}_t - W_t}^2} \rightarrow 0 \text{ as } \epsilon \rightarrow 0.
   \end{equation*}
