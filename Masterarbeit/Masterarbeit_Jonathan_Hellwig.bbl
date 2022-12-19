@@ -1586,53 +1586,6 @@
       \endverb
       \keyw{background,thesis}
     \endentry
-    \entry{knuthBigOmicronBig1976}{article}{}
-      \name{author}{1}{}{%
-        {{hash=ec08e6f01da5f3814f28a70c89c64656}{%
-           family={Knuth},
-           familyi={K\bibinitperiod},
-           given={Donald\bibnamedelima E.},
-           giveni={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
-      }
-      \strng{namehash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{fullhash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{bibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{authorbibnamehash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{authornamehash}{ec08e6f01da5f3814f28a70c89c64656}
-      \strng{authorfullhash}{ec08e6f01da5f3814f28a70c89c64656}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{day}{1}
-      \field{issn}{0163-5700}
-      \field{journaltitle}{ACM SIGACT News}
-      \field{month}{4}
-      \field{number}{2}
-      \field{shortjournal}{SIGACT News}
-      \field{title}{Big {{Omicron}} and Big {{Omega}} and Big {{Theta}}}
-      \field{urlday}{13}
-      \field{urlmonth}{12}
-      \field{urlyear}{2022}
-      \field{volume}{8}
-      \field{year}{1976}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{18\bibrangedash 24}
-      \range{pages}{7}
-      \verb{doi}
-      \verb 10.1145/1008328.1008329
-      \endverb
-      \verb{file}
-      \verb /home/jonathan/Zotero/storage/K4YE9XPT/Knuth_1976_Big Omicron and big Omega and big Theta.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1145/1008328.1008329
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1145/1008328.1008329
-      \endverb
-    \endentry
     \entry{koenigsbergerAnalysis2006}{book}{}
       \name{author}{1}{}{%
         {{hash=6ccc562a716d5970a27b749bf96cf4f5}{%
@@ -2484,6 +2437,41 @@
       \endverb
       \verb{url}
       \verb https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full
+      \endverb
+    \endentry
+    \entry{romanAdvancedLinearAlgebra2010}{book}{}
+      \name{author}{1}{}{%
+        {{hash=a0bb63935d75258a8310acff0e05e2a3}{%
+           family={Roman},
+           familyi={R\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer New York}%
+      }
+      \strng{namehash}{a0bb63935d75258a8310acff0e05e2a3}
+      \strng{fullhash}{a0bb63935d75258a8310acff0e05e2a3}
+      \strng{bibnamehash}{a0bb63935d75258a8310acff0e05e2a3}
+      \strng{authorbibnamehash}{a0bb63935d75258a8310acff0e05e2a3}
+      \strng{authornamehash}{a0bb63935d75258a8310acff0e05e2a3}
+      \strng{authorfullhash}{a0bb63935d75258a8310acff0e05e2a3}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This is a graduate textbook covering an especially broad range of topics. The first part of the book contains a careful but rapid discussion of the basics of linear algebra, including vector spaces, linear transformations, quotient spaces, and isomorphism theorems. The author then proceeds to modules, emphasizing a comparison with vector spaces. A thorough discussion of inner product spaces, eigenvalues, eigenvectors, and finite dimensional spectral theory follows, culminating in the finite dimensional spectral theorem for normal operators. The second part of the book is a collection of topics, including metric vector spaces, metric spaces, Hilbert spaces, tensor products, and affine geometry. The last chapter discusses the umbral calculus, an area of modern algebra with important applications. For the third edition, the author has: * added a new chapter on associative algebras that includes the well known characterizations of the finite-dimensional division algebras over the real field (a theorem of Frobenius) and over a finite field (Wedderburn's theorem); * polished and refined some arguments (such as the discussion of reflexivity, the rational canonical form, best approximations and the definitions of tensor products); * upgraded some proofs that were originally done only for finite-dimensional/rank cases; * added new theorems, including the spectral mapping theorem and a theorem to the effect that , dim(V)=dim(V*) with equality if and only if V is finite-dimensional;* corrected all known errors; * the reference section has been enlarged considerably, with over a hundred references to books on linear algebra. From the reviews of the second edition: "In this 2nd edition, the author has rewritten the entire book and has added more than 100 pages of new materials. ... As in the previous edition, the text is well written and gives a thorough discussion of many topics of linear algebra and related fields. ... the exercises are rewritten and expanded. ... Overall, I found the book a very useful one. ... It is a suitable choice as a graduate text or as a reference book." - Ali-Akbar Jafarian, ZentralblattMATH "This is a formidable volume, a compendium of linear algebra theory, classical and modern ... . The development of the subject is elegant ... . The proofs are neat ... . The exercise sets are good, with occasional hints given for the solution of trickier problems. ... It represents linear algebra and does so comprehensively." -Henry Ricardo, MathDL}
+      \field{day}{19}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-1-4419-2498-8}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{pagetotal}{526}
+      \field{title}{Advanced {{Linear Algebra}}}
+      \field{year}{2010}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb EDBYcgAACAAJ
       \endverb
     \endentry
     \entry{santambrogioEuclideanMetricWasserstein2017}{article}{}

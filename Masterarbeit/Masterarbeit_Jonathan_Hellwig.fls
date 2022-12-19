@@ -1246,8 +1246,6 @@ INPUT ../seminar_talk/plots/sgd_weight_qq.pdf
 INPUT ../seminar_talk/plots/sgd_weight_qq.pdf
 INPUT ../seminar_talk/plots/sgd_weight_qq.pdf
 INPUT ../seminar_talk/plots/sgd_weight_qq.pdf
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
-INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT ../seminar_talk/plots/sde_sgd.pdf
 INPUT ../seminar_talk/plots/sde_sgd.pdf
 INPUT ../seminar_talk/plots/sde_sgd.pdf
@@ -1271,6 +1269,8 @@ INPUT /usr/share/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/share/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/share/texmf-dist/tex/latex/base/omscmr.fd
 INPUT /usr/share/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
+INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT Masterarbeit_Jonathan_Hellwig.aux
 INPUT ./Masterarbeit_Jonathan_Hellwig.out
 INPUT ./Masterarbeit_Jonathan_Hellwig.out

@@ -1,10 +1,10 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Loss function for linear regression problem with $n=1000$\relax }}{35}{figure.caption.6}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Loss function for linear regression problem with $n=1000$, $w=4$ and $b=1$\relax }}{35}{figure.caption.6}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Evolution of $w$ and $b$ for GD\relax }}{36}{figure.caption.7}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of $w$ and $b$ scaled for SGD\relax }}{37}{figure.caption.8}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Evolution of $w$ and $b$ scaled for SGD\relax }}{38}{figure.caption.8}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Approximation error for first and second order modified equations\relax }}{41}{figure.caption.9}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Weight and bias for SGD iterates\relax }}{42}{figure.caption.10}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Histogram of parameter $w$ for SGD sample trajectories\relax }}{43}{figure.caption.11}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Quantile-quantile plot for normal distribution and sampled values of $w$ at the last iteration\relax }}{44}{figure.caption.12}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Loss value of SDE and SGD\relax }}{53}{figure.caption.13}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Maximum of the absolute difference of analytical expected value and average SGD trajectories\relax }}{54}{figure.caption.14}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Weight and bias for SGD iterates\relax }}{43}{figure.caption.10}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Histogram of parameter $w$ for SGD sample trajectories\relax }}{44}{figure.caption.11}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Quantile-quantile plot for normal distribution and sampled values of the weight $w$ at the last iteration\relax }}{45}{figure.caption.12}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Loss value of SDE and SGD\relax }}{55}{figure.caption.13}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Maximum of the absolute difference of analytical expected value and average SGD trajectories\relax }}{56}{figure.caption.14}%
