@@ -1,33 +1,33 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Motivation}{8}{section.1}%
-\contentsline {section}{\numberline {2}Notation}{9}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Derivatives}{9}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Function spaces}{10}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Matrices}{10}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Miscellaneous}{10}{subsection.2.4}%
+\contentsline {section}{\numberline {1}Motivation}{7}{section.1}%
+\contentsline {section}{\numberline {2}Notation}{8}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Derivatives}{8}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Function spaces}{9}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Matrices}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Miscellaneous}{9}{subsection.2.4}%
 \contentsline {section}{\numberline {3}Introduction to stochastic gradient descent}{10}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Stochastic processes}{11}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.1}Stochastic processes}{10}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Risk minimization}{13}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Characterization of minimizers}{14}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Characterization of minimizers}{13}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Gradient descent and stochastic gradient descent}{15}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Convergence analysis of SGD}{17}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}Convergence assumptions}{19}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Convergence results}{22}{subsubsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.6}Summary and outlook}{26}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.5.1}Convergence assumptions}{18}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Convergence results}{21}{subsubsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.6}Summary and outlook}{25}{subsection.3.6}%
 \contentsline {section}{\numberline {4}Stochastic differential equations}{26}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Ordinary differential equations}{26}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Itô Integral}{27}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Existence and uniqueness}{31}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Existence and uniqueness}{30}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Numerical approximations}{32}{subsection.4.4}%
 \contentsline {section}{\numberline {5}Stochastic modified differential equations}{33}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Gradient descent}{34}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.1}Gradient descent}{33}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Stochastic gradient descent}{41}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Stochastic modified equations in deep learning}{54}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Dense neural networks}{54}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Activation functions}{57}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Simulating stochastic modified equations}{57}{subsection.6.3}%
+\contentsline {section}{\numberline {6}Stochastic modified equations in deep learning}{56}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Dense neural networks}{56}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Activation functions}{56}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Simulating stochastic modified equations}{56}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Limitations}{59}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}Experiments}{59}{subsection.6.5}%
 \contentsline {section}{\numberline {7}Applications}{59}{section.7}%
-\contentsline {section}{\numberline {8}Conclusion}{60}{section.8}%
-\contentsline {section}{\numberline {A}Appendix}{65}{appendix.A}%
+\contentsline {section}{\numberline {8}Conclusion}{59}{section.8}%
+\contentsline {section}{\numberline {A}Appendix}{64}{appendix.A}%

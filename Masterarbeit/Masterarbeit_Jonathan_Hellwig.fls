@@ -1201,10 +1201,6 @@ INPUT ./Masterarbeit_Jonathan_Hellwig.lof
 INPUT Masterarbeit_Jonathan_Hellwig.lof
 INPUT Masterarbeit_Jonathan_Hellwig.lof
 OUTPUT Masterarbeit_Jonathan_Hellwig.lof
-INPUT ./Masterarbeit_Jonathan_Hellwig.nls
-INPUT Masterarbeit_Jonathan_Hellwig.nls
-INPUT ./Masterarbeit_Jonathan_Hellwig.nls
-INPUT Masterarbeit_Jonathan_Hellwig.nls
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmti12.tfm

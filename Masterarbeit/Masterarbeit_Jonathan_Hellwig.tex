@@ -21,6 +21,8 @@
 \usepackage{aliascnt}
 % Sätze, Lemmata, ..
 \usepackage{amsthm}
+
+
 \newtheorem{theorem}{Theorem}[section]
 
 \newaliascnt{lemma}{theorem}
@@ -120,6 +122,9 @@
   urlbordercolor=0 0 0,
   pdfhighlight=/P,   % moeglich /I, /P, ...
   pdfborder=0 0 0,   % keine Box um die Links!
+}
+\addto\extrasenglish{%
+  \renewcommand{\sectionautorefname}{Section}%
 }
 % nützliche Kurzkommandos für natürliche, ..., reelle, .. Zahlen
 \newcommand{\N}{\mathbb{N}}
@@ -244,8 +249,6 @@ Hiermit versichere ich an Eides statt, dass ich die vorliegende Arbeit im Master
 \newpage
 \listoffigures
 \newpage
-\printnomenclature
-\newpage
 % LTeX: enabled=true
 \section{Motivation}
 \label{sec:Motivation}
@@ -253,11 +256,12 @@ In recent years, large-scale machine learning using deep neural networks has bee
 
 % One challenging area of research remains in understanding why these models work as well as they do. What allows these models to perform well on unseen data? 
 % Researchers approach this question by studying these models emperically and by creating mathematical frameworks to understand which model properties lead to good generalizations. 
-While the practical usefulness of deep neural networks is beyond dispute, theoretical results that explain how and why these models work have been lacking. Researchers want to understand the following question: how does the performance of a model depend on the choice of initialization, training algorithm and hyperparameters. Empirical studies can provide insights into initialization that ensure fast convergence \cite{glorotUnderstandingDifficultyTraining2010, heDelvingDeepRectifiers2015a}. Further, adaptive variants of stochastic gradient descent, namely Ada-Grad \cite{duchiAdaptiveSubgradientMethods2011}, RMSProp \cite{geoffreyhintonnitishsrivastavaandkevinswer-NeuralNetworksMachine2012} and Adam \cite{kingmaAdamMethodStochastic2017} have been well studied for different datasets and model classes \cite{wilsonMarginalValueAdaptive2017}. Goyal et al. \cite{goyalAccurateLargeMinibatch2018} observe that by linearly scaling learning rate and batch size training dynamics can be preserved for stochastic gradient descent. 
-However, the underlying mechanisms for these empirical observations are not well understood. Ideally, for an initialization $w_0 \in \R^D$, a set of hyperparameters $\CH$ and an update rule $g : \R^d \times \CH \rightarrow \R^D$ we want to have a closed form solution of the difference equation
+While the practical usefulness of deep neural networks is beyond dispute, theoretical results that explain how and why these models work have been lacking. Researchers want to understand the following question: how does the performance of a model depend on the choice of initialization, training algorithm and hyperparameters. Empirical studies can provide insights into initialization that ensure fast convergence \cite{glorotUnderstandingDifficultyTraining2010, heDelvingDeepRectifiers2015a}. Further, adaptive variants of stochastic gradient descent, namely Ada-Grad \cite{duchiAdaptiveSubgradientMethods2011}, RMSProp \cite{geoffreyhintonnitishsrivastavaandkevinswer-NeuralNetworksMachine2012} and Adam \cite{kingmaAdamMethodStochastic2017} have been well studied for different datasets and model classes \cite{wilsonMarginalValueAdaptive2017}. Goyal et al.\ \cite{goyalAccurateLargeMinibatch2018} observe that for stochastic gradient descent training dynamics are preserved when linearly scaling both the learning rate and the batch size. 
+However, the underlying mechanisms for these empirical observations are not well understood. Ideally, for an initialization $w_0 \in \R^d$, a set of hyperparameters $\CH$ and an update rule $g : \R^d \times \CH \rightarrow \R^d$ we want to have a closed form solution of the difference equation
 \begin{equation*}
-  w_{k+1} = g(w_k, \CH), \quad k=1,\dots, N.
-\end{equation*} 
+  w_{k+1} = g(w_k, \CH), \quad k=1,\dots, N-1,
+\end{equation*}
+for $N \in \N$.
 By studying the solution $w_N = h(w_0, g, \CH)$, we can understand how initialization, training algorithm and hyperparameters influence the final model. Clearly, for large non-linear models explicit solutions to this difference equation are intractable. 
 % Nonetheless, we might infer some properties of the its dynamics by studying
 % Some theoretical research focuses on dense models in the infinite width limit \cite{leeWideNeuralNetworks2019, leeDeepNeuralNetworks2022, matthewsGaussianProcessBehaviour2022}. These works show that the trained model can be understood as a Gaussian process and investiagte properties of the trained model. 
@@ -269,8 +273,9 @@ By studying the solution $w_N = h(w_0, g, \CH)$, we can understand how initializ
 % For smooth and convex models the training process has been scrutinized extensively and we cover some basic convergence analyses in \autoref{sec:stochastic_optimization} of this thesis. However, state-of-the-art models are neither smooth nor convex and classic literature does not answer questions about how the dynamics of a given optimization algorithm influence the training process. 
 For this thesis we started with the works of Orvieto et al.\ \cite{orvietoContinuoustimeModelsStochastic2019a} and Li et al.\ \cite{liValidityModelingSGD2021} which present a continuous-time model for stochastic gradient descent (SGD) and an efficient algorithm to simulate it in a deep learning setting respectively. The model is presented as a stochastic modified differential equation (SMDE) of the form
 \begin{equation*}
-  d W_t = -\nabla f(W_t) dt + \sqrt{\eta}\Sigma(W_t)^{\frac{1}{2}}d\mathbf{B}_t, \quad W_0 = w_0.
+  d W_t = -\nabla f(W_t) dt + \sqrt{\eta}\Sigma(W_t)^{1/2}d\mathbf{B}_t, \quad W_0 = w_0,\quad t \in [0, \lfloor N / \eta \rfloor],
 \end{equation*}
+where $f: \R^d \rightarrow \R$ is the target function, $\Sigma$ the covariance matrix of the gradients, $\eta > 0$ the learning rate and $\{ \mathbf{B}_t: t \in [0,\lfloor N / \eta \rfloor]\}$ an $m$-dimensional Brownian motion.
 We set out to assess the validity of the results presented in these papers, with the goal of understanding how the continuous-time model can be used to gain insights about SGD and its variants.
 For this purpose, we provide an overview of the classical analyses of SGD that make strong regularity assumptions in \autoref{sec:stochastic_optimization}. We highlight one particular analysis and show the proofs presented by Sebbouh et al.\ \cite{sebbouhAlmostSureConvergence2021} in more detail.
 In \autoref{sec:BackgroundSDETheory}, we provide an introduction to stochastic differential equations following textbooks by E et al.\ \cite{eAppliedStochasticAnalysis2021} and Kloeden et al.\ \cite{kloedenNumericalSolutionStochastic2013}. Subsequently, we introduce the well-known gradient flow model and frame it as a modified differential equation following \cite{smithOriginImplicitRegularization2021}. We derive the first and second order modified equations of a linear regression model and analyze its dynamics.
@@ -309,7 +314,7 @@ In \autoref{sec:applications}, we outline some applications of SMDE in improving
 In this section, we introduce notation used throughout this thesis.
 \subsection{Derivatives}
 In the case of scalar function $f: \R \rightarrow \R$, we write $f'$ to denote the derivative.
-Let $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_n)$ be a multiindex and $|\alpha| = \alpha_1 + \dots + \alpha_n$ be its \emph{order}. For a function $f : \R^d \rightarrow \R$ with partial derivatvies of up to order $|\alpha|$ we write
+For $n,d\in \N$ let $\alpha = (\alpha_1, \alpha_2, \dots, \alpha_n)$ be a multiindex with $\alpha_1,\dots,\alpha_n \in \{1,\dots,d\}$ and $|\alpha| = \alpha_1 + \dots + \alpha_n$ be its \emph{order}. For a function $f : \R^d \rightarrow \R$ with partial derivatives of up to order $|\alpha|$ we write
 \begin{equation*}
   \nabla^{\alpha} f = \frac{\partial^{\alpha^1}}{\partial x_1^{\alpha_1}}\dots\frac{\partial^{\alpha^n}}{\partial x_n^{\alpha_n}} f
 \end{equation*}
@@ -322,15 +327,15 @@ If $f$ is once differentiable, we use $\nabla f : \R^d \rightarrow \R^d$ without
  \begin{equation*}
   H_f(w)_{(i,j)} = \frac{\partial^2}{\partial w_i \partial w_j} f(w)
  \end{equation*}
- for $i,j=1,\dots,d$. For vector valued functions $\mathbf{f} : \R^d \rightarrow \R^m$ we write 
+ for $i,j=1,\dots,d$. Let $m \in \N$. For vector valued functions $\mathbf{f} : \R^d \rightarrow \R^m$ we write 
  \begin{equation*}
   \nabla^{\alpha}\mathbf{f} = (\nabla^{\alpha}f_1, \dots, \nabla^{\alpha}f_m)^\T \in \R^{m}
  \end{equation*}
- to denote the application of the partial derivative to each component of $\mathbf{f}$ for a multiindex $\alpha$. And we write 
+ to denote the application of the partial derivative to each component of $\mathbf{f}$ for a multiindex $\alpha$. Additionally, we write 
  \begin{equation*}
   \nabla \mathbf{f} = (\nabla f_1, \dots, \nabla f_m) \in \R^{d \times m}
  \end{equation*}
- to denote the gradient applied to each component of $\mathbf{f}$, i.e. the transposed Jacobian matrix.
+ to denote the gradient applied to each component of $\mathbf{f}$, i.e., the transposed Jacobian matrix.
 % For a differentiable function $f : \R^d \rightarrow \R^m$ we write
 % \begin{equation*}
 %   \nabla f (w)_{i,j} = \frac{\partial}{\partial w_i} f_j(w) 
@@ -359,8 +364,8 @@ and
 \end{enumerate}
 For a Lebesgue space $\CL^p(\Omega, \CF, \BP)$ we write $\CL^p_{\text{loc}}(\Omega, \CF, \BP)$ to denote the space of functions $f \in \CL^p(\widetilde{\Omega}, \CF, \BP)$ for all compact subsets $\widetilde{\Omega} \subset \Omega$.
 \subsection{Matrices}
-We use $I_d \in \R^{d \times d}$ to denote the $d$-dimensional \emph{identity} matrix and for a matrix $A \in \R^{m \times n}$ we use $A^\T \in \R^{n \times m}$ to denote its \emph{transpose}.
-For a symmetric matrix $A \in \R^{d \times d}$ we write $\lambda_i(A)$ to denote the $i$-th eigenvalue for $i=1,\dots,d$, where $\lambda_1(A) \geq \lambda_2(A) \geq \dots \geq \lambda_d(A)$. Further, for $A \in \R^{n \times m}$ we write its \emph{singular value decomposition} (see, e.g., \cite{lycheNumericalLinearAlgebra2020}) as $A = V^\T D U$, where $V \in \R^{m \times m}$, $U \in \R^{n \times n}$ are orthonormal matrices, i.e., $V^\T V = I_n$ and $U^\T U = I_m$. The matrix $D \in \R^{m \times n}$ is a diagonal matrix with non-negative entries $\sigma_1(A) \geq \dots \geq \sigma_{\min\{m,n\}}(A)$ called \emph{singular values}. We use $\Tr A \defeq \sum_{i=1}^d a_{i,i}$ to denote the \emph{trace} of a matrix $A \in \R^{d \times d}$.
+Let $d,m,n \in \N$. We use $I_d \in \R^{d \times d}$ to denote the $d$-dimensional \emph{identity} matrix and for a matrix $A \in \R^{m \times n}$ we use $A^\T \in \R^{n \times m}$ to denote its \emph{transpose}.
+For a symmetric matrix $A \in \R^{d \times d}$ we write $\lambda_i(A)$ to denote the $i$-th eigenvalue for $i=1,\dots,d$, where $\lambda_1(A) \geq \lambda_2(A) \geq \dots \geq \lambda_d(A)$. Further, for $A \in \R^{n \times m}$ we write its \emph{singular value decomposition} (see, e.g., \cite{lycheNumericalLinearAlgebra2020}) as $A = V^\T D U$, where $V \in \R^{m \times m}$, $U \in \R^{n \times n}$ are orthonormal matrices, i.e., $V^\T V = I_n$ and $U^\T U = I_m$. The matrix $D \in \R^{m \times n}$ is a diagonal matrix with non-negative entries $\sigma_1(A) \geq \dots \geq \sigma_{\min\{m,n\}}(A)$ called \emph{singular values}. We use $\Tr A \defeq \sum_{i=1}^d a_{i,i}$ to denote the \emph{trace} of a matrix $A \in \R^{d \times d}$. We write $\det(A)$ to denote the determinant of a matrix $A \in \R^{d\times d}$.
 \subsection{Miscellaneous}
 For $g,f \in \CL^1(\R^d, \R)$ we write $f*g$ to denote the \emph{convolution} of $f$ and $g$ with 
 \begin{equation*}
@@ -378,14 +383,14 @@ In this section, we begin by introducing stochastic processes and risk minimizat
  \begin{definition}[Sample space,  \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
    The \emph{sample space} $\Omega$ is the set of all possible outcomes. Each element $\omega \in \Omega$ is called a \emph{sample point}.
  \end{definition}
- \begin{definition}[$\sigma$-algebra, $\sigma(\Omega)$, \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
+ \begin{definition}[$\sigma$-algebra, $\sigma(B)$, \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
    A $\sigma$-algebra $\CF$ is a collection of subsets of $\Omega$ that satisfies
    \begin{enumerate}[label=(\roman*)]
      \item $\Omega \in \CF$,
      \item if $A \in \CF$, then $A^C \in \CF$, where $A^C = \Omega \setminus A$ is the complement of $A$ in $\Omega$,
      \item if $A_n \in \CF$ for $n \in \N$, then $\bigcup_{n=1}^{\infty} A_n \in \CF$.
    \end{enumerate}
-   We write $\sigma(\Omega)$ to denote the smallest $\sigma$-algebra on $\Omega$.
+   We write $\sigma(B)$ to denote the smallest $\sigma$-algebra generated by $B$, where $B$ is a set of subsets of $\Omega$. Further, we write $\mathcal{R}$ to denote the \emph{Borel} $\sigma$-algebra on $\R$, the smallest $\sigma$-algebra containing all open sets.
  \end{definition}
  \begin{definition}[Probability measure, \protect{\cite[pp.~5]{eAppliedStochasticAnalysis2021}}]
    Let $\Omega$ be a sample space and $\CF$ a $\sigma$-algebra defined on $\Omega$. The mapping $\BP : \CF \rightarrow [0,1]$ is called \emph{probability measure} if it satisfies
@@ -402,51 +407,51 @@ In this section, we begin by introducing stochastic processes and risk minimizat
  \end{definition}
  One of the most important concepts in probability theory are random variables. We use independent random variables in \autoref{subsec:gd_sgd} to define the iterates of stochastic gradient descent. 
  \begin{definition}[Random variable, stochastic independence, \protect{\cite[pp.~12]{eAppliedStochasticAnalysis2021}}]
-  For a probability space $(\Omega, \CF, \BP)$ a mapping $X : \Omega \rightarrow \R^d$ is called \emph{random variable}, if it is measurable, i.e., for each $A \in \sigma(\R^d)$ we have $X^{-1}(A) \in \CF$.
-  Two random variables $X, Y$ are called \emph{independent} if for all $A,B \in \CF$ we have
+  For a probability space $(\Omega, \CF, \BP)$ a mapping $W : \Omega \rightarrow \R^d$ is called \emph{random variable}, if it is measurable, i.e., for each $A \in \mathcal{R}^d$ we have $W^{-1}(A) \in \CF$.
+  Two random variables $W, V$ are called \emph{independent} if for all $A,B \in \CF$ we have
   \begin{equation*}
-    \BP(\{X \in A\} \cap \{Y \in B\}) = \BP(\{X \in A\})\BP(\{Y \in B\}).
+    \BP(\{W \in A\} \cap \{V \in B\}) = \BP(\{W \in A\})\BP(\{V \in B\}).
   \end{equation*}
-  For a set of random variables $\{X_i\}_{i=1}^n$ we use the abbreviation i.i.d. to say that they are independent and identically distributed.
+  For a set of random variables $\{W_i\}_{i=1}^n$ we use the abbreviation i.i.d.\ to say that they are independent and identically distributed.
  \end{definition}
  Throughout this thesis we need the concept of expected value and covariance which characterize a probability distribution. 
  \begin{definition}[Expected value, covariance, \protect{\cite[pp.~9]{eAppliedStochasticAnalysis2021}}]
-  Let $(\Omega, \CF, \BP)$ be a probability space and $X:\Omega \rightarrow \R^d$ a random variable. Then, its \emph{expected value} is defined as
+  Let $(\Omega, \CF, \BP)$ be a probability space and $W:\Omega \rightarrow \R^d$ a random variable. Then, its \emph{expected value} is defined as
   \begin{equation*}
-    \ev{X} = \int_\Omega X(\omega) \BP(d\omega)
+    \ev{W} = \int_\Omega W(\omega) \BP(d\omega)
   \end{equation*}
   and its \emph{covariance} is defined as 
   \begin{equation*}
-    \Cov (X) = \ev{(X - \ev{X})^\T (X - \ev{X})}.
+    \Cov (W) = \ev{(W - \ev{W})^\T (W - \ev{W})}.
   \end{equation*}
  \end{definition}
  In particular, we also need the conditional expectation in \autoref{subsec:convergence_analysis_of_sgd}.
  \begin{definition}[Conditional expectation, \protect{\cite[pp.~14]{eAppliedStochasticAnalysis2021}}]
-  Let  $(\Omega, \CF, \BP)$ be a probability space. Then, for a random variable $X$ with $\ev{|X|} < \infty$ the \emph{conditional expectation} $Z \defeq \ev{X|\CG}$ of $X$ given a $\sigma$-algebra $\CG \subset \CF$ satisfies
+  Let  $(\Omega, \CF, \BP)$ be a probability space. Then, for a random variable $W$ with $\ev{|W|} < \infty$ the \emph{conditional expectation} $Z \defeq \ev{W|\CG}$ of $W$ given a $\sigma$-algebra $\CG \subset \CF$ satisfies
   \begin{enumerate}[label=(\roman*)]
     \item $Z$ is measurable with respect to $\CG$,
     \item for any set $A \in \CG$
     \begin{equation*}
-      \int_A Z(\omega)\BP(d\omega) = \int_A X(\omega)\BP(d\omega).
+      \int_A Z(\omega)\BP(d\omega) = \int_A W(\omega)\BP(d\omega).
     \end{equation*}
-    For two random variables $X,Y$ with $\ev{|X|},\ev{|Y|} < \infty$ we write $\ev{X|Y} \defeq \ev{X|\sigma(Y)}$ to denote the conditional expectation with respect to the $\sigma$-algebra generated by $Y$.
+    For two random variables $W,V$ with $\ev{|W|},\ev{|V|} < \infty$ we write $\ev{W|V} \defeq \ev{W|\sigma(V)}$ to denote the conditional expectation with respect to the $\sigma$-algebra generated by $V$.
   \end{enumerate}
  \end{definition}
  \begin{theorem}[\protect{\cite[pp.~14]{eAppliedStochasticAnalysis2021}}]
   \label{thm:conditional_expectation}
-  Let $X, Y$ be a random variables defined on a probability space $(\Omega, \CF, \BP)$ with $\ev{|X|},\ev{|Y|} < \infty$. Then, for $\CG \subset \CF$ we have
+  Let $W, V$ be a random variables defined on a probability space $(\Omega, \CF, \BP)$ with $\ev{|W|},\ev{|V|} < \infty$. Then, for $\CG \subset \CF$ we have
   \begin{enumerate}[label=(\roman*)]
-    \item for a measurable function $f$ and if $Y$ is $\CG$-measurable
+    \item for a measurable function $f$ and if $V$ is $\CG$-measurable
     \begin{equation*}
-      \ev{f(Y)X|\CG} = f(Y)\ev{X|\CG},
+      \ev{f(V)W|\CG} = f(V)\ev{W|\CG},
     \end{equation*}
     \item the tower property
     \begin{equation*}
-      \ev{\ev{X|\CG}} = \ev{X},
+      \ev{\ev{W|\CG}} = \ev{W},
     \end{equation*}
-    \item if $X$ is independent of $\CG$
+    \item if $W$ is independent of $\CG$
     \begin{equation*}
-      \ev{X|\CG} = \ev{X}.
+      \ev{W|\CG} = \ev{W}.
     \end{equation*}
     
   \end{enumerate}
@@ -456,23 +461,23 @@ In this section, we begin by introducing stochastic processes and risk minimizat
  \end{proof}
  Next, we define normal random variables. They are an important class of random variables and are required for the definition of stochastic differential equations in \autoref{sec:BackgroundSDETheory}.
  \begin{example}[\protect{\cite[pp.~11]{eAppliedStochasticAnalysis2021}}]
-  Let $(\Omega, \CF, \BP)$ be a probability space. A random variable $X : \Omega \rightarrow \R^d$ is called \emph{normally distributed} if its probability measure is given by
+  Let $(\Omega, \CF, \BP)$ be a probability space. A random variable $W : \Omega \rightarrow \R^d$ is called \emph{normally distributed} if its probability measure is given by
   \begin{equation*}
-    \BP(X \in A) = \frac{1}{(2 \pi)^\frac{d}{2} \det(S)^\frac{1}{2}} \int_A \exp\left(-\frac{1}{2}(x-\mu)S^{-1}(x-\mu)\right)dx, \quad A \in \sigma(\R^d),
+    \BP(W \in A) = \frac{1}{(2 \pi)^\frac{d}{2} \det(S)^\frac{1}{2}} \int_A \exp\left(-\frac{1}{2}(x-\mu)S^{-1}(x-\mu)\right)dx, \quad A \in \mathcal{R}^d,
   \end{equation*}
-  where $S \in \R^{d \times d}$ is a symmetric, positive definite matrix (see \autoref{def:pos_neg_def}) and $\mu \in \R^d$. We write $X \sim \CN(\mu, S)$ to denote that a random variable is normally distributed with parameters $S \in \R^{d \times d}$, $\mu \in \R^d$.
+  where $S \in \R^{d \times d}$ is a symmetric, positive definite matrix (see \autoref{def:pos_neg_def}) and $\mu \in \R^d$. We write $W \sim \CN(\mu, S)$ to denote that a random variable is normally distributed with parameters $S \in \R^{d \times d}$, $\mu \in \R^d$.
  \end{example}
  Stochastic gradient descent is defined as a sequence of random variables where each iterate depends on the previous iterate. We model time varying random variables by stochastic processes.
  \begin{definition}[Stochastic process, \protect{\cite[pp.~103]{eAppliedStochasticAnalysis2021}}]
-  Let $(\Omega, \CF, \BP)$ be a probability space. A parametrized random variable $\{X_t\}_{t \in \bm{T}}$ defined on $(\Omega, \CF, \BP)$ for an index set $\bm{T}$ is called \emph{stochastic process}. When $\bm{T} = \N_0$, then we write $\{X_n\}_{n=0}^\infty$ and for $\bm{T} = [0,\infty)$ we write $\{X_t\}_{t \geq 0}$.
+  Let $(\Omega, \CF, \BP)$ be a probability space. A parametrized random variable $\{W_t\}_{t \in \bm{T}}$ defined on $(\Omega, \CF, \BP)$ for an index set $\bm{T}$ is called \emph{stochastic process}. When $\bm{T} = \N_0$, we write $\{W_n\}_{n=0}^\infty$ and for $\bm{T} = [0,\infty)$ we write $\{W_t\}_{t \geq 0}$.
  \end{definition}
  An important concept for stochastic processes are filtrations. They encode all the available information up to a certain point in time.
  \begin{definition}[Filtration, $\CF_t$-adapted, \protect{\cite[pp.~104]{eAppliedStochasticAnalysis2021}}]
-   Given the probability space $(\Omega, \CF, \BP)$, a \emph{filtration} is a nondecreasing family of $\sigma$-algebras $\{\CF_t\}_{t\in \mathbf{T}}$, i.e., $\CF_s \subset \CF_t \subset \CF$ for any $s,t \in \mathbf{T}$ with $s < t$. Further, a $\R^d$-valued stochastic process $\{X_t\}_{t \in \mathbf{T}}$ on the probability space  $(\Omega, \CF, \BP)$ is called $\CF_t$-\emph{adapted} if $X_t$ is $\CF_t$-measureable, i.e., $X_t^{-1}(B) \in \CF_t$ for any $t \in \mathbf{T}$ and $B \in \sigma(\R^d)$.
+   Given the probability space $(\Omega, \CF, \BP)$, a \emph{filtration} is a nondecreasing family of $\sigma$-algebras $\{\CF_t\}_{t\in \mathbf{T}}$, i.e., $\CF_s \subset \CF_t \subset \CF$ for any $s,t \in \mathbf{T}$ with $s < t$. Further, a $\R^d$-valued stochastic process $\{W_t\}_{t \in \mathbf{T}}$ on the probability space  $(\Omega, \CF, \BP)$ is called $\CF_t$-\emph{adapted} if $W_t$ is $\CF_t$-measurable, i.e., $W_t^{-1}(B) \in \CF_t$ for any $t \in \mathbf{T}$ and $B \in \mathcal{R}^d$.
  \end{definition}
  To gain more insight into filtrations we consider the following example from E et al.\cite{eAppliedStochasticAnalysis2021}.
  \begin{example}[\protect{\cite[pp.~103]{eAppliedStochasticAnalysis2021}}]
-  Li et al. consider the stochastic process $\{X_n\}_{n=0}^\infty$ of repeated coin tossing. Let $\Omega = \{T,H\}^\N$ be the sample space, where $T$ denotes tails and $H$ denotes heads. They define the initial $\sigma$-algebra as $\CF_0 = \{\emptyset, \Omega\}$. Next, they define $\CF_1 = \{\emptyset, \Omega, \{T\}, \{H\}\}$ and $\CF_2 = \sigma(\{\emptyset, \Omega, \{T\}, \{H\}, \{HH\},\{HT\}, \{TH\},\{TT\}\})$. We see that we have $\CF_0 \subset \CF_1 \subset \CF_2$. The filtration $\CF_t$ contains all possible events up to the time $t \in \N$.
+  E et al.\ consider the stochastic process $\{W_n\}_{n=0}^\infty$ of repeated coin tossing. Let $\Omega = \{T,H\}^\N$ be the sample space, where $T$ denotes tails and $H$ denotes heads. They define the initial $\sigma$-algebra as $\CF_0 = \{\emptyset, \Omega\}$. Next, they define $\CF_1 = \{\emptyset, \Omega, \{T\}, \{H\}\}$ and $\CF_2 = \sigma(\{\emptyset, \Omega, \{T\}, \{H\}, \{HH\},\{HT\}, \{TH\},\{TT\}\})$. We see that we have $\CF_0 \subset \CF_1 \subset \CF_2$. The filtration $\CF_t$ contains all possible events up to the time $t \in \N$.
  \end{example}
 \subsection{Risk minimization}
 % Risk minimization
@@ -490,13 +495,13 @@ We present the well-known risk minimization problem (see, e.g., \cite{bottouOpti
 \begin{definition}[Model, loss function]
   Let $\mathcal{X}$ be the feature space and $\mathcal{Y}$ be the target space. Then, we call the mapping $M : \mathcal{X} \times \R^d \rightarrow \mathcal{Y}$ \emph{model}. The mapping $\ell : \mathcal{Y} \times \mathcal{Y} \rightarrow \R$ is called \emph{loss function}.
 \end{definition}
-Ideally, we want to construct a model that captures the structure of some data well. In practice, we only have access to a sample of data, but the model should yield good predictions on data not contained in the sample. This leads to two definitions that distinguish between the theoretical and practical optimization problem.
+Ideally, we want to construct a model that captures the structure of some data well. In practice, we only have access to a sample of data, but the model should yield good predictions on data not contained in the sample. Bottou et al.\ \cite{bottouOptimizationMethodsLargeScale2018} define two concepts that distinguish between the theoretical and practical optimization problem.
 \begin{definition}[Expected risk, empirical risk, \protect{ \cite{bottouOptimizationMethodsLargeScale2018}}]
   Let $M : \mathcal{X} \times \R^d \rightarrow \mathcal{Y}$ be a model and $\ell : \mathcal{Y} \times \mathcal{Y} \rightarrow \R$ a loss function. Then, we call
   \begin{equation}
-  \min_{w \in \R^d} R(w) = \ev{\ell(M(x;w),y)}
+  \min_{w \in \R^d} R(w) = \ev{\ell(M(X;w),Y)}
 \end{equation}
-\emph{expected risk}. Further, for a set of samples $\{(x_i, y_i)\}_{i=1}^n \subset (\mathcal{X} \times  \mathcal{Y})^n$ we call
+\emph{expected risk}, where $X,Y$ are a $\mathcal{X}$-valued and $\mathcal{Y}$-valued random variables respectively. Further, for a set of samples $\{(x_i, y_i)\}_{i=1}^n \subset (\mathcal{X} \times  \mathcal{Y})^n$ we call
 \begin{equation}
   \label{eq:empirical_risk}
   \min_{w \in \R^d}  R_n(w) = \frac{1}{n}\sum_{i=1}^n\ell(M(x_i;w),y_i)
@@ -504,7 +509,7 @@ Ideally, we want to construct a model that captures the structure of some data w
 \emph{empirical risk}.
 \end{definition}
 A model $M$ generalizes well if the difference between its empirical and expected risk $|R - R_n|$ is small. This notion will become relevant in the following sections in the discussion of gradient descent for solving \eqref{eq:empirical_risk}. Whether a model generalizes well both depends on the model architecture and the procedure to obtain the parameters $w \in \R^d$. 
-The choice of the loss function depends on the type of data. For regression problems, the \emph{mean square loss} (see \autoref{ex:linear_regression}) is typically used, while for multi-class classification problems, the \emph{cross entropy loss} is often used.
+The choice of the loss function depends on the type of data. For regression problems, the \emph{mean squared loss} (see \autoref{ex:linear_regression}) is typically used, while for multi-class classification problems, the \emph{cross entropy loss} is often used.
 
 \subsection{Characterization of minimizers}
 First, we introduce the concept of minimizers to understand how the empirical risk minimization problem can be solved. In the following, we consider a general formulation of the minimization problem \eqref{eq:empirical_risk} that is found in optimization textbooks (see, e.g., \cite{nocedalNumericalOptimization2006}). For a function $f:\R^d \rightarrow \R$ we define the \emph{unconstrained minimization problem}
@@ -540,7 +545,7 @@ Using the gradient, we can find candidates for local minima by solving $\nabla f
   \end{equation}
   is called \emph{stationary point}.
 \end{definition}
-Further, if we have stationary point $w^\star \in \R^d$, we can check whether it is a minimizer using the Hessian:
+Further, if we have a stationary point $w^\star \in \R^d$, we can check whether it is a minimizer using the Hessian.
 \begin{theorem}[\protect{\cite[pp.~16]{nocedalNumericalOptimization2006}}]
   \label{thm:sufficient_condition}
   Let $f:\R^d \rightarrow \R$ be twice continuously differentiable in an open neighborhood of $w^\star \in \R^d$. Suppose $w^\star$ is a stationary point and $H_f(w^\star)$ is positive definite. Then $w^\star$ is a strict local minimizer of $f$.
@@ -573,10 +578,10 @@ It is easy to show that given an initial value $w \in \R^d$ and a descent direct
 \begin{proof}
   Using the mean-value theorem \cite[pp.~629]{nocedalNumericalOptimization2006} we know that there exists an $\alpha \in (0,1)$ such that 
   \begin{equation*}
-    f(w) - f(w + \eta g) = \nabla f(w+\alpha\eta g)^Tg.
+    f(w + \eta g) - f(w) = \nabla f(w+\alpha\eta g)^T\eta g.
   \end{equation*}
   Now, assuming that $\nabla f (w) \neq 0$, for $0 < \epsilon <
-  \frac{\lvert\scp{\nabla f(w)}{g}\rvert}{\norm{g}}$ there exists a $\delta > 0$ such that 
+  \frac{-\scp{\nabla f(w)}{g}}{\norm{g}}$ there exists a $\delta > 0$ such that 
   \begin{equation}
     \label{eq:continuity}
     \norm{\nabla f(w + \delta g) - \nabla f(w)} < \epsilon
@@ -585,14 +590,14 @@ It is easy to show that given an initial value $w \in \R^d$ and a descent direct
   Using \eqref{eq:descent_direction} and \eqref{eq:continuity} we have
   \begin{equation*}
     \begin{split}
-      \langle\nabla f(w + \delta g), g \rangle &= \langle \nabla f(w + \delta g)- \nabla f(w), g \rangle + \langle \nabla f(w), g \rangle \\
-      &\leq \norm{\nabla f(w + \delta g)- \nabla f(w)}\norm{g} + \langle \nabla f(w), g \rangle \\
-      &< \epsilon \norm{g} + \langle \nabla f(w), g \rangle < 0
+     \scp{\nabla f(w + \delta g)}{\eta g} &= \scp{\nabla f(w + \delta g)- \nabla f(w)}{\eta g}+ \scp{\nabla f(w)}{\eta g}\\
+      &\leq \eta \norm{\nabla f(w + \delta g)- \nabla f(w)}\norm{g} + \eta \scp{\nabla f(w)}{g} \\
+      &< \epsilon \eta \norm{g} + \eta \scp{\nabla f(w)}{g} < 0.
     \end{split}
   \end{equation*}
   Choosing $\eta < \frac{\delta}{\alpha}$ we have
   \begin{equation*}
-    f(w) - f(w + \eta g) = \scp{\nabla f(w+\alpha\eta g)}{g} < 0. \qedhere
+    f(w + \eta g) - f(w) = \scp{\nabla f(w+\alpha\eta g)}{g} < 0. \qedhere
   \end{equation*}
 \end{proof}
 This motivates the definition of one-step iterative methods.
@@ -610,19 +615,21 @@ This motivates the definition of one-step iterative methods.
 \end{definition}
 
 It is easy to see that for the iterates of GD we have ${g_k}^T \nabla f(w_{k}) = -\norm{ \nabla f(w_{k}) }^2 < 0$ as long as the iterates have not converged to a stationary point. GD forms the basis for many of the iterative schemes used in deep learning practice. It is important to note that after defining such an iterative scheme it is unclear whether it actually converges to a minimizer. In \autoref{subsec:convergence_analysis_of_sgd}, we discuss the classes of functions for which convergence can be established and how they relate to deep learning practice. Before diving into the theoretical analysis of descent methods let us consider an extension to the gradient descent method.
-Notice that in \eqref{eq:gradient_descent} the computation of each iterate requires the computation of the gradient $\nabla f$. For objective functions of the form $f(w) = \frac{1}{n} \sum_{i=1}^n f_i(w)$, i.e., the empirical risk minimization setting, this requires the computation of each individual $\nabla f_i(w)$ for $i = 1, \dots, n$. In deep learning settings, $f_i$ is the loss $\ell(M(x_i;w), y_i)$ with respect to a single data point $(x_i, y_i)$. When each model evaluation is slow and the number of data points is large, computing the full gradient $\nabla f$ becomes prohibitively expensive. In fact, ImageNet \cite{dengImageNetLargescaleHierarchical2009}, a benchmark dataset for image classification, contains over 1.2 million images. If we treat each individual gradient $\nabla f_i(w)$ as a realization of a random variable $\nabla f_{\gamma}(w)$ with expected value $\ev{\nabla f_{\gamma}(w)} = \nabla f(w)$, we can estimate $\nabla f(w)$ by calculating a sampled average of individual gradients. In particular, this leads to the definition of the following random process:
+Notice that in \eqref{eq:gradient_descent} the computation of each iterate requires the computation of the gradient $\nabla f$. For objective functions of the form $f(w) = \frac{1}{n} \sum_{i=1}^n f_i(w)$, i.e., the empirical risk minimization setting, this requires the computation of each individual $\nabla f_i(w)$ for $i = 1, \dots, n$. In deep learning settings, $f_i$ is the loss $\ell(M(x_i;w), y_i)$ with respect to a single data point $(x_i, y_i)$, $i=1,\dots,n$. When each model evaluation is slow and the number of data points is large, computing the full gradient $\nabla f$ becomes prohibitively expensive. In fact, ImageNet \cite{dengImageNetLargescaleHierarchical2009}, a benchmark dataset for image classification, contains over 1.2 million images. 
+% If we treat each individual gradient $\nabla f_i(w)$ as a realization of a random variable $\nabla f_{\gamma}(w)$ with expected value $\ev{\nabla f_{\gamma}(w)} = \nabla f(w)$, we can estimate $\nabla f(w)$ by calculating a sampled average of individual gradients. In particular, this leads to the definition of the following random process:
+Instead of calculating the full gradient $\nabla f$ we calculate a sampled gradient $\nabla f_{\gamma}$, where $\gamma : \Omega \rightarrow \{1,\dots,n\}$ is a random variable defined on a probability space $(\Omega, \CF, \BP)$ that select a random index. We define the well-known stochastic process:
 \begin{definition}[Stochastic gradient descent, \protect{\cite{polyakMethodsSpeedingConvergence1964}}]
   \label{def:sgd}
- Let $(\Omega, \CF, \BP)$ be a probability space. For a given initial value $w_{0} \in \R^d$, a sequence of step sizes $\{\eta_k\}_{k=1}^\infty$ and i.i.d.\ random variables $\{\gamma^{(k)}\}_{k=1}^\infty$ defined on $(\Omega, \CF, \BP)$ the stochastic process defined by
+ Let $(\Omega, \CF, \BP)$ be a probability space. For a given initial value $w_{0} \in \R^d$, a sequence of step sizes $\{\eta_k\}_{k=0}^\infty$ and i.i.d.\ random variables $\{\gamma_{k}\}_{k=0}^\infty$ defined on $(\Omega, \CF, \BP)$ the stochastic process defined by
   \begin{equation}
     \label{eq:stochastic_gradient_descent}
-    w_{k+1} = w_{k} - \eta_k \nabla f_{\gamma^{(k)}}(w_{k}),
+    w_{k+1} = w_{k} - \eta_k \nabla f_{\gamma_{k}}(w_{k}),
   \end{equation}
   is called \emph{stochastic gradient descent} (SGD).
   The stochastic process defined by
   \begin{align*}
-    w_{k+1} &= \mu v^{(k)} - \eta_k \nabla f_{\gamma^{(k)}}(w_{k}) \\
-    v^{(k+1)} &= w_{k} + v^{(k)},
+    w_{k+1} &= \mu v_{k} - \eta_k \nabla f_{\gamma_{k}}(w_{k}) \\
+    v_{k+1} &= w_{k} + v_{k},
   \end{align*}
   where $\mu \in (0,1)$ is called \emph{stochastic gradient descent with momentum}. 
 \end{definition}
@@ -636,7 +643,7 @@ Notice that in \eqref{eq:gradient_descent} the computation of each iterate requi
 %   where $g:\R^d \times \Gamma \rightarrow \R^d$ is a measurable function, is called \emph{stochastic one-step descent method}.
 % \end{definition}
 % This class of stochastic iterative methods encompasses many commonly used optimization methods. 
-Note that while introducing stochasticity to the optimization process allows for increased computational speed, it makes the analysis of a method more difficult. In fact, for the analysis of stochastic methods it is not sufficient to only consider the expected value $\ev{\nabla f_{\gamma}(w)}$ of the gradients. As we will see in the following sections, the covariance matrix of the gradients $\Sigma(w) = \Cov(\nabla f_\gamma(w)) \mathbb{E}[(\nabla f_{\gamma}(w) - \nabla f(w)){(\nabla f_{\gamma}(w) - \nabla f(w))}^T]$ influences the dynamics of the loss function nontrivially.
+Note that while introducing stochasticity to the optimization process allows for increased computational speed, it makes the analysis of a method more difficult. In fact, for the analysis of stochastic methods it is not sufficient to only consider the expected value $\ev{\nabla f_{\gamma}(w)}$ of the gradients. As we will see in the following sections, the covariance matrix of the gradients $\Sigma(w) = \Cov(\nabla f_\gamma(w)) = \ev{(\nabla f_{\gamma}(w) - \nabla f(w)){(\nabla f_{\gamma}(w) - \nabla f(w))}^T}$ influences the dynamics of the loss function nontrivially.
 % The SGD method serves as a prototype for a lot of optimization methods. (rephrase) A simple extension is \emph{stochastic gradient descent with momentum}. 
 % \begin{align*}
 %   w_{k+1} &= \mu v^{(k)} - \eta \nabla f_{\gamma^{(k)}}(w_{k}) \\
@@ -681,7 +688,7 @@ We say the sequence  $\{W_k\}_{k=0}^{\infty}$ converges to $W$ \emph{in distribu
 \end{definition}
 % convergence in expectation ist nicht definiert 
 % Beweis: Erkläre die einzelnen Schritte 
-Note that almost sure convergence implies convergence in distribution. Let $f \in \CC_b(\R^d, \R)$ and let $\Omega_{\text{conv}} = \{\omega \in \Omega : \lim_{k \rightarrow \infty}W_k(\omega) = W(\omega)\}$. Then, by the dominated convergence theorem (see \autoref{thm:dominated_convergence}) we have 
+Note that almost sure convergence implies convergence in distribution. Let $f \in \CC_b(\R^d, \R)$ and assume that $\{W_k\}_{k=0}^\infty$ converges to a random variable $W$ almost surely. Further, we write $\Omega_{\text{conv}} \defeq \{\omega \in \Omega : \lim_{k \rightarrow \infty}W_k(\omega) = W(\omega)\}$. Then, by the dominated convergence theorem (see \autoref{thm:dominated_convergence}) we have 
 \begin{equation*}
   \lim_{k \rightarrow \infty} \ev{f(W_k) - f(W)} = \int_{\Omega} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP.
 \end{equation*}
@@ -691,10 +698,10 @@ Now, by splitting $\Omega = \Omega_{\text{conv}} \cup (\Omega \setminus \Omega_{
   =\int_{\Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP \\
    + \int_{\Omega \setminus \Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP = \int_{\Omega_{\text{conv}}} \lim_{k \rightarrow \infty} f(W_k) - f(W) d\BP = 0.
 \end{multline*}
-
+Therefore, $\{W\}_{k=0}^\infty$ converges to $W$ in distribution.
 \begin{example}
-  We consider an example of a sequence random variables $\{W_k\}_{k=1}^\infty$ that convergences to a limit $W$ in distribution but not almost surely.
-  Let $W,Z$ be two stochastically independent random variables following a normal distribution. We define the sequence $W_k = Z$ for $k=1,2,\dots$. Then, for $f \in \CC_b(\R^d, \R)$ we have
+  We consider an example of a sequence of random variables $\{W_k\}_{k=1}^\infty$ that convergences to a limit $W$ in distribution but not almost surely.
+  Let $W,Z$ be two stochastically independent random variables following a standard normal distribution. We define the sequence $W_k = Z$ for $k=1,2,\dots$. Then, for $f \in \CC_b(\R^d, \R)$ we have
   \begin{equation*}
     \lim_{k \rightarrow \infty} \ev{f(W_k)} = \ev{f(Z)} = \ev{f(W)}.
   \end{equation*}
@@ -717,7 +724,7 @@ First, we introduce Lipschitz continuity.
   \end{equation*}
   for all $w,v \in \R^d$.
 \end{definition}
-Next, we define the notation of $L$-smoothness. This condition is both a common assumption to prove the convergence of SGD and for the existence of solutions to the modified stochastic differential equations in \autoref{sec:sde_model}.
+Next, we define the notation of $L$-smoothness. This condition is both a common assumption to prove the convergence of SGD and the existence of solutions to the modified stochastic differential equations in \autoref{sec:sde_model}.
 \begin{definition}[$L$-smoothness, \protect{\cite{bottouOptimizationMethodsLargeScale2018}}]
   \label{def:l_smooth}
   A continuously differentiable function $f : \R^d \rightarrow \R$ is said to be \emph{$L$-smooth} if its gradient is Lipschitz continuous, that is 
@@ -745,12 +752,12 @@ Next, we define the notation of $L$-smoothness. This condition is both a common 
 
   Lastly, the function $f(x) = \ln(x)$ is not $L$-smooth. Let $x = 1$ and $y = \frac{1}{n}$, then we have
   \begin{equation*}
-    \frac{\lvert f'(x) - f'(y) \rvert}{\lvert x - y \rvert} = \frac{\lvert \frac{1}{x}- \frac{1}{y} \rvert}{\lvert x-y \rvert} = n \rightarrow \infty
+    \frac{\lvert f'(x) - f'(y) \rvert}{\lvert x - y \rvert} = \frac{\lvert \frac{1}{x}- \frac{1}{y} \rvert}{\lvert x-y \rvert} = \frac{\lvert 1- n\rvert}{\lvert 1-\frac{1}{n} \rvert} = n \rightarrow \infty
   \end{equation*}
   for $n \rightarrow \infty$. 
   % This function is relevant for the construction of the cross-entropy loss which is not $L$-smooth. Therefore, we cannot apply the convergence theorems in \autoref{sec:convergence_results} and guarantee the existence of solutions to stochastic modified equations in \autoref{sec:sde_model}.
 \end{example}
-We restate a characterization of $L$-smoothness found in Bottou et al.\cite{bottouOptimizationMethodsLargeScale2018} that is needed for the following convergence theorems.
+We restate a characterization of $L$-smoothness found in Bottou et al.\ \cite{bottouOptimizationMethodsLargeScale2018} that is needed for the following convergence theorems.
 \begin{lemma}[\protect{\cite{bottouOptimizationMethodsLargeScale2018}}]
   Let $f : \R^d \rightarrow \R$ be a $L$-smooth function. Then, we have 
   \begin{equation}
@@ -783,7 +790,7 @@ We restate a characterization of $L$-smoothness found in Bottou et al.\cite{bott
     f(w) \leq f(v) + \langle \nabla f(w), v - w \rangle + \frac{L}{2} \norm{v - w}^2. \qedhere
   \end{equation*}
 \end{proof}
-Gower et al.\ \cite{gowerSGDGeneralAnalysis2019} present an extension of $L$-smoothness which combines a condition on the sampling noise and the smoothness of the traget function.
+Gower et al.\ \cite{gowerSGDGeneralAnalysis2019} present an extension of $L$-smoothness which combines a condition on the sampling noise and the smoothness of the target function.
 \begin{definition}[$L$-\emph{smooth in expectation}, \protect{\cite{gowerSGDGeneralAnalysis2019}}]
   A continuously differentiable  function $f_{\gamma}:\R^d \rightarrow \R$ is said to be $L$-\emph{smooth in expectation} with respect to the distribution $\mathcal{D}$ if there exists $L = L(f, \mathcal{D}) > 0$ such that 
   \begin{equation}
@@ -796,9 +803,9 @@ We restate the definition of convex functions and present some of their properti
 \begin{definition}[Convexity, \protect{\cite[pp.~67]{boydConvexOptimization2004}}]
   A function $f : \R^d \rightarrow \R$ is said to be \emph{convex} if 
   \begin{equation}
-    f(tx+(1-t)y) \leq tf(x)+(1-t)f(y)
+    f(tw+(1-t)v) \leq tf(w)+(1-t)f(v)
   \end{equation}
-  for all $x,y \in \R^n$ and $t \in [0,1]$.
+  for all $w,v \in \R^d$ and $t \in [0,1]$.
 \end{definition}
 For continuously differentiable functions we have the following equivalent characterization of convex functions:
 \begin{lemma}[\protect{\cite[pp.~69]{boydConvexOptimization2004}}]
@@ -830,7 +837,7 @@ Note that for continuously differentiable functions \autoref{lemma:convexity} im
  Additionally, Bottou et al.\ \cite{bottouOptimizationMethodsLargeScale2018} present two assumptions for the SGD iterates: a bound on the first moment of the gradient and a growth condition for the second moment.
 \begin{assumption}[\protect{\cite{bottouOptimizationMethodsLargeScale2018}}]
   \label{as:sgd_convergence}
-  Let $f : \R^d \rightarrow \R$ be a continuously differentiable function and $\{w_k\}_{k=0}^\infty$ the iterates given by SGD in \eqref{eq:stochastic_gradient_descent}. Then they satisfy the following conditions:
+  Let $f : \R^d \rightarrow \R$ be a continuously differentiable function and let $\{w_k\}_{k=0}^\infty$ be the iterates given by SGD in \eqref{eq:stochastic_gradient_descent}. Then they satisfy the following conditions:
   \begin{enumerate}[label=(\roman*)]
     % \item There exists a scalar $\mu > 0$ such that 
     % \begin{equation*}
@@ -875,37 +882,37 @@ Sebbouh et al.\ \autocite{sebbouhAlmostSureConvergence2021} show that combining 
   where $\sigma^2 \defeq \sup_{w \in \R^d} \ev{\norm{\nabla f_\gamma(w)}^2}$ and $\CL \defeq \sup_{\gamma} L_{\gamma}$.
 \end{lemma}
 \begin{proof}
-  Let $w, w^\star \in \R^d$ where $w^\star$ is a minimizer of $f$. We use a inequality from the textbook \cite[pp.~67, (2.1.10)]{nesterovLecturesConvexOptimization2018} which states for the $L$-smooth function $f_\gamma$ we have
+  Let $w, w^\star \in \R^d$ where $w^\star$ is a minimizer of $f$. We use an inequality from the textbook \cite[pp.~67, (2.1.10)]{nesterovLecturesConvexOptimization2018} which states that for the $L$-smooth function $f_\gamma$ we have
   \begin{equation*}
     f_\gamma(w^\star) + \scp{\nabla f_\gamma(w^\star)}{w - w^\star} + \frac{1}{2 L_\gamma}\norm{\nabla f_\gamma(w^\star) - \nabla f(w)} \leq f_\gamma(w).
   \end{equation*}
   
   Rearranging yields
   \begin{align*}
-    \norm{\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)}^2 &\leq 2L_{\gamma}(f_{\gamma}(w) - f_{\gamma}(w^\star) - \langle \nabla f_{\gamma}(w^\star), w - w^\star \rangle) \\
+    \norm{\nabla f_{\gamma}(w) - \nabla f_{\gamma}(w^\star)}^2 &\leq 2L_{\gamma}(f_{\gamma}(w) - f_{\gamma}(w^\star) - \langle \nabla f_{\gamma}(w^\star), w - w^\star \rangle) \\
     &\leq 2\CL(f_{\gamma}(w) - f_{\gamma}(w^\star) - \langle \nabla f_{\gamma}(w^\star), w - w^\star \rangle).
   \end{align*}
   Thus, by taking the expectation on both sides and using $f \equiv \ev{f_\gamma}$ we have
   \begin{equation*}
-    \ev{\norm{\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)}^2 } \leq 2\CL(f(w) - f(w^\star) - \langle \nabla f(w^\star), w - w^\star \rangle).
+    \ev{\norm{\nabla f_{\gamma}(w) - \nabla f_{\gamma}(w^\star)}^2 } \leq 2\CL(f(w) - f(w^\star) - \langle \nabla f(w^\star), w - w^\star \rangle).
   \end{equation*}
-  Since $w^\star$ is a minimizer from \autoref{thm:necessary_condition} we follow $\nabla f(w^\star) = 0$ and have
+  Since $w^\star$ is a minimizer from \autoref{thm:necessary_condition} it follows $\nabla f(w^\star) = 0$ and we have
   \begin{equation*}
     \ev{\norm{\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)}^2 } \leq 2\CL(f(w) - f(w^\star)).
   \end{equation*}
   Now, by using \autoref{lemma:inequality} and the previous inequality we have
   \begin{align*}
     \ev{\norm{\nabla f_{\gamma}(w)}^2} &= \ev{\norm{(\nabla f_{\gamma}(w) - \nabla f_{\gamma}(w^\star)) + \nabla f_{\gamma}(w^\star)}^2} \\
-    &\leq 2( \ev{\norm{\nabla f_{\gamma}(w) - f_{\gamma}(w^\star)}^2 } + \ev{\norm{\nabla f_{\gamma}(w^\star)}^2}) \\
-    &= 4\CL(f(w) - f(w^\star)) + 2\sigma^2. \qedhere
+    &\leq 2( \ev{\norm{\nabla f_{\gamma}(w) - \nabla f_{\gamma}(w^\star)}^2 } + \ev{\norm{\nabla f_{\gamma}(w^\star)}^2}) \\
+    &\leq 4\CL(f(w) - f(w^\star)) + 2\sigma^2. \qedhere
   \end{align*}
 \end{proof}
 We now present the following result from \autocite{sebbouhAlmostSureConvergence2021} which relates the distances to the minimizer $w^\star$ for two consecutive iterates.
 \begin{lemma}[\protect{\cite{sebbouhAlmostSureConvergence2021}}]
   \label{lemma:sgd_iterates}
-  Let $\gamma : \Omega \rightarrow \{1,\dots,n\}$ be a random variable defined on a probability space $(\Omega, \CF, \BP)$ and let $f_{\gamma} : \R^d \rightarrow \R$ be a continuously differentiable function that is $L_{\gamma}$-smooth and convex. Further, let $\{w_{k}\}_{k=1}^{\infty}$ be the iterates of SGD defined in \eqref{eq:stochastic_gradient_descent} and let $\eta_k \leq \frac{1}{4 \CL}$ for $k=1,2,\dots$. Then, we have
+  Let $\gamma : \Omega \rightarrow \{1,\dots,n\}$ be a random variable defined on a probability space $(\Omega, \CF, \BP)$ and let $f_{\gamma} : \R^d \rightarrow \R$ be a continuously differentiable function that is $L_{\gamma}$-smooth and convex. Further, let $\{w_{k}\}_{k=0}^{\infty}$ be the iterates of SGD defined in \eqref{eq:stochastic_gradient_descent} and let $\eta_k \leq \frac{1}{4 \CL}$ for $k=1,2,\dots$. Then, we have
   \begin{equation*}
-    \E[\norm{w_{k+1} - w^\star}|w_k] + \eta_k (f(w_{k}) - f^\star)) \leq \norm{w_{k} - w^\star}^2 + 2{\eta_k}^2\sigma^2,
+    \E[\norm{w_{k+1} - w^\star}|w_k] + \eta_k (f(w_{k}) - f(w^\star))) \leq \norm{w_{k} - w^\star}^2 + 2{\eta_k}^2\sigma^2,
   \end{equation*}
   for $k=1,2,\dots$.
 \end{lemma}
@@ -938,7 +945,7 @@ We now present the following result from \autocite{sebbouhAlmostSureConvergence2
   \begin{equation*}
     \E[\norm{w_{k+1} - w^\star}^2|w_k] \leq \norm{w_{k} - w^\star}^2 + 2 \eta_k(2\CL \eta_k - 1)(f(w_{k}) - f(w^\star))+ {\eta_k}^22\sigma^2.
   \end{equation*}
-  Now, using $\eta_k \leq \frac{1}{4 \CL}$ and $f(w_k) - f(w^\star) \leq 0$ for all $k=0,\dots$, we have
+  Now, using $\eta_k \leq \frac{1}{4 \CL}$ and $f(w) - f(w^\star) \leq 0$ for all $w \in \R^d$ we have
   \begin{equation*}
     \E[\norm{w_{k+1} - w^\star}^2|w_k] \leq \norm{w_{k} - w^\star}^2 - \eta_k(f(w_{k}) - f(w^\star))+ {\eta_k}^22\sigma^2. \qedhere
   \end{equation*}
@@ -1038,7 +1045,7 @@ The following theorem by Sebbouh et al.\ shows the dependence of the convergence
 \begin{proof}
   The proof can be found in \cite{sebbouhAlmostSureConvergence2021}.
 \end{proof}
-  This corollary reveals an interesting property of overparametrized models for which we have $\sigma^2 = 0$. For a fixed learning rate we have linear convergence. In \autoref{sec:smdedl}, we look at the behavior such models.
+  This corollary reveals an interesting property of overparametrized models for which we have $\sigma^2 = 0$. For a fixed learning rate we have linear convergence. In \autoref{sec:smdedl}, we look at the behavior of such models.
 % \begin{assumption}
 %   \begin{enumerate}
 %     \item The sequence of iterates $w_{k}$ is contained in an open set over which $f : \R^d \rightarrow \R$ is bounded from below by a scalar $f_{inf}$.
@@ -2122,7 +2129,7 @@ Li et al.\ present two results that characterize the first three moments of the 
   \begin{equation*}
     \lvert \psi^{\epsilon}(w) \rvert \leq \widetilde{\kappa}_1(1+ \norm{w}^{2\kappa_2}),
   \end{equation*}
-  for some $\widetilde{\kappa} \in \N$ independent of $\epsilon$.
+  for some $\widetilde{\kappa_1} \in \N$ independent of $\epsilon$.
   Therefore, $\psi^{\epsilon} \in G$ uniformly in $\epsilon$.
   This implies that $\mathbf{a}_0(\cdot,\epsilon), \mathbf{a}_1(\cdot,\epsilon),\mathbf{b}_0(\cdot, \epsilon) \in G^3$.
   Then, by \autoref{lemma:mollifier_bound}, \autoref{lemma:moment_bound}, \autoref{lem:sde_one_step} and \autoref{lem:sgd_one_step} we have all conditions of \autoref{thm:approximation} and conclude for each $g \in G^3$
