@@ -931,11 +931,12 @@ We now present the following result from \autocite{sebbouhAlmostSureConvergence2
   \end{equation}
   % Next, we note that the first property of \autoref{thm:conditional_expectation} implies $\ev{\nabla f_{\gamma_k}(w_k)|w_k} = \nabla f(w_k)$ and $\ev{\norm{w_{k} - w^\star}^2|w_k} = \norm{w_{k} - w^\star}^2$.
   At this point, we note that Sebbouh et al.\ glimpsed over one detail in this proof. We expand on the calculation of the conditional expectation $\ev{\nabla f_{\gamma_k}(w_k)| w_k}$.
-  We can write $\nabla f_{\gamma_k}(w_k) = \nabla \mathbf{f}(w_k)S_k$, where $\nabla \mathbf{f}(w) = \left(\nabla f_1(w), \dots, \nabla f_n(w)\right)$ and $\ev{S_k} = \left(\frac{1}{n}, \dots, \frac{1}{n}\right)^\T$ following \cite{wuNoisyGradientDescent2020a}. Using the properties of the conditional expectation found in \autoref{thm:conditional_expectation} we have
-  \begin{align*}
-    \ev{\nabla f_{\gamma_k}(w_k)|w_k} &= \ev{\nabla \mathbf{f}(w_k)S_k|w_k} \stackrel{\text{(i)}}{=} \nabla \mathbf{f}(w_k) \ev{S_k|w_k} \\
-    &\stackrel{\text{(iii)}}{=} \nabla \mathbf{f}(w_k) \ev{S_k} = \nabla \mathbf{f}(w_k) \left(\frac{1}{n}, \dots, \frac{1}{n}\right)^\T = \nabla f(w_k).
-  \end{align*}
+  Let $\{S_k\}_{k=0}^\infty$ be a sequence of random vectors with $\ev{S_k} = \left(\frac{1}{n}, \dots, \frac{1}{n}\right)^\T$ and $\nabla f_{\gamma_k}(w_k) = \nabla \mathbf{f}(w_k)S_k$ for $k=0,1,\dots$,
+  where $\nabla \mathbf{f}(w) = \left(\nabla f_1(w), \dots, \nabla f_n(w)\right)$ following a approach by Wu et al.\ \cite{wuNoisyGradientDescent2020a}. Using the properties of the conditional expectation found in \autoref{thm:conditional_expectation} we have
+  \begin{multline*}
+    \ev{\nabla f_{\gamma_k}(w_k)|w_k} = \ev{\nabla \mathbf{f}(w_k)S_k|w_k} \stackrel{\text{(i)}}{=} \nabla \mathbf{f}(w_k) \ev{S_k|w_k} \\
+    \stackrel{\text{(iii)}}{=} \nabla \mathbf{f}(w_k) \ev{S_k} = \nabla \mathbf{f}(w_k) \left(\frac{1}{n}, \dots, \frac{1}{n}\right)^\T = \frac{1}{n}\sum_{i=1}^n \nabla f_i(w_k) = \nabla f(w_k).
+  \end{multline*}
   Also, by \autoref{thm:conditional_expectation} (i) we have $\ev{\norm{w_{k} - w^\star}^2|w_k} = \norm{w_{k} - w^\star}^2$.
   We take the conditional expectation on both sides of \eqref{eq:iterate_norm} and obtain
   \begin{equation*}
@@ -1427,7 +1428,7 @@ Recall the iterates $\{ w_k\}_{k=1}^N$ of GD given in \eqref{eq:gradient_descent
 \begin{equation*}
   w_{k+1} = w_{k} - \eta \nabla f(w_{k}),
 \end{equation*}
-for $k=1,\dots,N$. Now, we want to highlight the following observation: GD descent has the same structure as Euler's method for a system of ordinary differential equations. If we interpret the learning rate $\eta$ as a time step, GD is a first order approximation to a system of ODEs. In fact, this follows from \autoref{thm:euler_convergence}, if $\nabla f$ satisfies a Lipschitz condition. This leads to the well-known gradient flow equation.
+for $k=1,\dots,N$. Now, we want to highlight the following observation: GD has the same structure as Euler's method for a system of ordinary differential equations. If we interpret the learning rate $\eta$ as a time step, GD is a first order approximation to a system of ODEs. In fact, this follows from \autoref{thm:euler_convergence}, if $\nabla f$ satisfies a Lipschitz condition. This leads to the well-known gradient flow equation.
 % In fact, if $\nabla f$ satisfies a Lipschitz condition we know by \autoref{thm:euler_convergence} that the iterates form a first order approximation to a system of ODEs. 
 \begin{definition}[Gradient flow, see, e.g., \protect{\cite{santambrogioEuclideanMetricWasserstein2017}}]
   Let $f : \R^n \rightarrow \R$ be an $L$-smooth function. Then for $w_0 \in \R^d$ the system of ODEs 
@@ -1445,22 +1446,22 @@ Next, we consider the gradient flow of a linear regression problem for which the
     y_i = wx_i + b + \epsilon_i,
   \end{equation*}
   where $w,b \in \R$ are fixed values and $\epsilon_i \sim \CN(0,1)$ for $i = 1, 2, \dots, n$. Therefore, we have $y_i \sim \CN(wx_i + b,1)$.
-  Now, given a sample of $\{(x_i, y_i)\}_{i=1}^n$ for unknown parameters $w, b \in \R$ we want to find $\hat{w}, \hat{b} \in \R$ that optimally represent the data. In order to characterize optimality we define a loss function $\CL : \R^2 \rightarrow \R$ with 
+  Now, given a sample of $\{(x_i, y_i)\}_{i=1}^n$ for unknown parameters $w, b \in \R$ we want to find $\hat{w}, \hat{b} \in \R$ that optimally represent the data. In order to characterize optimality we define the $\ell^2$-loss $\CL : \R^2 \rightarrow \R$ with 
   \begin{equation}
-    \CL (w, b) = \frac{1}{n} \sum_{i=1}^n(wx_i + b  - y_i)^2.
+    \CL (w, b) = \frac{1}{2n} \sum_{i=1}^n(wx_i + b  - y_i)^2.
   \end{equation}
-  In \autoref{fig:quadratic_loss_function}, we plot the loss function $\CL$ for $n = 1000$, $w=4$ and $b=1$. The gradient of $\CL$ is given by
+  In \autoref{fig:quadratic_loss_function}, we plot the loss function $\CL$ for a random sample of $\{(x_i, y_i)\}_{i=1}^n$ with $n = 1000$, $w=4$ and $b=1$. The gradient of $\CL$ is given by
   \[
     \nabla \CL (w,b) = 
     \begin{pmatrix}
-      \displaystyle\frac{\partial \CL}{\partial w}(w,b) \\
+      \displaystyle\partial_w\CL(w,b) \\
       \addlinespace
-      \displaystyle\frac{\partial \CL}{\partial b}(w,b) 
+      \displaystyle\partial_b\CL(w,b) 
     \end{pmatrix}
     = \frac{1}{n}
     \begin{pmatrix}
-      2\left(\displaystyle\sum_{i=1}^n x_i^2\right)w + 2 \left(\displaystyle\sum_{i=1}^n x_i\right)b - 2 \displaystyle\sum_{i=1}^n x_i y_i \\
-      2 \left(\displaystyle\sum_{i=1}^n x_i\right) w + 2nb - 2 \displaystyle\sum_{i=1}^n y_i
+      \left(\displaystyle\sum_{i=1}^n x_i^2\right)w +  \left(\displaystyle\sum_{i=1}^n x_i\right)b -  \displaystyle\sum_{i=1}^n x_i y_i \\
+       \left(\displaystyle\sum_{i=1}^n x_i\right) w + nb -  \displaystyle\sum_{i=1}^n y_i
     \end{pmatrix}.
   \]
   For a learning rate $\eta > 0$ and an initial values $w_{0},b_0 \in \R$ the iterates of gradient descent are given by
@@ -1476,8 +1477,8 @@ Next, we consider the gradient flow of a linear regression problem for which the
     \end{pmatrix}
     - \frac{\eta}{n}
     \begin{pmatrix}
-      2\left(\displaystyle\sum_{i=1}^n x_i^2\right)w_k + 2 \left(\displaystyle\sum_{i=1}^n x_i\right)b_k - 2 \displaystyle\sum_{i=1}^n x_i y_i \\
-      2 \left(\displaystyle\sum_{i=1}^n x_i\right) w_k + 2nb_k - 2 \displaystyle\sum_{i=1}^n y_i
+      \left(\displaystyle\sum_{i=1}^n x_i^2\right)w_k +  \left(\displaystyle\sum_{i=1}^n x_i\right)b_k -  \displaystyle\sum_{i=1}^n x_i y_i \\
+       \left(\displaystyle\sum_{i=1}^n x_i\right) w_k + nb_k -  \displaystyle\sum_{i=1}^n y_i
     \end{pmatrix}.
   \end{equation*}
   In \autoref{fig:learning_rates}, we show the behavior of the iterates for different values of $\eta >0$. We observe that a large learning rate leads to a faster convergence to the optimal value. This observation is in agreement with the results from \autoref{sec:stochastic_optimization}.
@@ -1574,8 +1575,8 @@ We reiterate some standard results linear algebra (see, e.g., \cite[pp.~250]{rom
   \end{pmatrix}
   = \frac{1}{n}
   \begin{pmatrix}
-    -2  \displaystyle\sum_{i=1}^n x_i^2  &  -2  \displaystyle\sum_{i=1}^n x_i      \\
-      -2  \displaystyle\sum_{i=1}^n x_i  &  -2n      
+    -  \displaystyle\sum_{i=1}^n x_i^2  &  -  \displaystyle\sum_{i=1}^n x_i      \\
+      -  \displaystyle\sum_{i=1}^n x_i  &  -n      
   \end{pmatrix}
   \begin{pmatrix}
     w(t)     \\
@@ -1583,16 +1584,16 @@ We reiterate some standard results linear algebra (see, e.g., \cite[pp.~250]{rom
   \end{pmatrix}
   + \frac{1}{n}
   \begin{pmatrix}
-    2  \displaystyle\sum_{i=1}^n x_i y_i     \\
-    2  \displaystyle\sum_{i=1}^n y_i    
+      \displaystyle\sum_{i=1}^n x_i y_i     \\
+      \displaystyle\sum_{i=1}^n y_i    
   \end{pmatrix},
   \end{equation*}
   where $w(0) = w_{0}$ and $b(0) = b_0$. We define 
   \begin{equation*}
     A \defeq \frac{1}{n}
     \begin{pmatrix}
-      -2  \displaystyle\sum_{i=1}^n x_i^2  &  -2  \displaystyle\sum_{i=1}^n x_i      \\
-        -2  \displaystyle\sum_{i=1}^n x_i  &  -2n      
+      -  \displaystyle\sum_{i=1}^n x_i^2  &  -  \displaystyle\sum_{i=1}^n x_i      \\
+        -  \displaystyle\sum_{i=1}^n x_i  &  -n      
     \end{pmatrix}
   \end{equation*}
   and
@@ -1600,8 +1601,8 @@ We reiterate some standard results linear algebra (see, e.g., \cite[pp.~250]{rom
     b \defeq
     \frac{1}{n}
   \begin{pmatrix}
-    2  \displaystyle\sum_{i=1}^n x_i y_i     \\
-    2  \displaystyle\sum_{i=1}^n y_i    
+      \displaystyle\sum_{i=1}^n x_i y_i     \\
+      \displaystyle\sum_{i=1}^n y_i    
   \end{pmatrix}.
   \end{equation*}
   Since the matrix $A$ is negative definite, by \autoref{thm:ode_system} the limiting behavior of this gradient flow is given by 
@@ -1613,12 +1614,12 @@ We reiterate some standard results linear algebra (see, e.g., \cite[pp.~250]{rom
     \end{pmatrix}
     = 
     \begin{pmatrix}
-      -2  \displaystyle\sum_{i=1}^n x_i^2  &  -2  \displaystyle\sum_{i=1}^n x_i      \\
-        -2  \displaystyle\sum_{i=1}^n x_i  &  -2n      
+      -  \displaystyle\sum_{i=1}^n x_i^2  &  -  \displaystyle\sum_{i=1}^n x_i      \\
+        -  \displaystyle\sum_{i=1}^n x_i  &  -n      
     \end{pmatrix}^{-1}
     \begin{pmatrix}
-      2  \displaystyle\sum_{i=1}^n x_i y_i     \\
-      2  \displaystyle\sum_{i=1}^n y_i    
+        \displaystyle\sum_{i=1}^n x_i y_i     \\
+        \displaystyle\sum_{i=1}^n y_i    
     \end{pmatrix},
   \end{equation*}
   
@@ -1631,7 +1632,7 @@ We reiterate some standard results linear algebra (see, e.g., \cite[pp.~250]{rom
   \end{figure}
 \end{example}
 We saw that gradient descent is a first order approximation to the gradient flow equation. We can analyze the asymptotic behavior of gradient descent by studying the gradient flow equation. However, gradient flow does not capture the phenomena induced by discretization. 
-A technique to study the asymptotic behavior of numerical schemes is backward analysis. The idea is to construct a modified equation that more closely matches the behavior of the iterative scheme by adding terms in powers of the step size $h$.
+A technique to study the asymptotic behavior of numerical schemes is backward analysis. The idea is to construct a modified equation that more closely matches the behavior of the iterative scheme by adding terms in powers of the step size $\eta$.
 Next, we introduce a framework taken from \cite{hairerGeometricNumericalIntegration2013} and slightly modify it such that it matches the notation used for stochastic modified equations in \autoref{sec:smde_sgd} and impose some additional conditions.
 
 \begin{definition}[Modified ordinary differential equation, \protect{\cite[pp.~337]{hairerGeometricNumericalIntegration2013}}]
@@ -1639,9 +1640,9 @@ Next, we introduce a framework taken from \cite{hairerGeometricNumericalIntegrat
   \begin{equation*}
     w'(t) = \mathbf{a}(w(t)), \quad w(0) = w_0
   \end{equation*}
-  and for the step size $\eta > 0$ let $\{w_k\}_{k=0}^N$ be the iterates of the iterative scheme $\Phi^\eta : \R^d \rightarrow \R^d$ given by
+  and for the step size $\eta > 0$ let $\{w_k\}_{k=0}^N$ be the iterates of the iterative scheme $\mathbf{\Phi}^\eta : \R^d \rightarrow \R^d$ given by
   \begin{equation*}
-    w_{k+1} = \Phi^\eta(w_k) = w_k + \eta \phi_1(w_k) + \eta^2 \phi(w_k) + \cdots.
+    w_{k+1} = \mathbf{\Phi}^\eta(w_k) = w_k + \eta \phi_1(w_k) + \eta^2 \phi_2(w_k) + \cdots.
   \end{equation*}
   Then, the \emph{$r$-order modified ordinary differential equation} (MODE) is given by
   \begin{equation}
@@ -1651,7 +1652,7 @@ Next, we introduce a framework taken from \cite{hairerGeometricNumericalIntegrat
   where $\mathbf{a}^\eta(\widetilde{w}) \defeq \mathbf{a}_0(\widetilde{w}) + \eta\mathbf{a}_1(\widetilde{w}) + \eta^2\mathbf{a}_2(\widetilde{w})+\cdots + \eta^r\mathbf{a}_r(\widetilde{w})$
   for some $\mathbf{a}_0, \mathbf{a}_1, \dots, \mathbf{a}_r : \R^d \rightarrow \R^d$ such that 
   \begin{equation*}
-    \widetilde{w}(t+\eta) = \Phi^\eta(\widetilde{w}(t)) + \CO(\eta^{r+1}),
+    \widetilde{w}(t+\eta) = \mathbf{\Phi}^\eta(\widetilde{w}(t)) + \CO(\eta^{r+1}),
   \end{equation*}
   for all $t \geq 0$.
 \end{definition}
@@ -1660,24 +1661,24 @@ We note that to obtain existence and uniqueness of the solution to the modified 
 Applying Euler's method to the gradient flow equation \eqref{eq:gradient_flow}, we have 
 \begin{equation}
   \label{eq:gradient_descent_function}
-  \Phi^h(w) = w + h \mathbf{a}(w) = w - h \nabla f(w).
+  \mathbf{\Phi}^\eta(w) = w + \eta \mathbf{a}(w) = w - \eta \nabla f(w).
 \end{equation}
  Let $\widetilde{w}$ denote the solution of the modified differential equation. Then, using Taylor's theorem \autoref{thm:taylor} we have
   \begin{equation*}
-    \widetilde{w}(t+h) = \widetilde{w}(t) + \widetilde{w}'(t)h + \widetilde{w}''(t)h^2 + \CO(h^3).
+    \widetilde{w}(t+\eta) = \widetilde{w}(t) + \widetilde{w}'(t)\eta + \widetilde{w}''(t)\eta^2 + \CO(\eta^3).
   \end{equation*}
   Next, we use the gradient flow equation \eqref{eq:gradient_flow} to obtain
 \begin{align*}
-  \widetilde{w}(t+h) &= \widetilde{w}(t) + \mathbf{a}^h(\widetilde{w}(t))h + \frac{1}{2}\nabla \mathbf{a}^h(\widetilde{w}(t))^\T\mathbf{a}^h(\widetilde{w}(t)) h^2 + \CO(h^3) \\
-  &= \widetilde{w}(t) + (\mathbf{a}_0(\widetilde{w}(t)) + \mathbf{a}_1(\widetilde{w}(t))h + \CO(h^2))h \\
-  &+ \frac{1}{2}(\nabla \mathbf{a}_0(\widetilde{w}(t)) + \CO(h))^\T(\mathbf{a}_0(\widetilde{w}(t)) + \CO(h))h^2 + \CO(h^3).
+  \widetilde{w}(t+\eta) &= \widetilde{w}(t) + \mathbf{a}^\eta(\widetilde{w}(t))\eta + \frac{1}{2}\nabla \mathbf{a}^\eta(\widetilde{w}(t))^\T\mathbf{a}^\eta(\widetilde{w}(t)) \eta^2 + \CO(\eta^3) \\
+  &= \widetilde{w}(t) + (\mathbf{a}_0(\widetilde{w}(t)) + \mathbf{a}_1(\widetilde{w}(t))\eta + \CO(\eta^2))\eta \\
+  &+ \frac{1}{2}(\nabla \mathbf{a}_0(\widetilde{w}(t)) + \CO(\eta))^\T(\mathbf{a}_0(\widetilde{w}(t)) + \CO(\eta))\eta^2 + \CO(\eta^3).
 \end{align*}
-Rearranging by the powers of $h$ yields
+Rearranging by the powers of $\eta$ yields
 \begin{equation}
   \label{eq:modified_equation_powers}
-  \widetilde{w}(t+h) = \widetilde{w}(t) + \mathbf{a}_0(\widetilde{w}(t))h + \left( \frac{1}{2}\nabla \mathbf{a}_0(\widetilde{w}(t))^\T \mathbf{a}_0(\widetilde{w}(t)) + \mathbf{a}_1(\widetilde{w}(t))\right)h^2 + \CO(h^3). 
+  \widetilde{w}(t+\eta) = \widetilde{w}(t) + \mathbf{a}_0(\widetilde{w}(t))\eta + \left( \frac{1}{2}\nabla \mathbf{a}_0(\widetilde{w}(t))^\T \mathbf{a}_0(\widetilde{w}(t)) + \mathbf{a}_1(\widetilde{w}(t))\right)\eta^2 + \CO(\eta^3). 
 \end{equation}
-By comparing the coefficients of the first and second powers of the iterative scheme $\Phi^h$ \eqref{eq:gradient_descent_function} and the modified solution $\widetilde{w}$ \eqref{eq:modified_equation_powers} we obtain the system
+By comparing the coefficients of the first and second powers of the iterative scheme $\mathbf{\Phi}^\eta$ \eqref{eq:gradient_descent_function} and the modified solution $\widetilde{w}$ \eqref{eq:modified_equation_powers} we obtain the system
 \begin{equation*}
     \mathbf{a}_0(\widetilde{w}(t)) = - \nabla f(w(t)), \quad
     \frac{1}{2}\nabla \mathbf{a}_0(\widetilde{w}(t))^\T \mathbf{a}_0(\widetilde{w}(t)) + \mathbf{a}_1(\widetilde{w}(t)) = 0.
@@ -1696,9 +1697,9 @@ for the loss function $\widetilde{f}(w) = f(w) + \frac{\eta}{4}\norm{\nabla f(w)
 In \autoref{sec:smde_sgd}, we introduction a generalization of this second order modified equation to SGD.
 \end{example}
 \begin{example}[\protect{\autoref{ex:linear_regression}} continued]
-  Let us extend the linear regression example to the $d$-dimensional case, i.e., $f(w)=\frac{1}{2n} \norm{Xw - y}$, where $X \defeq [x_1\;x_2\;\dots\;x_n]^\T \in \R^{d \times n}$ and $y \defeq [y_1\;y_2\;\dots\;y_n]^\T$. 
+  Let us extend the linear regression example to the $d$-dimensional case, i.e., $f(w)=\frac{1}{2n} \norm{Xw - y}^2$, where $X \defeq [x_1\;x_2\;\dots\;x_n]^\T \in \R^{d \times n}$ and $y \defeq [y_1\;y_2\;\dots\;y_n]^\T$. 
   The gradient is given by $\nabla f(w) = \frac{1}{n}\left(X^\T Xw - X^\T y\right)$. 
-  Notice that the stationary points of $f$ are given by the equation
+  Notice that the stationary points of $f$ are given by the normal equation
   \begin{equation*}
     X^\T Xw^\star = X^\T y.
   \end{equation*}
@@ -1717,7 +1718,7 @@ In \autoref{sec:smde_sgd}, we introduction a generalization of this second order
   \begin{equation*}
     \lim_{t \rightarrow \infty} w(t) = \lim_{t \rightarrow \infty} e^{-\frac{1}{n}X^\T Xt}(w_0 - w^\star) + w^\star = w^\star.
   \end{equation*}
-  The rate of convergence is determined by smallest squared singular value $\frac{1}{n}\min\limits_{i=1,\dots,d}\sigma_i^2$. Next, we derive the second order modified equation and compare the solution with the first order solution. In the case of linear regression the second order modified equation defined in \eqref{eq:second_order_ode} is given by
+  The rate of convergence is determined by $\sigma_d^2/n$, where $\sigma_d$ is the smallest singular value of $X$. Next, we derive the second order modified equation and compare the solution with the first order solution. In the case of linear regression the second order modified equation defined in \eqref{eq:second_order_ode} is given by
   \begin{equation*}
     \widetilde{w}'(t) = -\frac{1}{n}X^\T X \left(I_d + \frac{\eta}{2n}X^\T X\right)\widetilde{w}(t) + \frac{1}{n}\left(I_d + \frac{\eta}{2n} X^\T X\right)X^\T y, \quad \widetilde{w}(0) = w_0.
   \end{equation*}
@@ -1746,7 +1747,7 @@ In \autoref{sec:smde_sgd}, we introduction a generalization of this second order
   %   &= \sum_{j=1}^d \frac{1}{(1 + \frac{\eta}{2 n}\lambda_i)^2} (Qw^\star)_i^2 \leq \sum_{j=1}^d (Qw^\star)_i^2 = \norm{Qw^\star}^2 = \norm{w^\star}.
   % \end{align*}
   % This result agrees with the intuition that gradient descent for finite learning rates regularizes the loss function. Indeed, the gap between the stationary first and second order solution is driven by $\frac{\eta}{2 n} \min_{i=1,\dots,d}\lambda_i(X^\T X)$. This means that the strength of the regularization is proportional to the learning rate and smallest eigenvalue of $X^\T X$ and inversely proportional to the sample size $n$. 
-  While the limiting behavior of the second order modified equation is the same as the first order equation, we can see different dynamics in \eqref{eq:linear_regression_second_order}. The dynamics of the second order equation are driven by $\min\limits_{i=1,\dots,d}\frac{1}{n}\sigma_i^2 + \frac{\eta}{2n^2}\sigma_i^4$. In the first order equation we do not observe the improved convergence speed for larger learning rates.
+  While the limiting behavior of the second order modified equation is the same as the first order equation, we can see different dynamics in \eqref{eq:linear_regression_second_order}. The dynamics of the second order equation are driven by $\sigma_d^2/n + \eta\sigma_d^4/(2n^2)$, where again $\sigma_d$ is the smallest singular value of $X$. In the first order equation we do not observe the improved convergence speed for larger learning rates.
   We conclude that for sufficiently small learning rates gradient flow captures the dynamics of GD. However, for larger learning rates gradient flow fails to model dynamics induced by the discretization. In \autoref{fig:linear_regression_error}, we present experimental verification for the linear regression case. We set $n = 1000$, $d = 5$ and start with a learning rate of $\eta = 0.2$ and decrease by powers of two. We can see that indeed the maximal error for the first order model decreases linearly, while the second order model decreases quadratically. Further, we observe numerical instabilities in the calculation second order model for learning rates $\eta < 0.001$.
 
   \begin{figure}[htb]
@@ -1760,9 +1761,9 @@ In \autoref{sec:smde_sgd}, we introduction a generalization of this second order
 \label{sec:smde_sgd}
 Now, similar to the modified equations for GD we present an argument to approximate SGD by a continuous-time process.
 % We start with an observation from Li et al.\ \cite{liStochasticModifiedEquations2019} that the SGD iterates can be decomposed into a deterministic and a stochastic part.
-Let $(\Omega, \CF, \BP)$ be probability space. Recall from \autoref{sec:stochastic_optimization} that for a fixed learning rate $\eta > 0$ and i.i.d random variables $\gamma_k:\Omega \rightarrow \{1,\dots,n\}$ the iterates of SGD are given by
+Let $(\Omega, \CF, \BP)$ be a probability space. Recall from \autoref{sec:stochastic_optimization} that for a fixed learning rate $\eta > 0$ and i.i.d random variables $\gamma_k:\Omega \rightarrow \{1,\dots,n\}$ the iterates of SGD are given by
 \begin{equation*}
-  w_{k+1} = w_{k} - \eta \nabla f_{\gamma^k}(w_{k})
+  w_{k+1} = w_{k} - \eta \nabla f_{\gamma_k}(w_{k})
 \end{equation*}
 for $k = 0,1,\dots$. Further, we have $f : \R^d \rightarrow \R$ with $f(w) \defeq \ev{f_\gamma(w)}$ for all $w \in \R^d$.
 
@@ -1771,32 +1772,29 @@ Li et al.\ \cite{liStochasticModifiedEquations2019} observe that the iterates ca
   \label{eq:sgd_decomposition}
   w_{k+1} = w_{k} - \eta \nabla f(w_{k}) + \eta Z_k,
 \end{equation}
-where $Z_k \defeq \nabla f(w_{k}) - \nabla f_{\gamma^k}(w_{k})$.
-Using this decomposition we see that SGD is a stochastic process driven by the negative gradient and the noise process $\{Z_k\}_{k=0}^\infty$. We have the following property for noise process
-\begin{equation*}
-  \ev{Z_k|w_{k}} = 0.
-\end{equation*}
+where $Z_k \defeq \nabla f(w_{k}) - \nabla f_{\gamma_k}(w_{k})$.
+
 \begin{definition}[Gradient noise process]
   Let $\{w_k\}_{k=0}^\infty$ be the iterates of SGD. Then we call the stochastic process $\{Z_k\}_{k=0}^\infty$ given by
   \begin{equation*}
-    Z_k \defeq \nabla f(w_{k}) - \nabla f_{\gamma^k}(w_{k}),
+    Z_k \defeq \nabla f(w_{k}) - \nabla f_{\gamma_k}(w_{k}),
   \end{equation*}
   for $k=0,\dots$ \emph{gradient noise process}. For $k = 1, \dots$ we write 
   \begin{equation*}
-    \Sigma(w_k) \defeq \Cov\left[Z_k|w_{k}\right] = \ev{\left(\nabla f(w_{k}) - \nabla f_{\gamma^k}(w_{k}),\right)\left(\nabla f(w_{k}) - \nabla f_{\gamma^k}(w_{k}),\right)^\T |w_k}
+    \Sigma(w_k) \defeq \Cov\left[Z_k|w_{k}\right] = \ev{\left(\nabla f(w_{k}) - \nabla f_{\gamma_k}(w_{k})\right)\left(\nabla f(w_{k}) - \nabla f_{\gamma_k}(w_{k})\right)^\T |w_k}
   \end{equation*}
   to denote the conditional covariance of the gradient noise process.
 \end{definition}
-
+Using decomposition \eqref{eq:sgd_decomposition} we see that SGD is a stochastic process driven by the negative gradient and the gradient noise process $\{Z_k\}_{k=0}^\infty$. Note that each iterate of the noise process has zero conditional expectation, i.e., $\ev{Z_k|w_{k}} = 0$.
 
 To continue the discussion of modelling SGD by a continuous-time process we investigate the distribution of the gradient noise process empirically.
 \begin{example}[\autoref{ex:linear_regression} continued]
   \label{ex:sgd}
-  In this example, we apply SGD to the linear regression problem from \autoref{ex:linear_regression}. In \autoref{fig:sgd_linear_fit}, we observe $N = 1000$ iterations the mean weight $\{\bar{w}_k\}_{k=0}^{N}$ and mean bias $\{\bar{b}_k\}_{k=0}^{N}$ of SGD for $m=10000$ independent runs, i.e.,
+  In this example, we apply SGD to the linear regression problem from \autoref{ex:linear_regression}. In \autoref{fig:sgd_linear_fit},for $N = 1000$ iterations we observe the mean weight $\{\bar{w}_k\}_{k=0}^{N}$ and mean bias $\{\bar{b}_k\}_{k=0}^{N}$ of SGD for $m=10000$ independent runs, i.e.,
   \begin{equation*}
     \bar{w}_k = \frac{1}{m}\sum_{i=1}^m w_{k,i}, \quad \bar{b}_k = \frac{1}{m}\sum_{i=1}^mb_{k,i},
   \end{equation*}
-  for $k = 0, \dots, N$ and a fixed  learning rate $\eta = 0.1$.
+  for $k = 0, \dots, N$ and a fixed learning rate $\eta = 0.1$. We can see that the mean trajectories correspond to the trajectories observed for GD in \autoref{fig:learning_rates}.
   Further, we use a bar plot to visualize the distribution of the weight parameter $w$ for $12.5\%,\; 25\%,\; 50\%$ and $100\%$ of the total iterations in \autoref{fig:sgd_weight_histogram}. The shape of each bar plot approximates a bell curve which is characteristic for a normally distributed random variable. In order to confirm this hypothesis, we make use of a quantile-quantile plot in \autoref{fig:sgd_weight_qq}.
   In this plot, we compare the empirical distribution function against the distribution function of a normally distributed random variable. We observe that empirical measurements nearly perfectly match the quantiles of a normal distribution. Therefore, we conclude that the weights are approximately normally distributed.
   \begin{figure}[htb]
@@ -1818,7 +1816,7 @@ To continue the discussion of modelling SGD by a continuous-time process we inve
     \label{fig:sgd_weight_qq}
   \end{figure}
 \end{example}
-Following the discussion in \autoref{ex:sgd}, for the rest of this section we assume that each iterate of the gradient noise process follows a normal distribution. Li et al.\ \cite{liStochasticModifiedEquations2019} make this assumption to motivate the connection between SGD iterates and the Euler-Maruyama scheme. However, we note that for deep learning objectives experimental evidence suggest that this assumption is not valid. We discuss this in \autoref{sec:smdedl} in more detail.
+Following the discussion in \autoref{ex:sgd}, for the rest of this section we assume that each iterate of the gradient noise process follows a normal distribution. Li et al.\ \cite{liStochasticModifiedEquations2019} make this assumption to motivate the connection between SGD iterates and the Euler-Maruyama scheme. However, we note that for deep learning objectives experimental evidence suggest that this assumption is not valid in general. We discuss this in \autoref{sec:smdedl} in more detail.
 % However, ̧Simsekli et al.\ \cite{simsekliTailIndexAnalysisStochastic2019} argue gradient noise follows a heavy-tailed distribution.
 \begin{assumption}[\protect{\cite{liStochasticModifiedEquations2019}}]
   \label{as:normality}
@@ -1828,7 +1826,7 @@ Following the discussion in \autoref{ex:sgd}, for the rest of this section we as
   \end{equation*}
 for $k=0,1,\dots$.  
 \end{assumption}
-Now, in the case that the covariance matrix $\Sigma(w)$ has full rank, we write $\Sigma(w)^{1/2}$ for its square root matrix, i.e., $\Sigma(w)^{1/2}\Sigma(w)^{1/2} = \Sigma(w)$ for $w\in \R^d$. Applying \autoref{as:normality} to the decomposition in \eqref{eq:sgd_decomposition} we have
+Now, in the case that the covariance matrix $\Sigma(w)$ has full rank, we write $\Sigma(w)^{1/2}$ for its symmetric and positive definite square root matrix that fulfills $\Sigma(w)^{1/2}\Sigma(w)^{1/2} = \Sigma(w)$ for $w\in \R^d$. Applying \autoref{as:normality} to the decomposition in \eqref{eq:sgd_decomposition} we have
 \begin{equation}
   \label{eq:sgd_normal_decomposition}
   \begin{split}
@@ -1840,7 +1838,7 @@ where $\Delta \mathbf{B}_k \sim \CN(0,\eta I_d)$ and $k=0,1,\dots$.
 % Comparing \eqref{eq:sgd_normal_decomposition} with the Euler-Maruyama scheme in \eqref{eq:euler_maruyama}, we see that SGD approximates a SDE. 
 % This motivates the following definition.
 By defining $\mathbf{a}(w,t) = -\nabla f(w)$ and $\mathbf{b}(w,t) = \sqrt{\eta}\Sigma(w)^{1/2}$ in \autoref{def:euler_maruyama}, we see that the SGD iterates approximate a SDE. 
-\begin{definition}[Stochatic modified differential equation]
+\begin{definition}[Stochastic modified differential equation]
   For an initial value $w_0 \in \R^d$ the stochastic differential equation
   \begin{equation}
     \label{eq:first_oder_smde}
@@ -1849,16 +1847,16 @@ By defining $\mathbf{a}(w,t) = -\nabla f(w)$ and $\mathbf{b}(w,t) = \sqrt{\eta}\
   modelling the continuous-time behavior of SGD is called \emph{stochastic modified differential equation} (SMDE).
 \end{definition}
 Up to this point we have motivated the stochastic model of SGD using heuristic arguments. In the following, we go through the approximation results by Li et al.\ \cite{liStochasticModifiedEquations2019} and extend the proof of the main convergence theorem.
-In \autoref{cor:first_order}, we see that equation \eqref{eq:first_order_smde} is a generalization of the gradient flow equation for GD. 
+In \autoref{cor:first_order}, we see that equation \eqref{eq:first_order_sde} is a generalization of the gradient flow equation for GD. 
 
 First, Li et al.\ \cite{liStochasticModifiedEquations2019} make three assumptions that guarantee the existence of the first and second moment. We note that in the case of a risk minimization objective, where the random variable $\gamma:\Omega \rightarrow \{1,\dots,n\}$ simply selects an index, all three assumption immediately follow.
 \begin{assumption}[\protect{\cite{liStochasticModifiedEquations2019}}]
   \label{as:sde_model}
-  The random variable satisfies 
+  Let $(\Omega, \CF, \BP)$ be a probability space and $(\Gamma, \CF_\Gamma)$ be a measure space. For $w \in \R^d$ the random variable $f_\gamma(w)$ satisfies 
   \begin{enumerate}[label=(\roman*)]
-    \item $f_{\gamma}(w) \in \mathcal{L}^1(\Omega)$ for all $w \in \R^d$
-    \item \label{as:bounded_gradient} $f_{\gamma}(w)$ is continuously differentiable in $w$ almost surely and for each $R > 0$, there exists a random variable $M_{R,\gamma}$ such that $\max_{\norm{x} \leq R} \norm{ \nabla f_{\gamma}(w) } \leq M_{R,\gamma}$ almost surely, with $\mathbb{E} |M_{R,\gamma}| < \infty$
-    \item $\nabla f_{\gamma}(w) \in \mathcal{L}^2(\Omega)$ for all $w \in \R^d$
+    \item $f_{\gamma}(w) \in \mathcal{L}^1(\Omega)$ for all $w \in \R^d$,
+    \item \label{as:bounded_gradient} $f_{\gamma}(w)$ is continuously differentiable in $w$ almost surely and for each $R > 0$, there exists a random variable $M_{R,\gamma}$ such that $\max_{\norm{x} \leq R} \norm{ \nabla f_{\gamma}(w) } \leq M_{R,\gamma}$ almost surely, with $\mathbb{E} |M_{R,\gamma}| < \infty$,
+    \item $\nabla f_{\gamma}(w) \in \mathcal{L}^2(\Omega)$ for all $w \in \R^d$.
   \end{enumerate}
 \end{assumption}
 
@@ -1867,15 +1865,15 @@ Next, they consider the family of equations of the form
   \label{eq:general_sde}
   dW^{\eta, \epsilon}_t = \mathbf{a}^\eta(W^{\eta, \epsilon}_t,\epsilon)dt + \sqrt{\eta}\mathbf{b}^\eta(W^{\eta, \epsilon}_t, \epsilon)d\mathbf{B}_t, \quad W_0 = w_0, \quad t \in [0,T],
 \end{equation}
-for $\epsilon \in (0,1)$. 
-This equation is a stochastic generalization of the modified ordinary differential equation in \eqref{eq:modified_ode}. Li et al.\ consider a first order approximation for the drift term and zeroth order approximation for the drift term, i.e.,
+for $\epsilon \in (0,1)$, $T > 0$. 
+This equation is a stochastic generalization of the modified ordinary differential equation in \eqref{eq:modified_ode}. Li et al.\ consider a first order approximation for the drift term and zeroth order approximation for the diffusion term, i.e.,
 \begin{equation}
   \mathbf{a}^\eta(w, \epsilon) = \mathbf{a}_0(w, \epsilon) + \eta \mathbf{a}_1(w, \epsilon), \quad \mathbf{b}^\eta(w, \epsilon) = \mathbf{b}_0(w, \epsilon).
 \end{equation}
 
 
-The parameter $\epsilon \in (0,1)$ is a mollification parameter. This is a technique introduced Li et al.\ \cite{liStochasticModifiedEquations2019} to relax the smoothness assumption on the target function $f$. In particular, both the first (see \autoref{cor:first_order}) and second order (see \autoref{thm:second_order})  convergence theorems only require the smoothness to guarantee the existence and uniqueness of solutions.
-To understand this technique they introduce two concepts: weak derivatives and mollifiers. Weak derivatives generalize differentiation to locally integrable functions. Mollifiers are useful for creating a sequence of smooth functions that approximate a particular nonsmooth function. We briefly introduce weak derivatives and refer to the appendix for more details on mollifiers. The textbook by Evans \cite[pp.~629]{evansPartialDifferentialEquations2010} provides an in depth introduction.
+The parameter $\epsilon \in (0,1)$ is a mollification parameter. This is a technique introduced by Li et al.\ \cite{liStochasticModifiedEquations2019} to relax the smoothness assumption on the target function $f$. In particular, both the first (see \autoref{cor:first_order}) and second order (see \autoref{thm:second_order})  convergence theorems do not require any additional smoothness on $f$ other than the smoothness required to guarantee the existence and uniqueness of solutions to the modified equations.
+To understand this technique they introduce two concepts: weak derivatives and mollifiers. Weak derivatives generalize differentiation to locally integrable functions. Mollifiers are useful for creating a sequence of smooth functions that approximate a particular nonsmooth function. We briefly introduce weak derivatives and refer to the appendix for more details on mollifiers. The textbook by Evans \cite[pp.~629]{evansPartialDifferentialEquations2010} provides an in-depth introduction.
 \begin{definition}[Weak derivatives, \protect{\cite[pp.~242]{evansPartialDifferentialEquations2010}}]
   \label{def:weak_derivatives}
   Let $f,g \in \CL^1_{\text{loc}}(\R^d, \R)$ (see \autoref{sec:notation}) and let $\alpha = (\alpha_1, \dots, \alpha_n)$ be a multiindex. Then, $g = D^{\alpha} f$ is called \emph{$\alpha$ order weak derivative of $f$}, if
@@ -1928,11 +1926,11 @@ Li et al.\ present two results that characterize the first three moments of the 
 % In \autoref{thm:approximation},  these which is the main ingredient to prove the approximation results \autoref{thm:second_order} and \autoref{cor:first_order}.
 \begin{lemma}[\protect{\cite[Lemma 5]{liStochasticModifiedEquations2019}}]
   \label{lem:sgd_one_step}
-  Let $\Delta(w)$ be defined as in \eqref{eq:one_step_error}. Suppose that for each $w \in \R^d$, $f \in G^1$. Then,
+  Let $\Delta(w)$ be defined as in \eqref{eq:one_step_error}. Suppose that for each $w \in \R^d$, $f \in G^1$. Then, for $i,j,k=1,\dots,d$ we have
   \begin{enumerate}[label=(\roman*)]
-    \item $\ev{\Delta_{i}(w)} = -\partial_{w_i} f(w) \eta$, $i = 1,\dots,d$,
-    \item $\ev{\Delta_{i}(w)\Delta_{j}(w)} = \partial_{w_i} f(w)\partial_{w_j} f(w) \eta^2 + \Sigma(w)_{i,j}\eta^2$, $i,j = 1,\dots,d$,
-    \item $\ev{\Delta_{i}(w)\Delta_{j}(w)\Delta_{k}(w)} = \CO(\eta^3)$, $i,j,k=1,\dots,d$,
+    \item $\ev{\Delta_{i}(w)} = -\partial_{w_i} f(w) \eta$,
+    \item $\ev{\Delta_{i}(w)\Delta_{j}(w)} = \partial_{w_i} f(w)\partial_{w_j} f(w) \eta^2 + \Sigma(w)_{i,j}\eta^2$,
+    \item $\ev{\Delta_{i}(w)\Delta_{j}(w)\Delta_{k}(w)} = \CO(\eta^3)$,
   \end{enumerate}
   where $\Sigma(w)$ is the covariance matrix of the gradient noise process.
 \end{lemma}
@@ -1962,16 +1960,16 @@ Li et al.\ present two results that characterize the first three moments of the 
   \end{align*}
   Lastly, for $i,j,k \in \{1,\dots,d\}$ we have
   \begin{equation*}
-    \ev{-\Delta_{i}(w)\Delta_{j}(w)\Delta_{k}(w)} = \eta^3 \ev{\partial_{w_i}f_{\gamma}(w)\partial_{w_j}f_{\gamma}(w)\partial_{w_k}f_{\gamma}(w)} = \CO(\eta^3).
+    \ev{\Delta_{i}(w)\Delta_{j}(w)\Delta_{k}(w)} = \eta^3 \ev{-\partial_{w_i}f_{\gamma}(w)\partial_{w_j}f_{\gamma}(w)\partial_{w_k}f_{\gamma}(w)} = \CO(\eta^3). \qedhere
   \end{equation*}
 \end{proof}
 \begin{lemma}[\protect{\cite{liStochasticModifiedEquations2019}}]
   \label{lem:sde_one_step}
-  Let $ \widetilde{\Delta}(w)$ be defined as in \eqref{eq:one_step_error}. Suppose that $\mathbf{a}_0, \mathbf{a}_1, \mathbf{b}_0 \in G^3$. Then we have
+  Let $ \widetilde{\Delta}(w)$ be defined as in \eqref{eq:one_step_error}. Suppose that $\mathbf{a}_0, \mathbf{a}_1, \mathbf{b}_0 \in G^3$. Then, for $i,j,k = 1,\dots, d$ we have
   \begin{enumerate}[label=(\roman*)]
-    \item  $\ev{\widetilde{\Delta}_{i}(w)} = a_{0}(w,\epsilon)_{i}\eta + \left[\frac{1}{2}\sum_{j=1}^d a_{0}(w,\epsilon)_{j}\partial_{w_j}a_0(w,\epsilon)_{i} + a_1(w,\epsilon)_{i}\right] \eta^2 + \mathcal{O}(\eta^3)$, $i= 1,\dots,d$,
-    \item $\ev{\widetilde{\Delta}_{i}(w)\widetilde{\Delta}_{j}(w)} = \left[a_0(w, \epsilon)_{i}a_0(w,\epsilon)_{j} + \sum_{k=1}^db_0(w, \epsilon)_{i,k}b_0(w,\epsilon)_{j,k}\right]\eta^2 + \mathcal{O}(\eta^3)$, $i,j=1,\dots,d$,
-    \item $\ev{\widetilde{\Delta}_{i}(w)\widetilde{\Delta}_{j}(w)\widetilde{\Delta}_{k}(w)} = \mathcal{O}(\eta^3)$, $i,j,k = 1,\dots, d$.
+    \item  $\ev{\widetilde{\Delta}_{i}(w)} = a_{0}(w,\epsilon)_{i}\eta + \left[\frac{1}{2}\sum_{l=1}^d a_{0}(w,\epsilon)_{l}\partial_{w_l}a_0(w,\epsilon)_{i} + a_1(w,\epsilon)_{i}\right] \eta^2 + \mathcal{O}(\eta^3)$,
+    \item $\ev{\widetilde{\Delta}_{i}(w)\widetilde{\Delta}_{j}(w)} = \left[a_0(w, \epsilon)_{i}a_0(w,\epsilon)_{j} + \sum_{k=1}^db_0(w, \epsilon)_{i,k}b_0(w,\epsilon)_{j,k}\right]\eta^2 + \mathcal{O}(\eta^3)$,
+    \item $\ev{\widetilde{\Delta}_{i}(w)\widetilde{\Delta}_{j}(w)\widetilde{\Delta}_{k}(w)} = \mathcal{O}(\eta^3)$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -2017,10 +2015,11 @@ Li et al.\ present two results that characterize the first three moments of the 
 \end{proof}
 \begin{theorem}[\autocite{liStochasticModifiedEquations2019}]
   \label{thm:second_order}
-  Let, $T > 0$, $\eta \in (0, \min\{1,T\})$ and set $N = \lceil T/\eta \rceil$. Let $\{w_k:k\geq 0\}$ be the iterations defined in \eqref{eq:stochastic_gradient_descent}. Suppose the following conditions are met:
+  Let $(\Omega, \CF, \BP)$ be a probability space, $(\Gamma, \CF_{\Gamma})$ be a measure space, $\gamma : \Omega \rightarrow \Gamma$ be an indexing random variable and $f_\gamma : \R^d \rightarrow \R$ a function fulfilling \autoref{as:sde_model}.
+  Further, let $T > 0$, $\eta \in (0, \min\{1,T\})$ and set $N = \lfloor T/\eta \rfloor$. Let $\{w_k:k\geq 0\}$ be the iterations defined in \eqref{eq:stochastic_gradient_descent}. Suppose and the following conditions are met:
   \begin{enumerate}[label=(\roman*)]
-    \item $f \defeq \E f_{\gamma}$ is twice continuously differentiable, $\nabla \norm{\nabla f} ^2$ is Lipschitz continuous, and $f \in G^4_w$.
-    \item $\nabla f_{\gamma}$ satisfies a Lipschitz condition:
+    \item $f \defeq \ev{f_{\gamma}}$ is twice continuously differentiable, $\nabla \norm{\nabla f} ^2$ is Lipschitz continuous, and $f \in G^4_w$.
+    \item $\nabla f_{\gamma}$ satisfies the Lipschitz condition
     \begin{equation*}
       |\nabla f_{\gamma}(w) - \nabla f_{\gamma}(v)| \leq L_{\gamma} |w - v|
     \end{equation*}
@@ -2039,7 +2038,7 @@ Li et al.\ present two results that characterize the first three moments of the 
 \end{theorem}
 
 \begin{proof}
-  The proof of the approximation result from Li et al.\ consists of the following four steps 
+  The proof of the approximation result from Li et al.\ consists of the following four steps:
   \begin{enumerate}
     \item Using the smoothness and Lipschitz assumption they show existence and uniqueness of the solution to \eqref{eq:second_order_sde}.
     \item They mollify the drift and diffusion terms in equation \eqref{eq:second_order_sde} to obtain \autoref{lem:sde_one_step} the moment estimates of the one-step errors in \autoref{lem:sgd_one_step} and \autoref{lem:sde_one_step}.
@@ -2048,11 +2047,11 @@ Li et al.\ present two results that characterize the first three moments of the 
   \end{enumerate}
   To show that there exists a unique stochastic process $\{W_t: t \in [0,T]\}$ satisfying equation \eqref{eq:second_order_sde} we need to show that the drift and diffusion in \eqref{eq:second_order_sde} satisfy the conditions of \autoref{thm:sde_existence}.
 
-  First, we show that $\nabla f$ satisfies a Lipschitz condition. By assumption \autoref{as:sde_model}~\ref{as:bounded_gradient} and by \autoref{thm:dominated_convergence} we have $\nabla f = \nabla \ev{f_\gamma} = \ev{\nabla f_\gamma}$. Now, let $w,v \in \R^d$. Using the Jensen's inequality we have
+  First, we show that $\nabla f$ satisfies a Lipschitz condition. By assumption \autoref{as:sde_model}~\ref{as:bounded_gradient} and by \autoref{thm:dominated_convergence} we have $\nabla f = \nabla \ev{f_\gamma} = \ev{\nabla f_\gamma}$. Now, let $w,v \in \R^d$. Using Jensen's inequality we have
   \begin{align*}
     \norm{\nabla f(w) - \nabla f(v)} &= \norm{\ev{\nabla f_{\gamma}(w) - \nabla f_{\gamma}(v)}} \\
-    &\leq \ev{\norm{\nabla f_{\gamma}(w) - \nabla f_{\gamma}(v)}} \\
-    &\leq \ev{L_{\gamma}}\norm{w-v}.
+    &\leq \ev{\norm{\nabla f_{\gamma}(w) - \nabla f_{\gamma}(v)}} 
+    \leq \ev{L_{\gamma}}\norm{w-v}.
   \end{align*}
   Next, we show that $\Sigma(w)^{1/2}$ is Lipschitz continuous. For this we define $h(w) \defeq \nabla f_{\gamma}(w) - \nabla f(w)$. We see that for $w,v \in \R^d$, using the triangle inequality we have
   \begin{equation}
@@ -2066,7 +2065,7 @@ Li et al.\ present two results that characterize the first three moments of the 
   \begin{equation}
     \label{eq:sigma_inequality}
     \begin{split}
-      \normf{\Sigma(w)^{1/2} - \Sigma(v)^{1/2}} &= \lvert \norml{[h(w)h(w)^\T]^{\frac{1}{2}}} - \norml{[h(v)h(v)^\T]^{\frac{1}{2}}} \rvert \\
+      \normf{\Sigma(w)^{1/2} - \Sigma(v)^{1/2}} &= \left| \norml{[h(w)h(w)^\T]^{\frac{1}{2}}} - \norml{[h(v)h(v)^\T]^{\frac{1}{2}}} \right| \\
       &\leq \norml{[h(w)h(w)^\T]^{\frac{1}{2}} - [h(v)h(v)^\T]^{\frac{1}{2}}}.
     \end{split}
   \end{equation}
@@ -2075,37 +2074,38 @@ Li et al.\ present two results that characterize the first three moments of the 
     \label{eq:mapping_lipschitz}
     \begin{split}
     \normf{(hh^\T)^{\frac{1}{2}} - (qq^\T)^{\frac{1}{2}}}^2 &= \normf{hh^\T/\norm{h} - qq^\T/\norm{q}}^2 = \sum_{i,j = 1}^d (h_ih_j/\norm{h} - q_iq_j/\norm{q})^2 \\
-    &= \norm{h}^2 - 2 \frac{\scp{h}{q}^2}{\norm{h}\norm{q}} + \norm{q}^2 
+    &= \norm{h}^2 - 2 \frac{\scp{h}{q}^2}{\norm{h}\norm{q}} + \norm{q}^2.
     % = \norm{h}^2 - 2 \lvert \scp{h}{q} \rvert+ \norm{q}^2 \\
     % &\leq \norm{h}^2 - 2 \scp{h}{q} + \norm{q}^2 = \norm{h-q}^2.
     \end{split}
   \end{equation}
-  Now, we note that the scalar product the two vector $h,q$ can be written as $\scp{h}{q} = \cos(\theta_{h,q}) \norm{h} \norm{q}$, where $\theta_{h,q}$ is the angle between $h$ and $q$. We follow
+  Now, we note that the scalar product the two vector $h,q$ can be written as $\scp{h}{q} = \cos(\theta_{h,q}) \norm{h} \norm{q}$, where $\theta_{h,q}$ is the angle between $h$ and $q$. Thus, it follows
   \begin{equation*}
     \frac{\scp{h}{q}^2}{\norm{h}\norm{q}} = \cos^2(\theta_{h,q})\norm{h}\norm{q}.
   \end{equation*}
-  We claim that for $L = \sqrt{2}$ we have Lipschitz continuity. We proof that by showing that the difference $2 \norm{h-q}^2 - \normf{(hh^\T)^{\frac{1}{2}} - (qq^\T)^{\frac{1}{2}}}^2$ is nonnegative. We have
+  We claim that for $L = \sqrt{2}$ we have Lipschitz continuity. We prove that by showing that the difference $2 \norm{h-q}^2 - \normf{(hh^\T)^{\frac{1}{2}} - (qq^\T)^{\frac{1}{2}}}^2$ is nonnegative. We have
   \begin{align*}
     2 (\norm{h}^2 - 2 &\cos(\theta_{h,q}) \norm{h} \norm{q} + \norm{q}^2) - (\norm{h}^2 - 2 \cos^2(\theta_{h,q})) \norm{h} \norm{q} + \norm{q}^2) \\
     &= \norm{h}^2 + 2 \cos(\theta_{h,q})(\cos(\theta_{h,q}) - 2) \norm{h} \norm{q} + \norm{q}^2 \\
     &\geq \norm{h}^2 - 2\norm{h} \norm{q} + \norm{q}^2 = (\norm{h} - \norm{q})^2 \geq 0.
   \end{align*}
   We note that $\cos(\theta_{h,q})(\cos(\theta_{h,q}) -2 ) \geq -1$ for all $\theta_{h,q} \in \R$.
-  Combining equations \eqref{eq:sigma_inequality} and \eqref{eq:u_lipschitz} we follow
+  Combining equations \eqref{eq:sigma_inequality} and \eqref{eq:u_lipschitz} it follows
   \begin{align*}
     \normf{\Sigma(w)^{1/2} - \Sigma(v)^{1/2}} \leq \sqrt{2}\norm{h(w) - h(v)} \leq \sqrt{2}\left(\ev{L_{\gamma}} + L_{\gamma}\right)\norm{w-v}.
   \end{align*}
   From the arguments above and \autoref{lemma:linear_growth} we see that $\mathbf{a}(w) = -\nabla \left( f(w) + \frac{1}{4}\eta \norm{\nabla f(w)}^2\right)$ and $\mathbf{b}(w) = \eta \Sigma(w)^{1/2}$ fulfill both a Lipschitz and linear growth condition. Thus, $\mathbf{a}$ and $\mathbf{b}$ fulfill \autoref{as:sde_existence} and by \autoref{thm:sde_existence} equation \eqref{eq:second_order_sde} has a unique solution.
 
-  Further, let $\epsilon \in (0,1)$. We define the mollified functions
+  Further, let $\epsilon \in (0,1)$. We define the mollified functions (see \autoref{def:mollifier})
   \begin{equation*}
     \mathbf{a}_0(w, \epsilon) = - \moll * \nabla f(w), \quad \mathbf{a}_1(w, \epsilon) = -\frac{1}{4}\moll * (\nabla\norm{\nabla f(w)}^2), \quad\mathbf{b}_0(w, \epsilon) = \moll * \Sigma(w)^{1/2}.
   \end{equation*}
   Next, we show that $\mathbf{a}_0 + \eta \mathbf{a}_1$, $\mathbf{b}_0$ satisfy a Lipschitz condition in $w \in \R^d$ uniformly in $\eta, \epsilon$.
   For that we note that a Lipschitz continuous function $\psi:\R^d \rightarrow \R$ preserves Lipschitz continuity through mollification. Let $w, v \in \R^d$. Then, by Jensen's inequality we have
-  \begin{equation*}
-    \lvert\moll*\psi(w) - \moll*\psi(v) \rvert \leq \int_{\CB(0,\epsilon)}\moll(z)\lvert\psi(w-z) - \psi(v-z)\rvert dz \leq \int_{\CB(0,\epsilon)}\moll(z)dz \norm{w-v} = \norm{w-v}.
-  \end{equation*}
+  \begin{align*}
+    \lvert\moll*\psi(w) - \moll*\psi(v) \rvert &\leq \int_{\CB(0,\epsilon)}\moll(z)\lvert\psi(w-z) - \psi(v-z)\rvert dz \\
+    &\leq \int_{\CB(0,\epsilon)}\moll(z)dz \norm{w-v} = \norm{w-v}.
+  \end{align*}
   Thus, we have that $\mathbf{a}_0 + \eta \mathbf{a}_1$, $\mathbf{b}_0$ are uniformly Lipschitz. 
   % Proof linear growth condition here
   By \autoref{thm:sde_existence} the family of stochastic processes $\{W_t^{\epsilon}: \epsilon \in (0,1)\}$ satisfying 
@@ -2114,12 +2114,11 @@ Li et al.\ present two results that characterize the first three moments of the 
   \end{equation*}
   admits a unique solution for each $\epsilon \in (0,1)$.
   Next, we show that $\mathbf{a}_0(\cdot, \epsilon),\mathbf{a}_1(\cdot, \epsilon),\mathbf{b}_0(\cdot, \epsilon) \in G^3$ uniformly in $\epsilon$.
-  We note that we have $f \in G^4_w \subset \CL^1_{\text{loc}}(\R^d)$. Thus, we have $\nabla f,\; \nabla \norm{\nabla f}^2, \; \Sigma^{1/2} \in \CL^1_{\text{loc}}(\R^d)$. By \autoref{lemma:mollifiers} we obtain smoothness for $\mathbf{a}_0, \mathbf{a}_1$ and $\mathbf{b}_0$. Further, polynomial growth is satisfied since for $\psi \in G$ and a multiindex $J$ we have
+  We note that we have $f \in G^4_w \subset \CL^1_{\text{loc}}(\R^d)$. Thus, we have $\nabla f$, $\nabla \norm{\nabla f}^2$, $\Sigma^{1/2} \in \CL^1_{\text{loc}}(\R^d)$. By \autoref{lemma:mollifiers} we obtain smoothness for $\mathbf{a}_0, \mathbf{a}_1$ and $\mathbf{b}_0$. Further, polynomial growth is satisfied since for $\psi \in G$, a multiindex $J$ and $w \in \R^d$ we have
   \begin{align*}
     \moll * D^J \psi (w) &= \int_{\R^d}\moll(v-w) D^J \psi (v)dv = \int_{\R^d}\nabla^J\moll(w-v)\psi (v) dv \\
-    &= \nabla^J(\moll * \psi)(w),
+    &= \nabla^J(\moll * \psi)(w).
   \end{align*}
-  for $w \in \R^d$.
   Moreover, by linear growth and \autoref{lemma:inequality} for $\kappa_1, \kappa_2 \in \N$ we have
   \begin{align*}
     \lvert \psi^{\epsilon}(w) \rvert &\leq \int_{\CB(0, \epsilon)} \moll(v) \lvert \psi(w-v) \rvert dv \leq \int_{\CB(0, \epsilon)} \moll(v) \kappa_1 (1 + \norm{x-y}^{2\kappa_2})dv\\
@@ -2141,12 +2140,12 @@ Li et al.\ present two results that characterize the first three moments of the 
     \sup_{t \in [0,T]}\ev{\norm{W^{\epsilon}_t - W_t}^2} \rightarrow 0 \text{ as } \epsilon \rightarrow 0.
   \end{equation*}
   Thus, we have
-  \begin{align*}
-    \norm{\ev{g(W_{k\eta})} - \ev{g(w_k)}} &\leq  \norm{\ev{g(W_{k\eta}^\epsilon)} - \ev{g(w_k)}} + \norm{\ev{g(W_{k\eta}^{\epsilon})} - \ev{g(W_{k\eta})}} \\
-    &\leq C(\eta^2 + \rho(\epsilon)) \\
-    &+ \ev{\norm{W^{\epsilon}_{k\eta} - W_{k\eta}}^2}^{\frac{1}{2}} \left( \int_0^1 \ev{\normf{Hg(\lambda W^{\epsilon}_{k\eta} + (1-\lambda)W_{k\eta})}^2}d\lambda\right)^{\frac{1}{2}}.
-  \end{align*}
-  Using Theorem 19 from \cite{liStochasticModifiedEquations2019} and the assumption that $Hg \in G$, the last expectation is finite and hence taking the limit $\epsilon \rightarrow 0$ yields the result.
+  \begin{multline*}
+    \norm{\ev{g(W_{k\eta})} - \ev{g(w_k)}} \leq  \norm{\ev{g(W_{k\eta}^\epsilon)} - \ev{g(w_k)}} + \norm{\ev{g(W_{k\eta}^{\epsilon})} - \ev{g(W_{k\eta})}} \\
+    \leq C(\eta^2 + \rho(\epsilon))
+    + \ev{\norm{W^{\epsilon}_{k\eta} - W_{k\eta}}^2}^{\frac{1}{2}} \left( \int_0^1 \ev{\normf{Hg(\lambda W^{\epsilon}_{k\eta} + (1-\lambda)W_{k\eta})}^2}d\lambda\right)^{\frac{1}{2}}.
+  \end{multline*}
+  Using Theorem 19 from \cite{liStochasticModifiedEquations2019} and the assumption that we have $Hg \in G$ for the Hessian of $g$ , the last expectation is finite and hence taking the limit $\epsilon \rightarrow 0$ yields the result.
 \end{proof}
 \begin{corollary}[\protect{\cite{liStochasticModifiedEquations2019}}]
   \label{cor:first_order}
@@ -2235,7 +2234,7 @@ Now, using \autoref{lem:ito}, we follow
 \begin{equation*}
   \ev{f(W_t)} = \frac{1}{2}w_0^\T He^{-2tH}w_0 + \frac{1}{2}\eta \int_0^t\Tr\left[H^3e^{2(s-t)H}\right]ds.
 \end{equation*}
-Next, we write use the well-known result that the trace of a symmetric, positive definite matrix, can be calculated as the sum of its eigenvalues and obtain 
+Next, we use the well-known result that the trace of a matrix can be calculated as the sum of its eigenvalues and obtain 
 \begin{equation}
   \begin{split}
     \label{eq:analytical_expected_value}
@@ -2247,7 +2246,7 @@ The second order stochastic modified equation is given by
 \begin{equation*}
   dW_t = -(H + \frac{1}{2}\eta H^2)W_tdt + \sqrt{\eta}Hd\mathbf{B}_t, \quad W_0 = w_0.
 \end{equation*}
-Analogous to the calculations above, this equation is a special case of the Ornstein-Uhlenbeck process from \autoref{ex:ornstein_uhlenbeck} by setting $F = H + \frac{1}{2}H^2$ and $G = \sqrt{\eta}H$. We substitute the solution into the objective and take the expected value to obtain
+Analogous to the calculations above, this equation is a special case of the Ornstein-Uhlenbeck process of \autoref{ex:ornstein_uhlenbeck}.This can be seen by setting $F = H + \frac{1}{2}H^2$ and $G = \sqrt{\eta}H$. We substitute the solution into the objective and take the expected value to obtain
 \begin{equation*}
   \ev{f(W_t)} = \frac{1}{2} w_0^\T H e^{(-2H + \eta H^2)t}w_0 + \frac{1}{2}\eta \int_0^t \Tr(H^3 e^{-(2H + \eta H^2)(t-s)})ds.
 \end{equation*}
@@ -2345,7 +2344,7 @@ where $\Delta \mathbf{B}_k \sim \CN(0, \eta I_d)$ for $k=0,1,\dots$.
 
 At this point, we make two observations. Deep learning objectives are of the form
 \begin{equation*}
-  f(w) = \sum_{i=1}^n f_i(w), \quad w \in \R^d
+  f(w) = \frac{1}{n}\sum_{i=1}^n f_i(w), \quad w \in \R^d
 \end{equation*}
 where $n \in \N$ is large. Therefore, calculating $\nabla f$ is computationally expensive. Further, the matrix
 \begin{equation*}
@@ -2464,6 +2463,7 @@ We can see
   \end{equation*}
 \end{proof}
 \begin{definition}[Mollifier, \protect{\cite{evansPartialDifferentialEquations2010}}]
+  \label{def:mollifier}
   Let us denote by $\nu : \R^d \rightarrow \R$, $\nu \in \CC^{\infty}_c(\R^d)$ the \emph{standard mollifier}
   \begin{equation*}
     \nu(w) \defeq \begin{cases}
@@ -2479,11 +2479,11 @@ We can see
 \end{definition}
 \begin{lemma}[\protect{\cite[pp. 630]{evansPartialDifferentialEquations2010}}]
   \label{lemma:mollifiers}
-  Let $\psi \in \CL^1_{\text{loc}}(\R^d)$. Then we have
+  Let $\psi \in \CL^1_{\text{loc}}(\R^d)$. Then, we have
   \begin{enumerate}[label=(\roman*)]
-    \item $\psi^{\epsilon} \in \CC^{\infty}(\R^d)$
-    \item $\psi^{\epsilon}(w) \rightarrow \psi(w)$ as $\epsilon \rightarrow 0$ for almost every $w \in \R^d$
-    \item If $\psi$ is continuous, then $\psi^{\epsilon}(w) \rightarrow \psi(w)$ as $\epsilon \rightarrow 0$ uniformly on compact subset of $\R^d$
+    \item $\psi^{\epsilon} \in \CC^{\infty}(\R^d)$,
+    \item $\psi^{\epsilon}(w) \rightarrow \psi(w)$ as $\epsilon \rightarrow 0$ for almost every $w \in \R^d$,
+    \item If $\psi$ is continuous, then $\psi^{\epsilon}(w) \rightarrow \psi(w)$ as $\epsilon \rightarrow 0$ uniformly on compact subset of $\R^d$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -2533,10 +2533,10 @@ We can see
 \end{proof}
 \begin{lemma}
   \label{lem:sum_positive_definite}
-  Let $A,B \in R^{d \times d}$ be symmetric, positive definite matrices. Then, the matrix $A+B$ is positive definite.
+  Let $A,B \in \R^{d \times d}$ be symmetric, positive definite matrices. Then, the matrix $A+B$ is positive definite.
 \end{lemma}
 \begin{proof}
-  Let $A,B \in R^{d \times d}$ be symmetric, positive definite matrices. For $x \in \R^d \setminus \{0\}$ we have
+  Let $A,B \in \R^{d \times d}$ be symmetric, positive definite matrices. For $x \in \R^d \setminus \{0\}$ we have
   \begin{equation*}
     x^\T(A+B)x = x^\T A x + x^\T B x > 0.
   \end{equation*}
@@ -2544,13 +2544,13 @@ We can see
 \end{proof}
 \begin{theorem}[\protect{\cite[pp.~65]{koenigsbergerAnalysis2006}}]
   \label{thm:taylor}
-  Let $f : \R \rightarrow \R$ be a function with continuous derivatives at a point $a \in \R$ of up to order $r \in \N$. Then, for each $x \in \R$ there exists a $\xi \in [a,x]$ such that 
+  Let $f : \R \rightarrow \R$ be a function with continuous derivatives at a point $c \in \R$ of up to order $r \in \N$. Then, for each $x \in \R$ there exists a $\xi \in [c,x]$ such that 
   \begin{equation*}
-    f(x) = \sum_{k=0}^r f^{(k)}(a) \frac{(x-a)^k}{k!} + R_{r+1}(a,x),
+    f(x) = \sum_{k=0}^r f^{(k)}(c) \frac{(x-c)^k}{k!} + R_{r+1}(c,x),
   \end{equation*}
   where the \emph{remainder} is given by
   \begin{equation*}
-    R_{r+1}(a,x) \defeq \frac{1}{(r+1)!}f^{(r+1)}(\xi)(x-a)^{r+1}.
+    R_{r+1}(c,x) \defeq \frac{1}{(r+1)!}f^{(r+1)}(\xi)(x-c)^{r+1}.
   \end{equation*}
 \end{theorem}
 \end{document}
