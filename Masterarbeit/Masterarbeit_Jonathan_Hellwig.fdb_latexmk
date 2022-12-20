@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber Masterarbeit_Jonathan_Hellwig"] 1671471776 "Masterarbeit_Jonathan_Hellwig.bcf" "Masterarbeit_Jonathan_Hellwig.bbl" "Masterarbeit_Jonathan_Hellwig" 1671475079
-  "Masterarbeit_Jonathan_Hellwig.bcf" 1671475079 125658 183780ead72a8bdff4a4c2d6211251e8 "pdflatex"
+["biber Masterarbeit_Jonathan_Hellwig"] 1671471776 "Masterarbeit_Jonathan_Hellwig.bcf" "Masterarbeit_Jonathan_Hellwig.bbl" "Masterarbeit_Jonathan_Hellwig" 1671523647
+  "Masterarbeit_Jonathan_Hellwig.bcf" 1671523646 125658 183780ead72a8bdff4a4c2d6211251e8 "pdflatex"
   "thesis.bib" 1671288517 190231 a1c55e0afa3d378394fb0a92520aa34f ""
   (generated)
   "Masterarbeit_Jonathan_Hellwig.bbl"
   "Masterarbeit_Jonathan_Hellwig.blg"
-["pdflatex"] 1671475066 "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" "Masterarbeit_Jonathan_Hellwig.pdf" "Masterarbeit_Jonathan_Hellwig" 1671475079
+["pdflatex"] 1671523641 "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" "Masterarbeit_Jonathan_Hellwig.pdf" "Masterarbeit_Jonathan_Hellwig" 1671523647
   "../seminar_talk/plots/convergence_rate.pdf" 1666605687 9761 03cb01d83a3456dc32ccb085af627150 ""
   "../seminar_talk/plots/learning_rates.pdf" 1671146276 17999 349b05efa979fb09b72eaac768709a07 ""
   "../seminar_talk/plots/linear_regression_error.pdf" 1671145576 15498 e09354ba334283558d5ddabe1428932b ""
@@ -16,7 +16,7 @@
   "../seminar_talk/plots/sgd_weight_histogram.pdf" 1668451427 15093 9996022b38aabcf77da4ada649ded2f0 ""
   "../seminar_talk/plots/sgd_weight_qq.pdf" 1666613647 107097 04cc715caf6e29be74832a3e8f984971 ""
   "/home/jonathan/.texlive/texmf-var/fonts/pk/ljfour/public/bbm/bbm12.600pk" 1670517998 8424 6addedab8d30c3954fac21cba462f8c1 ""
-  "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" 1671475064 181868 06bbf56f027798a314566ab365a0ba8c ""
+  "/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex" 1671523641 181860 df30db814a8e226d6bd14fa4c4596956 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1650183167 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1650183167 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1650183167 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -247,13 +247,13 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1653635068 4278762 af3ac1370db81a450c1118eabf1fe718 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1653634990 2927658 5cffee422351a97f0451664921669602 ""
-  "Masterarbeit_Jonathan_Hellwig.aux" 1671475079 45149 3301ed274fc0362db2bf302f6cde14d1 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.aux" 1671523646 45149 3301ed274fc0362db2bf302f6cde14d1 "pdflatex"
   "Masterarbeit_Jonathan_Hellwig.bbl" 1671471785 181242 c5dee6720f25c7eaac8df2abfd7a065c "biber Masterarbeit_Jonathan_Hellwig"
-  "Masterarbeit_Jonathan_Hellwig.lof" 1671475079 1325 9ef64dd8bbf0591f05babfe96a4114b4 "pdflatex"
-  "Masterarbeit_Jonathan_Hellwig.out" 1671475079 5378 acecd2ef10219ae27880efd9e40b55d4 "pdflatex"
-  "Masterarbeit_Jonathan_Hellwig.run.xml" 1671475079 2476 0dab376babdf36ec1718288de5ffab44 "pdflatex"
-  "Masterarbeit_Jonathan_Hellwig.tex" 1671475064 181868 06bbf56f027798a314566ab365a0ba8c ""
-  "Masterarbeit_Jonathan_Hellwig.toc" 1671475079 2799 f35073cf0552c8a3bda60d53bf5e0bfb "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.lof" 1671523646 1325 9ef64dd8bbf0591f05babfe96a4114b4 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.out" 1671523646 5378 acecd2ef10219ae27880efd9e40b55d4 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.run.xml" 1671523646 2476 0dab376babdf36ec1718288de5ffab44 "pdflatex"
+  "Masterarbeit_Jonathan_Hellwig.tex" 1671523641 181860 df30db814a8e226d6bd14fa4c4596956 ""
+  "Masterarbeit_Jonathan_Hellwig.toc" 1671523646 2799 f35073cf0552c8a3bda60d53bf5e0bfb "pdflatex"
   "pics/MATH_de.pdf" 1645807082 6744 57ebaf7c9b80ce7db4d439bbd079bca9 ""
   "pics/TUHH_de.pdf" 1645807082 19737 6f23eb4d23aa9016bf6c44a2680eb9eb ""
   (generated)
