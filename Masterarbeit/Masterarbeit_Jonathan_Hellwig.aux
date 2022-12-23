@@ -128,6 +128,7 @@
 \abx@aux@cite{0}{nocedalNumericalOptimization2006}
 \abx@aux@segm{0}{0}{nocedalNumericalOptimization2006}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Risk minimization}{13}{subsection.3.2}\protected@file@percent }
+\newlabel{def:model}{{3.13}{13}{Model, loss function}{definition.3.13}{}}
 \newlabel{eq:empirical_risk}{{3.2}{13}{Expected risk, empirical risk, \protect { \cite {bottouOptimizationMethodsLargeScale2018}}}{equation.3.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Characterization of minimizers}{13}{subsection.3.3}\protected@file@percent }
 \abx@aux@cite{0}{nocedalNumericalOptimization2006}
@@ -166,6 +167,7 @@
 \newlabel{eq:gradient_descent}{{3.9}{16}{One-step method, gradient descent, step size, learning rate \protect {\cite {nocedalNumericalOptimization2006}}}{equation.3.9}{}}
 \newlabel{def:sgd}{{3.22}{16}{Stochastic gradient descent, \protect {\cite {polyakMethodsSpeedingConvergence1964}}}{definition.3.22}{}}
 \newlabel{eq:stochastic_gradient_descent}{{3.10}{16}{Stochastic gradient descent, \protect {\cite {polyakMethodsSpeedingConvergence1964}}}{equation.3.10}{}}
+\newlabel{eq:mini_batch_sgd}{{3.11}{16}{Stochastic gradient descent, \protect {\cite {polyakMethodsSpeedingConvergence1964}}}{equation.3.11}{}}
 \abx@aux@cite{0}{sebbouhAlmostSureConvergence2021}
 \abx@aux@segm{0}{0}{sebbouhAlmostSureConvergence2021}
 \abx@aux@cite{0}{eAppliedStochasticAnalysis2021}
@@ -201,10 +203,10 @@
 \abx@aux@segm{0}{0}{bottouOptimizationMethodsLargeScale2018}
 \abx@aux@cite{0}{gowerSGDGeneralAnalysis2019}
 \abx@aux@segm{0}{0}{gowerSGDGeneralAnalysis2019}
+\newlabel{eq:Lsmoothproof1}{{3.13}{19}{Convergence assumptions}{equation.3.13}{}}
+\newlabel{eq:Lsmoothproof2}{{3.14}{19}{Convergence assumptions}{equation.3.14}{}}
 \abx@aux@cite{0}{gowerSGDGeneralAnalysis2019}
 \abx@aux@segm{0}{0}{gowerSGDGeneralAnalysis2019}
-\newlabel{eq:Lsmoothproof1}{{3.12}{19}{Convergence assumptions}{equation.3.12}{}}
-\newlabel{eq:Lsmoothproof2}{{3.13}{19}{Convergence assumptions}{equation.3.13}{}}
 \abx@aux@cite{0}{boydConvexOptimization2004}
 \abx@aux@segm{0}{0}{boydConvexOptimization2004}
 \abx@aux@cite{0}{boydConvexOptimization2004}
@@ -268,7 +270,7 @@
 \abx@aux@segm{0}{0}{sebbouhAlmostSureConvergence2021}
 \abx@aux@cite{0}{sebbouhAlmostSureConvergence2021}
 \abx@aux@segm{0}{0}{sebbouhAlmostSureConvergence2021}
-\newlabel{eq:iterate_norm}{{3.17}{23}{Convergence results}{equation.3.17}{}}
+\newlabel{eq:iterate_norm}{{3.18}{23}{Convergence results}{equation.3.18}{}}
 \newlabel{thm:SGD_bound}{{3.37}{23}{\protect {\cite {sebbouhAlmostSureConvergence2021}}}{theorem.3.37}{}}
 \abx@aux@cite{0}{nocedalNumericalOptimization2006}
 \abx@aux@segm{0}{0}{nocedalNumericalOptimization2006}
@@ -309,11 +311,11 @@
 \abx@aux@segm{0}{0}{eAppliedStochasticAnalysis2021}
 \abx@aux@cite{0}{eAppliedStochasticAnalysis2021}
 \abx@aux@segm{0}{0}{eAppliedStochasticAnalysis2021}
-\abx@aux@cite{0}{eAppliedStochasticAnalysis2021}
-\abx@aux@segm{0}{0}{eAppliedStochasticAnalysis2021}
 \newlabel{thm:euler_convergence}{{4.3}{27}{}{theorem.4.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Itô Integral}{27}{subsection.4.2}\protected@file@percent }
 \newlabel{subsec:ItoIntegral}{{4.2}{27}{Itô Integral}{subsection.4.2}{}}
+\abx@aux@cite{0}{eAppliedStochasticAnalysis2021}
+\abx@aux@segm{0}{0}{eAppliedStochasticAnalysis2021}
 \abx@aux@cite{0}{capassoIntroductionContinuousTimeStochastic2012}
 \abx@aux@segm{0}{0}{capassoIntroductionContinuousTimeStochastic2012}
 \abx@aux@cite{0}{eAppliedStochasticAnalysis2021}
@@ -321,7 +323,7 @@
 \abx@aux@cite{0}{eAppliedStochasticAnalysis2021}
 \abx@aux@segm{0}{0}{eAppliedStochasticAnalysis2021}
 \newlabel{thm:ito_isometry}{{4.7}{28}{\autocite {eAppliedStochasticAnalysis2021}}{theorem.4.7}{}}
-\newlabel{item:zero_integral}{{{{(i)}}}{28}{\autocite {eAppliedStochasticAnalysis2021}}{Item.23}{}}
+\newlabel{item:zero_integral}{{{{(i)}}}{28}{\autocite {eAppliedStochasticAnalysis2021}}{Item.24}{}}
 \newlabel{eq:ito_integral_ev}{{4.4}{28}{\autocite {eAppliedStochasticAnalysis2021}}{equation.4.4}{}}
 \newlabel{eq:ito_product}{{4.5}{28}{\autocite {eAppliedStochasticAnalysis2021}}{equation.4.5}{}}
 \newlabel{eq:ito_isometry}{{4.6}{28}{\autocite {eAppliedStochasticAnalysis2021}}{equation.4.6}{}}
@@ -450,7 +452,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Histogram of parameter $w$ for SGD sample trajectories\relax }}{44}{figure.caption.10}\protected@file@percent }
 \newlabel{fig:sgd_weight_histogram}{{6}{44}{Histogram of parameter $w$ for SGD sample trajectories\relax }{figure.caption.10}{}}
 \newlabel{as:sde_model}{{5.14}{44}{\protect {\cite {liStochasticModifiedEquations2019}}}{assumption.5.14}{}}
-\newlabel{as:bounded_gradient}{{{{(ii)}}}{44}{\protect {\cite {liStochasticModifiedEquations2019}}}{Item.33}{}}
+\newlabel{as:bounded_gradient}{{{{(ii)}}}{44}{\protect {\cite {liStochasticModifiedEquations2019}}}{Item.34}{}}
 \newlabel{eq:general_sde}{{5.12}{44}{Stochastic gradient descent}{equation.5.12}{}}
 \abx@aux@cite{0}{evansPartialDifferentialEquations2010}
 \abx@aux@segm{0}{0}{evansPartialDifferentialEquations2010}
@@ -511,38 +513,74 @@
 \newlabel{fig:convergence_rate}{{9}{55}{Maximum of the absolute difference of analytical expected value and average SGD trajectories\relax }{figure.caption.13}{}}
 \abx@aux@cite{0}{aggarwalNeuralNetworksDeep2018}
 \abx@aux@segm{0}{0}{aggarwalNeuralNetworksDeep2018}
+\abx@aux@cite{0}{krizhevskyImageNetClassificationDeep2012}
+\abx@aux@segm{0}{0}{krizhevskyImageNetClassificationDeep2012}
+\abx@aux@cite{0}{heDeepResidualLearning2016a}
+\abx@aux@segm{0}{0}{heDeepResidualLearning2016a}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Stochastic modified equations in deep learning}{56}{section.6}\protected@file@percent }
 \newlabel{sec:smdedl}{{6}{56}{Stochastic modified equations in deep learning}{section.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Dense neural networks}{56}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Activation functions}{56}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Simulating stochastic modified equations}{56}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Deep learning architectures}{56}{subsection.6.1}\protected@file@percent }
+\newlabel{subsec:deep_learning_architectures}{{6.1}{56}{Deep learning architectures}{subsection.6.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Fully connected neural networks}{56}{subsubsection.6.1.1}\protected@file@percent }
+\newlabel{eq:nn}{{6.1}{56}{Fully connected neural network, weight matrix, bias, activation function, \protect {\cite [pp.~19]{aggarwalNeuralNetworksDeep2018}}}{definition.6.1}{}}
+\abx@aux@cite{0}{heDeepResidualLearning2016a}
+\abx@aux@segm{0}{0}{heDeepResidualLearning2016a}
+\abx@aux@cite{0}{ioffeBatchNormalizationAccelerating2015}
+\abx@aux@segm{0}{0}{ioffeBatchNormalizationAccelerating2015}
+\abx@aux@cite{0}{dengMNISTDatabaseHandwritten2012}
+\abx@aux@segm{0}{0}{dengMNISTDatabaseHandwritten2012}
+\abx@aux@cite{0}{krizhevskyLearningMultipleLayers2009}
+\abx@aux@segm{0}{0}{krizhevskyLearningMultipleLayers2009}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}Convolutional neural networks}{57}{subsubsection.6.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.3}Residual neural networks}{57}{subsubsection.6.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.4}Batch normalization}{57}{subsubsection.6.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.5}Loss functions}{57}{subsubsection.6.1.5}\protected@file@percent }
 \abx@aux@cite{0}{golubMatrixComputations1996}
 \abx@aux@segm{0}{0}{golubMatrixComputations1996}
 \abx@aux@cite{0}{wuNoisyGradientDescent2020a}
 \abx@aux@segm{0}{0}{wuNoisyGradientDescent2020a}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Simulating stochastic modified equations}{58}{subsection.6.2}\protected@file@percent }
 \abx@aux@cite{0}{liValidityModelingSGD2021}
 \abx@aux@segm{0}{0}{liValidityModelingSGD2021}
 \abx@aux@cite{0}{liValidityModelingSGD2021}
 \abx@aux@segm{0}{0}{liValidityModelingSGD2021}
 \abx@aux@cite{0}{liValidityModelingSGD2021}
 \abx@aux@segm{0}{0}{liValidityModelingSGD2021}
+\newlabel{thm:svag}{{6.4}{59}{\cite {liValidityModelingSGD2021}}{theorem.6.4}{}}
 \abx@aux@cite{0}{liValidityModelingSGD2021}
 \abx@aux@segm{0}{0}{liValidityModelingSGD2021}
+\abx@aux@cite{0}{liValidityModelingSGD2021}
+\abx@aux@segm{0}{0}{liValidityModelingSGD2021}
+\abx@aux@cite{0}{simsekliTailIndexAnalysisStochastic2019}
+\abx@aux@segm{0}{0}{simsekliTailIndexAnalysisStochastic2019}
+\abx@aux@cite{0}{zhouTheoreticallyUnderstandingWhy2020}
+\abx@aux@segm{0}{0}{zhouTheoreticallyUnderstandingWhy2020}
+\abx@aux@cite{0}{heDeepResidualLearning2016a}
+\abx@aux@segm{0}{0}{heDeepResidualLearning2016a}
+\abx@aux@cite{0}{krizhevskyImageNetClassificationDeep2012}
+\abx@aux@segm{0}{0}{krizhevskyImageNetClassificationDeep2012}
+\abx@aux@cite{0}{liValidityModelingSGD2021}
+\abx@aux@segm{0}{0}{liValidityModelingSGD2021}
+\abx@aux@cite{0}{dengMNISTDatabaseHandwritten2012}
+\abx@aux@segm{0}{0}{dengMNISTDatabaseHandwritten2012}
+\abx@aux@cite{0}{krizhevskyLearningMultipleLayers2009}
+\abx@aux@segm{0}{0}{krizhevskyLearningMultipleLayers2009}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Experiments}{60}{subsection.6.3}\protected@file@percent }
+\newlabel{subsec:experiments}{{6.3}{60}{Experiments}{subsection.6.3}{}}
 \abx@aux@cite{0}{goyalAccurateLargeMinibatch2018}
 \abx@aux@segm{0}{0}{goyalAccurateLargeMinibatch2018}
 \abx@aux@cite{0}{krizhevskyOneWeirdTrick2014}
 \abx@aux@segm{0}{0}{krizhevskyOneWeirdTrick2014}
-\newlabel{thm:svag}{{6.3}{58}{\cite {liValidityModelingSGD2021}}{theorem.6.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Limitations}{59}{subsection.6.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Experiments}{59}{subsection.6.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Applications}{59}{section.7}\protected@file@percent }
-\newlabel{sec:applications}{{7}{59}{Applications}{section.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{59}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A}Appendix}{64}{appendix.A}\protected@file@percent }
-\newlabel{lemma:inequality}{{A.1}{64}{}{lemma.A.1}{}}
-\newlabel{eq:inequality}{{A.1}{64}{}{equation.A.1}{}}
+\abx@aux@cite{0}{liValidityModelingSGD2021}
+\abx@aux@segm{0}{0}{liValidityModelingSGD2021}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Applications}{61}{section.7}\protected@file@percent }
+\newlabel{sec:applications}{{7}{61}{Applications}{section.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{62}{section.8}\protected@file@percent }
 \abx@aux@cite{0}{evansPartialDifferentialEquations2010}
 \abx@aux@segm{0}{0}{evansPartialDifferentialEquations2010}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Appendix}{68}{appendix.A}\protected@file@percent }
+\newlabel{lemma:inequality}{{A.1}{68}{}{lemma.A.1}{}}
+\newlabel{eq:inequality}{{A.1}{68}{}{equation.A.1}{}}
 \abx@aux@cite{0}{evansPartialDifferentialEquations2010}
 \abx@aux@segm{0}{0}{evansPartialDifferentialEquations2010}
 \abx@aux@cite{0}{evansPartialDifferentialEquations2010}
@@ -553,16 +591,20 @@
 \abx@aux@segm{0}{0}{liStochasticModifiedEquations2019}
 \abx@aux@cite{0}{evansPartialDifferentialEquations2010}
 \abx@aux@segm{0}{0}{evansPartialDifferentialEquations2010}
-\newlabel{def:mollifier}{{A.2}{65}{Mollifier, \protect {\cite {evansPartialDifferentialEquations2010}}}{definition.A.2}{}}
-\newlabel{lemma:mollifiers}{{A.3}{65}{\protect {\cite [pp. 630]{evansPartialDifferentialEquations2010}}}{lemma.A.3}{}}
-\newlabel{lemma:mollifier_bound}{{A.4}{65}{\protect {\cite [Lemma 30]{liStochasticModifiedEquations2019}}}{lemma.A.4}{}}
+\newlabel{def:mollifier}{{A.2}{69}{Mollifier, \protect {\cite {evansPartialDifferentialEquations2010}}}{definition.A.2}{}}
+\newlabel{lemma:mollifiers}{{A.3}{69}{\protect {\cite [pp. 630]{evansPartialDifferentialEquations2010}}}{lemma.A.3}{}}
+\newlabel{lemma:mollifier_bound}{{A.4}{69}{\protect {\cite [Lemma 30]{liStochasticModifiedEquations2019}}}{lemma.A.4}{}}
+\newlabel{thm:dominated_convergence}{{A.5}{69}{Dominated convergence theorem, \protect {\cite [pp.~648]{evansPartialDifferentialEquations2010}}}{theorem.A.5}{}}
+\newlabel{lemma:linear_growth}{{A.6}{69}{}{lemma.A.6}{}}
 \abx@aux@cite{0}{koenigsbergerAnalysis2006}
 \abx@aux@segm{0}{0}{koenigsbergerAnalysis2006}
-\newlabel{thm:dominated_convergence}{{A.5}{66}{Dominated convergence theorem, \protect {\cite [pp.~648]{evansPartialDifferentialEquations2010}}}{theorem.A.5}{}}
-\newlabel{lemma:linear_growth}{{A.6}{66}{}{lemma.A.6}{}}
-\newlabel{lem:sum_positive_definite}{{A.7}{66}{}{lemma.A.7}{}}
-\newlabel{thm:taylor}{{A.8}{66}{\protect {\cite [pp.~65]{koenigsbergerAnalysis2006}}}{theorem.A.8}{}}
-\abx@aux@read@bbl@mdfivesum{C5DEE6720F25C7EAAC8DF2ABFD7A065C}
+\newlabel{lem:sum_positive_definite}{{A.7}{70}{}{lemma.A.7}{}}
+\newlabel{thm:taylor}{{A.8}{70}{\protect {\cite [pp.~65]{koenigsbergerAnalysis2006}}}{theorem.A.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces PreResNet-32 with SVAG for the scaling factors $l=1,2,4,8,16$ and a learning rate $\eta =6.4$ and a batch size $B=1024$\relax }}{71}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:resnet_svag}{{10}{71}{PreResNet-32 with SVAG for the scaling factors $l=1,2,4,8,16$ and a learning rate $\eta =6.4$ and a batch size $B=1024$\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Fully connected neural network with SVAG for the scaling factors $l=1,2,4,8,16$ and a learning rate $\eta =0.12$ and a batch size $B=128$\relax }}{72}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:fully_connected}{{11}{72}{Fully connected neural network with SVAG for the scaling factors $l=1,2,4,8,16$ and a learning rate $\eta =0.12$ and a batch size $B=128$\relax }{figure.caption.15}{}}
+\abx@aux@read@bbl@mdfivesum{4CADF15B6C5ECD119F44C1D20CE17931}
 \abx@aux@defaultrefcontext{0}{aggarwalNeuralNetworksDeep2018}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{ahmadTextbookOrdinaryDifferential2015}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{allen-zhuConvergenceTheoryDeep2019}{nty/global//global/global}
@@ -573,6 +615,7 @@
 \abx@aux@defaultrefcontext{0}{brownLanguageModelsAre2020}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{capassoIntroductionContinuousTimeStochastic2012}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{dengImageNetLargescaleHierarchical2009}{nty/global//global/global}
+\abx@aux@defaultrefcontext{0}{dengMNISTDatabaseHandwritten2012}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{duchiAdaptiveSubgradientMethods2011}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{durrettProbabilityTheoryExamples2019}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{eAppliedStochasticAnalysis2021}{nty/global//global/global}
@@ -584,12 +627,16 @@
 \abx@aux@defaultrefcontext{0}{gowerSGDGeneralAnalysis2019}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{goyalAccurateLargeMinibatch2018}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{hairerGeometricNumericalIntegration2013}{nty/global//global/global}
+\abx@aux@defaultrefcontext{0}{heDeepResidualLearning2016a}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{heDelvingDeepRectifiers2015a}{nty/global//global/global}
+\abx@aux@defaultrefcontext{0}{ioffeBatchNormalizationAccelerating2015}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{jumperHighlyAccurateProtein2021}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{kingmaAdamMethodStochastic2017}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{kloedenNumericalSolutionStochastic2013}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{koenigsbergerAnalysis2006}{nty/global//global/global}
+\abx@aux@defaultrefcontext{0}{krizhevskyLearningMultipleLayers2009}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{krizhevskyOneWeirdTrick2014}{nty/global//global/global}
+\abx@aux@defaultrefcontext{0}{krizhevskyImageNetClassificationDeep2012}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{liStochasticModifiedEquations2017}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{liStochasticModifiedEquations2019}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{liConvergenceStochasticGradient2019}{nty/global//global/global}
@@ -609,6 +656,7 @@
 \abx@aux@defaultrefcontext{0}{santambrogioEuclideanMetricWasserstein2017}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{schrittwieserMasteringAtariGo2020}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{sebbouhAlmostSureConvergence2021}{nty/global//global/global}
+\abx@aux@defaultrefcontext{0}{simsekliTailIndexAnalysisStochastic2019}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{smithOriginImplicitRegularization2021}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{uhlenbeckTheoryBrownianMotion1930}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{vaswaniFastFasterConvergence2019}{nty/global//global/global}
@@ -616,4 +664,4 @@
 \abx@aux@defaultrefcontext{0}{wuNoisyGradientDescent2020a}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{zhouTheoreticallyUnderstandingWhy2020}{nty/global//global/global}
 \abx@aux@defaultrefcontext{0}{zhouStochasticMirrorDescent2017}{nty/global//global/global}
-\gdef \@abspage@last{66}
+\gdef \@abspage@last{72}

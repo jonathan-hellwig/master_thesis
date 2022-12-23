@@ -645,6 +645,43 @@
       \verb /home/jonathan/Zotero/storage/6JXMR36I/Deng et al_2009_ImageNet.pdf;/home/jonathan/Zotero/storage/C34WFZS9/5206848.html
       \endverb
     \endentry
+    \entry{dengMNISTDatabaseHandwritten2012}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2f5fbdc5c3cf91f62a64663cd72397b3}{%
+           family={Deng},
+           familyi={D\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f5fbdc5c3cf91f62a64663cd72397b3}
+      \strng{fullhash}{2f5fbdc5c3cf91f62a64663cd72397b3}
+      \strng{bibnamehash}{2f5fbdc5c3cf91f62a64663cd72397b3}
+      \strng{authorbibnamehash}{2f5fbdc5c3cf91f62a64663cd72397b3}
+      \strng{authornamehash}{2f5fbdc5c3cf91f62a64663cd72397b3}
+      \strng{authorfullhash}{2f5fbdc5c3cf91f62a64663cd72397b3}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this issue, “Best of the Web” presents the modified National Institute of Standards and Technology (MNIST) resources, consisting of a collection of handwritten digit images used extensively in optical character recognition and machine learning research.}
+      \field{eventtitle}{{{IEEE Signal Processing Magazine}}}
+      \field{issn}{1558-0792}
+      \field{journaltitle}{IEEE Signal Processing Magazine}
+      \field{month}{11}
+      \field{number}{6}
+      \field{title}{The {{MNIST Database}} of {{Handwritten Digit Images}} for {{Machine Learning Research}} [{{Best}} of the {{Web}}]}
+      \field{volume}{29}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \field{pages}{141\bibrangedash 142}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1109/MSP.2012.2211477
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/UMPQDULA/Deng_2012_The MNIST Database of Handwritten Digit Images for Machine Learning Research.pdf;/home/jonathan/Zotero/storage/WGXQJG3U/6296535.html
+      \endverb
+    \endentry
     \entry{duchiAdaptiveSubgradientMethods2011}{article}{}
       \name{author}{3}{}{%
         {{hash=b8fbef1897da5bf46822ced31bc865c6}{%
@@ -1218,6 +1255,57 @@
       \verb /home/jonathan/Zotero/storage/U37UJ7I9/Hairer et al_2013_Geometric Numerical Integration.pdf
       \endverb
     \endentry
+    \entry{heDeepResidualLearning2016a}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Kaiming},
+           giveni={K\bibinitperiod}}}%
+        {{hash=5e72bc22dbcf0984c6d113d280e36990}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiangyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=bb295293acacd54387339079ebbe4ead}{%
+           family={Ren},
+           familyi={R\bibinitperiod},
+           given={Shaoqing},
+           giveni={S\bibinitperiod}}}%
+        {{hash=f85751488058842b5777c7b4074077b5}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{fullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \strng{bibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authorbibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authornamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
+      \strng{authorfullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \field{extraname}{1}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Deeper neural networks are more difficult to train. We present a residual learning framework to ease the training of networks that are substantially deeper than those used previously. We explicitly reformulate the layers as learning residual functions with reference to the layer inputs, instead of learning unreferenced functions. We provide comprehensive empirical evidence showing that these residual networks are easier to optimize, and can gain accuracy from considerably increased depth. On the ImageNet dataset we evaluate residual nets with a depth of up to 152 layers - 8× deeper than VGG nets [40] but still having lower complexity. An ensemble of these residual nets achieves 3.57\% error on the ImageNet test set. This result won the 1st place on the ILSVRC 2015 classification task. We also present analysis on CIFAR-10 with 100 and 1000 layers. The depth of representations is of central importance for many visual recognition tasks. Solely due to our extremely deep representations, we obtain a 28\% relative improvement on the COCO object detection dataset. Deep residual nets are foundations of our submissions to ILSVRC \& COCO 2015 competitions1, where we also won the 1st places on the tasks of ImageNet detection, ImageNet localization, COCO detection, and COCO segmentation.}
+      \field{booktitle}{2016 {{IEEE Conference}} on {{Computer Vision}} and {{Pattern Recognition}} ({{CVPR}})}
+      \field{eventtitle}{2016 {{IEEE Conference}} on {{Computer Vision}} and {{Pattern Recognition}} ({{CVPR}})}
+      \field{issn}{1063-6919}
+      \field{month}{6}
+      \field{title}{Deep {{Residual Learning}} for {{Image Recognition}}}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{pages}{770\bibrangedash 778}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/CVPR.2016.90
+      \endverb
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/9855HDIC/He et al_2016_Deep Residual Learning for Image Recognition.pdf;/home/jonathan/Zotero/storage/UCLEIISM/7780459.html
+      \endverb
+    \endentry
     \entry{heDelvingDeepRectifiers2015a}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=6b4b60e909e78633945f3f9c9dc83e01}{%
@@ -1247,6 +1335,7 @@
       \strng{authorbibnamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
       \strng{authornamehash}{6edb98fe38401d2fe4a026f5ce6e8451}
       \strng{authorfullhash}{42c4b52dc3a62cebabbc11c73e1afb53}
+      \field{extraname}{2}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{labelnamesource}{author}
@@ -1268,6 +1357,47 @@
       \verb{file}
       \verb /home/jonathan/Zotero/storage/XUUPBNZ2/He et al_2015_Delving Deep into Rectifiers.pdf;/home/jonathan/Zotero/storage/QM8P6TCZ/7410480.html
       \endverb
+    \endentry
+    \entry{ioffeBatchNormalizationAccelerating2015}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=5543e82359e26b035efc009cb3efff9d}{%
+           family={Ioffe},
+           familyi={I\bibinitperiod},
+           given={Sergey},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ed568d9c3bb059e6bf22899fbf170f86}{%
+           family={Szegedy},
+           familyi={S\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lille, France}%
+      }
+      \list{publisher}{1}{%
+        {JMLR.org}%
+      }
+      \strng{namehash}{7e8dee717d54c2984b1c6bd3f3c0561f}
+      \strng{fullhash}{7e8dee717d54c2984b1c6bd3f3c0561f}
+      \strng{bibnamehash}{7e8dee717d54c2984b1c6bd3f3c0561f}
+      \strng{authorbibnamehash}{7e8dee717d54c2984b1c6bd3f3c0561f}
+      \strng{authornamehash}{7e8dee717d54c2984b1c6bd3f3c0561f}
+      \strng{authorfullhash}{7e8dee717d54c2984b1c6bd3f3c0561f}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Training Deep Neural Networks is complicated by the fact that the distribution of each layer's inputs changes during training, as the parameters of the previous layers change. This slows down the training by requiring lower learning rates and careful parameter initialization, and makes it notoriously hard to train models with saturating nonlinearities. We refer to this phenomenon as internal covariate shift, and address the problem by normalizing layer inputs. Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch Normalization allows us to use much higher learning rates and be less careful about initialization, and in some cases eliminates the need for Dropout. Applied to a state-of-the-art image classification model, Batch Normalization achieves the same accuracy with 14 times fewer training steps, and beats the original model by a significant margin. Using an ensemble of batch-normalized networks, we improve upon the best published result on ImageNet classification: reaching 4.82\% top-5 test error, exceeding the accuracy of human raters.}
+      \field{booktitle}{Proceedings of the 32nd {{International Conference}} on {{International Conference}} on {{Machine Learning}} - {{Volume}} 37}
+      \field{day}{6}
+      \field{month}{7}
+      \field{series}{{{ICML}}'15}
+      \field{shorttitle}{Batch Normalization}
+      \field{title}{Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift}
+      \field{year}{2015}
+      \field{dateera}{ce}
+      \field{pages}{448\bibrangedash 456}
+      \range{pages}{9}
     \endentry
     \entry{jumperHighlyAccurateProtein2021}{article}{}
       \name{author}{34}{}{%
@@ -1621,6 +1751,43 @@
       \verb x9qbBgAAQBAJ
       \endverb
     \endentry
+    \entry{krizhevskyLearningMultipleLayers2009}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=a98c6ee140cff383b5deb40f1bbadc4a}{%
+           family={Krizhevsky},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a98c6ee140cff383b5deb40f1bbadc4a}
+      \strng{fullhash}{a98c6ee140cff383b5deb40f1bbadc4a}
+      \strng{bibnamehash}{a98c6ee140cff383b5deb40f1bbadc4a}
+      \strng{authorbibnamehash}{a98c6ee140cff383b5deb40f1bbadc4a}
+      \strng{authornamehash}{a98c6ee140cff383b5deb40f1bbadc4a}
+      \strng{authorfullhash}{a98c6ee140cff383b5deb40f1bbadc4a}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Groups at MIT and NYU have collected a dataset of millions of tiny colour images from the web. It is, in principle, an excellent dataset for unsupervised training of deep generative models, but previous researchers who have tried this have found it dicult to learn a good set of lters from the images. We show how to train a multi-layer generative model that learns to extract meaningful features which resemble those found in the human visual cortex. Using a novel parallelization algorithm to distribute the work among multiple machines connected on a network, we show how training such a model can be done in reasonable time. A second problematic aspect of the tiny images dataset is that there are no reliable class labels which makes it hard to use for object recognition experiments. We created two sets of reliable labels. The CIFAR-10 set has 6000 examples of each of 10 classes and the CIFAR-100 set has 600 examples of each of 100 non-overlapping classes. Using these labels, we show that object recognition is signicantly improved by pre-training a layer of features on a large set of unlabeled tiny images.}
+      \field{title}{Learning {{Multiple Layers}} of {{Features}} from {{Tiny Images}}}
+      \field{urlday}{22}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/TZPV7KZQ/Krizhevsky_2009_Learning Multiple Layers of Features from Tiny Images.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.semanticscholar.org/paper/Learning-Multiple-Layers-of-Features-from-Tiny-Krizhevsky/5d90f06bb70a0a3dced62413346235c02b1aa086
+      \endverb
+      \verb{url}
+      \verb https://www.semanticscholar.org/paper/Learning-Multiple-Layers-of-Features-from-Tiny-Krizhevsky/5d90f06bb70a0a3dced62413346235c02b1aa086
+      \endverb
+    \endentry
     \entry{krizhevskyOneWeirdTrick2014}{misc}{}
       \name{author}{1}{}{%
         {{hash=c5e3a676e2ac1164b3afcd539c131fc9}{%
@@ -1638,6 +1805,7 @@
       \strng{authorbibnamehash}{c5e3a676e2ac1164b3afcd539c131fc9}
       \strng{authornamehash}{c5e3a676e2ac1164b3afcd539c131fc9}
       \strng{authorfullhash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \field{extraname}{2}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
       \field{labelnamesource}{author}
@@ -1669,6 +1837,57 @@
       \endverb
       \verb{url}
       \verb http://arxiv.org/abs/1404.5997
+      \endverb
+    \endentry
+    \entry{krizhevskyImageNetClassificationDeep2012}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=c5e3a676e2ac1164b3afcd539c131fc9}{%
+           family={Krizhevsky},
+           familyi={K\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8d569d1d5b8b5a7836017a98b430f959}{%
+           family={Sutskever},
+           familyi={S\bibinitperiod},
+           given={Ilya},
+           giveni={I\bibinitperiod}}}%
+        {{hash=813bd95fe553e6079cd53a567b238287}{%
+           family={Hinton},
+           familyi={H\bibinitperiod},
+           given={Geoffrey\bibnamedelima E},
+           giveni={G\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{1a23c09aa65b3c2ade45ed18d8127375}
+      \strng{fullhash}{1a23c09aa65b3c2ade45ed18d8127375}
+      \strng{bibnamehash}{1a23c09aa65b3c2ade45ed18d8127375}
+      \strng{authorbibnamehash}{1a23c09aa65b3c2ade45ed18d8127375}
+      \strng{authornamehash}{1a23c09aa65b3c2ade45ed18d8127375}
+      \strng{authorfullhash}{1a23c09aa65b3c2ade45ed18d8127375}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We trained a large, deep convolutional neural network to classify the 1.3 million high-resolution images in the LSVRC-2010 ImageNet training set into the 1000 different classes. On the test data, we achieved top-1 and top-5 error rates of 39.7\textbackslash\% and 18.9\textbackslash\% which is considerably better than the previous state-of-the-art results. The neural network, which has 60 million parameters and 500,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers, and two globally connected layers with a final 1000-way softmax. To make training faster, we used non-saturating neurons and a very efficient GPU implementation of convolutional nets. To reduce overfitting in the globally connected layers we employed a new regularization method that proved to be very effective.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
+      \field{title}{{{ImageNet Classification}} with {{Deep Convolutional Neural Networks}}}
+      \field{urlday}{21}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{volume}{25}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/K5MK4D66/Krizhevsky et al_2012_ImageNet Classification with Deep Convolutional Neural Networks.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html
+      \endverb
+      \verb{url}
+      \verb https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html
       \endverb
     \endentry
     \entry{liStochasticModifiedEquations2017}{misc}{}
@@ -2691,6 +2910,64 @@
       \verb https://proceedings.mlr.press/v134/sebbouh21a.html
       \endverb
       \keyw{convergence,SGD,theory,thesis,toread}
+    \endentry
+    \entry{simsekliTailIndexAnalysisStochastic2019}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=09761c1924ec610e6c70386b093ef79c}{%
+           family={Simsekli},
+           familyi={S\bibinitperiod},
+           given={Umut},
+           giveni={U\bibinitperiod}}}%
+        {{hash=3d1f2501fb64c44a686e26c50bc87110}{%
+           family={Sagun},
+           familyi={S\bibinitperiod},
+           given={Levent},
+           giveni={L\bibinitperiod}}}%
+        {{hash=22651eef66aa0452a1d89c07d956e3f6}{%
+           family={Gurbuzbalaban},
+           familyi={G\bibinitperiod},
+           given={Mert},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {PMLR}%
+      }
+      \strng{namehash}{50380bfb1b61696ef4e208ac69b51472}
+      \strng{fullhash}{50380bfb1b61696ef4e208ac69b51472}
+      \strng{bibnamehash}{50380bfb1b61696ef4e208ac69b51472}
+      \strng{authorbibnamehash}{50380bfb1b61696ef4e208ac69b51472}
+      \strng{authornamehash}{50380bfb1b61696ef4e208ac69b51472}
+      \strng{authorfullhash}{50380bfb1b61696ef4e208ac69b51472}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The gradient noise (GN) in the stochastic gradient descent (SGD) algorithm is often considered to be Gaussian in the large data regime by assuming that the classical central limit theorem (CLT) kicks in. This assumption is often made for mathematical convenience, since it enables SGD to be analyzed as a stochastic differential equation (SDE) driven by a Brownian motion. We argue that the Gaussianity assumption might fail to hold in deep learning settings and hence render the Brownian motion-based analyses inappropriate. Inspired by non-Gaussian natural phenomena, we consider the GN in a more general context and invoke the generalized CLT (GCLT), which suggests that the GN converges to a heavy-tailed αα\textbackslash alpha-stable random variable. Accordingly, we propose to analyze SGD as an SDE driven by a Lévy motion. Such SDEs can incur ‘jumps’, which force the SDE transition from narrow minima to wider minima, as proven by existing metastability theory. To validate the αα\textbackslash alpha-stable assumption, we conduct experiments on common deep learning scenarios and show that in all settings, the GN is highly non-Gaussian and admits heavy-tails. We investigate the tail behavior in varying network architectures and sizes, loss functions, and datasets. Our results open up a different perspective and shed more light on the belief that SGD prefers wide minima.}
+      \field{booktitle}{Proceedings of the 36th {{International Conference}} on {{Machine Learning}}}
+      \field{day}{24}
+      \field{eventtitle}{International {{Conference}} on {{Machine Learning}}}
+      \field{issn}{2640-3498}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{title}{A {{Tail-Index Analysis}} of {{Stochastic Gradient Noise}} in {{Deep Neural Networks}}}
+      \field{urlday}{17}
+      \field{urlmonth}{8}
+      \field{urlyear}{2022}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{5827\bibrangedash 5837}
+      \range{pages}{11}
+      \verb{file}
+      \verb /home/jonathan/Zotero/storage/B8IU5MQL/Simsekli et al. - 2019 - A Tail-Index Analysis of Stochastic Gradient Noise.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://proceedings.mlr.press/v97/simsekli19a.html
+      \endverb
+      \verb{url}
+      \verb https://proceedings.mlr.press/v97/simsekli19a.html
+      \endverb
+      \keyw{noise,paper,SDE,SGD,thesis}
     \endentry
     \entry{smithOriginImplicitRegularization2021}{misc}{}
       \name{author}{4}{}{%

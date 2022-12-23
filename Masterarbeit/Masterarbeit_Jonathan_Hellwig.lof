@@ -8,3 +8,5 @@
 \contentsline {figure}{\numberline {7}{\ignorespaces Quantile-quantile plot for normal distribution and sampled values of the weight $w$ at the last iteration\relax }}{45}{figure.caption.11}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Loss value of SDE and SGD\relax }}{54}{figure.caption.12}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Maximum of the absolute difference of analytical expected value and average SGD trajectories\relax }}{55}{figure.caption.13}%
+\contentsline {figure}{\numberline {10}{\ignorespaces PreResNet-32 with SVAG for the scaling factors $l=1,2,4,8,16$ and a learning rate $\eta =6.4$ and a batch size $B=1024$\relax }}{71}{figure.caption.14}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Fully connected neural network with SVAG for the scaling factors $l=1,2,4,8,16$ and a learning rate $\eta =0.12$ and a batch size $B=128$\relax }}{72}{figure.caption.15}%
