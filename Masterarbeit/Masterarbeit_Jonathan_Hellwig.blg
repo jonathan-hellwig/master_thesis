@@ -1,15 +1,15 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[1] Config.pm:310> INFO - Logfile is 'Masterarbeit_Jonathan_Hellwig.blg'
-[215] biber:340> INFO - === Fri Dec 23, 2022, 08:38:16
-[272] Biber.pm:418> INFO - Reading 'Masterarbeit_Jonathan_Hellwig.bcf'
-[604] Biber.pm:972> INFO - Found 59 citekeys in bib section 0
-[643] Biber.pm:4383> INFO - Processing section 0
-[673] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[733] bibtex.pm:1713> INFO - LaTeX decoding ...
-[1371] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
-[3203] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[3203] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[3204] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[3204] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[3543] bbl.pm:654> INFO - Writing 'Masterarbeit_Jonathan_Hellwig.bbl' with encoding 'UTF-8'
-[3771] bbl.pm:757> INFO - Output to Masterarbeit_Jonathan_Hellwig.bbl
+[1] Config.pm:307> INFO - This is Biber 2.17
+[2] Config.pm:310> INFO - Logfile is 'Masterarbeit_Jonathan_Hellwig.blg'
+[252] biber:340> INFO - === Sat Dec 24, 2022, 17:24:40
+[305] Biber.pm:418> INFO - Reading 'Masterarbeit_Jonathan_Hellwig.bcf'
+[727] Biber.pm:972> INFO - Found 61 citekeys in bib section 0
+[770] Biber.pm:4383> INFO - Processing section 0
+[803] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[876] bibtex.pm:1713> INFO - LaTeX decoding ...
+[1573] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
+[3606] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[3606] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[3606] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[3606] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[3840] bbl.pm:654> INFO - Writing 'Masterarbeit_Jonathan_Hellwig.bbl' with encoding 'UTF-8'
+[4103] bbl.pm:757> INFO - Output to Masterarbeit_Jonathan_Hellwig.bbl
