@@ -232,6 +232,63 @@
       \verb https://openreview.net/forum?id=3q5IqUrkcF
       \endverb
     \endentry
+    \entry{bisongGoogleColaboratory2019}{incollection}{}
+      \name{author}{1}{}{%
+        {{hash=f691f6d1a1aeb9467c1a296b703df239}{%
+           family={Bisong},
+           familyi={B\bibinitperiod},
+           given={Ekaba},
+           giveni={E\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=f691f6d1a1aeb9467c1a296b703df239}{%
+           family={Bisong},
+           familyi={B\bibinitperiod},
+           given={Ekaba},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berkeley, CA}%
+      }
+      \list{publisher}{1}{%
+        {Apress}%
+      }
+      \strng{namehash}{f691f6d1a1aeb9467c1a296b703df239}
+      \strng{fullhash}{f691f6d1a1aeb9467c1a296b703df239}
+      \strng{bibnamehash}{f691f6d1a1aeb9467c1a296b703df239}
+      \strng{authorbibnamehash}{f691f6d1a1aeb9467c1a296b703df239}
+      \strng{authornamehash}{f691f6d1a1aeb9467c1a296b703df239}
+      \strng{authorfullhash}{f691f6d1a1aeb9467c1a296b703df239}
+      \strng{editorbibnamehash}{f691f6d1a1aeb9467c1a296b703df239}
+      \strng{editornamehash}{f691f6d1a1aeb9467c1a296b703df239}
+      \strng{editorfullhash}{f691f6d1a1aeb9467c1a296b703df239}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Google Colaboratory more commonly referred to as “Google Colab” or just simply “Colab” is a research project for prototyping machine learning models on powerful hardware options such as GPUs and TPUs. It provides a serverless Jupyter notebook environment for interactive development. Google Colab is free to use like other G Suite products.}
+      \field{booktitle}{Building {{Machine Learning}} and {{Deep Learning Models}} on {{Google Cloud Platform}}: {{A Comprehensive Guide}} for {{Beginners}}}
+      \field{isbn}{978-1-4842-4470-8}
+      \field{langid}{english}
+      \field{title}{Google {{Colaboratory}}}
+      \field{urlday}{24}
+      \field{urlmonth}{12}
+      \field{urlyear}{2022}
+      \field{year}{2019}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{59\bibrangedash 64}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1007/978-1-4842-4470-8_7
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-1-4842-4470-8_7
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-1-4842-4470-8_7
+      \endverb
+    \endentry
     \entry{bottouOptimizationMethodsLargeScale2018}{article}{}
       \name{author}{3}{}{%
         {{hash=ac762f2592005edf6bad58f566967c6c}{%
@@ -860,64 +917,6 @@
       \endverb
       \keyw{book,pde}
     \endentry
-    \entry{fontaineConvergenceRatesApproximation2021}{inproceedings}{}
-      \name{author}{3}{}{%
-        {{hash=2b32bc5e6eb3d17e309b188a249f7fd4}{%
-           family={Fontaine},
-           familyi={F\bibinitperiod},
-           given={Xavier},
-           giveni={X\bibinitperiod}}}%
-        {{hash=849c942939c560f3908712332c5500cb}{%
-           family={Bortoli},
-           familyi={B\bibinitperiod},
-           given={Valentin\bibnamedelima De},
-           giveni={V\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
-        {{hash=cf6c3a0d5ef5f5fc80ebd433b2da6662}{%
-           family={Durmus},
-           familyi={D\bibinitperiod},
-           given={Alain},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {PMLR}%
-      }
-      \strng{namehash}{9cc195c74487c3ac29091b148ef52c4f}
-      \strng{fullhash}{9cc195c74487c3ac29091b148ef52c4f}
-      \strng{bibnamehash}{9cc195c74487c3ac29091b148ef52c4f}
-      \strng{authorbibnamehash}{9cc195c74487c3ac29091b148ef52c4f}
-      \strng{authornamehash}{9cc195c74487c3ac29091b148ef52c4f}
-      \strng{authorfullhash}{9cc195c74487c3ac29091b148ef52c4f}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{This paper proposes a thorough theoretical analysis of Stochastic Gradient Descent (SGD) with non-increasing step sizes. First, we show that the recursion defining SGD can be provably approximated by solutions of a time inhomogeneous Stochastic Differential Equation (SDE) using an appropriate coupling. In the specific case of a batch noise we refine our results using recent advances in Stein’s method. Then, motivated by recent analyses of deterministic and stochastic optimization methods by their continuous counterpart, we study the long-time behavior of the continuous processes at hand and establish non-asymptotic bounds. To that purpose, we develop new comparison techniques which are of independent interest. Adapting these techniques to the discrete setting, we show that the same results hold for the corresponding SGD sequences. In our analysis, we notably improve non-asymptotic bounds in the convex setting for SGD under weaker assumptions than the ones considered in previous works. Finally, we also establish finite-time convergence results under various conditions, including relaxations of the famous Ł\{ojasciewicz\} inequality, which can be applied to a class of non-convex functions.}
-      \field{booktitle}{Proceedings of {{Thirty Fourth Conference}} on {{Learning Theory}}}
-      \field{day}{21}
-      \field{eventtitle}{Conference on {{Learning Theory}}}
-      \field{issn}{2640-3498}
-      \field{langid}{english}
-      \field{month}{7}
-      \field{title}{Convergence Rates and Approximation Results for {{SGD}} and Its Continuous-Time Counterpart}
-      \field{urlday}{5}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
-      \field{year}{2021}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \field{pages}{1965\bibrangedash 2058}
-      \range{pages}{94}
-      \verb{file}
-      \verb /home/jonathan/Zotero/storage/F5NSEG8L/Fontaine et al_2021_Convergence rates and approximation results for SGD and its continuous-time.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v134/fontaine21a.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v134/fontaine21a.html
-      \endverb
-      \keyw{convergence,SGD,theory,thesis,toread}
-    \endentry
     \entry{geoffreyhintonnitishsrivastavaandkevinswer-NeuralNetworksMachine2012}{unpublished}{}
       \name{author}{2}{}{%
         {{hash=a395cf3624916c366143a927e03a72ee}{%
@@ -1039,6 +1038,51 @@
       \field{dateera}{ce}
       \verb{eprint}
       \verb mlOa7wPX6OYC
+      \endverb
+    \endentry
+    \entry{goodfellowDeepLearning2016}{book}{}
+      \name{author}{3}{}{%
+        {{hash=5d2585c11210cf1d4512e6e0a03ec315}{%
+           family={Goodfellow},
+           familyi={G\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=ccec1ccd2e1aa86960eb2e872c6b7020}{%
+           family={Courville},
+           familyi={C\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{fullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{bibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorbibnamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authornamehash}{3ae53fe582e8a815b118d26947eaa326}
+      \strng{authorfullhash}{3ae53fe582e8a815b118d26947eaa326}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An introduction to a broad range of topics in deep learning, covering mathematical and conceptual background, deep learning techniques used in industry, and research perspectives.“Written by three experts in the field, Deep Learning is the only comprehensive book on the subject.”—Elon Musk, cochair of OpenAI; cofounder and CEO of Tesla and SpaceXDeep learning is a form of machine learning that enables computers to learn from experience and understand the world in terms of a hierarchy of concepts. Because the computer gathers knowledge from experience, there is no need for a human computer operator to formally specify all the knowledge that the computer needs. The hierarchy of concepts allows the computer to learn complicated concepts by building them out of simpler ones; a graph of these hierarchies would be many layers deep. This book introduces a broad range of topics in deep learning. The text offers mathematical and conceptual background, covering relevant concepts in linear algebra, probability theory and information theory, numerical computation, and machine learning. It describes deep learning techniques used by practitioners in industry, including deep feedforward networks, regularization, optimization algorithms, convolutional networks, sequence modeling, and practical methodology; and it surveys such applications as natural language processing, speech recognition, computer vision, online recommendation systems, bioinformatics, and videogames. Finally, the book offers research perspectives, covering such theoretical topics as linear factor models, autoencoders, representation learning, structured probabilistic models, Monte Carlo methods, the partition function, approximate inference, and deep generative models. Deep Learning can be used by undergraduate or graduate students planning careers in either industry or research, and by software engineers who want to begin using deep learning in their products or platforms. A website offers supplementary material for both readers and instructors.}
+      \field{day}{10}
+      \field{eprinttype}{googlebooks}
+      \field{isbn}{978-0-262-33737-3}
+      \field{langid}{english}
+      \field{month}{11}
+      \field{pagetotal}{801}
+      \field{title}{Deep {{Learning}}}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \verb{eprint}
+      \verb omivDQAAQBAJ
       \endverb
     \endentry
     \entry{gowerSGDGeneralAnalysis2019}{inproceedings}{}
@@ -1971,6 +2015,41 @@
       \verb{url}
       \verb https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html
       \endverb
+    \endentry
+    \entry{lecunConvolutionalNetworksImages1995}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6a1aa6b7eab12b931ca7c7e3f927231d}{%
+           family={LeCun},
+           familyi={L\bibinitperiod},
+           given={Yann},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge, MA USA}%
+      }
+      \strng{namehash}{e0fcad7e05c11a85cb79e74de1ee8ad6}
+      \strng{fullhash}{e0fcad7e05c11a85cb79e74de1ee8ad6}
+      \strng{bibnamehash}{e0fcad7e05c11a85cb79e74de1ee8ad6}
+      \strng{authorbibnamehash}{e0fcad7e05c11a85cb79e74de1ee8ad6}
+      \strng{authornamehash}{e0fcad7e05c11a85cb79e74de1ee8ad6}
+      \strng{authorfullhash}{e0fcad7e05c11a85cb79e74de1ee8ad6}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The handbook of brain theory and neural networks}
+      \field{number}{10}
+      \field{title}{Convolutional Networks for Images, Speech, and Time Series}
+      \field{volume}{3361}
+      \field{year}{1995}
+      \field{dateera}{ce}
+      \field{pages}{1995}
+      \range{pages}{1}
     \endentry
     \entry{liStochasticModifiedEquations2017}{misc}{}
       \name{author}{3}{}{%
