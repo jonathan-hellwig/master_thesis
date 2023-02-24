@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>Masterarbeit_Jonathan_Hellwig.bcf</file>
+      <file>thesis_jonathan_hellwig.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>Masterarbeit_Jonathan_Hellwig.bbl</file>
+      <file>thesis_jonathan_hellwig.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>Masterarbeit_Jonathan_Hellwig</infile>
+      <infile>thesis_jonathan_hellwig</infile>
     </cmdline>
     <input>
-      <file>Masterarbeit_Jonathan_Hellwig.bcf</file>
+      <file>thesis_jonathan_hellwig.bcf</file>
     </input>
     <output>
-      <file>Masterarbeit_Jonathan_Hellwig.bbl</file>
+      <file>thesis_jonathan_hellwig.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>Masterarbeit_Jonathan_Hellwig.bbl</file>
+      <file>thesis_jonathan_hellwig.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>Masterarbeit_Jonathan_Hellwig.bcf</file>
+      <file>thesis_jonathan_hellwig.bcf</file>
     </requires>
     <requires type="editable">
       <file>thesis.bib</file>

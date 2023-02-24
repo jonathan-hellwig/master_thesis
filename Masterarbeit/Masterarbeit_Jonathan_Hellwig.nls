@@ -1,7 +1,0 @@
-
-\begin{thenomenclature} 
-\nomgroup{A}
-  \item [{\(\nabla f\)}]\begingroup Gradient of a function $f$\nomeqref {9.0}\nompageref{34}
-  \item [{\(\Tr A\)}]\begingroup Trace of the matrix $A \in \R^{d \times d}$, $\Tr A = \sum_{i=1}^d a_{i,i}$\nomeqref {9.0}\nompageref{34}
-
-\end{thenomenclature}

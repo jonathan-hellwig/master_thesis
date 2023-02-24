@@ -42,7 +42,6 @@
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{This book covers both classical and modern models in deep learning. The primary focus is on the theory and algorithms of deep learning. The theory and algorithms of neural networks are particularly important for understanding important concepts, so that one can understand the important design concepts of neural architectures in different applications. Why do neural networks work? When do they work better than off-the-shelf machine-learning models? When is depth useful? Why is training neural networks so hard? What are the pitfalls? The book is also rich in discussing different applications in order to give the practitioner a flavor of how neural architectures are designed for different types of problems. Applications associated with many different areas like recommender systems, machine translation, image captioning, image classification, reinforcement-learning based gaming, and text analytics are covered. The chapters of this book span three categories: The basics of neural networks: Many traditional machine learning models can be understood as special cases of neural networks. An emphasis is placed in the first two chapters on understanding the relationship between traditional machine learning and neural networks. Support vector machines, linear/logistic regression, singular value decomposition, matrix factorization, and recommender systems are shown to be special cases of neural networks. These methods are studied together with recent feature engineering methods like word2vec. Fundamentals of neural networks: A detailed discussion of training and regularization is provided in Chapters 3 and 4. Chapters 5 and 6 present radial-basis function (RBF) networks and restricted Boltzmann machines. Advanced topics in neural networks: Chapters 7 and 8 discuss recurrent neural networks and convolutional neural networks. Several advanced topics like deep reinforcement learning, neural Turing machines, Kohonen self-organizing maps, and generative adversarial networks are introduced in Chapters 9 and 10. The book is written for graduate students, researchers, and practitioners. Numerous exercises are available along with a solution manual to aid in classroom teaching. Where possible, an application-centric view is highlighted in order to provide an understanding of the practical uses of each class of techniques.}
       \field{day}{25}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-3-319-94463-0}
       \field{langid}{english}
       \field{month}{8}
@@ -51,9 +50,6 @@
       \field{title}{Neural {{Networks}} and {{Deep Learning}}: {{A Textbook}}}
       \field{year}{2018}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb achqDwAAQBAJ
-      \endverb
     \endentry
     \entry{ahmadTextbookOrdinaryDifferential2015}{book}{}
       \name{author}{2}{}{%
@@ -83,7 +79,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{This book offers readers a primer on the theory and applications of Ordinary Differential Equations. The style used is simple, yet thorough and rigorous. Each chapter ends with a broad set of exercises that range from the routine to the more challenging and thought-provoking. Solutions to selected exercises can be found at the end of the book. The book contains many interesting examples on topics such as electric circuits, the pendulum equation, the logistic equation, the Lotka-Volterra system, the Laplace Transform, etc., which introduce students to a number of interesting aspects of the theory and applications. The work is mainly intended for students of Mathematics, Physics, Engineering, Computer Science and other areas of the natural and social sciences that use ordinary differential equations, and who have a firm grasp of Calculus and a minimal understanding of the basic concepts used in Linear Algebra. It also studies a few more advanced topics, such as Stability Theory and Boundary Value Problems, which may be suitable for more advanced undergraduate or first-year graduate students. The second edition has been revised to correct minor errata, and features a number of carefully selected new exercises, together with more detailed explanations of some of the topics.A complete Solutions Manual, containing solutions to all the exercises published in the book, is available. Instructors who wish to adopt the book may request the manual by writing directly to one of the authors.}
       \field{day}{5}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-3-319-16408-3}
       \field{langid}{english}
       \field{month}{6}
@@ -91,9 +86,6 @@
       \field{title}{A {{Textbook}} on {{Ordinary Differential Equations}}}
       \field{year}{2015}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb 1vHLCQAAQBAJ
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/FKUTC4WQ/Ahmad_Ambrosetti_2015_A Textbook on Ordinary Differential Equations.pdf
       \endverb
@@ -137,22 +129,12 @@
       \field{langid}{english}
       \field{month}{5}
       \field{title}{A {{Convergence Theory}} for {{Deep Learning}} via {{Over-Parameterization}}}
-      \field{urlday}{21}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{242\bibrangedash 252}
       \range{pages}{11}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/D3Y8I392/Allen-Zhu et al_2019_A Convergence Theory for Deep Learning via Over-Parameterization.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v97/allen-zhu19a.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v97/allen-zhu19a.html
       \endverb
     \endentry
     \entry{baldiEquazioniDifferenzialiStocastiche2000}{book}{}
@@ -176,16 +158,12 @@
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-88-371-1211-0}
       \field{langid}{italian}
       \field{pagetotal}{367}
       \field{title}{Equazioni differenziali stocastiche e applicazioni}
       \field{year}{2000}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb qkHMPQAACAAJ
-      \endverb
     \endentry
     \entry{barrettImplicitGradientRegularization2021}{inproceedings}{}
       \name{author}{2}{}{%
@@ -216,20 +194,10 @@
       \field{langid}{english}
       \field{month}{3}
       \field{title}{Implicit {{Gradient Regularization}}}
-      \field{urlday}{5}
-      \field{urlmonth}{12}
-      \field{urlyear}{2022}
       \field{year}{2021}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/6KI7QFEE/Barrett_Dherin_2021_Implicit Gradient Regularization.pdf;/home/jonathan/Zotero/storage/FR4HFHZ5/forum.html
-      \endverb
-      \verb{urlraw}
-      \verb https://openreview.net/forum?id=3q5IqUrkcF
-      \endverb
-      \verb{url}
-      \verb https://openreview.net/forum?id=3q5IqUrkcF
       \endverb
     \endentry
     \entry{bisongGoogleColaboratory2019}{incollection}{}
@@ -271,22 +239,12 @@
       \field{isbn}{978-1-4842-4470-8}
       \field{langid}{english}
       \field{title}{Google {{Colaboratory}}}
-      \field{urlday}{24}
-      \field{urlmonth}{12}
-      \field{urlyear}{2022}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{59\bibrangedash 64}
       \range{pages}{6}
       \verb{doi}
       \verb 10.1007/978-1-4842-4470-8_7
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/978-1-4842-4470-8_7
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/978-1-4842-4470-8_7
       \endverb
     \endentry
     \entry{bottouOptimizationMethodsLargeScale2018}{article}{}
@@ -327,13 +285,9 @@
       \field{number}{2}
       \field{shortjournal}{SIAM Rev.}
       \field{title}{Optimization {{Methods}} for {{Large-Scale Machine Learning}}}
-      \field{urlday}{5}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{volume}{60}
       \field{year}{2018}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{223\bibrangedash 311}
       \range{pages}{89}
       \verb{doi}
@@ -341,12 +295,6 @@
       \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/HVTDRSTJ/Bottou et al_2018_Optimization Methods for Large-Scale Machine Learning.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://epubs.siam.org/doi/10.1137/16M1080173
-      \endverb
-      \verb{url}
-      \verb https://epubs.siam.org/doi/10.1137/16M1080173
       \endverb
       \keyw{convergence,SGD,theory,thesis,toread}
     \endentry
@@ -378,7 +326,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Convex optimization problems arise frequently in many different fields. This book provides a comprehensive introduction to the subject, and shows in detail how such problems can be solved numerically with great efficiency. The book begins with the basic elements of convex sets and functions, and then describes various classes of convex optimization problems. Duality and approximation techniques are then covered, as are statistical estimation techniques. Various geometrical problems are then presented, and there is detailed discussion of unconstrained and constrained minimization problems, and interior-point methods. The focus of the book is on recognizing convex optimization problems and then finding the most appropriate technique for solving them. It contains many worked examples and homework exercises and will appeal to students, researchers and practitioners in fields such as engineering, computer science, mathematics, statistics, finance and economics.}
       \field{day}{8}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-1-107-39400-1}
       \field{langid}{english}
       \field{month}{3}
@@ -386,21 +333,18 @@
       \field{title}{Convex {{Optimization}}}
       \field{year}{2004}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb IUZdAAAAQBAJ
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/I8Z26ZZ5/Boyd_Vandenberghe_2004_Convex Optimization.pdf
       \endverb
       \keyw{background,optimization,theory,thesis}
     \endentry
-    \entry{brownLanguageModelsAre2020}{misc}{}
+    \entry{brownLanguageModelsAre2020b}{inproceedings}{}
       \name{author}{31}{}{%
-        {{hash=7c16e8d36475e58d4f2d161e6ecb7704}{%
+        {{hash=ad9f5a3d8c696d78ce2a831ce8ac7524}{%
            family={Brown},
            familyi={B\bibinitperiod},
-           given={Tom\bibnamedelima B.},
-           giveni={T\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
         {{hash=d4543c3bcd6aaf414da4296b349603e5}{%
            family={Mann},
            familyi={M\bibinitperiod},
@@ -416,11 +360,11 @@
            familyi={S\bibinitperiod},
            given={Melanie},
            giveni={M\bibinitperiod}}}%
-        {{hash=9e85370e215d552f72c95a2b63a37802}{%
+        {{hash=1e2dad58400c2dd6405837788e785d19}{%
            family={Kaplan},
            familyi={K\bibinitperiod},
-           given={Jared},
-           giveni={J\bibinitperiod}}}%
+           given={Jared\bibnamedelima D},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
         {{hash=4164e43d8cf919f5e3f8d80f5ea23f36}{%
            family={Dhariwal},
            familyi={D\bibinitperiod},
@@ -476,11 +420,11 @@
            familyi={R\bibinitperiod},
            given={Aditya},
            giveni={A\bibinitperiod}}}%
-        {{hash=18becbb5ea500211a8219e94dd0a975c}{%
+        {{hash=84650a9afb83d2e878b03bef608700cf}{%
            family={Ziegler},
            familyi={Z\bibinitperiod},
-           given={Daniel\bibnamedelima M.},
-           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
         {{hash=495187f3a2c93ddb8083bd18a5702527}{%
            family={Wu},
            familyi={W\bibinitperiod},
@@ -491,10 +435,10 @@
            familyi={W\bibinitperiod},
            given={Clemens},
            giveni={C\bibinitperiod}}}%
-        {{hash=68a04c5006dbbf98f7719709540c6b56}{%
+        {{hash=07acc23f6ec051b64b82cd33255c0a69}{%
            family={Hesse},
            familyi={H\bibinitperiod},
-           given={Christopher},
+           given={Chris},
            giveni={C\bibinitperiod}}}%
         {{hash=fb15a691583ec94aafe0be6e7da4878f}{%
            family={Chen},
@@ -553,48 +497,29 @@
            giveni={D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {arXiv}%
+        {Curran Associates, Inc.}%
       }
-      \strng{namehash}{0884233a667161739ddd01569813457f}
-      \strng{fullhash}{b108601e4cbc36ef53b96ac01974e069}
-      \strng{bibnamehash}{0884233a667161739ddd01569813457f}
-      \strng{authorbibnamehash}{0884233a667161739ddd01569813457f}
-      \strng{authornamehash}{0884233a667161739ddd01569813457f}
-      \strng{authorfullhash}{b108601e4cbc36ef53b96ac01974e069}
+      \strng{namehash}{85437fe07696e4c57f916c83d4ba5581}
+      \strng{fullhash}{28676992274ff1a4ebfa6e23ba7b2efd}
+      \strng{bibnamehash}{85437fe07696e4c57f916c83d4ba5581}
+      \strng{authorbibnamehash}{85437fe07696e4c57f916c83d4ba5581}
+      \strng{authornamehash}{85437fe07696e4c57f916c83d4ba5581}
+      \strng{authorfullhash}{28676992274ff1a4ebfa6e23ba7b2efd}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general.}
-      \field{day}{22}
-      \field{eprintclass}{cs}
-      \field{eprinttype}{arxiv}
-      \field{month}{7}
-      \field{number}{arXiv:2005.14165}
+      \field{abstract}{We demonstrate that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even becoming competitive with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks. We also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
       \field{title}{Language {{Models}} Are {{Few-Shot Learners}}}
-      \field{urlday}{12}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
-      \field{version}{4}
+      \field{volume}{33}
       \field{year}{2020}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.2005.14165
-      \endverb
-      \verb{eprint}
-      \verb 2005.14165
-      \endverb
+      \field{pages}{1877\bibrangedash 1901}
+      \range{pages}{25}
       \verb{file}
-      \verb /home/jonathan/Zotero/storage/ZFJVLUBD/Brown et al_2020_Language Models are Few-Shot Learners.pdf;/home/jonathan/Zotero/storage/Q6TQ82US/2005.html
+      \verb /home/jonathan/Zotero/storage/XZSVF2MP/Brown et al_2020_Language Models are Few-Shot Learners.pdf
       \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2005.14165
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2005.14165
-      \endverb
-      \keyw{motivation,thesis}
     \endentry
     \entry{capassoIntroductionContinuousTimeStochastic2012}{book}{}
       \name{author}{2}{}{%
@@ -624,7 +549,6 @@
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Expanding on the first edition of An Introduction to Continuous-Time Stochastic Processes, this concisely written book is a rigorous and self-contained introduction to the theory of continuous-time stochastic processes. A balance of theory and applications, the work features concrete examples of modeling real-world problems from biology, medicine, industrial applications, finance, and insurance using stochastic methods. No previous knowledge of stochastic processes is required.}
       \field{day}{27}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-0-8176-8346-7}
       \field{langid}{english}
       \field{month}{7}
@@ -633,9 +557,6 @@
       \field{title}{An {{Introduction}} to {{Continuous-Time Stochastic Processes}}: {{Theory}}, {{Models}}, and {{Applications}} to {{Finance}}, {{Biology}}, and {{Medicine}}}
       \field{year}{2012}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb h83lVwvgJnoC
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/UI9X2DBV/Capasso_Bakstein_2012_An Introduction to Continuous-Time Stochastic Processes.pdf
       \endverb
@@ -702,43 +623,6 @@
       \verb /home/jonathan/Zotero/storage/6JXMR36I/Deng et al_2009_ImageNet.pdf;/home/jonathan/Zotero/storage/C34WFZS9/5206848.html
       \endverb
     \endentry
-    \entry{dengMNISTDatabaseHandwritten2012}{article}{}
-      \name{author}{1}{}{%
-        {{hash=2f5fbdc5c3cf91f62a64663cd72397b3}{%
-           family={Deng},
-           familyi={D\bibinitperiod},
-           given={Li},
-           giveni={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{2f5fbdc5c3cf91f62a64663cd72397b3}
-      \strng{fullhash}{2f5fbdc5c3cf91f62a64663cd72397b3}
-      \strng{bibnamehash}{2f5fbdc5c3cf91f62a64663cd72397b3}
-      \strng{authorbibnamehash}{2f5fbdc5c3cf91f62a64663cd72397b3}
-      \strng{authornamehash}{2f5fbdc5c3cf91f62a64663cd72397b3}
-      \strng{authorfullhash}{2f5fbdc5c3cf91f62a64663cd72397b3}
-      \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{In this issue, “Best of the Web” presents the modified National Institute of Standards and Technology (MNIST) resources, consisting of a collection of handwritten digit images used extensively in optical character recognition and machine learning research.}
-      \field{eventtitle}{{{IEEE Signal Processing Magazine}}}
-      \field{issn}{1558-0792}
-      \field{journaltitle}{IEEE Signal Processing Magazine}
-      \field{month}{11}
-      \field{number}{6}
-      \field{title}{The {{MNIST Database}} of {{Handwritten Digit Images}} for {{Machine Learning Research}} [{{Best}} of the {{Web}}]}
-      \field{volume}{29}
-      \field{year}{2012}
-      \field{dateera}{ce}
-      \field{pages}{141\bibrangedash 142}
-      \range{pages}{2}
-      \verb{doi}
-      \verb 10.1109/MSP.2012.2211477
-      \endverb
-      \verb{file}
-      \verb /home/jonathan/Zotero/storage/UMPQDULA/Deng_2012_The MNIST Database of Handwritten Digit Images for Machine Learning Research.pdf;/home/jonathan/Zotero/storage/WGXQJG3U/6296535.html
-      \endverb
-    \endentry
     \entry{duchiAdaptiveSubgradientMethods2011}{article}{}
       \name{author}{3}{}{%
         {{hash=b8fbef1897da5bf46822ced31bc865c6}{%
@@ -772,23 +656,13 @@
       \field{journaltitle}{Journal of Machine Learning Research}
       \field{number}{61}
       \field{title}{Adaptive {{Subgradient Methods}} for {{Online Learning}} and {{Stochastic Optimization}}}
-      \field{urlday}{4}
-      \field{urlmonth}{12}
-      \field{urlyear}{2022}
       \field{volume}{12}
       \field{year}{2011}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{2121\bibrangedash 2159}
       \range{pages}{39}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/E9ZRV7U6/Duchi et al_2011_Adaptive Subgradient Methods for Online Learning and Stochastic Optimization.pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://jmlr.org/papers/v12/duchi11a.html
-      \endverb
-      \verb{url}
-      \verb http://jmlr.org/papers/v12/duchi11a.html
       \endverb
     \endentry
     \entry{durrettProbabilityTheoryExamples2019}{book}{}
@@ -814,7 +688,6 @@
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{This lively introduction to measure-theoretic probability theory covers laws of large numbers, central limit theorems, random walks, martingales, Markov chains, ergodic theorems, and Brownian motion. Concentrating on results that are the most useful for applications, this comprehensive treatment is a rigorous graduate text and reference. Operating under the philosophy that the best way to learn probability is to see it in action, the book contains extended examples that apply the theory to concrete applications. This fifth edition contains a new chapter on multidimensional Brownian motion and its relationship to partial differential equations (PDEs), an advanced topic that is finding new applications. Setting the foundation for this expansion, Chapter 7 now features a proof of Itô's formula. Key exercises that previously were simply proofs left to the reader have been directly inserted into the text as lemmas. The new edition re-instates discussion about the central limit theorem for martingales and stationary sequences.}
       \field{day}{18}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-1-108-47368-2}
       \field{langid}{english}
       \field{month}{4}
@@ -823,9 +696,6 @@
       \field{title}{Probability: {{Theory}} and {{Examples}}}
       \field{year}{2019}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb b22MDwAAQBAJ
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/UKLZ9CJD/Durrett_2019_Probability.pdf
       \endverb
@@ -864,7 +734,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{This is a textbook for advanced undergraduate students and beginning graduate students in applied mathematics. It presents the basic mathematical foundations of stochastic analysis (probability theory and stochastic processes) as well as some important practical tools and applications (e.g., the connection with differential equations, numerical methods, path integrals, random fields, statistical physics, chemical kinetics, and rare events). The book strikes a nice balance between mathematical formalism and intuitive arguments, a style that is most suited for applied mathematicians. Readers can learn both the rigorous treatment of stochastic analysis as well as practical applications in modeling and simulation. Numerous exercises nicely supplement the main exposition.}
       \field{day}{22}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-1-4704-6569-8}
       \field{langid}{english}
       \field{month}{9}
@@ -872,15 +741,12 @@
       \field{title}{Applied {{Stochastic Analysis}}}
       \field{year}{2021}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb YVpQEAAAQBAJ
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/G3DGXFTY/E et al. - 2021 - Applied Stochastic Analysis.pdf
       \endverb
       \keyw{background,thesis}
     \endentry
-    \entry{evansPartialDifferentialEquations2010}{book}{}
+    \entry{evansPartialDifferentialEquations1998}{book}{}
       \name{author}{1}{}{%
         {{hash=0d72932a7775f85a51622d3af75ae26e}{%
            family={Evans},
@@ -889,7 +755,7 @@
            giveni={L\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {American Mathematical Soc.}%
+        {American Mathematical Society}%
       }
       \strng{namehash}{0d72932a7775f85a51622d3af75ae26e}
       \strng{fullhash}{0d72932a7775f85a51622d3af75ae26e}
@@ -901,21 +767,11 @@
       \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{This is the second edition of the now definitive text on partial differential equations (PDE). It offers a comprehensive survey of modern techniques in the theoretical study of PDE with particular emphasis on nonlinear equations. Its wide scope and clear exposition make it a great text for a graduate course in PDE. For this edition, the author has made numerous changes, including a new chapter on nonlinear wave equations, more than 80 new exercises, several new sections, a significantly expanded bibliography. About the First Edition: I have used this book for both regular PDE and topics courses. It has a wonderful combination of insight and technical detail...Evans' book is evidence of his mastering of the field and the clarity of presentation (Luis Caffarelli, University of Texas) It is fun to teach from Evans' book. It explains many of the essential ideas and techniques of partial differential equations ...Every graduate student in analysis should read it. (David Jerison, MIT) I use Partial Differential Equations to prepare my students for their Topic exam, which is a requirement before starting working on their dissertation. The book provides an excellent account of PDE's ...I am very happy with the preparation it provides my students. (Carlos Kenig, University of Chicago) Evans' book has already attained the status of a classic. It is a clear choice for students just learning the subject, as well as for experts who wish to broaden their knowledge ...An outstanding reference for many aspects of the field. (Rafe Mazzeo, Stanford University.}
-      \field{eprinttype}{googlebooks}
-      \field{isbn}{978-0-8218-4974-3}
       \field{langid}{english}
-      \field{pagetotal}{778}
+      \field{pagetotal}{662}
       \field{title}{Partial {{Differential Equations}}}
-      \field{year}{2010}
+      \field{year}{1998}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb Xnu0o_EJrCQC
-      \endverb
-      \verb{file}
-      \verb /home/jonathan/Zotero/storage/LLUR3PVZ/Evans_2010_Partial Differential Equations.pdf
-      \endverb
-      \keyw{book,pde}
     \endentry
     \entry{geoffreyhintonnitishsrivastavaandkevinswer-NeuralNetworksMachine2012}{unpublished}{}
       \name{author}{2}{}{%
@@ -974,26 +830,16 @@
       \field{langid}{english}
       \field{month}{3}
       \field{title}{Understanding the Difficulty of Training Deep Feedforward Neural Networks}
-      \field{urlday}{4}
-      \field{urlmonth}{12}
-      \field{urlyear}{2022}
       \field{year}{2010}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{249\bibrangedash 256}
       \range{pages}{8}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/587IPNDT/Glorot_Bengio_2010_Understanding the difficulty of training deep feedforward neural networks.pdf
       \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v9/glorot10a.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v9/glorot10a.html
-      \endverb
     \endentry
     \entry{golubMatrixComputations1996}{book}{}
-      \name{author}{4}{}{%
+      \name{author}{2}{}{%
         {{hash=8b856da92ad549d323acc679ecf7f474}{%
            family={Golub},
            familyi={G\bibinitperiod},
@@ -1004,31 +850,22 @@
            familyi={L\bibinitperiod},
            given={Charles\bibnamedelimb F.\bibnamedelimi Van},
            giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
-        {{hash=995bdd2b0481ec3adaa65f41e5c1c178}{%
-           family={Loan},
-           familyi={L\bibinitperiod},
-           given={Charles\bibnamedelimb F.\bibnamedelimi Van},
-           giveni={C\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
-        {{hash=b86215348f670f7f3d20f9fd6201a6ef}{%
-           family={Golub},
-           familyi={G\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {JHU Press}%
       }
-      \strng{namehash}{247df6f2fb744ac1cb1581328797793d}
-      \strng{fullhash}{b0c90f16eec28046c4f71362a101fda9}
-      \strng{bibnamehash}{247df6f2fb744ac1cb1581328797793d}
-      \strng{authorbibnamehash}{247df6f2fb744ac1cb1581328797793d}
-      \strng{authornamehash}{247df6f2fb744ac1cb1581328797793d}
-      \strng{authorfullhash}{b0c90f16eec28046c4f71362a101fda9}
+      \strng{namehash}{9607677caf4976d66a0916df1c40fb87}
+      \strng{fullhash}{9607677caf4976d66a0916df1c40fb87}
+      \strng{bibnamehash}{9607677caf4976d66a0916df1c40fb87}
+      \strng{authorbibnamehash}{9607677caf4976d66a0916df1c40fb87}
+      \strng{authornamehash}{9607677caf4976d66a0916df1c40fb87}
+      \strng{authorfullhash}{9607677caf4976d66a0916df1c40fb87}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Revised and updated, the third edition of Golub and Van Loan's classic text in computer science provides essential information about the mathematical background and algorithmic skills required for the production of numerical software. This new edition includes thoroughly revised chapters on matrix multiplication problems and parallel matrix computations, expanded treatment of CS decomposition, an updated overview of floating point arithmetic, a more accurate rendition of the modified Gram-Schmidt process, and new material devoted to GMRES, QMR, and other methods designed to handle the sparse unsymmetric linear system problem.}
       \field{day}{15}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-0-8018-5414-9}
       \field{langid}{english}
       \field{month}{10}
@@ -1036,9 +873,6 @@
       \field{title}{Matrix {{Computations}}}
       \field{year}{1996}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb mlOa7wPX6OYC
-      \endverb
     \endentry
     \entry{goodfellowDeepLearning2016}{book}{}
       \name{author}{3}{}{%
@@ -1073,7 +907,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{An introduction to a broad range of topics in deep learning, covering mathematical and conceptual background, deep learning techniques used in industry, and research perspectives.“Written by three experts in the field, Deep Learning is the only comprehensive book on the subject.”—Elon Musk, cochair of OpenAI; cofounder and CEO of Tesla and SpaceXDeep learning is a form of machine learning that enables computers to learn from experience and understand the world in terms of a hierarchy of concepts. Because the computer gathers knowledge from experience, there is no need for a human computer operator to formally specify all the knowledge that the computer needs. The hierarchy of concepts allows the computer to learn complicated concepts by building them out of simpler ones; a graph of these hierarchies would be many layers deep. This book introduces a broad range of topics in deep learning. The text offers mathematical and conceptual background, covering relevant concepts in linear algebra, probability theory and information theory, numerical computation, and machine learning. It describes deep learning techniques used by practitioners in industry, including deep feedforward networks, regularization, optimization algorithms, convolutional networks, sequence modeling, and practical methodology; and it surveys such applications as natural language processing, speech recognition, computer vision, online recommendation systems, bioinformatics, and videogames. Finally, the book offers research perspectives, covering such theoretical topics as linear factor models, autoencoders, representation learning, structured probabilistic models, Monte Carlo methods, the partition function, approximate inference, and deep generative models. Deep Learning can be used by undergraduate or graduate students planning careers in either industry or research, and by software engineers who want to begin using deep learning in their products or platforms. A website offers supplementary material for both readers and instructors.}
       \field{day}{10}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-0-262-33737-3}
       \field{langid}{english}
       \field{month}{11}
@@ -1081,9 +914,6 @@
       \field{title}{Deep {{Learning}}}
       \field{year}{2016}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb omivDQAAQBAJ
-      \endverb
     \endentry
     \entry{gowerSGDGeneralAnalysis2019}{inproceedings}{}
       \name{author}{6}{}{%
@@ -1140,22 +970,12 @@
       \field{month}{5}
       \field{shorttitle}{{{SGD}}}
       \field{title}{{{SGD}}: {{General Analysis}} and {{Improved Rates}}}
-      \field{urlday}{5}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{5200\bibrangedash 5209}
       \range{pages}{10}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/5JL58NLC/Gower et al. - 2019 - SGD General Analysis and Improved Rates.pdf;/home/jonathan/Zotero/storage/9QVY34YG/Gower et al_2019_SGD.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v97/qian19b.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v97/qian19b.html
       \endverb
       \keyw{convergence,SGD,theory,thesis,toread}
     \endentry
@@ -1283,7 +1103,6 @@
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Numerical methods that preserve properties of Hamiltonian systems, reversible systems, differential equations on manifolds and problems with highly oscillatory solutions are the subject of this book. A complete self-contained theory of symplectic and symmetric methods, which include Runge-Kutta, composition, splitting, multistep and various specially designed integrators, is presented and their construction and practical merits are discussed. The long-time behaviour of the numerical solutions is studied using a backward error analysis (modified equations) combined with KAM theory. The book is illustrated by many figures, it treats applications from physics and astronomy and contains many numerical experiments and comparisons of different approaches.}
       \field{day}{9}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-3-662-05018-7}
       \field{langid}{english}
       \field{month}{3}
@@ -1292,9 +1111,6 @@
       \field{title}{Geometric {{Numerical Integration}}: {{Structure-Preserving Algorithms}} for {{Ordinary Differential Equations}}}
       \field{year}{2013}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb cPTxCAAAQBAJ
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/U37UJ7I9/Hairer et al_2013_Geometric Numerical Integration.pdf
       \endverb
@@ -1719,13 +1535,9 @@
       \field{month}{8}
       \field{number}{7873}
       \field{title}{Highly Accurate Protein Structure Prediction with {{AlphaFold}}}
-      \field{urlday}{12}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{volume}{596}
       \field{year}{2021}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{583\bibrangedash 589}
       \range{pages}{7}
       \verb{doi}
@@ -1733,12 +1545,6 @@
       \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/3XWK5JAZ/Jumper et al_2021_Highly accurate protein structure prediction with AlphaFold.pdf;/home/jonathan/Zotero/storage/5SSC5GX4/s41586-021-03819-2.html
-      \endverb
-      \verb{urlraw}
-      \verb https://www.nature.com/articles/s41586-021-03819-2
-      \endverb
-      \verb{url}
-      \verb https://www.nature.com/articles/s41586-021-03819-2
       \endverb
       \keyw{motivation,thesis}
     \endentry
@@ -1826,7 +1632,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{The aim of this book is to provide an accessible introduction to stochastic differ ential equations and their applications together with a systematic presentation of methods available for their numerical solution. During the past decade there has been an accelerating interest in the de velopment of numerical methods for stochastic differential equations (SDEs). This activity has been as strong in the engineering and physical sciences as it has in mathematics, resulting inevitably in some duplication of effort due to an unfamiliarity with the developments in other disciplines. Much of the reported work has been motivated by the need to solve particular types of problems, for which, even more so than in the deterministic context, specific methods are required. The treatment has often been heuristic and ad hoc in character. Nevertheless, there are underlying principles present in many of the papers, an understanding of which will enable one to develop or apply appropriate numerical schemes for particular problems or classes of problems.}
       \field{day}{17}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-3-662-12616-5}
       \field{langid}{english}
       \field{month}{4}
@@ -1834,9 +1639,6 @@
       \field{title}{Numerical {{Solution}} of {{Stochastic Differential Equations}}}
       \field{year}{2013}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb r9r6CAAAQBAJ
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/GSQ3ATQC/sde_theory.djvu
       \endverb
@@ -1865,7 +1667,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Dieser zweite Band Analysis, der nunmehr in fünfter, korrigierter Auflage vorliegt, behandelt die Differential- und Integralrechnung im Rn sowie Differentialgleichungen und Elemente der Funktionentheorie. Zu seinen Besonderheiten gehören eine neue, einfache Einführung des Lebesgueintegrals und eine Version des Gaußschen Integralsatzes, die Integrationsbereiche in großer Allgemeinheit zugrunde legt. Ein umfangreiches Kapitel ist dem Kalkül der Differentialformen samt Satz von Stokes gewidmet und als Einstieg in die Theorie der differenzierbaren Mannigfaltigkeiten konzipiert. Historische und biographische Anmerkungen bereichern den Text. Zahlreiche Abbildungen und Beispiele unterstützen das Verständnis. Zu jedem Kapitel wird eine Reihe von Aufgaben bereitgestellt. Insgesamt ein Lehrbuch, das sich als Begleittext zu einer Vorlesung wie auch zum Selbststudium hervorragend eignet.}
       \field{day}{16}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-3-540-35077-4}
       \field{langid}{ngerman}
       \field{month}{7}
@@ -1873,24 +1674,21 @@
       \field{title}{Analysis 2}
       \field{year}{2006}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb x9qbBgAAQBAJ
-      \endverb
     \endentry
     \entry{krizhevskyLearningMultipleLayers2009}{inproceedings}{}
       \name{author}{1}{}{%
-        {{hash=a98c6ee140cff383b5deb40f1bbadc4a}{%
+        {{hash=c5e3a676e2ac1164b3afcd539c131fc9}{%
            family={Krizhevsky},
            familyi={K\bibinitperiod},
-           given={A.},
+           given={Alex},
            giveni={A\bibinitperiod}}}%
       }
-      \strng{namehash}{a98c6ee140cff383b5deb40f1bbadc4a}
-      \strng{fullhash}{a98c6ee140cff383b5deb40f1bbadc4a}
-      \strng{bibnamehash}{a98c6ee140cff383b5deb40f1bbadc4a}
-      \strng{authorbibnamehash}{a98c6ee140cff383b5deb40f1bbadc4a}
-      \strng{authornamehash}{a98c6ee140cff383b5deb40f1bbadc4a}
-      \strng{authorfullhash}{a98c6ee140cff383b5deb40f1bbadc4a}
+      \strng{namehash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{fullhash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{bibnamehash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{authorbibnamehash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{authornamehash}{c5e3a676e2ac1164b3afcd539c131fc9}
+      \strng{authorfullhash}{c5e3a676e2ac1164b3afcd539c131fc9}
       \field{extraname}{1}
       \field{sortinit}{K}
       \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
@@ -1908,10 +1706,10 @@
       \verb /home/jonathan/Zotero/storage/TZPV7KZQ/Krizhevsky_2009_Learning Multiple Layers of Features from Tiny Images.pdf
       \endverb
       \verb{urlraw}
-      \verb https://www.semanticscholar.org/paper/Learning-Multiple-Layers-of-Features-from-Tiny-Krizhevsky/5d90f06bb70a0a3dced62413346235c02b1aa086
+      \verb https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf
       \endverb
       \verb{url}
-      \verb https://www.semanticscholar.org/paper/Learning-Multiple-Layers-of-Features-from-Tiny-Krizhevsky/5d90f06bb70a0a3dced62413346235c02b1aa086
+      \verb https://www.cs.toronto.edu/~kriz/learning-features-2009-TR.pdf
       \endverb
     \endentry
     \entry{krizhevskyOneWeirdTrick2014}{misc}{}
@@ -1999,21 +1797,11 @@
       \field{abstract}{We trained a large, deep convolutional neural network to classify the 1.3 million high-resolution images in the LSVRC-2010 ImageNet training set into the 1000 different classes. On the test data, we achieved top-1 and top-5 error rates of 39.7\textbackslash\% and 18.9\textbackslash\% which is considerably better than the previous state-of-the-art results. The neural network, which has 60 million parameters and 500,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers, and two globally connected layers with a final 1000-way softmax. To make training faster, we used non-saturating neurons and a very efficient GPU implementation of convolutional nets. To reduce overfitting in the globally connected layers we employed a new regularization method that proved to be very effective.}
       \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
       \field{title}{{{ImageNet Classification}} with {{Deep Convolutional Neural Networks}}}
-      \field{urlday}{21}
-      \field{urlmonth}{12}
-      \field{urlyear}{2022}
       \field{volume}{25}
       \field{year}{2012}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/K5MK4D66/Krizhevsky et al_2012_ImageNet Classification with Deep Convolutional Neural Networks.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html
-      \endverb
-      \verb{url}
-      \verb https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html
       \endverb
     \endentry
     \entry{lecunConvolutionalNetworksImages1995}{article}{}
@@ -2051,68 +1839,6 @@
       \field{pages}{1995}
       \range{pages}{1}
     \endentry
-    \entry{liStochasticModifiedEquations2017}{misc}{}
-      \name{author}{3}{}{%
-        {{hash=64fe62ce2b10a4bc8ffec9881ed87985}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Qianxiao},
-           giveni={Q\bibinitperiod}}}%
-        {{hash=f6d5538a2db58ca22e371cdbeef3f83e}{%
-           family={Tai},
-           familyi={T\bibinitperiod},
-           given={Cheng},
-           giveni={C\bibinitperiod}}}%
-        {{hash=268e9715905f2ab3cb20df636d3750c1}{%
-           family={E},
-           familyi={E\bibinitperiod},
-           given={Weinan},
-           giveni={W\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
-      \strng{namehash}{0049f3b8b809d78786a56fc4874c7f65}
-      \strng{fullhash}{0049f3b8b809d78786a56fc4874c7f65}
-      \strng{bibnamehash}{0049f3b8b809d78786a56fc4874c7f65}
-      \strng{authorbibnamehash}{0049f3b8b809d78786a56fc4874c7f65}
-      \strng{authornamehash}{0049f3b8b809d78786a56fc4874c7f65}
-      \strng{authorfullhash}{0049f3b8b809d78786a56fc4874c7f65}
-      \field{extraname}{1}
-      \field{sortinit}{L}
-      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{We develop the method of stochastic modified equations (SME), in which stochastic gradient algorithms are approximated in the weak sense by continuous-time stochastic differential equations. We exploit the continuous formulation together with optimal control theory to derive novel adaptive hyper-parameter adjustment policies. Our algorithms have competitive performance with the added benefit of being robust to varying models and datasets. This provides a general methodology for the analysis and design of stochastic gradient algorithms.}
-      \field{day}{20}
-      \field{eprintclass}{cs, stat}
-      \field{eprinttype}{arxiv}
-      \field{month}{6}
-      \field{number}{arXiv:1511.06251}
-      \field{title}{Stochastic Modified Equations and Adaptive Stochastic Gradient Algorithms}
-      \field{urlday}{19}
-      \field{urlmonth}{8}
-      \field{urlyear}{2022}
-      \field{year}{2017}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.1511.06251
-      \endverb
-      \verb{eprint}
-      \verb 1511.06251
-      \endverb
-      \verb{file}
-      \verb /home/jonathan/Zotero/storage/4Q6EBRI6/Li et al. - 2017 - Stochastic modified equations and adaptive stochas.pdf;/home/jonathan/Zotero/storage/WVBZ3XYB/1511.html
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1511.06251
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1511.06251
-      \endverb
-      \keyw{background,SDE,SGD,thesis,toread}
-    \endentry
     \entry{liStochasticModifiedEquations2019}{article}{}
       \name{author}{3}{}{%
         {{hash=64fe62ce2b10a4bc8ffec9881ed87985}{%
@@ -2137,7 +1863,6 @@
       \strng{authorbibnamehash}{0049f3b8b809d78786a56fc4874c7f65}
       \strng{authornamehash}{0049f3b8b809d78786a56fc4874c7f65}
       \strng{authorfullhash}{0049f3b8b809d78786a56fc4874c7f65}
-      \field{extraname}{2}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{labelnamesource}{author}
@@ -2148,23 +1873,13 @@
       \field{number}{40}
       \field{shorttitle}{Stochastic {{Modified Equations}} and {{Dynamics}} of {{Stochastic Gradient Algorithms I}}}
       \field{title}{Stochastic {{Modified Equations}} and {{Dynamics}} of {{Stochastic Gradient Algorithms I Mathematical Foundations}}}
-      \field{urlday}{19}
-      \field{urlmonth}{8}
-      \field{urlyear}{2022}
       \field{volume}{20}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{1\bibrangedash 47}
       \range{pages}{47}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/CBBRN2E7/Li et al. - 2019 - Stochastic Modified Equations and Dynamics of Stoc.pdf
-      \endverb
-      \verb{urlraw}
-      \verb http://jmlr.org/papers/v20/17-526.html
-      \endverb
-      \verb{url}
-      \verb http://jmlr.org/papers/v20/17-526.html
       \endverb
       \keyw{SDE,SGD,theory,thesis}
     \endentry
@@ -2202,26 +1917,16 @@
       \field{langid}{english}
       \field{month}{4}
       \field{title}{On the {{Convergence}} of {{Stochastic Gradient Descent}} with {{Adaptive Stepsizes}}}
-      \field{urlday}{5}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{983\bibrangedash 992}
       \range{pages}{10}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/PH74N3RG/Li and Orabona - 2019 - On the Convergence of Stochastic Gradient Descent .pdf;/home/jonathan/Zotero/storage/S7U8TV3J/Li_Orabona_2019_On the Convergence of Stochastic Gradient Descent with Adaptive Stepsizes.pdf
       \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v89/li19c.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v89/li19c.html
-      \endverb
       \keyw{convergence,SGD,stepsize,thesis,toread}
     \endentry
-    \entry{liValidityModelingSGD2021}{misc}{}
+    \entry{liValidityModelingSGD2021a}{inproceedings}{}
       \name{author}{3}{}{%
         {{hash=35069ab0f2565b95f02723d645a36cbd}{%
            family={Li},
@@ -2240,7 +1945,7 @@
            giveni={S\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {arXiv}%
+        {Curran Associates, Inc.}%
       }
       \strng{namehash}{acabdfdf9d3a3d356960a77b23063185}
       \strng{fullhash}{acabdfdf9d3a3d356960a77b23063185}
@@ -2252,30 +1957,49 @@
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{abstract}{It is generally recognized that finite learning rate (LR), in contrast to infinitesimal LR, is important for good generalization in real-life deep nets. Most attempted explanations propose approximating finite-LR SGD with Ito Stochastic Differential Equations (SDEs), but formal justification for this approximation (e.g., (Li et al., 2019)) only applies to SGD with tiny LR. Experimental verification of the approximation appears computationally infeasible. The current paper clarifies the picture with the following contributions: (a) An efficient simulation algorithm SVAG that provably converges to the conventionally used Ito SDE approximation. (b) A theoretically motivated testable necessary condition for the SDE approximation and its most famous implication, the linear scaling rule (Goyal et al., 2017), to hold. (c) Experiments using this simulation to demonstrate that the previously proposed SDE approximation can meaningfully capture the training and generalization properties of common deep nets.}
-      \field{day}{16}
-      \field{month}{6}
-      \field{number}{arXiv:2102.12470}
+      \field{abstract}{It is generally recognized that finite learning rate (LR), in contrast to infinitesimal LR, is important for good generalization in real-life deep nets. Most attempted explanations propose approximating finite-LR SGD with Itô Stochastic Differential Equations (SDEs), but formal justification for this approximation (e.g., Li et al., 2019) only applies to SGD with tiny LR. Experimental verification of the approximation appears computationally infeasible. The current paper clarifies the picture with the following contributions: (a) An efficient simulation algorithm SVAG that provably converges to the conventionally used Itô SDE approximation. (b) A theoretically motivated testable necessary condition for the SDE approximation and its most famous implication, the linear scaling rule (Goyal et al., 2017), to hold.(c) Experiments using this simulation to demonstrate that the previously proposed SDE approximation can meaningfully capture the training and generalization properties of common deep nets.}
+      \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
       \field{title}{On the {{Validity}} of {{Modeling SGD}} with {{Stochastic Differential Equations}} ({{SDEs}})}
-      \field{urlday}{17}
-      \field{urlmonth}{8}
-      \field{urlyear}{2022}
+      \field{volume}{34}
       \field{year}{2021}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.2102.12470
-      \endverb
+      \field{pages}{12712\bibrangedash 12725}
+      \range{pages}{14}
       \verb{file}
-      \verb /home/jonathan/Zotero/storage/T4H6WURH/Li et al. - 2021 - On the Validity of Modeling SGD with Stochastic Di.pdf;/home/jonathan/Zotero/storage/UR38RDHX/2102.html
+      \verb /home/jonathan/Zotero/storage/WED3AKR9/Li et al_2021_On the Validity of Modeling SGD with Stochastic Differential Equations (SDEs).pdf
       \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2102.12470
+    \endentry
+    \entry{lidengMNISTDatabaseHandwritten2012}{article}{}
+      \name{author}{1}{}{%
+        {{hash=02c6b0951602ba07deb91e1351a0fc27}{%
+           family={{Li Deng}},
+           familyi={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{02c6b0951602ba07deb91e1351a0fc27}
+      \strng{fullhash}{02c6b0951602ba07deb91e1351a0fc27}
+      \strng{bibnamehash}{02c6b0951602ba07deb91e1351a0fc27}
+      \strng{authorbibnamehash}{02c6b0951602ba07deb91e1351a0fc27}
+      \strng{authornamehash}{02c6b0951602ba07deb91e1351a0fc27}
+      \strng{authorfullhash}{02c6b0951602ba07deb91e1351a0fc27}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this issue, “Best of the Web” presents the modified National Institute of Standards and Technology (MNIST) resources, consisting of a collection of handwritten digit images used extensively in optical character recognition and machine learning research.}
+      \field{issn}{1053-5888}
+      \field{journaltitle}{IEEE Signal Processing Magazine}
+      \field{month}{11}
+      \field{number}{6}
+      \field{shortjournal}{IEEE Signal Process. Mag.}
+      \field{title}{The {{MNIST Database}} of {{Handwritten Digit Images}} for {{Machine Learning Research}} [{{Best}} of the {{Web}}]}
+      \field{volume}{29}
+      \field{year}{2012}
+      \field{dateera}{ce}
+      \field{pages}{141\bibrangedash 142}
+      \range{pages}{2}
+      \verb{doi}
+      \verb 10.1109/MSP.2012.2211477
       \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2102.12470
-      \endverb
-      \keyw{paper,SDE,SGD,SVAG,thesis}
     \endentry
     \entry{lycheNumericalLinearAlgebra2020}{book}{}
       \name{author}{1}{}{%
@@ -2300,7 +2024,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{After reading this book, students should be able to analyze computational problems in linear algebra such as linear systems, least squares- and eigenvalue problems, and to develop their own algorithms for solving them. Since these problems can be large and difficult to handle, much can be gained by understanding and taking advantage of special structures. This in turn requires a good grasp of basic numerical linear algebra and matrix factorizations. Factoring a matrix into a product of simpler matrices is a crucial tool in numerical linear algebra, because it allows us to tackle complex problems by solving a sequence of easier ones. The main characteristics of this book are as follows: It is self-contained, only assuming that readers have completed first-year calculus and an introductory course on linear algebra, and that they have some experience with solving mathematical problems on a computer. The book provides detailed proofs of virtually all results. Further, its respective parts can be used independently, making it suitable for self-study. The book consists of 15 chapters, divided into five thematically oriented parts. The chapters are designed for a one-week-per-chapter, one-semester course. To facilitate self-study, an introductory chapter includes a brief review of linear algebra.}
       \field{day}{3}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-3-030-36467-0}
       \field{langid}{english}
       \field{month}{3}
@@ -2308,9 +2031,6 @@
       \field{title}{Numerical {{Linear Algebra}} and {{Matrix Factorizations}}}
       \field{year}{2020}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb e9tKywEACAAJ
-      \endverb
     \endentry
     \entry{mertikopoulosAlmostSureConvergence2020}{inproceedings}{}
       \name{author}{4}{}{%
@@ -2396,21 +2116,11 @@
       \field{abstract}{We consider the minimization of a convex objective function defined on a Hilbert space, which is only available through unbiased estimates of its gradients. This problem includes standard machine learning algorithms such as kernel logistic regression and least-squares regression, and is commonly referred to as a stochastic approximation problem in the operations research community. We provide a non-asymptotic analysis of the convergence of two well-known algorithms, stochastic gradient descent (a.k.a.\textasciitilde Robbins-Monro algorithm) as well as a simple modification where iterates are averaged (a.k.a.\textasciitilde Polyak-Ruppert averaging). Our analysis suggests that a learning rate proportional to the inverse of the number of iterations, while leading to the optimal convergence rate in the strongly convex case, is not robust to the lack of strong convexity or the setting of the proportionality constant. This situation is remedied when using slower decays together with averaging, robustly leading to the optimal rate of convergence. We illustrate our theoretical results with simulations on synthetic and standard datasets.}
       \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
       \field{title}{Non-{{Asymptotic Analysis}} of {{Stochastic Approximation Algorithms}} for {{Machine Learning}}}
-      \field{urlday}{28}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{volume}{24}
       \field{year}{2011}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/DYU79DLD/Moulines_Bach_2011_Non-Asymptotic Analysis of Stochastic Approximation Algorithms for Machine.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://papers.nips.cc/paper/2011/hash/40008b9a5380fcacce3976bf7c08af5b-Abstract.html
-      \endverb
-      \verb{url}
-      \verb https://papers.nips.cc/paper/2011/hash/40008b9a5380fcacce3976bf7c08af5b-Abstract.html
       \endverb
       \keyw{convergence,theory}
     \endentry
@@ -2514,12 +2224,6 @@
       \verb{file}
       \verb /home/jonathan/Zotero/storage/A7GRMKW2/Nguyen et al. - 2018 - SGD and Hogwild! Convergence Without the Bounded G.pdf;/home/jonathan/Zotero/storage/QN8TDXNA/Nguyen et al_2018_SGD and Hogwild.pdf
       \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v80/nguyen18c.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v80/nguyen18c.html
-      \endverb
     \endentry
     \entry{nocedalNumericalOptimization2006}{book}{}
       \name{author}{2}{}{%
@@ -2549,7 +2253,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Numerical Optimization presents a comprehensive and up-to-date description of the most effective methods in continuous optimization. It responds to the growing interest in optimization in engineering, science, and business by focusing on the methods that are best suited to practical problems. For this new edition the book has been thoroughly updated throughout. There are new chapters on nonlinear interior methods and derivative-free methods for optimization, both of which are used widely in practice and the focus of much current research. Because of the emphasis on practical methods, as well as the extensive illustrations and exercises, the book is accessible to a wide audience. It can be used as a graduate text in engineering, operations research, mathematics, computer science, and business. It also serves as a handbook for researchers and practitioners in the field. The authors have strived to produce a text that is pleasant to read, informative, and rigorous - one that reveals both the beautiful nature of the discipline and its practical side. There is a selected solutions manual for instructors for the new edition.}
       \field{day}{27}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-0-387-30303-1}
       \field{langid}{english}
       \field{month}{7}
@@ -2557,9 +2260,6 @@
       \field{title}{Numerical {{Optimization}}}
       \field{year}{2006}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb eNlPAAAAMAAJ
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/2TMCX6FC/Nocedal_Wright_2006_Numerical Optimization.pdf
       \endverb
@@ -2586,7 +2286,6 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{This edition contains detailed solutions of selected exercises. Many readers have requested this, because it makes the book more suitable for self-study. At the same time new exercises (without solutions) have beed added. They have all been placed in the end of each chapter, in order to facilitate the use of this edition together with previous ones. Several errors have been corrected and formulations have been improved. This has been made possible by the valuable comments from (in alphabetical order) Jon Bohlin, Mark Davis, Helge Holden, Patrick Jaillet, Chen Jing, Natalia Koroleva, MarioLefebvre, Alexander Matasov, Thilo Meyer-Brandis, Keigo Osawa, Bjørn Thunestvedt, Jan Ubøe and Yngve Williassen. I thank them all for helping to improve the book. My thanks also go to Dina Haraldsson, who once again has performed the typing and drawn the ?gures with great skill. Blindern, September 2002 Bernt Øksendal xv Preface to Corrected Printing, Fifth Edition The main corrections and improvements in this corrected printing are from Chapter 12. I have bene?tted from useful comments from a number of p- ple, including (in alphabetical order) Fredrik Dahl, Simone Deparis, Ulrich Haussmann, Yaozhong Hu, Marianne Huebner, Carl Peter Kirkebø, Ni- lay Kolev, Takashi Kumagai, Shlomo Levental, Geir Magnussen, Anders Øksendal, Jur ] gen Pottho?, Colin Rowat, Stig Sandnes, Lones Smith, S- suo Taniguchi and Bjørn Thunestvedt. I want to thank them all for helping me making the book better. I also want to thank Dina Haraldsson for pro?cient typing.}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-3-540-04758-2}
       \field{langid}{english}
       \field{pagetotal}{406}
@@ -2594,9 +2293,6 @@
       \field{title}{Stochastic {{Differential Equations}}: {{An Introduction}} with {{Applications}}}
       \field{year}{2003}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb VgQDWyihxKYC
-      \endverb
     \endentry
     \entry{orvietoContinuoustimeModelsStochastic2019a}{inproceedings}{}
       \name{author}{2}{}{%
@@ -2627,21 +2323,11 @@
       \field{abstract}{We propose new continuous-time formulations for first-order stochastic optimization algorithms such as mini-batch gradient descent and variance-reduced methods. We exploit these continuous-time models, together with simple Lyapunov analysis as well as tools from stochastic calculus, in order to derive convergence bounds for various types of non-convex functions. Guided by such analysis, we show that the same Lyapunov arguments hold in discrete-time, leading to matching rates. In addition, we use these models and Ito calculus to infer novel insights on the dynamics of SGD, proving that a decreasing learning rate acts as time warping or, equivalently, as landscape stretching.}
       \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
       \field{title}{Continuous-Time {{Models}} for {{Stochastic Optimization Algorithms}}}
-      \field{urlday}{5}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{volume}{32}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/MUPV8J9P/NeurIPS2019_SDEs_app.pdf;/home/jonathan/Zotero/storage/ZWXNPMF9/Orvieto_Lucchi_2019_Continuous-time Models for Stochastic Optimization Algorithms.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.neurips.cc/paper/2019/hash/9cd78264cf2cd821ba651485c111a29a-Abstract.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.neurips.cc/paper/2019/hash/9cd78264cf2cd821ba651485c111a29a-Abstract.html
       \endverb
       \keyw{SDE,SGD,thesis,toread}
     \endentry
@@ -2811,13 +2497,9 @@
       \field{number}{5}
       \field{shortjournal}{USSR Computational Mathematics and Mathematical Physics}
       \field{title}{Some Methods of Speeding up the Convergence of Iteration Methods}
-      \field{urlday}{15}
-      \field{urlmonth}{11}
-      \field{urlyear}{2022}
       \field{volume}{4}
       \field{year}{1964}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{1\bibrangedash 17}
       \range{pages}{17}
       \verb{doi}
@@ -2825,12 +2507,6 @@
       \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/CLB5BQTY/0041555364901375.html
-      \endverb
-      \verb{urlraw}
-      \verb https://www.sciencedirect.com/science/article/pii/0041555364901375
-      \endverb
-      \verb{url}
-      \verb https://www.sciencedirect.com/science/article/pii/0041555364901375
       \endverb
     \endentry
     \entry{rameshHierarchicalTextConditionalImage2022}{misc}{}
@@ -2936,13 +2612,9 @@
       \field{month}{9}
       \field{number}{3}
       \field{title}{A {{Stochastic Approximation Method}}}
-      \field{urlday}{29}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{volume}{22}
       \field{year}{1951}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{400\bibrangedash 407}
       \range{pages}{8}
       \verb{doi}
@@ -2950,12 +2622,6 @@
       \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/7UGIIDFM/Robbins_Monro_1951_A Stochastic Approximation Method.pdf;/home/jonathan/Zotero/storage/SMM3N24C/1177729586.html
-      \endverb
-      \verb{urlraw}
-      \verb https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full
-      \endverb
-      \verb{url}
-      \verb https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-22/issue-3/A-Stochastic-Approximation-Method/10.1214/aoms/1177729586.full
       \endverb
     \endentry
     \entry{romanAdvancedLinearAlgebra2010}{book}{}
@@ -2981,7 +2647,6 @@
       \field{labeltitlesource}{title}
       \field{abstract}{This is a graduate textbook covering an especially broad range of topics. The first part of the book contains a careful but rapid discussion of the basics of linear algebra, including vector spaces, linear transformations, quotient spaces, and isomorphism theorems. The author then proceeds to modules, emphasizing a comparison with vector spaces. A thorough discussion of inner product spaces, eigenvalues, eigenvectors, and finite dimensional spectral theory follows, culminating in the finite dimensional spectral theorem for normal operators. The second part of the book is a collection of topics, including metric vector spaces, metric spaces, Hilbert spaces, tensor products, and affine geometry. The last chapter discusses the umbral calculus, an area of modern algebra with important applications. For the third edition, the author has: * added a new chapter on associative algebras that includes the well known characterizations of the finite-dimensional division algebras over the real field (a theorem of Frobenius) and over a finite field (Wedderburn's theorem); * polished and refined some arguments (such as the discussion of reflexivity, the rational canonical form, best approximations and the definitions of tensor products); * upgraded some proofs that were originally done only for finite-dimensional/rank cases; * added new theorems, including the spectral mapping theorem and a theorem to the effect that , dim(V)=dim(V*) with equality if and only if V is finite-dimensional;* corrected all known errors; * the reference section has been enlarged considerably, with over a hundred references to books on linear algebra. From the reviews of the second edition: "In this 2nd edition, the author has rewritten the entire book and has added more than 100 pages of new materials. ... As in the previous edition, the text is well written and gives a thorough discussion of many topics of linear algebra and related fields. ... the exercises are rewritten and expanded. ... Overall, I found the book a very useful one. ... It is a suitable choice as a graduate text or as a reference book." - Ali-Akbar Jafarian, ZentralblattMATH "This is a formidable volume, a compendium of linear algebra theory, classical and modern ... . The development of the subject is elegant ... . The proofs are neat ... . The exercise sets are good, with occasional hints given for the solution of trickier problems. ... It represents linear algebra and does so comprehensively." -Henry Ricardo, MathDL}
       \field{day}{19}
-      \field{eprinttype}{googlebooks}
       \field{isbn}{978-1-4419-2498-8}
       \field{langid}{english}
       \field{month}{11}
@@ -2989,9 +2654,6 @@
       \field{title}{Advanced {{Linear Algebra}}}
       \field{year}{2010}
       \field{dateera}{ce}
-      \verb{eprint}
-      \verb EDBYcgAACAAJ
-      \endverb
     \endentry
     \entry{santambrogioEuclideanMetricWasserstein2017}{article}{}
       \name{author}{1}{}{%
@@ -3021,13 +2683,9 @@
       \field{shortjournal}{Bull. Math. Sci.}
       \field{shorttitle}{\{\vphantom\}{{Euclidean}}, Metric, and {{Wasserstein}}\vphantom\{\} Gradient Flows}
       \field{title}{\{\vphantom\}{{Euclidean}}, Metric, and {{Wasserstein}}\vphantom\{\} Gradient Flows: An Overview}
-      \field{urlday}{23}
-      \field{urlmonth}{11}
-      \field{urlyear}{2022}
       \field{volume}{7}
       \field{year}{2017}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{87\bibrangedash 154}
       \range{pages}{68}
       \verb{doi}
@@ -3035,12 +2693,6 @@
       \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/BX46TE3W/Santambrogio_2017_ Euclidean, metric, and Wasserstein gradient flows.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/s13373-017-0101-1
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/s13373-017-0101-1
       \endverb
       \keyw{gradient flow,theory}
     \endentry
@@ -3119,37 +2771,22 @@
       \field{labeltitlesource}{title}
       \field{abstract}{Constructing agents with planning capabilities has long been one of the main challenges in the pursuit of artificial intelligence. Tree-based planning methods have enjoyed huge success in challenging domains, such as chess and Go, where a perfect simulator is available. However, in real-world problems the dynamics governing the environment are often complex and unknown. In this work we present the MuZero algorithm which, by combining a tree-based search with a learned model, achieves superhuman performance in a range of challenging and visually complex domains, without any knowledge of their underlying dynamics. MuZero learns a model that, when applied iteratively, predicts the quantities most directly relevant to planning: the reward, the action-selection policy, and the value function. When evaluated on 57 different Atari games - the canonical video game environment for testing AI techniques, in which model-based planning approaches have historically struggled - our new algorithm achieved a new state of the art. When evaluated on Go, chess and shogi, without any knowledge of the game rules, MuZero matched the superhuman performance of the AlphaZero algorithm that was supplied with the game rules.}
       \field{day}{24}
-      \field{eprintclass}{cs, stat}
-      \field{eprinttype}{arxiv}
       \field{issn}{0028-0836, 1476-4687}
       \field{journaltitle}{Nature}
       \field{month}{12}
       \field{number}{7839}
       \field{shortjournal}{Nature}
       \field{title}{Mastering {{Atari}}, {{Go}}, {{Chess}} and {{Shogi}} by {{Planning}} with a {{Learned Model}}}
-      \field{urlday}{12}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{volume}{588}
       \field{year}{2020}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{604\bibrangedash 609}
       \range{pages}{6}
       \verb{doi}
       \verb 10.1038/s41586-020-03051-4
       \endverb
-      \verb{eprint}
-      \verb 1911.08265
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/Y4H7QWLF/Schrittwieser et al_2020_Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model.pdf;/home/jonathan/Zotero/storage/4QJ4BJ6Y/1911.html
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/1911.08265
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/1911.08265
       \endverb
       \keyw{motivation,thesis}
     \endentry
@@ -3192,22 +2829,12 @@
       \field{langid}{english}
       \field{month}{7}
       \field{title}{Almost Sure Convergence Rates for {{Stochastic Gradient Descent}} and {{Stochastic Heavy Ball}}}
-      \field{urlday}{5}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{year}{2021}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{3935\bibrangedash 3971}
       \range{pages}{37}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/2NINK37W/Sebbouh et al_2021_Almost sure convergence rates for Stochastic Gradient Descent and Stochastic.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v134/sebbouh21a.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v134/sebbouh21a.html
       \endverb
       \keyw{convergence,SGD,theory,thesis,toread}
     \endentry
@@ -3250,26 +2877,16 @@
       \field{langid}{english}
       \field{month}{5}
       \field{title}{A {{Tail-Index Analysis}} of {{Stochastic Gradient Noise}} in {{Deep Neural Networks}}}
-      \field{urlday}{17}
-      \field{urlmonth}{8}
-      \field{urlyear}{2022}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{5827\bibrangedash 5837}
       \range{pages}{11}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/B8IU5MQL/Simsekli et al. - 2019 - A Tail-Index Analysis of Stochastic Gradient Noise.pdf
       \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v97/simsekli19a.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v97/simsekli19a.html
-      \endverb
       \keyw{noise,paper,SDE,SGD,thesis}
     \endentry
-    \entry{smithOriginImplicitRegularization2021}{misc}{}
+    \entry{smithOriginImplicitRegularization2021}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=3449a804ca9f4fb32b4fe7117113c206}{%
            family={Smith},
@@ -3292,9 +2909,6 @@
            given={Soham},
            giveni={S\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {arXiv}%
-      }
       \strng{namehash}{96a30a3cae5bcbfe8452b157ba58eaf0}
       \strng{fullhash}{8eeb20c2d39c2d7096c30a77c98dd93f}
       \strng{bibnamehash}{96a30a3cae5bcbfe8452b157ba58eaf0}
@@ -3306,32 +2920,12 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{For infinitesimal learning rates, stochastic gradient descent (SGD) follows the path of gradient flow on the full batch loss function. However moderately large learning rates can achieve higher test accuracies, and this generalization benefit is not explained by convergence bounds, since the learning rate which maximizes test accuracy is often larger than the learning rate which minimizes training loss. To interpret this phenomenon we prove that for SGD with random shuffling, the mean SGD iterate also stays close to the path of gradient flow if the learning rate is small and finite, but on a modified loss. This modified loss is composed of the original loss function and an implicit regularizer, which penalizes the norms of the minibatch gradients. Under mild assumptions, when the batch size is small the scale of the implicit regularization term is proportional to the ratio of the learning rate to the batch size. We verify empirically that explicitly including the implicit regularizer in the loss can enhance the test accuracy when the learning rate is small.}
-      \field{day}{28}
-      \field{eprintclass}{cs, stat}
-      \field{eprinttype}{arxiv}
-      \field{month}{1}
-      \field{number}{arXiv:2101.12176}
+      \field{eventtitle}{International {{Conference}} on {{Learning Representations}}}
       \field{title}{On the {{Origin}} of {{Implicit Regularization}} in {{Stochastic Gradient Descent}}}
-      \field{urlday}{8}
-      \field{urlmonth}{11}
-      \field{urlyear}{2022}
       \field{year}{2021}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{doi}
-      \verb 10.48550/arXiv.2101.12176
-      \endverb
-      \verb{eprint}
-      \verb 2101.12176
-      \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/UNH3BFXY/Smith et al_2021_On the Origin of Implicit Regularization in Stochastic Gradient Descent.pdf;/home/jonathan/Zotero/storage/2XTWBQR6/2101.html
-      \endverb
-      \verb{urlraw}
-      \verb http://arxiv.org/abs/2101.12176
-      \endverb
-      \verb{url}
-      \verb http://arxiv.org/abs/2101.12176
       \endverb
       \keyw{important}
     \endentry
@@ -3368,13 +2962,9 @@
       \field{number}{5}
       \field{shortjournal}{Phys. Rev.}
       \field{title}{On the {{Theory}} of the {{Brownian Motion}}}
-      \field{urlday}{12}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{volume}{36}
       \field{year}{1930}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{823\bibrangedash 841}
       \range{pages}{19}
       \verb{doi}
@@ -3382,12 +2972,6 @@
       \endverb
       \verb{file}
       \verb /home/jonathan/Zotero/storage/FQQXCPHW/PhysRev.36.html
-      \endverb
-      \verb{urlraw}
-      \verb https://link.aps.org/doi/10.1103/PhysRev.36.823
-      \endverb
-      \verb{url}
-      \verb https://link.aps.org/doi/10.1103/PhysRev.36.823
       \endverb
       \keyw{SDE,thesis}
     \endentry
@@ -3430,22 +3014,12 @@
       \field{langid}{english}
       \field{month}{4}
       \field{title}{Fast and {{Faster Convergence}} of {{SGD}} for {{Over-Parameterized Models}} and an {{Accelerated Perceptron}}}
-      \field{urlday}{7}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{year}{2019}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{1195\bibrangedash 1204}
       \range{pages}{10}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/A3MP9FRI/Vaswani et al_2019_Fast and Faster Convergence of SGD for Over-Parameterized Models and an.pdf;/home/jonathan/Zotero/storage/TAFFELXT/Vaswani et al. - 2019 - Fast and Faster Convergence of SGD for Over-Parame.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v89/vaswani19a.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v89/vaswani19a.html
       \endverb
       \keyw{SGD,thesis,toread}
     \endentry
@@ -3493,21 +3067,11 @@
       \field{abstract}{Adaptive optimization methods, which perform local optimization with a metric constructed from the history of iterates, are becoming increasingly popular for training deep neural networks. Examples include AdaGrad, RMSProp, and Adam. We show that for simple overparameterized problems, adaptive methods often find drastically different solutions than gradient descent (GD) or stochastic gradient descent (SGD). We construct an illustrative binary classification problem where the data is linearly separable, GD and SGD achieve zero test error, and AdaGrad, Adam, and RMSProp attain test errors arbitrarily close to half. We additionally study the empirical generalization capability of adaptive methods on several state-of-the-art deep learning models. We observe that the solutions found by adaptive methods generalize worse (often significantly worse) than SGD, even when these solutions have better training performance. These results suggest that practitioners should reconsider the use of adaptive methods to train neural networks.}
       \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
       \field{title}{The {{Marginal Value}} of {{Adaptive Gradient Methods}} in {{Machine Learning}}}
-      \field{urlday}{4}
-      \field{urlmonth}{12}
-      \field{urlyear}{2022}
       \field{volume}{30}
       \field{year}{2017}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/KD3I6N73/Wilson et al_2017_The Marginal Value of Adaptive Gradient Methods in Machine Learning.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://papers.nips.cc/paper/2017/hash/81b3833e2504647f9d794f7d7b9bf341-Abstract.html
-      \endverb
-      \verb{url}
-      \verb https://papers.nips.cc/paper/2017/hash/81b3833e2504647f9d794f7d7b9bf341-Abstract.html
       \endverb
     \endentry
     \entry{wuNoisyGradientDescent2020a}{inproceedings}{}
@@ -3564,22 +3128,12 @@
       \field{langid}{english}
       \field{month}{11}
       \field{title}{On the {{Noisy Gradient Descent}} That {{Generalizes}} as {{SGD}}}
-      \field{urlday}{8}
-      \field{urlmonth}{12}
-      \field{urlyear}{2022}
       \field{year}{2020}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{10367\bibrangedash 10376}
       \range{pages}{10}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/7CY9GY27/Wu et al. - 2020 - On the Noisy Gradient Descent that Generalizes as .pdf;/home/jonathan/Zotero/storage/Y48DCEGJ/Wu et al. - 2020 - On the Noisy Gradient Descent that Generalizes as .pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.mlr.press/v119/wu20c.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.mlr.press/v119/wu20c.html
       \endverb
       \keyw{noise,sgd}
     \endentry
@@ -3633,23 +3187,13 @@
       \field{abstract}{It is not clear yet why ADAM-alike adaptive gradient algorithms suffer from worse generalization performance than SGD despite their faster training speed. This work aims to provide understandings on this generalization gap by analyzing their local convergence behaviors. Specifically, we observe the heavy tails of gradient noise in these algorithms. This motivates us to analyze these algorithms through their Levy-driven stochastic differential equations (SDEs) because of the similar convergence behaviors of an algorithm and its SDE. Then we establish the escaping time of these SDEs from a local basin. The result shows that (1) the escaping time of both SGD and ADAM\textasciitilde depends on the Radon measure of the basin positively and the heaviness of gradient noise negatively; (2) for the same basin, SGD enjoys smaller escaping time than ADAM, mainly because (a) the geometry adaptation in ADAM\textasciitilde via adaptively scaling each gradient coordinate well diminishes the anisotropic structure in gradient noise and results in larger Radon measure of a basin; (b) the exponential gradient average in ADAM\textasciitilde smooths its gradient and leads to lighter gradient noise tails than SGD. So SGD is more locally unstable than ADAM\textasciitilde at sharp minima defined as the minima whose local basins have small Radon measure, and can better escape from them to flatter ones with larger Radon measure. As flat minima here which often refer to the minima at flat or asymmetric basins/valleys often generalize better than sharp ones\textasciitilde\textbackslash cite\{keskar2016large,he2019asymmetric\}, our result explains the better generalization performance of SGD over ADAM. Finally, experimental results confirm our heavy-tailed gradient noise assumption and theoretical affirmation.}
       \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
       \field{title}{Towards {{Theoretically Understanding Why Sgd Generalizes Better Than Adam}} in {{Deep Learning}}}
-      \field{urlday}{2}
-      \field{urlmonth}{11}
-      \field{urlyear}{2022}
       \field{volume}{33}
       \field{year}{2020}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \field{pages}{21285\bibrangedash 21296}
       \range{pages}{12}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/726L9F95/Zhou et al_2020_Towards Theoretically Understanding Why Sgd Generalizes Better Than Adam in.pdf;/home/jonathan/Zotero/storage/F799XL4W/Zhou et al. - 2020 - Towards Theoretically Understanding Why Sgd Genera.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.neurips.cc/paper/2020/hash/f3f27a324736617f20abbf2ffd806f6d-Abstract.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.neurips.cc/paper/2020/hash/f3f27a324736617f20abbf2ffd806f6d-Abstract.html
       \endverb
       \keyw{levy,sde,sgd}
     \endentry
@@ -3698,21 +3242,11 @@
       \field{abstract}{In this paper, we examine a class of non-convex stochastic optimization problems which we call variationally coherent, and which properly includes pseudo-/quasiconvex and star-convex optimization problems. To solve such problems, we focus on the widely used stochastic mirror descent (SMD) family of algorithms (which contains stochastic gradient descent as a special case), and we show that the last iterate of SMD converges to the problem’s solution set with probability 1. This result contributes to the landscape of non-convex stochastic optimization by clarifying that neither pseudo-/quasi-convexity nor star-convexity is essential for (almost sure) global convergence; rather, variational coherence, a much weaker requirement, suffices. Characterization of convergence rates for the subclass of strongly variationally coherent optimization problems as well as simulation results are also presented.}
       \field{booktitle}{Advances in {{Neural Information Processing Systems}}}
       \field{title}{Stochastic {{Mirror Descent}} in {{Variationally Coherent Optimization Problems}}}
-      \field{urlday}{29}
-      \field{urlmonth}{9}
-      \field{urlyear}{2022}
       \field{volume}{30}
       \field{year}{2017}
       \field{dateera}{ce}
-      \field{urldateera}{ce}
       \verb{file}
       \verb /home/jonathan/Zotero/storage/6CE883YF/Zhou et al_2017_Stochastic Mirror Descent in Variationally Coherent Optimization Problems.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://proceedings.neurips.cc/paper/2017/hash/e6ba70fc093b4ce912d769ede1ceeba8-Abstract.html
-      \endverb
-      \verb{url}
-      \verb https://proceedings.neurips.cc/paper/2017/hash/e6ba70fc093b4ce912d769ede1ceeba8-Abstract.html
       \endverb
     \endentry
   \enddatalist

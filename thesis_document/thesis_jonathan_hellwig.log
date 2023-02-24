@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2022.5.27)  26 DEC 2022 21:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Arch Linux) (preloaded format=pdflatex 2023.1.20)  24 FEB 2023 18:09
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex
-(/home/jonathan/uni/thesis/Masterarbeit/Masterarbeit_Jonathan_Hellwig.tex
+**/home/jonathan/uni/thesis/test/thesis_jonathan_hellwig.tex
+(/home/jonathan/uni/thesis/test/thesis_jonathan_hellwig.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-04-10> (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -60,9 +60,9 @@ Package tocbasic Info: babel extension for `nls' omitted
 \nomitemsep=\skip50
 )
 \@nomenclaturefile=\write3
-\openout3 = `Masterarbeit_Jonathan_Hellwig.nlo'.
+\openout3 = `thesis_jonathan_hellwig.nlo'.
 
-Package nomencl Info: Writing nomenclature file Masterarbeit_Jonathan_Hellwig.nlo on input line 5.
+Package nomencl Info: Writing nomenclature file thesis_jonathan_hellwig.nlo on input line 5.
  (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
@@ -807,7 +807,6 @@ File: puenc.def 2022-02-21 v7.00n Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `draft' set `true' on input line 4018.
 Package hyperref Info: Hyper figures OFF on input line 4137.
 Package hyperref Info: Link nesting OFF on input line 4142.
 Package hyperref Info: Hyper index ON on input line 4145.
@@ -861,8 +860,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 \Hy@SectionHShift=\skip84
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 131.
-Package hyperref Info: Option `colorlinks' set `true' on input line 131.
+Package hyperref Info: Option `breaklinks' set `true' on input line 129.
+Package hyperref Info: Option `colorlinks' set `true' on input line 129.
  (/usr/share/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/02/07 v1.28a mathematical typesetting tools
  (/usr/share/texmf-dist/tex/latex/tools/calc.sty
@@ -896,27 +895,27 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
- (./Masterarbeit_Jonathan_Hellwig.aux)
-\openout1 = `Masterarbeit_Jonathan_Hellwig.aux'.
+ (./thesis_jonathan_hellwig.aux)
+\openout1 = `thesis_jonathan_hellwig.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 190.
-LaTeX Font Info:    ... okay on input line 190.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 188.
+LaTeX Font Info:    ... okay on input line 188.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -955,7 +954,7 @@ LaTeX Font Info:    ... okay on input line 190.
 (/usr/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 190.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 188.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -964,13 +963,13 @@ File: english.lbx 2022/02/02 v3.17 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `Masterarbeit_Jonathan_Hellwig.bcf'.
+\openout4 = `thesis_jonathan_hellwig.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'Masterarbeit_Jonathan_Hellwig.bbl' found.
- (./Masterarbeit_Jonathan_Hellwig.bbl)
-Package biblatex Info: Reference section=0 on input line 190.
-Package biblatex Info: Reference segment=0 on input line 190.
+Package biblatex Info: ... file 'thesis_jonathan_hellwig.bbl' found.
+ (./thesis_jonathan_hellwig.bbl)
+Package biblatex Info: Reference section=0 on input line 188.
+Package biblatex Info: Reference segment=0 on input line 188.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count474
@@ -995,12 +994,8 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count480
-
-
-Package hyperref Warning: Draft mode on.
-
-Package hyperref Info: Link coloring ON on input line 190.
-(/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
+Package hyperref Info: Link coloring ON on input line 188.
+ (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
@@ -1009,21 +1004,48 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count481
 )
-LaTeX Info: Redefining \ref on input line 190.
-LaTeX Info: Redefining \pageref on input line 190.
-LaTeX Info: Redefining \nameref on input line 190.
+LaTeX Info: Redefining \ref on input line 188.
+LaTeX Info: Redefining \pageref on input line 188.
+LaTeX Info: Redefining \nameref on input line 188.
+ (./thesis_jonathan_hellwig.out) (./thesis_jonathan_hellwig.out)
+\@outlinefile=\write6
+\openout6 = `thesis_jonathan_hellwig.out'.
+
 
 
 pdfTeX warning: pdflatex (file ./pics/TUHH_logo_cropped.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<pics/TUHH_logo_cropped.pdf, id=4, 634.53058pt x 448.07399pt>
-<pics/MATH_de.pdf, id=5, 234.8775pt x 69.25874pt>
+<pics/TUHH_logo_cropped.pdf, id=159, 634.53058pt x 448.07399pt>
+File: pics/TUHH_logo_cropped.pdf Graphic file (type pdf)
+<use pics/TUHH_logo_cropped.pdf>
+Package pdftex.def Info: pics/TUHH_logo_cropped.pdf  used on input line 194.
+(pdftex.def)             Requested size: 92.6678pt x 65.44142pt.
+<pics/MATH_de.pdf, id=160, 234.8775pt x 69.25874pt>
+File: pics/MATH_de.pdf Graphic file (type pdf)
+<use pics/MATH_de.pdf>
+Package pdftex.def Info: pics/MATH_de.pdf  used on input line 196.
+(pdftex.def)             Requested size: 221.93173pt x 65.44142pt.
 
 
 pdfTeX warning: pdflatex (file ./pics/UHH_logo_cropped.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<pics/UHH_logo_cropped.pdf, id=6, 489.2679pt x 158.27129pt>
+<pics/UHH_logo_cropped.pdf, id=161, 489.2679pt x 158.27129pt>
+File: pics/UHH_logo_cropped.pdf Graphic file (type pdf)
+<use pics/UHH_logo_cropped.pdf>
+Package pdftex.def Info: pics/UHH_logo_cropped.pdf  used on input line 199.
+(pdftex.def)             Requested size: 202.30328pt x 65.44142pt.
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] (./Masterarbeit_Jonathan_Hellwig.toc
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./pics/TUHH_logo_cropped.pdf> <./pics/MATH_de.pdf> <./pics/UHH_logo_cropped.pdf
+
+pdfTeX warning: pdflatex (file ./pics/UHH_logo_cropped.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] [2]
+
+pdfTeX warning: pdflatex (file ./pics/unterschrift.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<pics/unterschrift.pdf, id=189, 113.80919pt x 42.67845pt>
+File: pics/unterschrift.pdf Graphic file (type pdf)
+<use pics/unterschrift.pdf>
+Package pdftex.def Info: pics/unterschrift.pdf  used on input line 250.
+(pdftex.def)             Requested size: 151.75677pt x 56.9055pt.
+[3 <./pics/unterschrift.pdf>] [4] (./thesis_jonathan_hellwig.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1032,147 +1054,154 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [5])
-\tf@toc=\write6
-\openout6 = `Masterarbeit_Jonathan_Hellwig.toc'.
+\tf@toc=\write7
+\openout7 = `thesis_jonathan_hellwig.toc'.
 
- [6] (./Masterarbeit_Jonathan_Hellwig.lof
-Overfull \hbox (13.37843pt too wide) in paragraph at lines 14--14
- [][] []\OT1/cmr/m/n/12 PreResNet-32 on CIFAR-10 with SVAG for the scal-ing fac-tors $\OML/cmm/m/it/12 l \OT1/cmr/m/n/12 = 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 4\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 8\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 16$, |
- []
+ [6] (./thesis_jonathan_hellwig.lof)
+\tf@lof=\write8
+\openout8 = `thesis_jonathan_hellwig.lof'.
 
-
-Overfull \hbox (13.37843pt too wide) in paragraph at lines 15--15
- [][] []\OT1/cmr/m/n/12 PreResNet-32 on CIFAR-10 with SVAG for the scal-ing fac-tors $\OML/cmm/m/it/12 l \OT1/cmr/m/n/12 = 1\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 4\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 8\OML/cmm/m/it/12 ; \OT1/cmr/m/n/12 16$, |
- []
-
-)
-\tf@lof=\write7
-\openout7 = `Masterarbeit_Jonathan_Hellwig.lof'.
-
- [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
-Overfull \hbox (20.67308pt too wide) detected at line 1198
- []$[]  \U/msb/m/n/12 E [] \OT1/cmr/m/n/12 = [] \U/msb/m/n/12 E []$ |
- []
-
-
-Overfull \hbox (8.6963pt too wide) detected at line 1228
-[]|
- []
-
-[30] [31] [32] [33] [34]
-<../seminar_talk/plots/quadratic_loss.pdf, id=136, 365.01436pt x 339.66899pt>
-<../seminar_talk/plots/learning_rates.pdf, id=137, 714.41925pt x 337.89111pt>
+ [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
+<../seminar_talk/plots/quadratic_loss.pdf, id=859, 365.01436pt x 339.66899pt>
+File: ../seminar_talk/plots/quadratic_loss.pdf Graphic file (type pdf)
+<use ../seminar_talk/plots/quadratic_loss.pdf>
+Package pdftex.def Info: ../seminar_talk/plots/quadratic_loss.pdf  used on input line 1475.
+(pdftex.def)             Requested size: 452.96826pt x 421.52725pt.
+<../seminar_talk/plots/learning_rates.pdf, id=860, 714.41925pt x 337.89111pt>
+File: ../seminar_talk/plots/learning_rates.pdf Graphic file (type pdf)
+<use ../seminar_talk/plots/learning_rates.pdf>
+Package pdftex.def Info: ../seminar_talk/plots/learning_rates.pdf  used on input line 1482.
+(pdftex.def)             Requested size: 452.96826pt x 214.2388pt.
  [35] [36]
-<../seminar_talk/plots/scaled_weights_biases.pdf, id=144, 715.53952pt x 337.89111pt>
- [37]
-Overfull \hbox (8.47353pt too wide) in paragraph at lines 1667--1669
-\OT1/cmr/m/n/12 Solving for $\OT1/cmr/bx/n/12 a[]$ \OT1/cmr/m/n/12 and $\OT1/cmr/bx/n/12 a[]$ \OT1/cmr/m/n/12 yields $\OT1/cmr/bx/n/12 a[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 w\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@r\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 w\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ;  \OT1/cmr/bx/n/12 a[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 w\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@[]\OML/cmm/m/it/12 H[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 w\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 r\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 w\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@[]rk[]k[]$\OT1/cmr/m/n/12 ,|
- []
-
-[38] [39]
-<../seminar_talk/plots/linear_regression_error.pdf, id=155, 505.89pt x 346.89601pt>
+<../seminar_talk/plots/scaled_weights_biases.pdf, id=881, 715.53952pt x 337.89111pt>
+File: ../seminar_talk/plots/scaled_weights_biases.pdf Graphic file (type pdf)
+<use ../seminar_talk/plots/scaled_weights_biases.pdf>
+Package pdftex.def Info: ../seminar_talk/plots/scaled_weights_biases.pdf  used on input line 1610.
+(pdftex.def)             Requested size: 452.96826pt x 213.89851pt.
+ [37] [38] [39]
+<../seminar_talk/plots/linear_regression_error.pdf, id=929, 505.89pt x 346.89601pt>
+File: ../seminar_talk/plots/linear_regression_error.pdf Graphic file (type pdf)
+<use ../seminar_talk/plots/linear_regression_error.pdf>
+Package pdftex.def Info: ../seminar_talk/plots/linear_regression_error.pdf  used on input line 1741.
+(pdftex.def)             Requested size: 452.96826pt x 310.61026pt.
  [40]
-<../seminar_talk/plots/sgd_weight_bias.pdf, id=159, 650.43pt x 346.89601pt>
-<../seminar_talk/plots/sgd_weight_histogram.pdf, id=160, 715.62106pt x 338.84969pt>
-<../seminar_talk/plots/sgd_weight_qq.pdf, id=161, 462.52798pt x 346.89601pt>
- [41] [42] [43]
-Overfull \hbox (4.32838pt too wide) detected at line 1942
-[]|
- []
+<../seminar_talk/plots/sgd_weight_bias.pdf, id=946, 650.43pt x 346.89601pt>
+File: ../seminar_talk/plots/sgd_weight_bias.pdf Graphic file (type pdf)
+<use ../seminar_talk/plots/sgd_weight_bias.pdf>
+Package pdftex.def Info: ../seminar_talk/plots/sgd_weight_bias.pdf  used on input line 1788.
+(pdftex.def)             Requested size: 452.96826pt x 241.58693pt.
+<../seminar_talk/plots/sgd_weight_histogram.pdf, id=947, 715.62106pt x 338.84969pt>
+File: ../seminar_talk/plots/sgd_weight_histogram.pdf Graphic file (type pdf)
+<use ../seminar_talk/plots/sgd_weight_histogram.pdf>
+Package pdftex.def Info: ../seminar_talk/plots/sgd_weight_histogram.pdf  used on input line 1794.
+(pdftex.def)             Requested size: 452.96826pt x 214.48982pt.
+<../seminar_talk/plots/sgd_weight_qq.pdf, id=948, 462.52798pt x 346.89601pt>
+File: ../seminar_talk/plots/sgd_weight_qq.pdf Graphic file (type pdf)
+<use ../seminar_talk/plots/sgd_weight_qq.pdf>
+Package pdftex.def Info: ../seminar_talk/plots/sgd_weight_qq.pdf  used on input line 1800.
+(pdftex.def)             Requested size: 452.96826pt x 339.74403pt.
+ [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51]
+<../seminar_talk/plots/sde_sgd.pdf, id=1149, 505.89pt x 505.89pt>
+File: ../seminar_talk/plots/sde_sgd.pdf Graphic file (type pdf)
+<use ../seminar_talk/plots/sde_sgd.pdf>
+Package pdftex.def Info: ../seminar_talk/plots/sde_sgd.pdf  used on input line 2263.
+(pdftex.def)             Requested size: 452.96826pt x 452.97328pt.
+<../seminar_talk/plots/convergence_rate.pdf, id=1150, 433.62pt x 289.08pt>
+File: ../seminar_talk/plots/convergence_rate.pdf Graphic file (type pdf)
+<use ../seminar_talk/plots/convergence_rate.pdf>
+Package pdftex.def Info: ../seminar_talk/plots/convergence_rate.pdf  used on input line 2269.
+(pdftex.def)             Requested size: 452.96826pt x 301.99469pt.
+ [52] [53]
 
-[44] [45] [46] [47]
-Overfull \hbox (0.45857pt too wide) in paragraph at lines 2078--2080
-\OT1/cmr/m/n/12 From the ar-gu-ments above and Lemma A.6[] we see that $\OT1/cmr/bx/n/12 a\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 w\OT1/cmr/m/n/12 ) = \OMS/cmsy/m/n/12 ^^@r []$|
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48] [49] [50]
-<../seminar_talk/plots/sde_sgd.pdf, id=195, 505.89pt x 505.89pt>
-<../seminar_talk/plots/convergence_rate.pdf, id=196, 433.62pt x 289.08pt>
- [51] [52] [53] [54]
-Overfull \hbox (8.33475pt too wide) in paragraph at lines 2420--2430
- [] |
- []
+[54]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[55] [56] [57]
-<../code/plots/fc128_lr012.pdf, id=221, 722.7pt x 722.7pt>
-<../code/plots/fc512_lr048.pdf, id=222, 722.7pt x 722.7pt>
- [58]
-<../code/plots/alexnet128_lr04.pdf, id=226, 722.7pt x 722.7pt>
-<../code/plots/preresnet128_lr012.pdf, id=227, 722.7pt x 722.7pt>
-<../code/plots/preresnet1024_lr096.pdf, id=228, 722.7pt x 722.7pt>
+[55] [56] [57] [58]
+<../code/plots/fc128_lr012.pdf, id=1269, 722.7pt x 722.7pt>
+File: ../code/plots/fc128_lr012.pdf Graphic file (type pdf)
+<use ../code/plots/fc128_lr012.pdf>
+Package pdftex.def Info: ../code/plots/fc128_lr012.pdf  used on input line 2590.
+(pdftex.def)             Requested size: 452.96826pt x 452.96558pt.
+<../code/plots/fc512_lr048.pdf, id=1270, 722.7pt x 722.7pt>
+File: ../code/plots/fc512_lr048.pdf Graphic file (type pdf)
+<use ../code/plots/fc512_lr048.pdf>
+Package pdftex.def Info: ../code/plots/fc512_lr048.pdf  used on input line 2596.
+(pdftex.def)             Requested size: 452.96826pt x 452.96558pt.
+<../code/plots/alexnet128_lr04.pdf, id=1274, 722.7pt x 722.7pt>
+File: ../code/plots/alexnet128_lr04.pdf Graphic file (type pdf)
+<use ../code/plots/alexnet128_lr04.pdf>
+Package pdftex.def Info: ../code/plots/alexnet128_lr04.pdf  used on input line 2605.
+(pdftex.def)             Requested size: 452.96826pt x 452.96558pt.
  [59]
-Overfull \hbox (12.65091pt too wide) detected at line 2629
- []$[]   [] [] \OT1/cmr/m/n/12 = \U/msb/m/n/12 E []$ |
- []
-
+<../code/plots/preresnet128_lr012.pdf, id=1285, 722.7pt x 722.7pt>
+File: ../code/plots/preresnet128_lr012.pdf Graphic file (type pdf)
+<use ../code/plots/preresnet128_lr012.pdf>
+Package pdftex.def Info: ../code/plots/preresnet128_lr012.pdf  used on input line 2615.
+(pdftex.def)             Requested size: 452.96826pt x 452.96558pt.
+<../code/plots/preresnet1024_lr096.pdf, id=1286, 722.7pt x 722.7pt>
+File: ../code/plots/preresnet1024_lr096.pdf Graphic file (type pdf)
+<use ../code/plots/preresnet1024_lr096.pdf>
+Package pdftex.def Info: ../code/plots/preresnet1024_lr096.pdf  used on input line 2621.
+(pdftex.def)             Requested size: 452.96826pt x 452.96558pt.
+ [60]
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 2636.
+(amsmath)                 on input line 2657.
 
-[60] [61]
-Overfull \hbox (4.17018pt too wide) in paragraph at lines 2667--2667
-[]\OT1/cmr/m/n/12 Paolo Baldi. \OT1/cmr/m/it/12 Equazioni dif-feren-ziali sto-cas-tiche e ap-pli-cazioni\OT1/cmr/m/n/12 . Pitagora, 2000. 367 pp.|
+[61] [62]
+Overfull \hbox (4.17018pt too wide) in paragraph at lines 2688--2688
+[]\OT1/cmr/m/n/12 Paolo Baldi. \OT1/cmr/m/it/12 Equazioni dif-feren-ziali sto-cas-tiche e ap-pli-cazioni\OT1/cmr/m/n/12 . Pitagora, 2000. 367 pp.
  []
 
 
-Overfull \hbox (18.33424pt too wide) in paragraph at lines 2667--2667
-\OT1/cmr/m/n/12 sity Press, Mar. 8, 2004. 744 pp. \OT1/cmr/m/sc/12 isbn\OT1/cmr/m/n/12 : 978-1-107-39400-1. Google Books: $\OT1/cmtt/m/n/12 IUZdAAAAQBAJ$\OT1/cmr/m/n/12 . |
+Overfull \hbox (7.51988pt too wide) in paragraph at lines 2688--2688
+[]\OT1/cmr/m/n/12 Vincenzo Ca-passo and David Bak-stein. \OT1/cmr/m/it/12 An In-tro-duc-tion to Continuous-Time Stochas-
  []
 
 
-Overfull \hbox (7.51988pt too wide) in paragraph at lines 2667--2667
-[]\OT1/cmr/m/n/12 Vincenzo Ca-passo and David Bak-stein. \OT1/cmr/m/it/12 An In-tro-duc-tion to Continuous-Time Stochas-|
- []
-
-[62]
-Overfull \hbox (10.34605pt too wide) in paragraph at lines 2667--2667
-[]\OT1/cmr/m/n/12 Rick Dur-rett. \OT1/cmr/m/it/12 Prob-a-bil-ity: The-ory and Ex-am-ples\OT1/cmr/m/n/12 . Cam-bridge Uni-ver-sity Press, Apr. 18,|
- []
-
-
-Overfull \hbox (13.54016pt too wide) in paragraph at lines 2667--2667
-\OT1/cmr/m/it/12 gra-tion: Structure-Preserving Al-go-rithms for Or-di-nary Dif-fer-en-tial Equa-tions\OT1/cmr/m/n/12 . Springer|
+Overfull \hbox (10.34605pt too wide) in paragraph at lines 2688--2688
+[]\OT1/cmr/m/n/12 Rick Dur-rett. \OT1/cmr/m/it/12 Prob-a-bil-ity: The-ory and Ex-am-ples\OT1/cmr/m/n/12 . Cam-bridge Uni-ver-sity Press, Apr. 18,
  []
 
 [63]
-Overfull \hbox (29.83443pt too wide) in paragraph at lines 2667--2667
-\OT1/cmtt/m/n/12 of -[] Features -[] from -[] Tiny -[] Krizhevsky / 5d90f06bb70a0a3dced62413346235c02b1aa086$|
+Overfull \hbox (13.54016pt too wide) in paragraph at lines 2688--2688
+\OT1/cmr/m/it/12 gra-tion: Structure-Preserving Al-go-rithms for Or-di-nary Dif-fer-en-tial Equa-tions\OT1/cmr/m/n/12 . Springer
  []
 
 [64] [65]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2666.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 2687.
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2666.
- [66]
-Overfull \hbox (22.15942pt too wide) in paragraph at lines 2667--2667
-\OT1/cmtt/m/n/12 proceedings . neurips . cc / paper / 2020 / hash / f3f27a324736617f20abbf2ffd806f6d -[]|
- []
-
-[67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] (./Masterarbeit_Jonathan_Hellwig.aux)
-Package logreq Info: Writing requests to 'Masterarbeit_Jonathan_Hellwig.run.xml'.
-\openout1 = `Masterarbeit_Jonathan_Hellwig.run.xml'.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 2687.
+ [66] [67] [68] [69] [70 <../seminar_talk/plots/quadratic_loss.pdf>] [71 <../seminar_talk/plots/learning_rates.pdf> <../seminar_talk/plots/scaled_weights_biases.pdf>] [72 <../seminar_talk/plots/linear_regression_error.pdf>] [73 <../seminar_talk/plots/sgd_weight_bias.pdf> <../seminar_talk/plots/sgd_weight_histogram.pdf>] [74 <../seminar_talk/plots/sgd_weight_qq.pdf>] [75 <../seminar_talk/plots/sde_sgd.pdf>] [76 <../seminar_talk/plots/convergence_rate.pdf>] [77 <../code/plots/fc128_lr012.pdf>] [78 <../code/plots/fc512_lr048.pdf>] [79 <../code/plots/alexnet128_lr04.pdf>] [80 <../code/plots/preresnet128_lr012.pdf>] [81 <../code/plots/preresnet1024_lr096.pdf>] (./thesis_jonathan_hellwig.aux)
+Package rerunfilecheck Info: File `thesis_jonathan_hellwig.out' has not changed.
+(rerunfilecheck)             Checksum: 6C203258AEE17FF2177142B6DC7014ED;6737.
+Package logreq Info: Writing requests to 'thesis_jonathan_hellwig.run.xml'.
+\openout1 = `thesis_jonathan_hellwig.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38299 strings out of 478238
- 764934 string characters out of 5850456
- 1491090 words of memory out of 5000000
- 55970 multiletter control sequences out of 15000+600000
+ 38790 strings out of 478238
+ 772741 string characters out of 5850456
+ 1498051 words of memory out of 5000000
+ 56032 multiletter control sequences out of 15000+600000
  496185 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,21n,131p,2678b,2556s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 110i,21n,131p,2664b,2556s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on Masterarbeit_Jonathan_Hellwig.pdf (81 pages, 520289 bytes).
+Output written on thesis_jonathan_hellwig.pdf (81 pages, 1717384 bytes).
 PDF statistics:
- 403 PDF objects out of 1000 (max. 8388607)
- 254 compressed objects within 3 object streams
- 0 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2212 PDF objects out of 2487 (max. 8388607)
+ 1582 compressed objects within 16 object streams
+ 424 named destinations out of 1000 (max. 500000)
+ 407 words of extra memory for PDF output out of 10000 (max. 10000000)
 
