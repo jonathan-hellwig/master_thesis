@@ -3,3 +3,6 @@ results
 .vscode
 MNIST
 data
+runs
+trained_models
+.data
