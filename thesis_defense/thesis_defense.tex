@@ -1,0 +1,482 @@
+%--------------Preamble----------------------------------------------------
+\documentclass[aspectratio=1610,10pt,ucs]{beamer} % K1520
+%\documentclass[aspectratio=169,10pt,ucs]{beamer} % alle anderen
+% \documentclass[aspectratio=43,10pt,ucs]{beamer} % safe workaround
+%\documentclass[handout,10pt,ucs]{beamer} % for creating handouts
+%-------------------------------------------------------------------------
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}
+\def\mathllap{\mathpalette\mathllapinternal}
+\def\mathrlap{\mathpalette\mathrlapinternal}
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathllapinternal#1#2{%
+  \llap{$\mathsurround=0pt#1{#2}$}}
+\def\mathrlapinternal#1#2{%
+  \rlap{$\mathsurround=0pt#1{#2}$}}
+\def\mathclapinternal#1#2{%
+  \clap{$\mathsurround=0pt#1{#2}$}}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\newcommand{\backupbegin}{
+   \newcounter{framenumberappendix}
+   \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}} 
+}
+%%%%% bold letters
+\newcommand{\bfA}{{\mathbf A}}
+\newcommand{\bfB}{{\mathbf B}}
+\newcommand{\bfC}{{\mathbf C}}
+\newcommand{\bfD}{{\mathbf D}}
+\newcommand{\bfE}{{\mathbf E}}
+\newcommand{\bfF}{{\mathbf F}}
+\newcommand{\bfG}{{\mathbf G}}
+\newcommand{\bfH}{{\mathbf H}}
+\newcommand{\bfI}{{\mathbf I}}
+\newcommand{\bfJ}{{\mathbf J}}
+\newcommand{\bfK}{{\mathbf K}}
+\newcommand{\bfL}{{\mathbf L}}
+\newcommand{\bfM}{{\mathbf M}}
+\newcommand{\bfN}{{\mathbf N}}
+\newcommand{\bfO}{{\mathbf O}}
+\newcommand{\bfP}{{\mathbf P}}
+\newcommand{\bfQ}{{\mathbf Q}}
+\newcommand{\bfR}{{\mathbf R}}
+\newcommand{\bfS}{{\mathbf S}}
+\newcommand{\bfT}{{\mathbf T}}
+\newcommand{\bfU}{{\mathbf U}}
+\newcommand{\bfV}{{\mathbf V}}
+\newcommand{\bfW}{{\mathbf W}}
+\newcommand{\bfX}{{\mathbf X}}
+\newcommand{\bfY}{{\mathbf Y}}
+\newcommand{\bfZ}{{\mathbf Z}}
+\newcommand{\bfa}{{\mathbf a}}
+\newcommand{\bfb}{{\mathbf b}}
+\newcommand{\bfc}{{\mathbf c}}
+\newcommand{\bfd}{{\mathbf d}}
+\newcommand{\bfe}{{\mathbf e}}
+\newcommand{\bff}{{\mathbf f}}
+\newcommand{\bfg}{{\mathbf g}}
+\newcommand{\bfh}{{\mathbf h}}
+\newcommand{\bfi}{{\mathbf i}}
+\newcommand{\bfj}{{\mathbf j}}
+\newcommand{\bfk}{{\mathbf k}}
+\newcommand{\bfl}{{\mathbf l}}
+\newcommand{\bfm}{{\mathbf m}}
+\newcommand{\bfn}{{\mathbf n}}
+\newcommand{\bfo}{{\mathbf o}}
+\newcommand{\bfp}{{\mathbf p}}
+\newcommand{\bfq}{{\mathbf q}}
+\newcommand{\bfr}{{\mathbf r}}
+\newcommand{\bfs}{{\mathbf s}}
+\newcommand{\bft}{{\mathbf t}}
+\newcommand{\bfu}{{\mathbf u}}
+\newcommand{\bfv}{{\mathbf v}}
+\newcommand{\bfw}{{\mathbf w}}
+\newcommand{\bfx}{{\mathbf x}}
+\newcommand{\bfy}{{\mathbf y}}
+\newcommand{\bfz}{{\mathbf z}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+%% extra bold symbols
+\newcommand{\bfell}{{\boldsymbol{\ell}}}
+\newcommand{\bfLambda}{{\boldsymbol{\Lambda}}}
+\newcommand{\bfSigma}{{\boldsymbol{\Sigma}}}
+\newcommand{\bfnu}{{\boldsymbol{\nu}}}
+\newcommand{\bfphi}{{\boldsymbol{\phi}}}
+\newcommand{\bfalpha}{{\boldsymbol{\alpha}}}
+\newcommand{\bfbeta}{{\boldsymbol{\beta}}}
+\newcommand{\bfhatbeta}{{\boldsymbol{\widehat{\beta}}}}
+\newcommand{\bfomega}{{\boldsymbol{\omega}}}
+\newcommand{\bfrho}{{\boldsymbol{\rho}}}
+\newcommand{\bfmu}{{\boldsymbol{\mu}}}
+\newcommand{\bfchecknu}{{\boldsymbol{\check{\nu}}}}
+\newcommand{\bfhatnu}{{\boldsymbol{\widehat{\nu}}}}
+
+%% new /renewed commands
+\newcommand{\Span}{\mathop{\mathsf{span}}}
+\renewcommand{\deg}{\mathop{\mathsf{deg}}}
+\renewcommand{\min}{\mathop{\mathsf{min}}}
+\newcommand{\argmin}{\mathop{\mathsf{argmin}}}
+\renewcommand{\max}{\mathop{\mathsf{max}}}
+\newcommand{\spec}{\mathop{\mathsf{spec}}}
+\newcommand{\ucup}{\ensuremath{\mathop{\cup}\limits}}
+\newcommand{\norm}[1]{\lVert{#1}\rVert_2}
+\newcommand{\ev}[1]{\mathbb{E}\left[{#1}\right]}
+\newcommand{\T}{\mathsf{T}}
+
+\mode<presentation>
+{
+  \usetheme{ABMATH}
+  \useinnertheme{default}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{navigation symbols}{} % supress all navigation symbols
+  \usefonttheme[onlymath]{serif}
+  \setbeamertemplate{items}[triangle]
+  \setbeamertemplate{sections/subsections in toc}[default]
+  \setbeamertemplate{enumerate items}[circle]
+}
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\PreloadUnicodePage{32} % for „ and “
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{pifont}
+%%%% begin - for shaded boxes around equations
+\usepackage{empheq} % brauche ich hier nicht
+\usepackage[many]{tcolorbox}
+\newtcbox{\mybox}[1][]{nobeforeafter,math upper,tcbox raise base,
+  enhanced,frame hidden,boxrule=0pt,interior style={top color=magenta!10!red,
+  bottom color=magenta!10!red,middle color=magenta!30!white},
+  fuzzy halo=1pt with magenta,drop large lifted shadow,#1}
+%%%% end - for shaded boxes around equations
+\usepackage{ulem}
+\normalem
+\newcommand{\soutb}[3]{%
+  \only<#1>{{#3}}%
+  \uncover<#2>{\textcolor{black!30!}{\sout{#3}}}}
+%%%
+\hypersetup{%
+  pdftitle     = {Relations between variants of
+  stochastic gradient descent and
+  stochastic differential equations},
+  pdfsubject   = {YRM 2018 at Plön},
+  pdfkeywords  = {YRM 2018, good talk},
+  pdfauthor    = {\textcopyright\ Jonathan Hellwig},
+%  pdfpagemode  = FullScreen
+}
+
+\title{Relations between variants of
+stochastic gradient descent and
+stochastic differential equations}
+\subtitle{Master's thesis}
+\author[Jonathan Hellwig]{%
+  Jonathan Hellwig}
+
+
+\date{19.01.2023}
+
+\titlegraphic{%
+%  \vspace*{-1.5em} % if date is empty
+  \includegraphics[height=.15\textheight]%
+%    {pics/MATH_de}% %%% German
+    {pics/MATH_en}% %%% English
+  \hspace*{.2\textwidth}
+  \includegraphics[height=.17\textheight]%
+%    {pics/TUHH_de}% %%% German
+    {../Masterarbeit/pics/TUHH_logo_cropped.pdf}% %%% English
+}
+
+%---------------------------preamble-----------------------------------
+\begin{document}
+% ----------------------------begin frame-------------------------------
+\begin{frame}
+  \titlepage
+\end{frame}
+%----------------------------end frame---------------------------------
+%----------------------------begin frame-------------------------------
+\begin{frame}
+  \frametitle{Motivation}
+
+  % \textcolor{blue}{Research is communication}
+
+  % \vspace*{1em}
+
+  \begin{itemize}
+  \item Models like GPT-3, DALL-E2, MuZero and AlphaFold have shown great success
+  \item They all make use of \textcolor{blue}{deep neural networks}
+  \item Stochastic gradient descent and related algorithms are used to train these models
+  \item In general, the dynamics of the optimization process are unknown
+  \item Li et al.\ (2019) propose a stochastic differential equation (SDE) to model the dynamics
+  \end{itemize}
+  \uncover<2->{%
+  I set out to investigate the \textcolor{blue}{validity} and \textcolor{blue}{usefulness} of this SDE.
+  }
+
+\end{frame}
+%----------------------------end frame---------------------------------
+%----------------------------begin frame-------------------------------
+\section{Background}
+\subsection{Stochastic gradient descent}
+\begin{frame}
+\frametitle{Stochastic gradient descent}
+Let $\mathcal{L}:\R^d\rightarrow \R$ be a differentiable function.
+\begin{itemize}
+ \item Risk minimization: $$\min_{w \in \R^d} \mathcal{L}(w) = \min_{w \in \R^d}\frac{1}{n}\sum_{i=1}^n \ell_i(w)$$
+ \item Optimization using \textcolor{blue}{gradient descent} (GD) with learning rate $\eta > 0$ and initial guess $w_0 \in \R^d$:
+ \begin{equation*}
+  w_{k+1} = w_k - \eta \nabla \mathcal{L}(w_k)
+ \end{equation*}
+ \item Improved computational efficiency with \textcolor{blue}{stochastic gradient descent} (SGD):
+ \begin{equation*}
+  w_{k+1} = w_k - \eta \nabla \ell_{\textcolor{red}{\gamma}}(w_k),
+ \end{equation*}
+ for an indexing random variable $\textcolor{red}{\gamma} \in \{1,\dots, n\}$
+\end{itemize}
+\end{frame}
+%----------------------------end frame---------------------------------
+\subsection{Modified equations}
+%----------------------------begin frame-------------------------------
+\begin{frame}
+\frametitle{Modified ordinary differential equations}
+\begin{itemize}
+  \item We have the system of ordinary differential equations (ODE)
+  \begin{equation*}
+    \color{blue}{w'(t) = \mathbf{a}(w(t)), \quad w(0) = w_0, \quad t \in [0,T]}
+  \end{equation*}
+  \item We use a numerical scheme
+  \begin{equation*}
+    \color{red}{w_{k+1} = \boldsymbol{\Phi}^\eta(w_k) = w_k + \eta \phi_1(w_k) + \eta^2 \phi_2(w_k) + \cdots}
+  \end{equation*}
+  \item How does the behavior of the \textcolor{blue}{ODE} differ from the \textcolor{red}{numerical scheme}?
+\end{itemize}
+\uncover<2->{%
+\begin{itemize}
+  \item Hairer et al.\ (2013) present \textcolor{blue}{modified ordinary differential equations}:
+  \begin{equation*}
+    \widetilde{w}'(t) = \textcolor{orange}{\mathbf{a}^\eta(\widetilde{w}(t))}, \quad \widetilde{w}(0) = w_0, \quad t \in [0,T]
+  \end{equation*}
+  \item For an order $r \in \N$ the modified term is given by
+  \begin{equation*}
+    \textcolor{orange}{\mathbf{a}^\eta(\widetilde{w})} = \mathbf{a}_0(\widetilde{w}) + \eta\mathbf{a}_1(\widetilde{w}) + \eta^2\mathbf{a}_2(\widetilde{w})+\cdots + \eta^r\mathbf{a}_r(\widetilde{w})
+  \end{equation*}
+\end{itemize}
+}
+\end{frame}
+%----------------------------end frame--------------------------------
+%----------------------------begin frame------------------------------
+\begin{frame}
+\frametitle{Modified ordinary differential equations}
+\begin{itemize}
+  \item Smith et al.\ (2021) apply modified ordinary differential equations to \textcolor{blue}{gradient descent}
+  \item Recall the GD iterates
+  \begin{equation*}
+      w_{k+1} = w_k - \eta \nabla \mathcal{L}(w_k)
+  \end{equation*}
+  \item The first order modified equation called \textcolor{blue}{gradient flow}
+  \begin{equation*}
+  w'(t) = -\nabla \mathcal{L}(w), \quad w(0) = w_0
+  \end{equation*}
+  \item The second order modified equation
+  \begin{equation*}
+    w'(t) = -\nabla\left(\mathcal{L}(w(t)) + \frac{\eta}{4}\norm{\nabla \mathcal{L}(w(t))}^2\right),\quad w(0) = w_0
+  \end{equation*}
+\end{itemize}
+\end{frame}
+%----------------------------end frame--------------------------------
+%----------------------------begin frame------------------------------
+\begin{frame}
+  \begin{itemize}
+    \item Is there an analog to \textcolor{blue}{modified differential equations} for SGD?
+    
+  \end{itemize}
+  \uncover<2->{%
+  \begin{itemize}
+    \item Li et al.\ (2019) introduce stochastic modified equations for SGD
+    \item They use stochastic differential equations
+  \end{itemize}
+  }
+\end{frame}
+\begin{frame}
+  \frametitle{Stochastic differential equations}
+  \begin{itemize}
+    \item Stochastic differential equations (SDE) are a generalization of ODEs
+    \begin{equation*}
+      dW_t = \textcolor{blue}{\mathbf{a}(W_t,t)dt} + \textcolor{red}{\mathbf{b}(W_t,t)d\mathbf{B}_t}, \quad W_0 = w_0
+    \end{equation*}
+    \item The first term is the \textcolor{blue}{drift} and the second term is the \textcolor{red}{diffusion}
+    \item The solution to SDEs are stochastic processes
+  \end{itemize}
+\end{frame}
+%----------------------------end frame--------------------------------
+%----------------------------begin frame------------------------------
+\begin{frame}
+  \frametitle{Stochastic modified differential equations}
+  \begin{itemize}
+    \item Recall the iterates of stochastic gradient descent
+    \begin{equation*}
+      w_{k+1} = w_k - \eta \nabla \ell_{\gamma}(w_k),
+     \end{equation*}
+    \item Li et al.\ (2019) introduce the first order \textcolor{blue}{stochastic modified differential equation} (SMDE) 
+    \begin{equation*}
+      dW_t = \textcolor{blue}{-\nabla \mathcal{L}(W_t)}dt + \textcolor{red}{\sqrt{\eta} \Sigma(W_t)^{1/2}}d\mathbf{B}_t, \quad W_0 = w_0
+    \end{equation*}
+    \item The diffusion is given by
+    \begin{equation*}
+      \Sigma(W_t) = \ev{\left(\nabla \mathcal{L}(W_t) - \nabla \ell_{\gamma_k}(W_t)\right)\left(\nabla \mathcal{L}(W_t) - \nabla \ell_{\gamma_k}(W_t)\right)^\T |W_t}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+%----------------------------end frame--------------------------------
+%----------------------------begin frame------------------------------
+\begin{frame}
+  \frametitle{Weak convergence}
+  \begin{itemize}
+    \item Li et al.\ (2019) prove \textcolor{blue}{weak convergence} of the \textcolor{orange}{SGD iterates} and \textcolor{red}{first order SMDE}
+    \begin{equation*}
+      \label{eq:first_order_convergence}
+      \max_{k=0,\dots,N} |\ev{g(\textcolor{orange}{w_k})} - \ev{g(\textcolor{red}{W_{k\eta}})}| \leq C \eta
+    \end{equation*}
+    for all functions $g:\R^d \rightarrow \R$ with some growth and regularity conditions
+    \item They assume a Lipschitz condition on the gradient
+    \begin{equation*}
+      \norm{\nabla \ell_{\gamma}(w) - \nabla \ell_{\gamma}(v)} \leq L_{\gamma} \norm{w - v}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+\section{Experiments}
+\begin{frame}
+  \frametitle{Simulating the first order SMDE}
+  \begin{itemize}
+    \item Modern deep learning architectures do not fulfill a Lipschitz condition on the gradient
+    \item Does the first order SMDE capture the dynamics of such deep learning models?
+  \end{itemize}
+  \uncover<2->{%
+  \begin{itemize}
+    \item Recall the first order SMDE
+    \begin{equation*}
+      dW_t = -\textcolor{blue}{\nabla \mathcal{L}(W_t)}dt + \textcolor{red}{\sqrt{\eta} \Sigma(W_t)^{1/2}}d\mathbf{B}_t, \quad W_0 = w_0
+    \end{equation*}
+    \item The \textcolor{blue}{drift} is the full gradient and the \textcolor{red}{diffusion} is the covariance matrix of the sampled gradient
+    \item We can simulate this equation with the Euler-Maruyama scheme
+    \begin{equation*}
+      w_{k+1} = w_k -\eta\textcolor{blue}{\nabla \mathcal{L}(w_k)} + \textcolor{red}{\sqrt{\eta}\Sigma(w_k)^{1/2}} \Delta \mathbf{B}_k
+    \end{equation*}
+  \end{itemize}
+
+  }
+\end{frame}
+\begin{frame}
+  \frametitle{Stochastic variance amplified gradient}
+  \begin{itemize}
+    \item A new work by Li et al.\ (2021) introduces the stochastic variance amplified gradient (SVAG) algorithm
+    \item It allows to efficiently simulate the solution of the first order SMDE
+    \item They combine two gradient samples and scale them using a factor $l \in \N$:
+    $$\textcolor{red}{\ell^l_{\bar{\gamma}}(w)} =  \frac{1+\sqrt{2l - 1}}{2}\ell_{\gamma_{1}}(w) + \frac{1-\sqrt{2l - 1}}{2}\ell_{\gamma_{2}}(w), \quad w \in \R^d$$
+    \item The SVAG iterates are given by
+    \begin{equation*}
+      w_{k+1} = w_{k} - \frac{\eta}{l} \nabla \textcolor{red}{\ell_{\bar{\gamma_k}}(w_{k})}
+    \end{equation*}
+    \item They prove convergence to the first order SMDE as $l \rightarrow \infty$ under strong regularity assumptions
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{Experiments}
+  \begin{itemize}
+    \item We simulate the SMDE solution using SVAG for the MNIST and CIFAR-10 datasets reproducing results from Li et al.\ (2021)
+    \item We use a fully connected network, AlexNet and PreResNet
+    \item We look at two metrics on both the training and test datasets: accuracy and loss value
+    \item We use scaling values $l=1,2,4,8,16$
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../code/plots/fc128_lr012_presentation.pdf}
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../code/plots/fc512_lr048_presentation.pdf}
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../code/plots/alexnet128_lr04_presentation.pdf}
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../code/plots/preresnet128_lr012_presentation.pdf}
+  \end{figure}
+\end{frame}
+\begin{frame}
+  \begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{../code/plots/preresnet1024_lr096_presentation.pdf}
+  \end{figure}
+\end{frame}
+\section{Conclusion}
+\begin{frame}
+  \frametitle{Conclusion}
+  \begin{itemize}
+    \item In practical applications the learning rate is set to the largest stable value
+    \item The behavior of SVAG iterates and SGD differs in these cases
+    \item The assumptions for the SVAG convergence are too restrictive
+    \item Future work should focus on relaxing the assumption for SVAG convergence
+  \end{itemize}
+\end{frame}
+%----------------------------begin frame------------------------------
+\begin{frame}
+  \frametitle{References}
+  
+  \begin{thebibliography}{}
+  \bibitem[Brown et al.\ 2022]{brown:2022}
+  Tom Brown et al. “Language Models Are Few-Shot Learners”. In: Advances in
+  Neural Information Processing Systems. Vol. 33. Curran Associates, Inc., 2020,
+  pp. 1877–1901
+
+  \bibitem[Aditya et al.\ 2022]{aditya:2022}
+  Aditya Ramesh et al. Hierarchical Text-Conditional Image Generation with CLIP
+  Latents. Apr. 12, 2022. doi: 10.48550/arXiv.2204.06125. arXiv: 2204.06125
+  [cs]. url: \url{http://arxiv.org/abs/2204.06125} (visited on 09/12/2022)
+
+  \bibitem[Schrittwieser et al.\ 2022]{schrittwieser:2022}
+  Julian Schrittwieser et al. “Mastering Atari, Go, Chess and Shogi by Planning with
+a Learned Model”. In: Nature 588.7839 (Dec. 24, 2020), pp. 604–609. issn: 0028-
+0836, 1476-4687. doi: 10.1038/s41586-020-03051-4
+
+  \bibitem[Jumper et al.\ 2021]{jumper:2022}
+  John Jumper et al. “Highly Accurate Protein Structure Prediction with AlphaFold”.
+  In: Nature 596.7873 (7873 Aug. 2021), pp. 583–589. issn: 1476-4687. doi: 10.1038/
+  s41586-021-03819-2
+
+  \end{thebibliography}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{References}
+  
+  \begin{thebibliography}{}
+  \bibitem[Smith et al.\ 2021]{smith:2021}
+  Samuel L. Smith et al. “On the Origin of Implicit Regularization in Stochastic
+  Gradient Descent”. In: International Conference on Learning Representations. 2021
+
+  \bibitem[Li et al.\ 2019]{li:2019}
+  Qianxiao Li, Cheng Tai, and Weinan E. “Stochastic Modified Equations and Dy-
+  namics of Stochastic Gradient Algorithms I Mathematical Foundations”. In: Jour-
+  nal of Machine Learning Research 20.40 (2019), pp. 1–47. issn: 1533-7928
+
+  \bibitem[Li et al.\ 2021]{li:2021}
+  Zhiyuan Li, Sadhika Malladi, and Sanjeev Arora. “On the Validity of Modeling SGD
+with Stochastic Differential Equations (SDEs)”. In: Advances in Neural Information
+Processing Systems. Vol. 34. Curran Associates, Inc., 2021, pp. 12712–12725
+  \bibitem[Hairer et al.\ 2013]{hairer:2013}
+  Ernst Hairer, Christian Lubich, and Gerhard Wanner. Geometric Numerical Inte-
+  gration: Structure-Preserving Algorithms for Ordinary Differential Equations. Springer
+  Science \& Business Media, Mar. 9, 2013. 526 pp. isbn: 978-3-662-05018-7
+  \end{thebibliography}
+
+\end{frame}
+%----------------------------end frame--------------------------------
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,85 @@
+\mode<presentation>
+%main properties
+\definecolor{tuhh_cyan}{rgb}{.18,0.78,.84}
+\definecolor{tuhh_darkcyan}{rgb}{.09,0.39,.42}
+\useinnertheme[shadow=true]{rounded}
+%\useinnertheme{default}
+\useoutertheme{shadow}
+\usecolortheme{whale}
+%\usecolortheme[RGB={64,128,128}]{structure}
+%\usecolortheme[RGB={51,204,204}]{structure}
+\usecolortheme[RGB={45,198,214}]{structure}
+%\setbeamercolor*{title}{parent=palette secondary}
+%\setbeamercolor*{section in toc}{fg=tuhh_darkcyan}
+\setbeamercovered{transparent}
+\setbeamerfont{block title}{size={}}
+
+%include beamerouterthemeinfolines_abmath.sty
+%------------------------------------------------------------------
+\setbeamerfont{uni}{size*={99},family*={phv},series=\bf}
+\setbeamercolor*{institut}{parent=palette tertiary}
+%\setbeamercolor*{author in head/foot}{parent=palette tertiary} %orig
+\setbeamercolor*{title in head/foot}{parent=palette secondary}
+\setbeamercolor*{date in head/foot}{parent=palette primary}
+\setbeamercolor{author in head/foot}{use=structure,fg=white,bg=structure.fg!60!black}
+
+%\setbeamercolor*{section in head/foot}{parent=palette tertiary}%orig
+\setbeamercolor{section in head/foot}{use=structure,fg=white,bg=structure.fg!60!black}
+\setbeamercolor*{subsection in head/foot}{parent=palette primary}
+
+\defbeamertemplate*{footline}{infolines theme}
+{
+  \leavevmode
+  \hbox{%
+%    \begin{beamercolorbox}[wd=.08\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%    {\vspace{-1.5pt}\textcolor{tuhh_cyan}{\usebeamerfont{uni}T\hspace*{-.17mm}U\hspace*{-.17mm}H\hspace*{-.17mm}H}}
+%  \end{beamercolorbox}%
+%    \begin{beamercolorbox}[wd=.26\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\insertshortauthor
+%  \end{beamercolorbox}%  
+    \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%  
+    \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.27\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}    
+  \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.06\paperwidth,ht=2.25ex,dp=1ex,center]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}}%
+%    \begin{beamercolorbox}[wd=.13\paperwidth,right]{}
+%        \pgfdeclareimage[width=1.5cm]{tu-logo}{tu_lg_rgbinvers_png}
+%       {\vskip-10pt\hbox{\pgfuseimage{tu-logo}}}
+%   \end{beamercolorbox}%
+  \vskip0pt%
+}
+
+\defbeamertemplate*{headline}{infolines theme}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
+    \usebeamerfont{section in head/foot}\insertsectionhead\hspace*{2ex}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{subsection in head/foot}%
+    \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+  \end{beamercolorbox}}%
+  \vskip2pt%
+}
+\setbeamersize{text margin left=1em,text margin right=1em}
+%
+%include beamercolorthemeorchid.sty
+%------------------------------------------------------------------
+\setbeamercolor{block title}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=alerted text.fg!75!black}
+%\setbeamercolor{block title example}{use=example text,fg=white,bg=example text.fg!75!black}
+\setbeamercolor{block title example}{use=structure,fg=white,bg=structure.fg!93!black}
+\setbeamercolor{item}{use={structure,example text},fg=structure.fg!93!black}
+
+\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
+\setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
+\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!10!bg}
+\mode
+<all>

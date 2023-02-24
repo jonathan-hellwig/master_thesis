@@ -1,0 +1,6 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{Background}{4}{0}{1}
+\beamer@subsectionintoc {1}{1}{Stochastic gradient descent}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Modified equations}{5}{0}{1}
+\beamer@sectionintoc {2}{Experiments}{13}{0}{2}
+\beamer@sectionintoc {3}{Conclusion}{22}{0}{3}
