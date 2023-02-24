@@ -8,8 +8,9 @@ https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
 (c) YANG, Wei
 '''
 import torch.nn as nn
+import torch
 import math
-
+import torch.nn.functional as F
 
 __all__ = ['preresnet']
 
@@ -158,6 +159,94 @@ class PreResNet(nn.Module):
         x = self.fc(x)
 
         return x
+
+
+class AlexNet(nn.Module):
+
+    def __init__(self, input_height=32, input_width=32, input_channels=3, ch=64, num_classes=1000):
+        # ch is the scale factor for number of channels
+        super(AlexNet, self).__init__()
+
+        self.input_height = input_height
+        self.input_width = input_width
+        self.input_channels = input_channels
+
+        self.features = nn.Sequential(
+            nn.Conv2d(3, out_channels=ch, kernel_size=4, stride=2, padding=2),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.Conv2d(ch, ch, kernel_size=5, padding=2),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+            nn.Conv2d(ch, ch, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(ch, ch, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(ch, ch, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            nn.MaxPool2d(kernel_size=3, stride=2),
+        )
+
+        self.size = self.get_size()
+        print('size:')
+        print(self.size)
+        a = torch.tensor(self.size).float()
+        b = torch.tensor(2).float()
+        self.width = int(a) * int(1 + torch.log(a) / torch.log(b))
+        print('width')
+        print(self.width)
+        self.classifier = nn.Sequential(
+            nn.Dropout(),
+            nn.Linear(self.size, self.width),
+            nn.ReLU(inplace=True),
+            nn.Dropout(),
+            nn.Linear(self.width, self.width),
+            nn.ReLU(inplace=True),
+            nn.Linear(self.width, num_classes),
+        )
+
+    def get_size(self):
+        # hack to get the size for the FC layer...
+        x = torch.randn(1, self.input_channels,
+                        self.input_height, self.input_width)
+        y = self.features(x)
+        print(y.size())
+        return y.view(-1).size(0)
+
+    def forward(self, x):
+        x = self.features(x)
+        x = x.view(x.size(0), -1)
+        x = self.classifier(x)
+        return x
+
+
+class FullyConnected(torch.nn.Module):
+
+    def __init__(self):
+        super(FullyConnected, self).__init__()
+        self.input = torch.nn.Linear(28 * 28, 512)  # 6*6 from image dimension
+        self.fc1 = torch.nn.Linear(512, 512)
+        self.fc2 = torch.nn.Linear(512, 512)
+        self.out = torch.nn.Linear(512, 10)
+
+    def forward(self, x):
+        x = x.reshape((-1, 28 * 28))
+        x = self.input(x)
+        x = F.relu(x)
+        x = self.fc1(x)
+        x = F.relu(x)
+        x = self.fc2(x)
+        x = F.relu(x)
+        x = self.out(x)
+        return x
+
+
+def fullyconnected(**kwargs):
+    return FullyConnected(**kwargs)
+
+
+def alexnet(**kwargs):
+    return AlexNet(**kwargs)
 
 
 def preresnet(**kwargs):
