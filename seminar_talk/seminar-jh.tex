@@ -426,7 +426,7 @@ for $0 \leq n \leq N$ is called \emph{\textcolor{purple-pontifex}{Euler-Maruyama
   \frametitle{SDE model}
   From the previous slide we follow that \textcolor{purple-pontifex}{continuous-time} model for SGD is given by
   \begin{equation*}
-    W_t = W_0 + \int_0^t \nabla - \CL(W_s) ds + \int_0^t \sqrt{\eta} \Sigma(W_s) dB_s.
+    W_t = W_0 + \int_0^t -\nabla  \CL(W_s) ds + \int_0^t \sqrt{\eta} \Sigma(W_s) dB_s.
   \end{equation*}
 \end{frame}
 \begin{frame}
